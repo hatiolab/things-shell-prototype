@@ -27,7 +27,10 @@ class ComponentToolbar extends ReduxMixin(PolymerElement) {
       },
       group: String,
       scene: Object,
-      mode: Number
+      mode: {
+        type: Number,
+        notify: true
+      }
     }
   }
 
@@ -43,7 +46,6 @@ class ComponentToolbar extends ReduxMixin(PolymerElement) {
   }
 
   onTapShift (e) {
-
     this.mode = this.$.shift.active ? 2 : 1
   }
 
@@ -51,15 +53,13 @@ class ComponentToolbar extends ReduxMixin(PolymerElement) {
 
     var button = e.path[0];
 
-    while (button && !button.hasAttribute('data-group') && button !== document.body)
-      button = button.parentNode;
-
-    if(!button || button == document.body)
+    if(!button.hasAttribute || !button.hasAttribute('data-group')) {
       return;
+    }
 
     this.group = button.getAttribute('data-group');
 
-    if (!this.group || button.tagName !== 'PAPER-BUTTON')
+    if (!this.group)
       return;
 
     this.$.menu.open();
