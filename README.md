@@ -24,7 +24,7 @@
 * libs : import 할 수 없는(모듈화 지원하지 않는) javascript 라이브러리들을 배치함 (예를 들어 dataludi는 모듈을 지원하지 않으므로 libs에 별도로 배치한다.)
 * licenses : 필요한 라이선스 파일을 배치함
 ### 소스(src) 폴더 구조
-* components : 어플리케이션 종속성이 없는 독립 컴포넌트들을 배치함
+* components : 어플리케이션 종속성이 없는 독립 컴포넌트들을 배치함 (Redux Pattern을 사용하지 않아야 함.)
 * commons : 어플리케이션 내부 여러곳에서 재활용되는 컴포넌트들과 유틸리티 컴포넌트들을 배치함
 * app-shell : 어플리케이션 Shell 을 배치함
 * layouts : 최상위 레이아웃에서 독립적으로 사용될 구성들을 배치함 (drawer, sidebar 등)
