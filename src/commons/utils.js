@@ -8,14 +8,23 @@ export function deepEquals (o1, o2) {
 
 export function fullscreen(element, afterfull, afterfinish) {
   var self = this
+  var org_width = element.style.width;
+  var org_height = element.style.height;
 
   function _fullscreen_callback(e) {
     if (!document.fullscreen && !document.mozFullScreen && !document.webkitIsFullScreen && !document.msFullscreenElement) {
       ["fullscreenchange", "mozfullscreenchange", "webkitfullscreenchange", "MSFullscreenChange"].forEach(
         event => document.removeEventListener(event, _fullscreen_callback)
       );
+
+      element.style.width = org_width;
+      element.style.height = org_height;
+
       afterfinish && afterfinish()
     } else {
+      element.style.width = '100%';
+      element.style.height = '100%';
+
       afterfull && afterfull()
     }
   }
