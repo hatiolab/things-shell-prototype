@@ -151,14 +151,6 @@ Polymer({
     '_valueType(mapping.property)'
   ],
 
-  listeners: {
-    'eval-editor.blur': 'onBlurEvalEditor'
-  },
-
-  onBlurEvalEditor: function (after) {
-    this.set('rule.eval', this.$['eval-editor'].value)
-  },
-
   _valueType: function (property) {
     switch (property) {
       case 'hidden':

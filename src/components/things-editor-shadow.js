@@ -92,10 +92,6 @@ Polymer({
     }
   },
 
-  listeners: {
-    'value-changed': 'onChangedValue'
-  },
-
   observers: [
     'onChangedShadow(shadow.*)',
     'onChangedValue(value)'
