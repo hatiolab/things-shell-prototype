@@ -6,9 +6,9 @@
   version "2.2.37"
   resolved "https://registry.yarnpkg.com/@hatiolab/things-scene/-/things-scene-2.2.37.tgz#ab8df664fd0321aa919605c58322c9c4c4f47019"
 
-"@hatiolab/things-scene@^2.2.38":
-  version "2.2.38"
-  resolved "https://registry.yarnpkg.com/@hatiolab/things-scene/-/things-scene-2.2.38.tgz#029bb0ea30ef0521eca2dceccaf2ad2addaed8a6"
+"@hatiolab/things-scene@^2.2.39":
+  version "2.2.39"
+  resolved "https://registry.yarnpkg.com/@hatiolab/things-scene/-/things-scene-2.2.39.tgz#51d46e3b3b36f42922471a6ed8c70a18e31f4f8f"
 
 "@polymer/app-layout@next":
   version "3.0.0-pre.1"

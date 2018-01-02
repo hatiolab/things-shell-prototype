@@ -14,7 +14,7 @@
     "lint:remark": "remark ."
   },
   "dependencies": {
-    "@hatiolab/things-scene": "^2.2.38",
+    "@hatiolab/things-scene": "^2.2.39",
     "@polymer/app-layout": "next",
     "@polymer/app-route": "next",
     "@polymer/iron-flex-layout": "next",
