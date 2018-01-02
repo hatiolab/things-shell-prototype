@@ -1,0 +1,102 @@
+<form class="content" method="post">
+
+  <fieldset>
+    <legend><things-i18n-msg msgid="label.shadow" auto>shadow</things-i18n-msg></legend>
+
+    <things-editor-shadow value="{{shadow}}" >
+    </things-editor-shadow>
+  </fieldset>
+
+
+  <fieldset>
+    <legend><things-i18n-msg msgid="label.retention" auto>retention</things-i18n-msg></legend>
+
+    <label>
+      <things-i18n-msg msgid="label.retention" auto>retention</things-i18n-msg>
+    </label>
+    <things-editor-number-input required number="{{model.retention::change}}" placeholder="ms">
+      <input>
+    </things-editor-number-input>
+  </fieldset>
+
+  <fieldset>
+    <legend><things-i18n-msg msgid="label.animation" auto>animation</things-i18n-msg></legend>
+
+    <label>onCreate</label>
+    <select value="{{animation.oncreate.type::change}}">
+      <option value="">None</option>
+      <option value="rotation">Rotation</option>
+      <option value="vibration">Vibration</option>
+      <option value="heartbeat">Heartbeat</option>
+      <option value="moving">Moving</option>
+      <option value="fade">Fade</option>
+      <option value="outline">Outline</option>
+    </select>
+
+    <things-editor-animation value="{{animation.oncreate}}" >
+    </things-editor-animation>
+
+    <label>delta</label>
+    <select value="{{animation.oncreate.delta::change}}">
+      <option value="linear">linear</option>
+      <option value="quad">quad</option>
+      <option value="circ">circ</option>
+      <option value="back">back</option>
+      <option value="bounce">bounce</option>
+      <option value="elastic">elastic</option>
+    </select>
+
+    <label>ease</label>
+    <select value="{{animation.oncreate.ease::change}}">
+      <option value="in">in</option>
+      <option value="out">out</option>
+      <option value="inout">inout</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend><things-i18n-msg msgid="label.hover-event" auto>hover event</things-i18n-msg></legend>
+
+    <label><things-i18n-msg msgid="label.emphasize" auto>emphasize</things-i18n-msg></label>
+    <input type="checkbox" checked="{{event.hover.emphasize::change}}"></input>
+
+    <label><things-i18n-msg msgid="label.info-window" auto>info window</things-i18n-msg></label>
+    <input type="text" value="{{event.hover.infoWindow::change}}" placeholder="Target ID"></input>
+
+    <label><things-i18n-msg msgid="label.variable" auto>variable</things-i18n-msg></label>
+    <select id="hover-select" value="{{event.hover.target::change}}">
+      <option value=""></option>
+      <template is="dom-repeat" items="[[variables]]">
+        <option value="$[[item.key]]">$[[item.key]]</option>
+      </template>
+    </select>
+
+    <label><things-i18n-msg msgid="label.value" auto>value</things-i18n-msg></label>
+    <input required value="{{event.hover.value::change}}">
+
+    <legend><things-i18n-msg msgid="label.tap-event" auto>tap event</things-i18n-msg></legend>
+
+    <label><things-i18n-msg msgid="label.info-window" auto>info window</things-i18n-msg></label>
+    <input type="text" value="{{event.tap.infoWindow::change}}" placeholder="Target ID"></input>
+
+    <label><things-i18n-msg msgid="label.variable" auto>variable</things-i18n-msg></label>
+    <select id="tap-select" value="{{event.tap.target::change}}">
+      <option value=""></option>
+      <option value="goto">goto</option>
+      <option value="stop-playing">stop playing</option>
+      <option value="link-open">link open</option>
+      <option value="link-href">link move</option>
+      <option value="popup">popup</option>
+      <option value="infoWindow">Info Window</option>
+      <template is="dom-repeat" items="[[variables]]">
+        <option value="$[[item.key]]">$[[item.key]]</option>
+      </template>
+    </select>
+
+    <template is="dom-if" if="[[!_is(event.tap.target, 'stop-playing')]]">
+      <label><things-i18n-msg msgid="label.value" auto>value</things-i18n-msg></label>
+      <input required value="{{event.tap.value::change}}" placeholder="[[_getPlaceholder(event.tap.target)]]">
+    </template>
+
+  </fieldset>
+</form>

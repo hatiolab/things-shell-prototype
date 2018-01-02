@@ -1,0 +1,29 @@
+<paper-tabs selected="{{current}}" noink>
+  <paper-tab><iron-icon icon="icons:list"></iron-icon></paper-tab>
+  <paper-tab><iron-icon icon="icons:image:palette"></iron-icon></paper-tab>
+  <paper-tab><iron-icon icon="image:photo-filter"></iron-icon></paper-tab>
+  <paper-tab><iron-icon icon="image:tune"></iron-icon></paper-tab>
+  <paper-tab><iron-icon icon="icons:settings-brightness"></iron-icon></paper-tab>
+</paper-tabs>
+
+<iron-pages selected="[[current]]">
+  <property-shape model="{{model}}"
+                  bounds="{{bounds}}"
+                  selected="[[selected]]">
+  </property-shape>
+
+  <property-style model="{{model}}"
+                  scene="[[scene]]"
+                  selected="[[selected]]">
+  </property-style>
+
+  <property-effect model="{{model}}" scene="[[scene]]">
+  </property-effect>
+
+  <property-specific model="{{model}}" scene="[[scene]]" selected="[[selected]]" props="[[specificProps]]">
+  </property-specific>
+
+  <property-data-binding selected="[[selected]]" model="{{model}}" scene="[[scene]]">
+  </property-data-binding>
+
+</iron-pages>

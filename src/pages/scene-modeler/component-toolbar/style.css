@@ -1,0 +1,48 @@
+:host {
+  position: relative;
+  left: 0px;
+  display: block;
+
+  width: 45px;
+  background-color: #ece6dd;
+}
+
+iron-icon {
+  margin-bottom: 1px;
+  transform: scale(1.2);
+  color: var(--paper-blue-grey-500);
+  display: block;
+  margin: auto;
+}
+
+paper-button {
+  display: flex;
+  flex-direction: row;
+
+  width:45px;
+  height: 48px;
+  min-width:50%;
+
+  border-bottom:1px solid rgba(0,0,0,.1);
+  margin:0;
+  background: url(/assets/images/icon-vtoolbar.png) -1px 0 no-repeat;
+}
+
+paper-button[data-group="line"]         {background-position:50% -186px}
+paper-button[data-group="shape"]        {background-position:0px -284px}
+paper-button[data-group="textAndMedia"] {background-position:50% -385px}
+paper-button[data-group="chartAndGauge"]{background-position:50% -488px}
+paper-button[data-group="table"]        {background-position:50% -585px}
+paper-button[data-group="container"]    {background-position:50% -685px}
+paper-button[data-group="dataSource"]   {background-position:50% -888px}
+paper-button[data-group="IoT"]          {background-position:-3px -788px}
+paper-button[data-group="3D"]           {background-position:50% -992px}
+paper-button[data-group="warehouse"]    {background-position:-2px -1089px}
+paper-button[data-group="form"]         {background-position:-2px -1287px}
+paper-button[data-group="etc"]          {background-position:-1px -1189px}
+
+.pressed{background-position:0 15px}
+.pressed[pressed], .pressed[active] {
+  background-position: -3px -88px;
+  background-color: #beb9b3;
+}

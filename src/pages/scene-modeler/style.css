@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+}
+
+things-shell {
+  flex: 1;
+}
+
+#preview-popup {
+  width: 99%;
+  height: 99%;
+}
+
+#previewer {
+  width: 100%;
+  height: 100%;
+}

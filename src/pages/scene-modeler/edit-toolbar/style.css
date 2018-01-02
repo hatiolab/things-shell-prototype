@@ -1,0 +1,198 @@
+:host {
+  display: block;
+  --app-toolbar-height: 45px;
+}
+
+app-toolbar {
+  @apply(--things-modeler-htoolbar);
+}
+
+label {
+  @apply(--things-modeler-label);
+}
+
+app-toolbar::shadow #topBar {
+  padding: 0 5px;
+}
+
+app-toolbar paper-icon-button {
+  padding: 4px;
+  width: 25px;
+  height: 25px;
+}
+
+.vline {
+  @apply(--things-modeler-htoolbar-vline);
+}
+
+paper-icon-button {
+  background: url(/assets/images/icon-htoolbar.png) no-repeat;
+  opacity: .6;
+}
+
+paper-icon-button:hover {
+  opacity: 1;
+}
+
+#align-left {
+  background-position: 50% 3px
+}
+
+#align-center {
+  background-position: 50% -47px
+}
+
+#align-right {
+  background-position: 50% -97px
+}
+
+#align-top {
+  background-position: 50% -147px
+}
+
+#align-middle {
+  background-position: 50% -197px
+}
+
+#align-bottom {
+  background-position: 50% -247px
+}
+
+#undo {
+  background-position: 50% -597px
+}
+
+#redo {
+  background-position: 50% -647px
+}
+
+#front {
+  background-position: 50% -297px
+}
+
+#back {
+  background-position: 50% -347px
+}
+
+#forward {
+  background-position: 50% -397px
+}
+
+#backward {
+  background-position: 50% -447px
+}
+
+#symmetry-x {
+  background-position: 50% -497px
+}
+
+#symmetry-y {
+  background-position: 50% -547px
+}
+
+#group {
+  background-position: 50% -497px
+}
+
+#ungroup {
+  background-position: 50% -547px
+}
+
+#fullscreen {
+  background-position: 50% -697px
+}
+
+#toggle-property {
+  background-position: 50% -697px;
+  float: right;
+}
+
+#zoomin {
+  background-position: 50% -747px
+}
+
+#zoomout {
+  background-position: 50% -797px
+}
+
+#fit-scene {
+  background-position: 40% -1497px
+}
+
+#cut {
+  background-position: 50% -847px
+}
+
+#copy {
+  background-position: 50% -897px
+}
+
+#paste {
+  background-position: 50% -947px
+}
+
+#delete {
+  background-position: 50% -997px
+}
+
+#font-increase {
+  background-position: 50% -1047px
+}
+
+#font-decrease {
+  background-position: 50% -1097px
+}
+
+#style-copy {
+  background-position: 50% -1147px
+}
+
+#context-menu {
+  background-position: 50% -697px
+}
+
+#symmetry-x {
+  background-position: 50% -1197px
+}
+
+#symmetry-y {
+  background-position: 50% -1247px
+}
+
+#rotate-cw {
+  background-position: 50% -1297px
+}
+
+#rotate-ccw {
+  background-position: 50% -1347px
+}
+
+#distribute-horizontal {
+  background-position: 50% -1547px
+}
+
+#distribute-vertical {
+  background-position: 40% -1598px
+}
+
+#toggle-property {
+  background-position: 50% -1397px
+}
+
+#preview {
+  background-position: 50% -1645px
+}
+
+#fullscreen {
+  background: url(/assets/images/icon-fullscreen.png) 50% 10px no-repeat;
+  @apply(--things-header-button);
+}
+
+#toggle-property {
+  background: url(/assets/images/icon-collapse.png) 80% 10px no-repeat;
+  @apply(--things-header-button);
+}
+
+#toggle-property[active] {
+  background: url(/assets/images/icon-collapse-active.png) 80% 10px no-repeat;
+}

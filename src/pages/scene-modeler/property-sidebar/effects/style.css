@@ -1,0 +1,67 @@
+:host {
+  @apply(--things-properties-panel);
+}
+
+label{
+  @apply(--things-label);
+}
+
+input{
+  @apply(--things-input);
+}
+
+fieldset{
+  @apply(--things-fieldset);
+}
+
+legend{
+  @apply(--things-fieldset-legend);
+}
+
+select{
+  @apply(--things-select);
+  min-width:65%;
+  background:url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+}
+
+fieldset paper-slider{
+  width:69%;height: 20px;
+  float:right;
+  margin:0 12px 10px 0;
+  --paper-slider-active-color:var(--things-primary-color);
+  --paper-slider-knob-color:var(--things-primary-color);
+}
+
+things-editor-shadow {
+  --things-editor-color-input-text: {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 3px 5px 2px 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border:1px solid rgba(0,0,0,.15);
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+/**
+ *  임시 style
+ */
+
+things-editor-buttons-radio paper-button{
+  background:url(/assets/images/icon-properties.png) no-repeat;
+}
+
+things-editor-buttons-radio paper-button[data-value="rotation"]   {background: url(https://cdn0.iconfinder.com/data/icons/rotation/154/rotate-rotation-arrow-object-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="vibration"]   {background: url(https://cdn0.iconfinder.com/data/icons/phone-communication-glyph-black-ii/2048/476_-_Vibration_mode-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="heartbeat"]   {background: url(https://cdn2.iconfinder.com/data/icons/medicine-5-1/512/pulse-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="move"]   {background: url(https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/drag_and_drop-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="vertical"]   {background: url(https://cdn0.iconfinder.com/data/icons/cosmo-player/40/swap_vertical_1-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="horizontal"]   {background: url(https://cdn4.iconfinder.com/data/icons/epic-outlines/30/enlarge_horizontal-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[data-value="rotate"]   {background: url(https://cdn0.iconfinder.com/data/icons/rotation/154/rotate-rotation-arrow-object-512.png) center/80% no-repeat;}
+things-editor-buttons-radio paper-button[active]{
+  border-color:#f2471c;
+  opacity:1;
+}

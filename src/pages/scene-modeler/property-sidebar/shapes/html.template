@@ -1,0 +1,147 @@
+<fieldset>
+  <template is="dom-if" if="[[_isIdentifiable(selected)]]">
+    <label>
+      <things-i18n-msg msgid="label.id" auto>ID</things-i18n-msg>
+    </label>
+    <input required value="{{model.id::change}}">
+  </template>
+
+  <template is="dom-if" if="[[_isClassIdentifiable(selected)]]">
+    <label>
+      <things-i18n-msg msgid="label.class" auto>Class</things-i18n-msg>
+    </label>
+    <input required value="{{model.class::change}}">
+  </template>
+
+  <template is="dom-if" if="[[_hasTextProperty(selected)]]">
+    <label>
+      <things-i18n-msg msgid="label.text" auto>Text</things-i18n-msg>
+    </label>
+    <input required value="{{model.text::change}}">
+    <label>
+      <things-i18n-msg msgid="label.text-format" auto>Text Format</things-i18n-msg>
+    </label>
+    <input required value="{{model.textFormat::change}}" list="format-list">
+    <datalist id="format-list">
+        <option value="#,###.">
+        <option value="#,###.#">
+        <option value="#,###.0">
+        <option value="#,##0.#">
+        <option value="#,##0.0">
+        <option value="#,##0.0%">
+    </datalist>
+  </template>
+
+  <template is="dom-if" if="[[_hasProperties(selected)]]">
+    <div class="merge-column">
+      <input type="checkbox" checked="{{model.hidden::change}}" required>
+      <things-i18n-msg msgid="label.item-hidden" auto>Item Hidden</things-i18n-msg>
+      <input type="checkbox" checked="{{model.locked::change}}" required style="margin-left:20px">
+      <things-i18n-msg msgid="label.locked" auto>Locked</things-i18n-msg>
+    </div>
+  </template>
+
+</fieldset>
+
+<template is="dom-if" if="[[_isLine(selected)]]">
+
+  <fieldset class="icon-label unit ratio">
+    <legend>
+      <things-i18n-msg msgid="label.size" auto>size</things-i18n-msg>
+    </legend>
+    <!-- <label>X</label>
+    <things-editor-number-input required number="{{bounds.left::change}}">
+      <input>
+    </things-editor-number-input>
+    <label>Y</label>
+    <things-editor-number-input required number="{{bounds.top::change}}">
+      <input>
+    </things-editor-number-input>-->
+    <div id="width-element-group">
+      <label class="width">
+        <things-i18n-msg msgid="label.width" auto>width</things-i18n-msg>
+      </label>
+      <things-editor-number-input number="{{bounds.width}}"><input required></things-editor-number-input>
+      <paper-button toggles active="{{related}}"></paper-button>
+    </div>
+    <label class="height">
+      <things-i18n-msg msgid="label.height" auto>height</things-i18n-msg>
+    </label>
+    <things-editor-number-input number="{{bounds.height}}"><input required></things-editor-number-input>
+    <!-- <div class="merge-column">
+      <input type="checkbox" name="food" value="pizza" required>Lock aspect ratio
+    </div> -->
+    <label class="rotate">
+      <things-i18n-msg msgid="label.rotate" auto>rotate</things-i18n-msg>
+    </label>
+    <things-editor-angle-input radian="{{model.rotation}}">
+      <input required>
+    </things-editor-angle-input>
+  </fieldset>
+</template>
+
+<template is="dom-if" if="[[_hasTextProperty(selected)]]">
+  <fieldset>
+    <legend>
+      <things-i18n-msg msgid="label.text-box" auto>text box</things-i18n-msg>
+    </legend>
+
+    <label class="radio-btn-group-label">
+      <things-i18n-msg msgid="label.horizontal" auto>horizontal</things-i18n-msg>
+    </label>
+    <things-editor-buttons-radio value="{{model.textAlign}}">
+      <paper-button data-value="left"></paper-button>
+      <paper-button data-value="center"></paper-button>
+      <paper-button data-value="right"></paper-button>
+      <paper-button data-value="justify"></paper-button>
+    </things-editor-buttons-radio>
+
+    <label class="radio-btn-group-label">
+      <things-i18n-msg msgid="label.vertical" auto>vertical</things-i18n-msg>
+    </label>
+    <things-editor-buttons-radio value="{{model.textBaseline}}">
+      <paper-button data-value="top"></paper-button>
+      <paper-button data-value="middle"></paper-button>
+      <paper-button data-value="bottom"></paper-button>
+    </things-editor-buttons-radio>
+
+    <div class="merge-column">
+      <input type="checkbox" checked="{{model.textWrap::change}}" required>
+      <things-i18n-msg msgid="label.text-wrap" auto>Text Wrap</things-i18n-msg>
+    </div>
+
+    <label>
+      <things-i18n-msg msgid="label.padding" auto>padding</things-i18n-msg>
+    </label>
+    <table class="box-padding">
+      <tr>
+        <td class="slide1"></td>
+        <td class="slide2"></td>
+        <td class="slide3"></td>
+      </tr>
+      <tr>
+        <td class="slide4"></td>
+        <td class="slide5">
+          <things-editor-number-input  number="{{model.paddingTop}}">
+            <input>
+          </things-editor-number-input>
+          <things-editor-number-input  number="{{model.paddingLeft}}">
+            <input>
+          </things-editor-number-input>
+          <things-editor-number-input  number="{{model.paddingRight}}">
+            <input>
+          </things-editor-number-input>
+          <things-editor-number-input  number="{{model.paddingBottom}}">
+            <input>
+          </things-editor-number-input>
+        </td>
+        <td class="slide6"></td>
+      </tr>
+      <tr>
+        <td class="slide7"></td>
+        <td class="slide8"></td>
+        <td class="slide9"></td>
+      </tr>
+    </table>
+  </fieldset>
+</template>

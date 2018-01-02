@@ -1,0 +1,62 @@
+<fieldset>
+  <label>
+    <things-i18n-msg msgid="label.id" auto>ID</things-i18n-msg>
+  </label>
+  <input required value="{{model.id::change}}">
+
+  <label>
+    <things-i18n-msg msgid="label.class" auto>Class</things-i18n-msg>
+  </label>
+  <input required value="{{model.class::change}}">
+
+  <label>
+    <things-i18n-msg msgid="label.template-prefix" auto>Template Prefix</things-i18n-msg>
+  </label>
+  <input required value="{{model.templatePrefix::change}}">
+
+</fieldset>
+
+<fieldset>
+  <legend>
+    <things-i18n-msg msgid="label.value" auto>value</things-i18n-msg>
+  </legend>
+
+  <iron-pages attr-for-selected="data-editor" selected="[[dataEditorType(model)]]">
+    <things-basic-grid
+      id="grid"
+      data-editor="table"
+      fixed-column-count="0"
+      model="[[gridModel]]"
+      columns="[[columns]]"
+      config="[[config]]"
+      data="{{tableData}}"
+      on-things-grid-event-configured="onThingsGridConfigured"
+      >
+    </things-basic-grid>
+
+    <things-editor-code data-editor="json" value="{{jsonData::change}}">
+    </things-editor-code>
+  </iron-pages>
+
+</fieldset>
+
+<fieldset>
+  <legend>
+    <things-i18n-msg msgid="label.mapping" auto>Mapping</things-i18n-msg>
+  </legend>
+
+  <paper-tabs selected="{{currentMappingIndex}}">
+    <paper-tab data-mapping="1">1</paper-tab>
+    <paper-tab data-mapping="2">2</paper-tab>
+    <paper-tab data-mapping="3">3</paper-tab>
+    <paper-tab data-mapping="4">4</paper-tab>
+    <paper-tab data-mapping="5">5</paper-tab>
+    <paper-tab data-mapping="6">6</paper-tab>
+    <paper-tab data-mapping="7">7</paper-tab>
+  </paper-tabs>
+
+  <things-editor-value mapping="{{mapping}}"
+                        type="[[dataType]]">
+  </things-editor-value>
+
+</fieldset>

@@ -1,0 +1,47 @@
+:host {
+  --app-primary-color: #4285f4;
+  --app-secondary-color: black;
+
+  display: block;
+}
+
+app-drawer-layout:not([narrow]) [drawer-toggle] {
+  display: none;
+}
+
+app-header {
+  color: #fff;
+  background-color: var(--app-primary-color);
+}
+
+app-header paper-icon-button {
+  --paper-icon-button-ink-color: white;
+}
+
+app-drawer section {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+iron-pages {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+iron-pages > * {
+  flex: 1;
+}
+
+.meta {
+  pointer-events: none;
+  font-size: 0.5em;
+  opacity: 0.5;
+  user-select: none;
+  cursor: default;
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+}

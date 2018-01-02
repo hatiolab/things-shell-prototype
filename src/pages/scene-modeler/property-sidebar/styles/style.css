@@ -1,0 +1,106 @@
+:host {
+  @apply(--things-properties-panel);
+}
+label{
+  @apply(--things-label);
+}
+input{
+  @apply(--things-input);
+}
+things-editor-number-input{
+  @apply(--things-editor-number-input);
+}
+things-editor-number-input input{
+  @apply(--things-input);
+  width: 95%;
+}
+fieldset{
+  @apply(--things-fieldset);
+}
+legend{
+  @apply(--things-fieldset-legend);
+}
+
+fieldset paper-slider{
+  width:69%;height: 20px;
+  float:right;
+  margin:0 12px 10px 0;
+
+  --paper-slider-active-color:var(--things-primary-color);
+  --paper-slider-knob-color:var(--things-primary-color);
+}
+
+select{
+  @apply(--things-select);
+  background:url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+}
+.icon-only-label{
+  @apply(--things-properties-icon-only-label);
+}
+
+things-editor-color {
+  width: 95px;
+
+  --things-editor-color-input-text: {
+    width: 100%;
+    margin-bottom:10px;
+    padding:3px 5px 2px 5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    border:1px solid rgba(0,0,0,.15);
+    font-size:14px;
+    font-weight:300;
+  }
+}
+
+things-editor-color-style {
+  --things-editor-color-input-text: {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 3px 5px 2px 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border:1px solid rgba(0,0,0,.15);
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
+paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--things-secondary-color)}
+paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
+  background:url(/assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
+}
+.column-double-iconlabel input{
+  width:45%;
+}
+.full-width > * {
+  float:left;
+}
+.full-width > input, .full-width > things-editor-number-input {
+  width:32.4%;
+}
+.full-width > select{
+  width:48%;
+  margin-right:2px;
+}
+.btn-group{
+  margin-bottom:10px;padding-left:5px;
+}
+.btn-group paper-button{
+  @apply(--things-editor-buttons-radio-button);
+  background:url(/assets/images/icon-properties.png) no-repeat;
+  background-size:70%;
+  margin-right:5px;
+  opacity:.7;
+}
+.btn-group paper-button.tbold         {background-position:50% -170px}
+.btn-group paper-button.titalic       {background-position:50% -205px}
+.btn-group paper-button.tunderline    {background-position:50% -240px}
+.btn-group paper-button.tstrikethrough{background-position:50% -415px}
+.btn-group paper-button[active]{
+  border-color:#f2471c;
+  opacity:1;
+}

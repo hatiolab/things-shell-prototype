@@ -1,0 +1,54 @@
+export function deepClone (o) {
+  return JSON.parse(JSON.stringify(o))
+}
+
+export function deepEquals (o1, o2) {
+  return JSON.stringify(o1) == JSON.stringify(o2)
+}
+
+export function fullscreen(element, afterfull, afterfinish) {
+  var self = this
+
+  function _fullscreen_callback(e) {
+    if (!document.fullscreen && !document.mozFullScreen && !document.webkitIsFullScreen && !document.msFullscreenElement) {
+      ["fullscreenchange", "mozfullscreenchange", "webkitfullscreenchange", "MSFullscreenChange"].forEach(
+        event => document.removeEventListener(event, _fullscreen_callback)
+      );
+      afterfinish && afterfinish()
+    } else {
+      afterfull && afterfull()
+    }
+  }
+
+  ["fullscreenchange", "mozfullscreenchange", "webkitfullscreenchange", "MSFullscreenChange"].forEach(
+    event => document.addEventListener(event, _fullscreen_callback)
+  );
+
+  if (element.requestFullScreen)
+    element.requestFullScreen();
+  else if (element.webkitRequestFullScreen)
+    element.webkitRequestFullScreen();
+  else if (element.mozRequestFullScreen)
+    element.mozRequestFullScreen();
+  else if (element.msRequestFullscreen)
+    element.msRequestFullscreen();
+}
+
+export function exitfullscreen() {
+  if (document.cancelFullScreen) {
+    document.cancelFullScreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitCancelFullScreen) {
+    document.webkitCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
+export function togglefullscreen(element, afterfull, afterfinish) {
+  if (!document.fullscreen && !document.mozFullScreen && !document.webkitIsFullScreen && !document.msFullscreenElement)
+    fullscreen(element, afterfull, afterfinish)
+  else
+    exitfullscreen()
+}

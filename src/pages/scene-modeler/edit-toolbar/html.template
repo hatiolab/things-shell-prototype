@@ -1,0 +1,96 @@
+<app-toolbar>
+
+  <label>{{labelName}}</label>
+
+  <paper-icon-button id="undo" title="undo ([[getShortcutString('cmd', 'z')]])"></paper-icon-button>
+    <paper-icon-button id="redo" title="redo ([[getShortcutString('cmd', 'shift', 'z')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="cut" title="cut ([[getShortcutString('cmd', 'x')]])"></paper-icon-button>
+  <paper-icon-button id="copy" title="copy ([[getShortcutString('cmd', 'c')]])"></paper-icon-button>
+  <paper-icon-button id="paste" title="paste ([[getShortcutString('cmd', 'v')]])"></paper-icon-button>
+  <paper-icon-button id="delete" title="delete ([[getShortcutString('backspace')]], [[getShortcutString('delete')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <!-- TODO Implement style-copy
+    <paper-icon-button id="style-copy" title="format painter"></paper-icon-button>
+
+    <span class="vline"></span>
+  -->
+
+  <paper-icon-button data-align="left" id="align-left" title="align left ([[getShortcutString('alt', 'shift', 'l')]])"></paper-icon-button>
+  <paper-icon-button data-align="center" id="align-center" title="align center ([[getShortcutString('alt', 'shift', 'c')]])"></paper-icon-button>
+  <paper-icon-button data-align="right" id="align-right" title="align right ([[getShortcutString('alt', 'shift', 'r')]])"></paper-icon-button>
+
+  <paper-icon-button data-align="top" id="align-top" title="align top ([[getShortcutString('alt', 'shift', 't')]])"></paper-icon-button>
+  <paper-icon-button data-align="middle" id="align-middle" title="align middle ([[getShortcutString('alt', 'shift', 'm')]])"></paper-icon-button>
+  <paper-icon-button data-align="bottom" id="align-bottom" title="align bottom ([[getShortcutString('alt', 'shift', 'b')]])"></paper-icon-button>
+
+  <paper-icon-button data-distribute="HORIZONTAL" id="distribute-horizontal" title="distribute horizontally ([[getShortcutString('alt', 'shift', 'h')]])"></paper-icon-button>
+
+  <paper-icon-button data-distribute="VERTICAL" id="distribute-vertical" title="distribute vertically ([[getShortcutString('alt', 'shift', 'v')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="front" data-zorder="front" title="bring to front ([[getShortcutString('cmd', 'shift', 'f')]])"></paper-icon-button>
+  <paper-icon-button id="back" data-zorder="back" title="send to back ([[getShortcutString('cmd', 'shift', 'b')]])"></paper-icon-button>
+  <paper-icon-button id="forward" data-zorder="forward" title="bring forward ([[getShortcutString('cmd', 'f')]])"></paper-icon-button>
+  <paper-icon-button id="backward" data-zorder="backward" title="send backward ([[getShortcutString('cmd', 'b')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="symmetry-x" title="symmetry-x ([[getShortcutString('alt', 'shift', 'x')]])"></paper-icon-button>
+  <paper-icon-button id="symmetry-y" title="symmetry-y ([[getShortcutString('alt', 'shift', 'y')]])"></paper-icon-button>
+  <paper-icon-button id="rotate-cw" title="rotate clockwise ([[getShortcutString('alt', 'shift', 'e')]])"></paper-icon-button>
+  <paper-icon-button id="rotate-ccw" title="rotate counter clockwise ([[getShortcutString('alt', 'shift', 'w')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="group" title="group ([[getShortcutString('cmd', 'g')]])"></paper-icon-button>
+  <paper-icon-button id="ungroup" title="ungroup ([[getShortcutString('cmd', 'shift', 'g')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="font-increase" title="increase font size"></paper-icon-button>
+  <paper-icon-button id="font-decrease" title="decrease font size"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="fit-scene" title="fit scene ([[getShortcutString('cmd', 'd')]])"></paper-icon-button>
+
+  <span class="vline"></span>
+
+  <paper-icon-button id="preview" title="preview ([[getShortcutString('ctrl', 'p')]])"></paper-icon-button>
+
+  <!-- TODO implement Menu Style & Context Menu
+  <paper-menu-button vertical-align="top" vertical-offset="30" class="things-context-menu">
+    <paper-icon-button id="context-menu" class="dropdown-trigger"></paper-icon-button>
+    <paper-menu class="dropdown-content">
+      <paper-item>menu 1<span>ctrl+c</span></paper-item>
+      <paper-item>menu 2</paper-item>
+      <paper-item>menu 3<span>ctrl+a</span></paper-item>
+
+      <paper-menu-button horizontal-align="left" horizontal-offset="100">
+        <paper-item class="dropdown-trigger">menu 4 <iron-icon icon="av:play-arrow"></iron-icon></paper-item>
+        <paper-menu class="dropdown-content">
+          <paper-item>Share</paper-item>
+          <paper-item>Settings</paper-item>
+          <paper-item>Help</paper-item>
+        </paper-menu>
+      </paper-menu-button>
+
+      <paper-item>menu 5</paper-item>
+      <paper-item>menu 6</paper-item>
+    </paper-menu>
+  </paper-menu-button>
+  -->
+
+  <span class="title"></span>
+
+  <paper-icon-button id="fullscreen" title="fullscreen ([[getShortcutString('f11')]])"></paper-icon-button>
+
+  <paper-icon-button id="toggle-property" title="toggle property panel ([[getShortcutString('cmd', 'h')]])" toggles="true"></paper-icon-button>
+
+</app-toolbar>
