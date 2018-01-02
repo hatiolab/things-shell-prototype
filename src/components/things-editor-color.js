@@ -204,7 +204,7 @@ Polymer({
       }
     </style>
 
-    <input id="text" type="text" value="{{value}}" placeholder="[[placeholder]]">
+    <input id="text" type="text" value="{{value}}" placeholder="[[placeholder]]" on-change="_onInputChanged">
     <a id="color" on-click="showPicker">
       <span id="color-thumbnail"></span>
     </a>
@@ -227,10 +227,6 @@ Polymer({
         alpha: 1
       }
     }
-  },
-
-  listeners: {
-    'text.change': '_onInputChanged'
   },
 
   observers: [
