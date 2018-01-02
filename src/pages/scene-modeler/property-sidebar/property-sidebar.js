@@ -1,4 +1,11 @@
 import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
+import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+
+import {NeonAnimationRunnerBehavior} from '@polymer/neon-animation/neon-animation-runner-behavior';
+import '@polymer/neon-animation/animations/slide-right-animation';
+import '@polymer/neon-animation/animations/slide-from-right-animation';
+
 import '@polymer/paper-tabs/paper-tabs';
 
 import {ReduxMixin} from '../../../reducer/redux-mixin';
@@ -12,7 +19,7 @@ import './effects/effects';
 import './specifics/specifics';
 import './data-binding/data-binding';
 
-class PropertySidebar extends ReduxMixin(PolymerElement) {
+class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return `
     <style include="shared-styles">${style}</style>
@@ -47,6 +54,26 @@ class PropertySidebar extends ReduxMixin(PolymerElement) {
 
       current: {
         value: 0
+      },
+
+      collapse: {
+        type: Boolean,
+        observer: '_onCollapseChanged'
+      },
+
+      animationConfig: {
+        value: function () {
+          return {
+            'entry': {
+              name: 'slide-from-right-animation',
+              node: this
+            },
+            'exit': {
+              name: 'slide-right-animation',
+              node: this
+            }
+          }
+        }
       }
     }
   }
@@ -62,8 +89,7 @@ class PropertySidebar extends ReduxMixin(PolymerElement) {
   connectedCallback() {
     super.connectedCallback();
 
-    /* property pane이 완성된 후에 resize 이벤트를 발생시켜서, things-scene-viewer를 리사이즈 하도록 함 */
-    window.dispatchEvent(new Event('resize'));
+    this.addEventListener('neon-animation-finish', this._onNeonAnimationFinish.bind(this));
   }
 
   _defaultPropertyTarget() {
@@ -223,6 +249,35 @@ class PropertySidebar extends ReduxMixin(PolymerElement) {
 
     return true;
   }
+
+  _show () {
+    this.opened = true;
+    this.style.display = ''
+
+    this.playAnimation('entry')
+  }
+
+  _hide () {
+    this.opened = false;
+
+    this.playAnimation('exit')
+  }
+
+  _onNeonAnimationFinish () {
+    if (this.collapse) {
+      this.style.display = 'none'
+    }
+
+    this.notifyResize();
+  }
+
+  _onCollapseChanged (collapse) {
+    if (collapse)
+      this._hide()
+    else
+      this._show()
+  }
+
 }
 
 customElements.define(PropertySidebar.is, PropertySidebar);
