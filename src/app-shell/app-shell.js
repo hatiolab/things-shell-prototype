@@ -1,4 +1,6 @@
 import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
+import {AppLocalizeBehavior} from '../components/app-localize-behavior';
 
 import '@polymer/app-layout/app-drawer/app-drawer';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout';
@@ -38,7 +40,7 @@ import '../pages/scene-viewer/scene-viewer';
 import '../pages/scene-info/scene-info';
 import '../pages/scene-player/scene-player';
 
-class AppShell extends ReduxMixin(PolymerElement) {
+class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return `
       <style include="shared-styles">${style}</style>
@@ -94,13 +96,15 @@ class AppShell extends ReduxMixin(PolymerElement) {
         type: Object,
         statePath: 'user'
       },
-      message: {
-        type: String,
-        statePath: 'message'
-      },
       narrow: {
         type: Boolean,
         value: false
+      },
+      language: {
+        statePath: 'user.language'
+      },
+      resources: {
+        statePath: 'locale'
       }
     };
   }
