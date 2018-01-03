@@ -73,7 +73,7 @@
 #### 컴포넌트들
 - paper-color-picker
   - polymer 3 작업
-  - things-editor-color-input 에서 활용할 때, paper-color-picker를 동적으로 생성하고 사용후 소멸시키도록 함.
+  - things-editor-color 에서 활용할 때, paper-color-picker를 동적으로 생성하고 사용후 소멸시키도록 함.
 - things-shell
 - things-editor-xxxx
   - things-editor-properties와 things-editor-property 이벤트 연결 관계 단순화 작업
