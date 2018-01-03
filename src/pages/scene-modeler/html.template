@@ -45,6 +45,6 @@ on-modeler-fullscreen="onFullscreen">
 <property-sidebar
   scene="[[scene]]"
   selected="[[selected]]"
-  collapse="[[hideProperty]]">
+  collapsed="[[hideProperty]]">
 </property-sidebar>
 </div>

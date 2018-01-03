@@ -104,7 +104,7 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
         statePath: 'user.language'
       },
       resources: {
-        statePath: 'locale'
+        statePath: 'resource'
       }
     };
   }

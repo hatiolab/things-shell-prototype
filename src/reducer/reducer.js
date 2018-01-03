@@ -5,7 +5,7 @@ import sceneList from './reducer-scene-list';
 import sceneGroupList from './reducer-scene-group-list';
 import sceneCurrent from './reducer-scene-current';
 import user from './reducer-user';
-import locale from './reducer-locale';
+import resource from './reducer-resource';
 import process from './reducer-process';
 import component from './reducer-component';
 
@@ -15,7 +15,7 @@ export default Redux.combineReducers({
   sceneCurrent,
   sceneGroupList,
   user,
-  locale,
+  resource,
   process,
   component
 })

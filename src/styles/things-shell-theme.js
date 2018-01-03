@@ -166,7 +166,6 @@ div.innerHTML = `
       --things-properties-panel:{
         display:block;
         width:270px;
-        min-width:270px;
         background-color:var(--paper-blue-grey-50);
       }
       --things-properties-varialbe-panel:{

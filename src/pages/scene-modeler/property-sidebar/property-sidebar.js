@@ -56,9 +56,9 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
         value: 0
       },
 
-      collapse: {
+      collapsed: {
         type: Boolean,
-        observer: '_onCollapseChanged'
+        observer: '_onCollapsedChanged'
       },
 
       animationConfig: {
@@ -243,39 +243,26 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
     }
   }
 
-  _isIdentifiable(selected) {
-    if(!selected || (selected.length == 1 && selected[0].isLayer()))
-      return false;
-
-    return true;
-  }
-
-  _show () {
-    this.opened = true;
-    this.style.display = ''
-
-    this.playAnimation('entry')
-  }
-
-  _hide () {
-    this.opened = false;
-
-    this.playAnimation('exit')
-  }
-
   _onNeonAnimationFinish () {
-    if (this.collapse) {
-      this.style.display = 'none'
+    if (this.collapsed) {
+      this.style.width = '0px';
     }
 
     this.notifyResize();
   }
 
-  _onCollapseChanged (collapse) {
-    if (collapse)
-      this._hide()
-    else
-      this._show()
+  _onCollapsedChanged (collapsed) {
+    if (collapsed) {
+      /* to hide */
+      this._backup_style_width = this.style.width;
+      this.playAnimation('exit')
+    } else {
+      if(this._backup_style_width !== undefined) {
+        this.style.width = this._backup_style_width;
+        /* to show */
+        this.playAnimation('entry');
+      }
+    }
   }
 
 }
