@@ -1,17 +1,17 @@
 # things-shell
 
 ## [ Application 구조 ]
-### app-layout 적용 등 (deprecated 컴포넌트들 제거)
+### app-layout 적용 (deprecated 컴포넌트들 제거)
 - paper-drawer-panel
 - paper-menu
 - iron-flex-layout
 ### app-route 적용
-### *redux 패턴 적용*
+### ***redux 패턴 적용***
 - polymer-redux 적용
 - src/reducer 폴더의 컴포넌트들을 참조
-### i18n (미진행)
+### i18n
 - 모듈별 i18n 정의 기능을 지원하기 위함임.
-- app-localize-behavior 적용 예정임.
+- app-localize-behavior 적용함.
 ### webfont (미진행)
 - 서버리스 구성을 위한 방안 필요함.
 - 웹폰트 기능을 Model에 추가하는 방안.
@@ -36,7 +36,7 @@
   - things-shell-theme : custom-style 로 각 컴포넌트에서 정의한 스타일 변수를 설정하는 파일임.
 ## [ Polymer 3 ]
 ### bower => npm
-- npm group 생성
+- npm group 생성 (@hatiolab, @things-elements, ..)
   - @hatiolab
     - @hatiolab/things-scene
     - things-scene-core 불필요
