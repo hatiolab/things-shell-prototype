@@ -7,15 +7,13 @@ import style from './scene-card-style.css';
 class SceneCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-    <style>
-    ${style}
-    </style>
+      <style>${style}</style>
 
-    <div class="card">
-      <h1>[[name]]</h1>
-      <p><slot></slot></p>
-    </div>
-`;
+      <div class="card">
+        <h1>[[name]]</h1>
+        <p><slot></slot></p>
+      </div>
+    `;
   }
 
   static get is() { return 'scene-card'; }

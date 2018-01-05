@@ -1,7 +1,4 @@
 :host {
-  --app-primary-color: #4285f4;
-  --app-secondary-color: black;
-
   display: block;
 }
 
@@ -9,23 +6,13 @@ app-drawer-layout:not([narrow]) [drawer-toggle] {
   display: none;
 }
 
-app-header {
-  color: #fff;
-  background-color: var(--app-primary-color);
-}
-
-app-header paper-icon-button {
-  --paper-icon-button-ink-color: white;
-}
-
-app-drawer section {
+shell-drawer {
   height: 100%;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 iron-pages {
-  flex: 1;
+  height: 100%;
 
   display: flex;
   flex-direction: column;

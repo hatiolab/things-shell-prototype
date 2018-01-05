@@ -11,6 +11,10 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     return `
     <style include="shared-styles">${style}</style>
 
+    <app-toolbar>
+      <div main-title>Scene Groups</div>
+    </app-toolbar>
+
     <paper-listbox>
       <template is="dom-repeat" items="[[sceneGroupList]]">
         <group-card name="[[item.name]]" sequence="[[index]]">[[item.description]]</group-card>

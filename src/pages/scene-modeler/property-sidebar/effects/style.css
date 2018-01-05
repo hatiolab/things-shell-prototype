@@ -28,8 +28,8 @@ fieldset paper-slider{
   width:69%;height: 20px;
   float:right;
   margin:0 12px 10px 0;
-  --paper-slider-active-color:var(--things-primary-color);
-  --paper-slider-knob-color:var(--things-primary-color);
+  --paper-slider-active-color:var(--primary-color);
+  --paper-slider-knob-color:var(--primary-color);
 }
 
 things-editor-shadow {

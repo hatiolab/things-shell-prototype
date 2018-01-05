@@ -8,6 +8,7 @@ import user from './reducer-user';
 import resource from './reducer-resource';
 import process from './reducer-process';
 import component from './reducer-component';
+import drawer from './reducer-drawer';
 
 export default Redux.combineReducers({
   route,
@@ -17,5 +18,6 @@ export default Redux.combineReducers({
   user,
   resource,
   process,
-  component
+  component,
+  drawer
 })

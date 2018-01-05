@@ -57,7 +57,7 @@ Polymer({
       }
 
       paper-dropdown-menu::shadow .underline .focused-line {
-        background-color: var(--things-secondary-color)
+        background-color: var(--secondary-color)
       }
 
       paper-dropdown-menu::shadow input {

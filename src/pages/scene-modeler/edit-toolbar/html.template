@@ -1,4 +1,4 @@
-<app-toolbar>
+<page-toolbar>
 
   <label>{{labelName}}</label>
 
@@ -64,33 +64,10 @@
 
   <paper-icon-button id="preview" title="preview ([[getShortcutString('ctrl', 'p')]])"></paper-icon-button>
 
-  <!-- TODO implement Menu Style & Context Menu
-  <paper-menu-button vertical-align="top" vertical-offset="30" class="things-context-menu">
-    <paper-icon-button id="context-menu" class="dropdown-trigger"></paper-icon-button>
-    <paper-menu class="dropdown-content">
-      <paper-item>menu 1<span>ctrl+c</span></paper-item>
-      <paper-item>menu 2</paper-item>
-      <paper-item>menu 3<span>ctrl+a</span></paper-item>
-
-      <paper-menu-button horizontal-align="left" horizontal-offset="100">
-        <paper-item class="dropdown-trigger">menu 4 <iron-icon icon="av:play-arrow"></iron-icon></paper-item>
-        <paper-menu class="dropdown-content">
-          <paper-item>Share</paper-item>
-          <paper-item>Settings</paper-item>
-          <paper-item>Help</paper-item>
-        </paper-menu>
-      </paper-menu-button>
-
-      <paper-item>menu 5</paper-item>
-      <paper-item>menu 6</paper-item>
-    </paper-menu>
-  </paper-menu-button>
-  -->
-
   <span class="title"></span>
 
   <paper-icon-button id="fullscreen" title="fullscreen ([[getShortcutString('f11')]])"></paper-icon-button>
 
   <paper-icon-button id="toggle-property" title="toggle property panel ([[getShortcutString('cmd', 'h')]])" toggles="true"></paper-icon-button>
 
-</app-toolbar>
+</page-toolbar>

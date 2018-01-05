@@ -53,7 +53,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
         width:83% !important;
       }
       paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
-      paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--things-secondary-color)}
+      paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--secondary-color)}
       paper-dropdown-menu::shadow input{margin-bottom:0px}
       #border-set paper-button{
         margin:0 0 3px 0;

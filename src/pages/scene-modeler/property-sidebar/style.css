@@ -16,7 +16,7 @@ paper-tab.iron-selected{
 }
 
 paper-tabs iron-icon{
-  color:var(--things-primary-color);
+  color:var(--primary-color);
 }
 
 iron-pages{

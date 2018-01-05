@@ -1,5 +1,15 @@
 :host {
+  display: flex;
+  flex-direction: column;
+}
+
+app-toolbar {
+  @apply(--app-toolbar);
 }
 
 paper-listbox {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0px;
 }

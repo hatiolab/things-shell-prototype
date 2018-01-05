@@ -1,13 +1,14 @@
 <edit-toolbar
-scene="[[scene]]"
-selected="[[selected]]"
-hide-property="{{hideProperty}}"
-on-open-preview="onOpenPreview"
-on-download-model="onDownloadModel"
-on-modeler-fullscreen="onFullscreen">
+  scene="[[scene]]"
+  selected="[[selected]]"
+  hide-property="{{hideProperty}}"
+  on-open-preview="onOpenPreview"
+  on-download-model="onDownloadModel"
+  on-modeler-fullscreen="onFullscreen">
 </edit-toolbar>
 
 <div>
+
 <component-toolbar scene="[[scene]]" mode="{{mode}}">
 </component-toolbar>
 

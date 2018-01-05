@@ -1,0 +1,17 @@
+<app-toolbar>
+
+  <paper-icon-button icon="menu" drawer-toggle on-click="onDrawerToggler"></paper-icon-button>
+
+  <slot></slot>
+
+  <iron-icon icon="social:person" title="acting"></iron-icon>
+  <paper-menu-button>
+    <paper-button label="user" slot="dropdown-trigger">[[user.name]]</paper-button>
+    <paper-listbox slot="dropdown-content">
+      <paper-item>settings</paper-item>
+      <paper-item>logout</paper-item>
+      <paper-item>help</paper-item>
+    </paper-listbox>
+  </paper-menu-button>
+
+</app-toolbar>

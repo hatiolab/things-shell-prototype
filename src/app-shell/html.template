@@ -16,50 +16,23 @@
 
 <app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}" disable-swipe>
   <!-- Drawer content -->
-  <!-- <app-drawer slot="drawer" swipe-open="[[narrow]]"> -->
   <app-drawer slot="drawer">
-      <section>
-      <app-toolbar>
-        <div main-title>Scene Groups</div>
-      </app-toolbar>
-
-      <shell-drawer></shell-drawer>
-    </section>
+    <shell-drawer></shell-drawer>
   </app-drawer>
 
   <!-- Main content -->
-  <app-header-layout id="mainboard" has-scrolling-region="" fullbleed>
-    <app-header slot="header" condenses reveals effects="waterfall">
+  <iron-pages class="flex"
+      selected="[[page]]"
+      attr-for-selected="name"
+      fallback-selection="view404"
+      role="main">
+    <scene-list name="list"></scene-list>
+    <scene-modeler name='modeler' model='[[model]]'></scene-modeler>
+    <scene-viewer name="viewer"></scene-viewer>
+    <scene-info name="info"></scene-info>
+    <scene-player name="player"></scene-player>
+  </iron-pages>
 
-      <app-toolbar>
-        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-        <div main-title>[[mainTitle]]</div>
-        <iron-icon icon="social:person" title="acting"></iron-icon>
-        <paper-menu-button>
-          <paper-button label="user" slot="dropdown-trigger">[[user.name]]</paper-button>
-          <paper-listbox slot="dropdown-content">
-            <paper-item>settings</paper-item>
-            <paper-item>logout</paper-item>
-            <paper-item>help</paper-item>
-          </paper-listbox>
-        </paper-menu-button>
-      </app-toolbar>
-
-    </app-header>
-
-    <iron-pages class="flex"
-        selected="[[page]]"
-        attr-for-selected="name"
-        fallback-selection="view404"
-        role="main">
-      <scene-list name="list"></scene-list>
-      <scene-modeler name='modeler' model='[[model]]'></scene-modeler>
-      <scene-viewer name="viewer"></scene-viewer>
-      <scene-info name="info"></scene-info>
-      <scene-player name="player"></scene-player>
-    </iron-pages>
-
-  </app-header-layout>
 </app-drawer-layout>
 
 <aside class="meta">

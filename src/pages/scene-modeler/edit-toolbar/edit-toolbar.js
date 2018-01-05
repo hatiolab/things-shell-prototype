@@ -8,6 +8,8 @@ import {ReduxMixin} from '../../../reducer/redux-mixin';
 import style from './style.css';
 import template from './html.template';
 
+import '../../../layouts/page-toolbar/page-toolbar';
+
 class EditToolbar extends ReduxMixin(PolymerElement) {
   static get template() {
     return `

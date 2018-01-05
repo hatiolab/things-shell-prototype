@@ -13,7 +13,6 @@ import '@polymer/app-route/app-route';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/iron-selector/iron-selector';
 import '@polymer/paper-icon-button/paper-icon-button';
-import '@polymer/paper-tabs/paper-tabs';
 import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import '@polymer/paper-menu-button/paper-menu-button';
@@ -105,6 +104,10 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
       },
       resources: {
         statePath: 'resource'
+      },
+      collpased: {
+        statePath: 'drawer.collapsed',
+        observer: 'onDrawerCollapsedChanged'
       }
     };
   }
@@ -142,6 +145,10 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
     // import(resolvedPageUrl)
     // .then(js => console.log('loaded', js))
     // .catch(e => this._showPage404());
+  }
+
+  onDrawerCollapsedChanged (collapsed) {
+    this.$.drawerlayout.drawer.toggle();
   }
 
   _showPage404() {

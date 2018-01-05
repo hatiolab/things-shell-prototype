@@ -7,9 +7,7 @@ import style from './style-group-card.css';
 class GroupCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-    <style>
-    ${style}
-    </style>
+    <style include="shared-styles">${style}</style>
 
     <div class="card">
       <template is="dom-if" if="[[_isValidCard()]]">

@@ -77,15 +77,47 @@ module.exports = {
     // That's important because the custom-elements-es5-adapter.js MUST
     // remain in ES2015. We’ll talk about this a bit later :)
     new CopyWebpackPlugin([{
-      from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
-      to: '/webcomponentsjs/[name].[ext]'
-    }, {
+    //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
+    //   to: '/webcomponentsjs/[name].[ext]'
+    // }, {
       from: 'styles/**',
       context: resolve('./src'),
       to: outputPath
     }, {
+      from: 'node_modules/@polymer/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/@npm-polymer/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/web-animations-js/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/@webcomponents/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'libs/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'licenses/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
       from: 'assets/**',
       context: resolve('./src'),
+      to: outputPath
+    }, {
+      from: 'index.html',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'manifest.json',
+      context: resolve('.'),
       to: outputPath
     }])
   ],

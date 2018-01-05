@@ -26,8 +26,8 @@ fieldset paper-slider{
   float:right;
   margin:0 12px 10px 0;
 
-  --paper-slider-active-color:var(--things-primary-color);
-  --paper-slider-knob-color:var(--things-primary-color);
+  --paper-slider-active-color:var(--primary-color);
+  --paper-slider-knob-color:var(--primary-color);
 }
 
 select{
@@ -69,7 +69,7 @@ things-editor-color-style {
 }
 
 paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
-paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--things-secondary-color)}
+paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--secondary-color)}
 paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
   background:url(/assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
 }

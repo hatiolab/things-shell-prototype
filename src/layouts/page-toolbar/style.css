@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+app-toolbar {
+  @apply(--app-toolbar);
+}
+
+::slotted(iron-icon), iron-icon {
+  opacity: 0.6;
+}
+
+::slotted(paper-icon-button), paper-icon-button {
+  --paper-icon-button-ink-color: white;
+
+  padding: 4px;
+  width: 25px;
+  height: 25px;
+}
+
+::slotted(label) {
+  margin-right:5px;
+  color:#fff;
+  font-size:20px;
+}
+
+::slotted(.vline) {
+  display:block;
+  border-left:1px solid rgba(255,255,255,.07);
+  border-right:1px solid rgba(0,0,0,.1);
+  width:0px;height:18px;
+  margin:0 4px;
+}
+
+::slotted(paper-icon-button):hover {
+  opacity: 1;
+}
+
+app-toolbar paper-icon-button {
+  --paper-icon-button-ink-color: white;
+}
