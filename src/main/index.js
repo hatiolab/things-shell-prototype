@@ -1,7 +1,6 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
-import path from 'path'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -23,8 +22,6 @@ function createMainWindow() {
   if (isDevelopment) {
     window.webContents.openDevTools()
   }
-
-  console.log(url)
 
   window.loadURL(url)
 
