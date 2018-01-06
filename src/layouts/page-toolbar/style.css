@@ -4,6 +4,20 @@
 
 app-toolbar {
   @apply(--app-toolbar);
+  margin: 0px;
+  padding: 0px;
+}
+
+paper-menu-button {
+  padding-left: 0px;
+}
+
+paper-button {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0.6;
+  vertical-align: middle;
 }
 
 .padding {
