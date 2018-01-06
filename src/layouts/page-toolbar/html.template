@@ -3,7 +3,7 @@
   <paper-icon-button icon="menu" drawer-toggle on-click="onDrawerToggler"></paper-icon-button>
 
   <slot></slot>
-
+  <div class="padding"></div>
   <iron-icon icon="social:person" title="acting"></iron-icon>
   <paper-menu-button>
     <paper-button label="user" slot="dropdown-trigger">[[user.name]]</paper-button>

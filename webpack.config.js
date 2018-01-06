@@ -6,6 +6,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ElectronPackager = require("webpack-electron-packager");
 
 var outputPath = resolve('dist');
 
@@ -119,7 +120,13 @@ module.exports = {
       from: 'manifest.json',
       context: resolve('.'),
       to: outputPath
-    }])
+    }]),
+    // new ElectronPackager({
+    //   dir: ".",
+    //   arch: "x64",
+    //   packageManager: "yarn",
+    //   platform: "darwin",
+    // })
   ],
   devtool: 'cheap-module-source-map',
   devServer: {

@@ -2,3 +2,6 @@
 ```
 $ yarn build
 ```
+
+# Electron
+$ yarn electron

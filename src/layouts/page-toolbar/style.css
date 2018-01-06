@@ -6,6 +6,10 @@ app-toolbar {
   @apply(--app-toolbar);
 }
 
+.padding {
+  flex: 1;
+}
+
 ::slotted(iron-icon), iron-icon {
   opacity: 0.6;
 }
