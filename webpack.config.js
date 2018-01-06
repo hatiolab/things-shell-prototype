@@ -109,7 +109,7 @@ module.exports = {
       to: outputPath
     }, {
       from: 'assets/**',
-      context: resolve('./src'),
+      context: resolve('.'),
       to: outputPath
     }, {
       from: 'index.html',
