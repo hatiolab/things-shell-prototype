@@ -49,7 +49,7 @@ class ThingsEditorProperty extends PolymerElement {
 
       select {
         @apply(--things-select);
-        background: url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
       }
     </style>
 

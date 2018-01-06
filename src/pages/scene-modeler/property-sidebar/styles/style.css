@@ -32,7 +32,7 @@ fieldset paper-slider{
 
 select{
   @apply(--things-select);
-  background:url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
 }
 .icon-only-label{
   @apply(--things-properties-icon-only-label);
@@ -71,7 +71,7 @@ things-editor-color-style {
 paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
 paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--secondary-color)}
 paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
-  background:url(/assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
+  background:url(./assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
 }
 .column-double-iconlabel input{
   width:45%;
@@ -91,7 +91,7 @@ paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
 }
 .btn-group paper-button{
   @apply(--things-editor-buttons-radio-button);
-  background:url(/assets/images/icon-properties.png) no-repeat;
+  background:url(./assets/images/icon-properties.png) no-repeat;
   background-size:70%;
   margin-right:5px;
   opacity:.7;

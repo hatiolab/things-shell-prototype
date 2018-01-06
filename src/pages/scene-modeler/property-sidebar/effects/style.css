@@ -21,7 +21,7 @@ legend{
 select{
   @apply(--things-select);
   min-width:65%;
-  background:url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
 }
 
 fieldset paper-slider{
@@ -51,7 +51,7 @@ things-editor-shadow {
  */
 
 things-editor-buttons-radio paper-button{
-  background:url(/assets/images/icon-properties.png) no-repeat;
+  background:url(./assets/images/icon-properties.png) no-repeat;
 }
 
 things-editor-buttons-radio paper-button[data-value="rotation"]   {background: url(https://cdn0.iconfinder.com/data/icons/rotation/154/rotate-rotation-arrow-object-512.png) center/80% no-repeat;}

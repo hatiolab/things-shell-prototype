@@ -2,7 +2,7 @@ import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
 
 import {ReduxMixin} from '../../reducer/redux-mixin';
 
-import style from './style.postcss';
+import style from './style.css';
 
 import './group-card';
 

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Things Shell Electron App.</title>
+
+    <base href="./">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background-color: #eeeeee;
+      }
+    </style>
+
+    <script src="./licenses/things/things-lic.js"></script>
+    <script src="./licenses/grid/dataludi-lic-production.js"></script>
+    <script src="./libs/smart-datagrid-product.min.js"></script>
+
+    <script src="./node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js"></script>
+    <script src="./node_modules/web-animations-js/web-animations-next.min.js"></script>
+
+    <script>
+      // require("./src/index.js");
+      require("./dist/bundle.js");
+    </script>
+
+    <custom-style>
+      <style include="things-shell-theme">
+      </style>
+    </custom-style>
+
+  </head>
+  <body fullbleed>
+    <app-shell>
+      Loading..
+    </app-shell>
+
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
+
+  </body>
+
+</html>

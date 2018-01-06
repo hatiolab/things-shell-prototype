@@ -1,5 +1,5 @@
 paper-icon-button {
-  background: url(/assets/images/icon-htoolbar.png) no-repeat;
+  background: url(./assets/images/icon-htoolbar.png) no-repeat;
   opacity: .6;
 }
 
@@ -157,15 +157,15 @@ paper-icon-button:hover {
 }
 
 #fullscreen {
-  background: url(/assets/images/icon-fullscreen.png) 50% 10px no-repeat;
+  background: url(./assets/images/icon-fullscreen.png) 50% 10px no-repeat;
   @apply(--things-header-button);
 }
 
 #toggle-property {
-  background: url(/assets/images/icon-collapse.png) 80% 10px no-repeat;
+  background: url(./assets/images/icon-collapse.png) 80% 10px no-repeat;
   @apply(--things-header-button);
 }
 
 #toggle-property[active] {
-  background: url(/assets/images/icon-collapse-active.png) 80% 10px no-repeat;
+  background: url(./assets/images/icon-collapse-active.png) 80% 10px no-repeat;
 }

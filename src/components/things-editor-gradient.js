@@ -76,7 +76,7 @@ Polymer({
 
       select {
         @apply(--things-select);
-        background: url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
       }
 
       .full-width * {
@@ -104,7 +104,7 @@ Polymer({
         @apply(--things-properties-icon-only-label);
         top: 0 !important;
         width: 30px !important;
-        background: url(/assets/images/icon-properties-label.png) no-repeat;
+        background: url(./assets/images/icon-properties-label.png) no-repeat;
       }
 
       .icon-only-label.color {

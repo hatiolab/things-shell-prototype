@@ -5,7 +5,7 @@ label{
   @apply(--things-label);
 }
 .icon-label label{
-  background:url(/assets/images/icon-properties-label.png) 7px -900px no-repeat;
+  background:url(./assets/images/icon-properties-label.png) 7px -900px no-repeat;
 }
 .icon-label label.width  {background-position:7px -100px !important}
 .icon-label label.height {background-position:7px      0;}
@@ -25,7 +25,7 @@ input[type="checkbox"]{width:15px;}
 /*.unit.ratio input{width:46%;}*/
 .ratio paper-button{
   @apply(--things-properties-ratio-btn);
-  background:url(/assets/images/icon-properties-ratio.png) 100% -87px no-repeat;
+  background:url(./assets/images/icon-properties-ratio.png) 100% -87px no-repeat;
 }
 .ratio paper-button[active]{
   background-position: 100% 11px
@@ -34,7 +34,7 @@ input[type="checkbox"]{width:15px;}
 .unit{font-size:11px;}
 select{
   @apply(--things-select);
-  background:url(/assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
 }
 .unit things-editor-number-input{
   width:55%;
@@ -51,7 +51,7 @@ select{
   width:100%;
 }
 things-editor-buttons-radio paper-button{
-  background:url(/assets/images/icon-properties.png) no-repeat;
+  background:url(./assets/images/icon-properties.png) no-repeat;
 }
 things-editor-buttons-radio paper-button[data-value="left"]   {background-position:50%    3px}
 things-editor-buttons-radio paper-button[data-value="center"] {background-position:50%  -47px}
@@ -70,7 +70,7 @@ things-editor-buttons-radio paper-button[active]{
   margin:0 12px 15px 0;
 }
 .box-padding td{
-  background:url(/assets/images/icon-properties-padding.png) 50% 0 no-repeat;
+  background:url(./assets/images/icon-properties-padding.png) 50% 0 no-repeat;
 }
 .box-padding tr:nth-child(1),.box-padding tr:nth-child(3){height:20px;}
 .box-padding tr td:nth-child(1),.box-padding tr td:nth-child(3){width:18px;}

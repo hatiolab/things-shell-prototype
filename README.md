@@ -23,6 +23,7 @@
 - src : 소스폴더
 - libs : import 할 수 없는(모듈화 지원하지 않는) javascript 라이브러리들을 배치함 (예를 들어 dataludi는 모듈을 지원하지 않으므로 libs에 별도로 배치한다.)
 - licenses : 필요한 라이선스 파일을 배치함
+- assets : 각종 이미지, 아이콘, 그 밖의 manifest 관련 리소스
 ### 소스(src) 폴더 구조
 - components : 어플리케이션 종속성이 없는 독립 컴포넌트들을 배치함 (Redux Pattern을 사용하지 않아야 함.)
 - commons : 어플리케이션 내부 여러곳에서 재활용되는 컴포넌트들과 유틸리티 컴포넌트들을 배치함
@@ -30,7 +31,6 @@
 - layouts : 최상위 레이아웃에서 독립적으로 사용될 구성들을 배치함 (drawer, sidebar 등)
 - pages : 라우팅에 연결될 페이지들을 배치함
 - reducer : Redux 패턴을 위한 Mixin과 reducer들을 배치함
-- assets : 각종 이미지, 아이콘, 그 밖의 manifest 관련 리소스
 - styles : 전체 어플리케이션의 공유 스타일과 테마 스타일을 배치함
   - shard-styles : 어플라케이션 종속성이 없는 독립 컴포넌트들을 제외하고, 대부분의 컴포넌트에서 shadow dom 렌더링을 위해 include 함.
   - things-shell-theme : custom-style 로 각 컴포넌트에서 정의한 스타일 변수를 설정하는 파일임.

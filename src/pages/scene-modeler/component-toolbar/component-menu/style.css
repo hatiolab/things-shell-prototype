@@ -53,7 +53,7 @@ paper-listbox paper-item:focus {
 }
 
 paper-listbox paper-item::before {
-  background: url(/assets/images/icon-vtoolbar-objects.png) no-repeat;
+  background: url(./assets/images/icon-vtoolbar-objects.png) no-repeat;
   position: relative;
   content: '';
   height: 20px;

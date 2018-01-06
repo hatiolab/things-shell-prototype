@@ -486,7 +486,7 @@
     border-bottom:2px solid #fff;
   }
   --things-properties-icon-only-label:{
-    background: url(/assets/images/icon-properties-label.png) no-repeat;
+    background: url(./assets/images/icon-properties-label.png) no-repeat;
     width:30px;height:24px;
     margin-top:2px;
     margin-bottom:5px;
@@ -620,7 +620,7 @@
     font-size: 18px;
     color: #fff;
   }
-  --things-home-image-url : url(/assets/images/bg-rail.png), url(/assets/images/bg-blue.png), url(/assets/images/bg-green.png);
+  --things-home-image-url : url(./assets/images/bg-rail.png), url(./assets/images/bg-blue.png), url(./assets/images/bg-green.png);
   --things-home-image-position: 50% 100%, 0 0, 100% 50%;
   --things-home-image:{
     background-color: #f1f1f1;

@@ -34,7 +34,7 @@ Polymer({
 
       .icon-only-label {
         @apply(--things-properties-icon-only-label);
-        background: url(/assets/images/icon-properties-label.png) no-repeat;
+        background: url(./assets/images/icon-properties-label.png) no-repeat;
         float: left;
         margin-top: 0;
       }

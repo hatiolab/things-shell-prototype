@@ -25,7 +25,7 @@ paper-button {
 
   border-bottom:1px solid rgba(0,0,0,.1);
   margin:0;
-  background: url(/assets/images/icon-vtoolbar.png) -1px 0 no-repeat;
+  background: url(./assets/images/icon-vtoolbar.png) -1px 0 no-repeat;
 }
 
 paper-button[data-group="line"]         {background-position:50% -186px}

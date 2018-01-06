@@ -59,7 +59,7 @@ div.innerHTML = `
     }
 
     .icon-only-label{
-      background:url(/assets/images/icon-properties-label.png) no-repeat;
+      background:url(./assets/images/icon-properties-label.png) no-repeat;
       color:transparent !important;
     }
     .icon-only-label.color        {background-position:70% -498px;}
@@ -72,7 +72,7 @@ div.innerHTML = `
 
     .line-type paper-menu{overflow:hidden;max-width:100px;}
     .line-type paper-item{
-      background:url(/assets/images/icon-properties-line-type.png) 50% 0 no-repeat;
+      background:url(./assets/images/icon-properties-line-type.png) 50% 0 no-repeat;
       min-height:25px;
       padding:3px 9px;
       width:80px;
@@ -87,7 +87,7 @@ div.innerHTML = `
     .line-type paper-item.long-dash-dot     {background-position:50%  -290px}
     .line-type paper-item.long-dash-dot-dot {background-position:50%  -340px}
 
-    .line-type .paper-input-container input{background:url(/assets/images/icon-properties-line-type.png) 50% 0 no-repeat !important;}
+    .line-type .paper-input-container input{background:url(./assets/images/icon-properties-line-type.png) 50% 0 no-repeat !important;}
     .line-type.solid .paper-input-container input            {background-position:50%    5px !important}
     .line-type.round-dot .paper-input-container input        {background-position:50%  -45px !important}
     .line-type.square-dot .paper-input-container input       {background-position:50%  -85px !important}
@@ -99,7 +99,7 @@ div.innerHTML = `
 
     .arrow-type paper-menu{overflow:hidden;max-width:140px;}
     .arrow-type paper-item{
-      background:url(/assets/images/icon-properties-arrow-type.png) 50% 0 no-repeat;
+      background:url(./assets/images/icon-properties-arrow-type.png) 50% 0 no-repeat;
       min-height:30px;
       padding:3px 7px;
       width:30px;
@@ -136,7 +136,7 @@ div.innerHTML = `
     .arrow-type paper-item.end-size8          {background-position:50% -1339px}
     .arrow-type paper-item.end-size9          {background-position:50% -1389px}
 
-    .arrow-type .paper-input-container input{background:url(/assets/images/icon-properties-arrow-type.png) 110% 0 no-repeat !important;}
+    .arrow-type .paper-input-container input{background:url(./assets/images/icon-properties-arrow-type.png) 110% 0 no-repeat !important;}
     .arrow-type.begin-no .paper-input-container input           {background-position:110%     5px !important}
     .arrow-type.begin-arrow .paper-input-container input        {background-position:110%   -50px !important}
     .arrow-type.begin-open-arrow .paper-input-container input   {background-position:110%  -100px !important}
