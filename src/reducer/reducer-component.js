@@ -1251,6 +1251,28 @@ data : ['周一','周二','周三','周四','周五','周六','周日']
 }]
 }`
     }
+  }, {
+    type: 'billboard',
+    model: {
+      type: 'billboard',
+      top: 100,
+      left: 100,
+      width: 600,
+      height: 400,
+      fontSize: 10,
+      fillStyle: '#00ff00',
+      fontColor: '#FF0000',
+      strokeStyle: '#000',
+      lineWidth: 1,
+      data: [
+        ["data1", 30, 200, 100, 400, 150, 250],
+        ["data2", 250, 150, 120, 300, 200, 30]
+      ],
+      config: `
+  {
+  type: "line"
+  }`
+    }
   }]
 };
 

@@ -4,14 +4,7 @@ import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resiz
 
 import {create as createScene} from '@hatiolab/things-scene';
 
-import '@things-elements/things-scene-table';
-import '@things-elements/things-scene-form';
-import '@things-elements/things-scene-gauge';
-import '@things-elements/things-scene-google-map';
-// import '@things-elements/things-scene-chartjs'; /* chartjs dependency */
-import '@things-elements/things-scene-random';
-import '@things-elements/things-scene-firebase';
-// import '@things-elements/things-scene-mqtt'; /* Paho dependency */
+import './things-scene-components.import';
 
 import './confidential-overlay';
 

@@ -2,6 +2,8 @@ const {resolve, join} = require('path');
 const NodePackage = require('./package.json');
 const webpack = require('webpack');
 
+const meta = require('./things-component.meta');
+
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -23,6 +25,9 @@ module.exports = {
       resolve(__dirname, 'node_modules'),
       resolve(__dirname, 'bower_components')
     ]
+  },
+  resolveLoader: {
+    modules: ["node_modules", "web_loaders"]
   },
   module: {
     rules: [{
@@ -58,15 +63,30 @@ module.exports = {
     }, {
       test: /\.postcss$/,
       use: ['text-loader', 'postcss-loader']
+    }, {
+      test: /things-scene-components.import$/,
+      use: [{
+        loader: 'babel-loader'
+      }, {
+        loader: 'things-scene-webpack-loader',
+        options: {
+          excludes: [
+            '@things-elements/things-scene-chartjs'
+          ]
+        }
+      }]
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({'process.env': {
-      'NODE-ENV': JSON.stringify(
-        process.argv.find(arg => arg.includes('webpack-dev-server')) ? 'development' : 'production'
-      ),
-      'APP-VERSION': JSON.stringify(NodePackage.version)
-    }}),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE-ENV': JSON.stringify(
+          process.argv.find(arg => arg.includes('webpack-dev-server')) ? 'development' : 'production'
+        ),
+        'APP-VERSION': JSON.stringify(NodePackage.version)
+      },
+      META: JSON.stringify(meta)
+    }),
     new ExtractTextPlugin('./bundle.css'),
     // This plugin will generate an index.html file for us that can be used
     // by the Webpack dev server. We can give it a template file (written in EJS)
