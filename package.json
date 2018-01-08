@@ -5,7 +5,6 @@
   "flat": true,
   "main": "dist/bundle.js",
   "license": "http://license.hatiolab.com/EULA",
-  "private": true,
   "author": "Hatio Lab. <heartyoh@hatiolab.com>",
   "repository": "hatiolab/things-shell",
   "scripts": {
