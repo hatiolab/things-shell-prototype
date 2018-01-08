@@ -13,13 +13,10 @@ div.innerHTML = `
     ::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,.2);}
     ::-webkit-scrollbar-thumb:hover {background-color:#aa866a;}
 
+    *:focus{outline: none;}
+
     .page-title {
       @apply(--paper-font-display2);
-    }
-    ::shadow #account+div.things-profile{
-      display:inline-block;
-      position:relative;
-      top:1px;left:-3px;
     }
 
     paper-menu a > *, paper-menu paper-item > *, paper-menu paper-icon-item > * {
@@ -39,7 +36,6 @@ div.innerHTML = `
     }
 
     .content{padding:0px !important;}
-    *:focus{outline: none;}
     ol,ul{list-style:none;margin:0;padding:0;}
     a{color:#fff;}
     table{border-collapse:collapse;border:none;}

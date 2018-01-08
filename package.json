@@ -2,7 +2,8 @@
   "name": "things-shell",
   "version": "0.0.1",
   "description": "things application shell",
-  "main": "src/index.js",
+  "flat": true,
+  "main": "dist/bundle.js",
   "license": "http://license.hatiolab.com/EULA",
   "private": true,
   "author": "Hatio Lab. <heartyoh@hatiolab.com>",
@@ -16,7 +17,7 @@
     "electron": "electron electron.js"
   },
   "dependencies": {
-    "@hatiolab/things-scene": "^2.2.39",
+    "@hatiolab/things-scene": "^2.2.41",
     "@npm-polymer/intl-messageformat": "^1.3.0",
     "@polymer/app-layout": "next",
     "@polymer/app-route": "next",

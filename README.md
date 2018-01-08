@@ -32,7 +32,7 @@
 - pages : 라우팅에 연결될 페이지들을 배치함
 - reducer : Redux 패턴을 위한 Mixin과 reducer들을 배치함
 - styles : 전체 어플리케이션의 공유 스타일과 테마 스타일을 배치함
-  - shard-styles : 어플라케이션 종속성이 없는 독립 컴포넌트들을 제외하고, 대부분의 컴포넌트에서 shadow dom 렌더링을 위해 include 함.
+  - shared-styles : 어플라케이션 종속성이 없는 독립 컴포넌트들을 제외하고, 대부분의 컴포넌트에서 shadow dom 렌더링을 위해 include 함.
   - things-shell-theme : custom-style 로 각 컴포넌트에서 정의한 스타일 변수를 설정하는 파일임.
 ## [ Polymer 3 ]
 ### bower => npm
