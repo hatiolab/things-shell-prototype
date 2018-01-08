@@ -8,10 +8,8 @@ dist/manifest.json
 docs/
 licenses/
 node_modules/
-samples/
 src/
 test/
-web_loaders/
 npm-debug.log
 .babel.rc
 .editorconfig
@@ -29,3 +27,4 @@ postcss.config.js
 things-component.meta.js
 webpack.config.js
 yarn.lock
+.DS_Store

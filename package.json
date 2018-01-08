@@ -1,12 +1,15 @@
 {
-  "name": "things-shell",
+  "name": "@hatiolab/things-shell",
   "version": "0.0.1",
   "description": "things application shell",
   "flat": true,
   "main": "dist/bundle.js",
   "license": "http://license.hatiolab.com/EULA",
   "author": "Hatio Lab. <heartyoh@hatiolab.com>",
-  "repository": "hatiolab/things-shell",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hatiolab/things-shell.git"
+  },
   "scripts": {
     "serve": "webpack-dev-server --hot --inline",
     "build": "webpack",
