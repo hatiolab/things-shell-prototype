@@ -4,7 +4,8 @@ import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 // import '@polymer/paper-menu/paper-menu';
 import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/editor-icons';
-// import '../../things-i18n-msg/things-i18n-msg';
+
+import './things-i18n-msg';
 import './things-editor-buttons-radio';
 import './things-editor-color';
 import './things-editor-number-input';

@@ -64,6 +64,9 @@ module.exports = {
       test: /\.postcss$/,
       use: ['text-loader', 'postcss-loader']
     }, {
+      test: /\.json$/,
+      use: ['json-loader']
+    }, {
       test: /things-scene-components.import$/,
       use: [{
         loader: 'babel-loader'

@@ -1,4 +1,5 @@
 import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+
 import './things-editor-property';
 
 /**
@@ -68,9 +69,6 @@ class ThingsEditorProperties extends PolymerElement {
 
     <fieldset>
       <template id="dom-repeater" is="dom-repeat" items="[[props]]" on-dom-change="_onDomBuilt">
-        <label>
-          <things-i18n-msg msgid="label.[[item.label]]" msg="{{item.label}}" auto hidden>[[item.label]]</things-i18n-msg>
-        </label>
         <things-editor-property label="[[item.label]]"
                                 type="[[item.type]]"
                                 name$="[[item.name]]"

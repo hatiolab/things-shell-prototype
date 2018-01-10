@@ -1,5 +1,6 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-// import '../../things-i18n-msg/things-i18n-msg';
+
+import './things-i18n-msg';
 import './things-editor-number-input';
 
 /**

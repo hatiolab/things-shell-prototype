@@ -3,6 +3,8 @@ import '@polymer/iron-pages/iron-pages';
 import '@polymer/paper-styles/paper-styles';
 import '@polymer/paper-radio-button/paper-radio-button';
 import '@polymer/paper-radio-group/paper-radio-group';
+
+import './things-i18n-msg';
 import './things-editor-code';
 import './things-editor-value-map';
 import './things-editor-value-range';

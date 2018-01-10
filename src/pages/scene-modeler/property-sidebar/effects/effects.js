@@ -8,6 +8,7 @@ import style from './style.css';
 import template from './html.template';
 
 import {deepClone} from '../../../../commons/utils';
+import '../../../../components/things-i18n-msg';
 import '../../../../components/things-editor-buttons-radio';
 import '../../../../components/things-editor-number-input';
 import '../../../../components/things-editor-angle-input';

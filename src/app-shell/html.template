@@ -36,5 +36,5 @@
 </app-drawer-layout>
 
 <aside class="meta">
-  {{localize('env-mention', 'version', appVersion, 'env', ENV)}}
+  [[localize('env-mention', 'version', appVersion, 'env', ENV)]]
 </aside>

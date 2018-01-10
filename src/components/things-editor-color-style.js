@@ -2,6 +2,8 @@ import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/paper-radio-button/paper-radio-button';
 import '@polymer/paper-radio-group/paper-radio-group';
+
+import './things-i18n-msg';
 import './things-editor-color';
 import './things-editor-gradient';
 import './things-editor-pattern';

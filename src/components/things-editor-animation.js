@@ -1,7 +1,7 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 
-// import '../../things-i18n-msg/things-i18n-msg';
+import './things-i18n-msg';
 import './things-editor-number-input';
 import './things-editor-value';
 
@@ -38,7 +38,7 @@ Polymer({
 
     </style>
 
-    <label><things-i18n-msg msgid="label.waiting-time" auto>waiting time</things-i18n-msg></label>
+    <label>[[localize("label.waiting-time")]]</label>
     <things-editor-number-input number="{{animation.delay::change}}" placeholder="ms">
       <input>
     </things-editor-number-input>

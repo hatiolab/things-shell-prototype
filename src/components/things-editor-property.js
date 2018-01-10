@@ -1,5 +1,6 @@
 import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
 
+import './things-i18n-msg';
 import './things-editor-color';
 import './things-editor-color-stops';
 import './things-editor-multiple-color';
@@ -55,7 +56,7 @@ class ThingsEditorProperty extends PolymerElement {
 
     <template is="dom-if" if="[[_isExist(label)]]" restamp="true">
       <label>
-          <things-i18n-msg msgid="[[_msgId]]" auto="">[[label]]</things-i18n-msg>
+        <things-i18n-msg msgid="[[_msgId]]" auto="">[[label]]</things-i18n-msg>
       </label>
     </template>
 

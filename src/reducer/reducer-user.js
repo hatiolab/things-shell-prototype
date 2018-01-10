@@ -1,7 +1,7 @@
 const STATE = {
   id: 'heartyoh',
   name: 'heartyoh',
-  language: 'ko'
+  language: 'ko-KR'
 }
 
 export default function(state = STATE, action) {

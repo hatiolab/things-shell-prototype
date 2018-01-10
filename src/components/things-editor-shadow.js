@@ -1,6 +1,7 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
-// import '../../things-i18n-msg/things-i18n-msg';
+
+import './things-i18n-msg';
 import './things-editor-color';
 import './things-editor-number-input';
 /**

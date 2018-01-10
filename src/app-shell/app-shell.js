@@ -99,15 +99,15 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
         type: Boolean,
         value: false
       },
+      collpased: {
+        statePath: 'drawer.collapsed',
+        observer: 'onDrawerCollapsedChanged'
+      },
       language: {
         statePath: 'user.language'
       },
       resources: {
         statePath: 'resource'
-      },
-      collpased: {
-        statePath: 'drawer.collapsed',
-        observer: 'onDrawerCollapsedChanged'
       }
     };
   }

@@ -5,7 +5,8 @@ import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resiz
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/editor-icons';
-// import '../../things-i18n-msg/things-i18n-msg';
+
+import './things-i18n-msg';
 import './things-editor-buttons-radio';
 import './things-editor-color';
 import './things-editor-number-input';
@@ -72,7 +73,9 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
     </style>
 
     <fieldset id='border-fieldset'>
-      <legend>border style</legend>
+      <legend>
+        <things-i18n-msg msgid="label.border-style">border style</things-i18n-msg>
+      </legend>
       <div id="border-set" class="border-style-btn" on-click="_onClickType">
         <paper-button data-value="out"><iron-icon icon="editor:border-outer"></iron-icon></paper-button>
         <paper-button data-value="in"><iron-icon icon="editor:border-inner"></iron-icon></paper-button>
@@ -87,17 +90,23 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
       </div>
 
       <div class="full-width">
-        <label class="icon-only-label linewidth">size</label>
+        <label class="icon-only-label linewidth">
+          <things-i18n-msg msgid="label.size">size</things-i18n-msg>
+        </label>
         <things-editor-number-input id="border-width" number="{{borderWidth::change}}">
           <input>
         </things-editor-number-input>
 
-        <label class="icon-only-label color">color</label>
+        <label class="icon-only-label color">
+          <things-i18n-msg msgid="label.color" >color</things-i18n-msg>
+        </label>
         <things-editor-color id="border-color" value="{{borderColor}}">
         </things-editor-color>
       </div>
 
-      <label>border type</label>
+      <label>
+        <things-i18n-msg msgid="label.border-type" >border type</things-i18n-msg>
+      </label>
       <paper-dropdown-menu no-label-float="true" class="line-type solid">
       <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
         <paper-listbox id="border-style" class="dropdown-content" selected="{{borderStyle}}" attr-for-selected="name">

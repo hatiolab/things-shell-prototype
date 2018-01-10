@@ -1,5 +1,6 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 
+import './things-i18n-msg';
 /**
 @license
 Copyright © HatioLab Inc. All rights reserved.
