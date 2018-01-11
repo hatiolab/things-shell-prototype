@@ -46,10 +46,6 @@ class ThingsEditorProperties extends PolymerElement {
         @apply(--things-input);
         width:55%
       }
-      .unit input{
-        @apply(--things-input);
-        width:55%;
-      }
       legend{
         @apply(--things-fieldset-legend);
         padding-bottom:7px

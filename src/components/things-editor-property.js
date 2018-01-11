@@ -34,7 +34,7 @@ class ThingsEditorProperty extends PolymerElement {
 
   static get template() {
     return `
-    <style>
+    <style include="shared-style">
       :host {}
 
       label {
@@ -48,9 +48,28 @@ class ThingsEditorProperty extends PolymerElement {
         overflow: auto;
       }
 
+      label{
+        @apply(--things-label);
+        width:35%
+      }
+
       select {
         @apply(--things-select);
         background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+      }
+
+      legend {
+        @apply(--things-fieldset-legend);
+        padding-bottom:7px
+      }
+
+      input {
+        @apply(--things-input);
+        width:55%
+      }
+
+      input[type="checkbox"] {
+        width:15px;
       }
     </style>
 
