@@ -109,7 +109,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
       </label>
       <paper-dropdown-menu no-label-float="true" class="line-type solid">
       <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-        <paper-listbox id="border-style" class="dropdown-content" selected="{{borderStyle}}" attr-for-selected="name">
+        <paper-listbox id="border-style" slot="dropdown-content" selected="{{borderStyle}}" attr-for-selected="name">
           <paper-item class="solid" name="solid"></paper-item>
           <paper-item class="round-dot" name="round-dot"></paper-item>
           <paper-item class="square-dot" name="square-dot"></paper-item>

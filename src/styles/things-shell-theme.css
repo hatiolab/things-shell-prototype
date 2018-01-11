@@ -37,10 +37,6 @@
     height: 45px;
   }
 
-  /* paper-menu */
-  --paper-menu-background-color: #fff;
-  --menu-link-color: #111111;
-
   /* things-editor-color */
   --things-editor-color: {
     width:120px;
@@ -364,7 +360,7 @@
     line-height:1.6;
   }
   --things-input:{
-    width:65%;
+    /* width:65%; */
     margin-bottom:10px;
     padding:3px 5px 2px 5px;
     -webkit-border-radius:4px;
@@ -644,22 +640,22 @@ paper-scroll-header-panel {
   height: 100%;
 }
 
-paper-menu {
-  --paper-menu-selected-item: {
+/* paper-listbox {
+  --paper-listbox-color: {
     color: var(--primary-color);
   }
 
   --paper-menu-focused-item-after: {
     background: var(--primary-color);
   }
-}
+} */
 
-paper-menu iron-icon {
+paper-listbox iron-icon {
   margin-right: 33px;
   opacity: 0.54;
 }
 
-paper-menu a {
+paper-listbox a {
   @apply(--layout-horizontal);
   @apply(--layout-center);
 

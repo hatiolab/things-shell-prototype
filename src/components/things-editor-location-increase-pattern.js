@@ -1,7 +1,6 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
-// import '@polymer/paper-menu/paper-menu';
 import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/editor-icons';
 

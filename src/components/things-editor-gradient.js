@@ -1,7 +1,7 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
-// import '@polymer/paper-menu/paper-menu';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
+import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import './things-editor-angle-input';
 import './things-editor-color-stops';
@@ -13,60 +13,80 @@ Polymer({
         @apply(--things-editor-gradient)
       }
 
-      .gradient-direction {
+      [gradient-direction] {
         overflow: hidden;
         max-width: 210px;
       }
 
-      .gradient-direction paper-item {
-        background: url(images/icon-editor-gradient-direction.png) 50% 0 no-repeat;
+      [gradient-direction] paper-item {
+        background: url(./assets/images/icon-editor-gradient-direction.png) 50% 0 no-repeat;
         min-height: 32px;
         padding: 3px 5px;
         width: 30px;
         float: left;
       }
 
-      .gradient-direction [name=lefttop-to-rightbottom] {
+      [gradient-direction] [name=lefttop-to-rightbottom] {
         background-position: 50% 4px
       }
 
-      .gradient-direction [name=top-to-bottom] {
+      [gradient-direction] [name=left-top] {
+        background-position: 50% 4px
+      }
+
+      [gradient-direction] [name=top-to-bottom] {
         background-position: 50% -46px
       }
 
-      .gradient-direction [name=righttop-to-leftbottom] {
+      [gradient-direction] [name=righttop-to-leftbottom] {
         background-position: 50% -96px
       }
 
-      .gradient-direction [name=right-to-left] {
+      [gradient-direction] [name=right-top] {
+        background-position: 50% -96px
+      }
+
+      [gradient-direction] [name=right-to-left] {
         background-position: 50% -146px
       }
 
-      .gradient-direction [name=rightbottom-to-lefttop] {
+      [gradient-direction] [name=rightbottom-to-lefttop] {
         background-position: 50% -196px
       }
 
-      .gradient-direction [name=bottom-to-top] {
+      [gradient-direction] [name=right-bottom] {
+        background-position: 50% -196px
+      }
+
+      [gradient-direction] [name=bottom-to-top] {
         background-position: 50% -246px
       }
 
-      .gradient-direction [name=leftbottom-to-righttop] {
+      [gradient-direction] [name=leftbottom-to-righttop] {
         background-position: 50% -296px
       }
 
-      .gradient-direction [name=left-to-right] {
+      [gradient-direction] [name=left-bottom] {
+        background-position: 50% -296px
+      }
+
+      [gradient-direction] [name=left-to-right] {
         background-position: 50% -346px
       }
 
-      .gradient-direction [name=center-to-corner] {
+      [gradient-direction] [name=center-to-corner] {
         background-position: 50% -396px
       }
 
-      .gradient-direction paper-item[focused] {
+      [gradient-direction] [name=center] {
+        background-position: 50% -396px
+      }
+
+      [gradient-direction] paper-item[focused] {
         background-color: rgba(255, 246, 143, .5);
       }
 
-      .gradient-direction paper-item:focus:before {
+      [gradient-direction] paper-item:focus:before {
         display: none !important;
       }
 
@@ -117,7 +137,7 @@ Polymer({
         width: 65%;
       }
 
-       :host::shadow .merge-column {
+      .merge-column {
         margin: 0 0 7px 10px;
       }
     </style>
@@ -138,7 +158,7 @@ Polymer({
     <iron-pages attr-for-selected="gradient-type" selected="[[type]]">
       <div gradient-type="linear">
         <paper-dropdown-menu no-label-float="true">
-          <paper-menu class="dropdown-content gradient-direction" selected="{{direction}}" attr-for-selected="name">
+          <paper-listbox slot="dropdown-content" gradient-direction selected="{{direction}}" attr-for-selected="name">
             <paper-item name="lefttop-to-rightbottom"></paper-item>
             <paper-item name="top-to-bottom"></paper-item>
             <paper-item name="righttop-to-leftbottom"></paper-item>
@@ -148,26 +168,24 @@ Polymer({
             <paper-item name="leftbottom-to-righttop"></paper-item>
             <paper-item name="left-to-right"></paper-item>
             <paper-item name="center-to-corner"></paper-item>
-          </paper-menu>
+          </paper-listbox>
         </paper-dropdown-menu>
 
       </div>
 
       <div gradient-type="radial">
         <paper-dropdown-menu no-label-float="true">
-          <paper-menu class="dropdown-content gradient-direction" selected="{{center}}" attr-for-selected="name">
+          <paper-listbox slot="dropdown-content" gradient-direction selected="{{center}}" attr-for-selected="name">
             <paper-item name="center"></paper-item>
             <paper-item name="left-top"></paper-item>
             <paper-item name="right-top"></paper-item>
             <paper-item name="right-bottom"></paper-item>
             <paper-item name="left-bottom"></paper-item>
-          </paper-menu>
+          </paper-listbox>
         </paper-dropdown-menu>
       </div>
 
     </iron-pages>
-
-    <!-- <label>gradient stops</label> -->
 
     <things-editor-color-stops type="gradient" value="{{colorStops}}">
     </things-editor-color-stops>

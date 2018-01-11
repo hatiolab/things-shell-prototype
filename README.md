@@ -2,9 +2,9 @@
 
 ## [ Application 구조 ]
 ### app-layout 적용 (deprecated 컴포넌트들 제거)
-- paper-drawer-panel
-- paper-menu
-- iron-flex-layout
+- paper-drawer-panel => app-drawer-layout
+- paper-menu => paper-listbox
+- iron-flex-layout => display=flex, flex-direction, flex
 ### app-route 적용
 ### ***redux 패턴 적용***
 - polymer-redux 적용
@@ -12,6 +12,7 @@
 ### i18n
 - 모듈별 i18n 정의 기능을 지원하기 위함임.
 - app-localize-behavior 적용함.
+- 기존 리소스파일을 재활용하기 위해 webpack-json-loader 를 적용함.
 ### webfont (미진행)
 - 서버리스 구성을 위한 방안 필요함.
 - 웹폰트 기능을 Model에 추가하는 방안.

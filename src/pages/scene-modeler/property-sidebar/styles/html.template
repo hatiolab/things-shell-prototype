@@ -73,7 +73,7 @@
   </label>
   <paper-dropdown-menu no-label-float="true" class="line-type solid">
   <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-    <paper-menu class="dropdown-content" selected="{{model.lineDash}}" attr-for-selected="name" >
+    <paper-listbox slot="dropdown-content" selected="{{model.lineDash}}" attr-for-selected="name" >
       <paper-item class="solid" name="solid"></paper-item>
       <paper-item class="round-dot" name="round-dot"></paper-item>
       <paper-item class="square-dot" name="square-dot"></paper-item>
@@ -82,7 +82,7 @@
       <paper-item class="long-dash" name="long-dash"></paper-item>
       <paper-item class="long-dash-dot" name="long-dash-dot"></paper-item>
       <paper-item class="long-dash-dot-dot" name="long-dash-dot-dot"></paper-item>
-    </paper-menu>
+    </paper-listbox>
   </paper-dropdown-menu>
 
   <label>
@@ -118,21 +118,21 @@
       <things-i18n-msg msgid="label.begin-type" auto>begin type</things-i18n-msg>
     </label>
     <paper-dropdown-menu no-label-float="true" class="arrow-type begin-no"><!-- begin-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-menu class="dropdown-content" selected="{{model.begin}}" attr-for-selected="name">
+      <paper-listbox slot="dropdown-content" selected="{{model.begin}}" attr-for-selected="name">
         <paper-item class="begin-no" name="none"></paper-item>
         <paper-item class="begin-arrow" name="arrow"></paper-item>
         <paper-item class="begin-open-arrow" name="open-arrow"></paper-item>
         <paper-item class="begin-stealth-arrow" name="sharp-arrow"></paper-item>
         <paper-item class="begin-diamond-arrow" name="diamond"></paper-item>
         <paper-item class="begin-oval-arrow" name="oval"></paper-item>
-      </paper-menu>
+      </paper-listbox>
     </paper-dropdown-menu>
 
     <label>
       <things-i18n-msg msgid="label.begin-size" auto>begin size</things-i18n-msg>
     </label>
     <paper-dropdown-menu no-label-float="true" class="arrow-type begin-size1"><!-- begin-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-menu class="dropdown-content" selected="{{model.beginSize}}" attr-for-selected="name">
+      <paper-listbox slot="dropdown-content" selected="{{model.beginSize}}" attr-for-selected="name">
         <paper-item class="begin-size1" name="size1"></paper-item>
         <paper-item class="begin-size2" name="size2"></paper-item>
         <paper-item class="begin-size3" name="size3"></paper-item>
@@ -142,28 +142,28 @@
         <paper-item class="begin-size7" name="size7"></paper-item>
         <paper-item class="begin-size8" name="size8"></paper-item>
         <paper-item class="begin-size9" name="size9"></paper-item>
-      </paper-menu>
+      </paper-listbox>
     </paper-dropdown-menu>
 
     <label>
       <things-i18n-msg msgid="label.end-type" auto>end type</things-i18n-msg>
     </label>
     <paper-dropdown-menu no-label-float="true" class="arrow-type end-no"><!-- end-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-menu class="dropdown-content" selected="{{model.end}}" attr-for-selected="name">
+      <paper-listbox slot="dropdown-content" selected="{{model.end}}" attr-for-selected="name">
         <paper-item class="end-no" name="none"></paper-item>
         <paper-item class="end-arrow" name="arrow"></paper-item>
         <paper-item class="end-open-arrow" name="open-arrow"></paper-item>
         <paper-item class="end-stealth-arrow" name="sharp-arrow"></paper-item>
         <paper-item class="end-diamond-arrow" name="diamond"></paper-item>
         <paper-item class="end-oval-arrow" name="oval"></paper-item>
-      </paper-menu>
+      </paper-listbox>
     </paper-dropdown-menu>
 
     <label>
       <things-i18n-msg msgid="label.end-size" auto>end size</things-i18n-msg>
     </label>
     <paper-dropdown-menu no-label-float="true" class="arrow-type end-size1" ><!-- end-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-menu class="dropdown-content" selected="{{model.endSize}}" attr-for-selected="name">
+      <paper-listbox slot="dropdown-content" selected="{{model.endSize}}" attr-for-selected="name">
         <paper-item class="end-size1" name="size1"></paper-item>
         <paper-item class="end-size2" name="size2"></paper-item>
         <paper-item class="end-size3" name="size3"></paper-item>
@@ -173,7 +173,7 @@
         <paper-item class="end-size7" name="size7"></paper-item>
         <paper-item class="end-size8" name="size8"></paper-item>
         <paper-item class="end-size9" name="size9"></paper-item>
-      </paper-menu>
+      </paper-listbox>
     </paper-dropdown-menu>
   </template>
 </fieldset>

@@ -1,19 +1,29 @@
 :host {
   @apply(--things-properties-panel);
 }
+
 label{
   @apply(--things-label);
 }
+
 input{
   @apply(--things-input);
 }
+
+paper-listbox {
+  overflow: hidden;
+  max-width: 140px;
+}
+
 things-editor-number-input{
   @apply(--things-editor-number-input);
 }
+
 things-editor-number-input input{
   @apply(--things-input);
   width: 95%;
 }
+
 fieldset{
   @apply(--things-fieldset);
 }
@@ -68,9 +78,16 @@ things-editor-color-style {
   }
 }
 
-paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
-paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--secondary-color)}
-paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
+paper-dropdown-menu {
+  --paper-dropdown-menu-input: {
+  }
+}
+
+/*
+paper-dropdown-menu .underline .unfocused-line{background-color:#ccc}
+paper-dropdown-menu .underline .focused-line{background-color:var(--secondary-color)}
+*/
+paper-dropdown-menu.line-type-round-dot .paper-input-container input {
   background:url(./assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
 }
 .column-double-iconlabel input{
@@ -89,7 +106,7 @@ paper-dropdown-menu.line-type-round-dot::shadow .paper-input-container input{
 .btn-group{
   margin-bottom:10px;padding-left:5px;
 }
-.btn-group paper-button{
+.btn-group paper-button {
   @apply(--things-editor-buttons-radio-button);
   background:url(./assets/images/icon-properties.png) no-repeat;
   background-size:70%;

@@ -1,7 +1,7 @@
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
 import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
-// import '@polymer/paper-menu/paper-menu';
+import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/editor-icons';
 
@@ -26,7 +26,7 @@ Example:
 */
 Polymer({
   _template: `
-    <style>
+    <style include="shared-style">
        :host {
         display: block;
         @apply(--things-editor-border)
@@ -126,7 +126,7 @@ Polymer({
       <label>border type</label>
       <paper-dropdown-menu no-label-float="true" class="line-type solid">
         <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-        <paper-menu id="border-style" class="dropdown-content" selected="{{borderStyle}}" attr-for-selected="name">
+        <paper-listbox id="border-style" slot="dropdown-content" selected="{{borderStyle}}" attr-for-selected="name">
           <paper-item class="solid" name="solid"></paper-item>
           <paper-item class="round-dot" name="round-dot"></paper-item>
           <paper-item class="square-dot" name="square-dot"></paper-item>
@@ -135,7 +135,7 @@ Polymer({
           <paper-item class="long-dash" name="long-dash"></paper-item>
           <paper-item class="long-dash-dot" name="long-dash-dot"></paper-item>
           <paper-item class="long-dash-dot-dot" name="long-dash-dot-dot"></paper-item>
-        </paper-menu>
+        </paper-listbox>
       </paper-dropdown-menu>
 
     </fieldset>

@@ -19,7 +19,7 @@ div.innerHTML = `
       @apply(--paper-font-display2);
     }
 
-    paper-menu a > *, paper-menu paper-item > *, paper-menu paper-icon-item > * {
+    paper-listbox a > *, paper-listbox paper-item > *, paper-listbox paper-icon-item > * {
       pointer-events: none;
     }
 
@@ -66,14 +66,14 @@ div.innerHTML = `
     .icon-only-label.linewidth {background-position:70% -894px;}
     .icon-only-label.lineHeight{background-position:70% -995px;}
 
-    .line-type paper-menu{overflow:hidden;max-width:100px;}
+    .line-type paper-listbox{overflow:hidden;max-width:100px;}
     .line-type paper-item{
       background:url(./assets/images/icon-properties-line-type.png) 50% 0 no-repeat;
       min-height:25px;
       padding:3px 9px;
       width:80px;
     }
-    /*.line-type.solid::shadow paper-menu-button::shadow .paper-input-container input{background-position:50%    10px}*/
+    /*.line-type.solid::shadow paper-listbox-button::shadow .paper-input-container input{background-position:50%    10px}*/
     .line-type paper-item.solid             {background-position:50%    10px}
     .line-type paper-item.round-dot         {background-position:50%   -40px}
     .line-type paper-item.square-dot        {background-position:50%   -90px}
@@ -188,7 +188,7 @@ div.innerHTML = `
     .whitebox{background:#fff}
     .paddingbox{padding:15px;}
 
-    .things-context-menu paper-menu{min-width:120px;}
+    .things-context-menu paper-listbox{min-width:120px;}
     .things-context-menu paper-item{
       min-height:35px;
       padding:0 12px;

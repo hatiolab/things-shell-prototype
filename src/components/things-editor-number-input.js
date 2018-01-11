@@ -9,7 +9,7 @@ Polymer({
     :host {
       display: inline-block;
     }
-    ::slotted(*) {
+    ::slotted(input) {
       width: 100%;
     }
   </style>
