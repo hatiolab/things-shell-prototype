@@ -8,6 +8,11 @@ Polymer({
     :host {
       display: inline-block;
     }
+    ::slotted(input) {
+      width: 100%;
+      box-sizing: border-box;
+      @apply(--things-editor-angle-input);
+    }
   </style>
   <slot id="content" on-change="_onChangeValue"></slot>
   `,

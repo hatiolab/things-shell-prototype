@@ -40,6 +40,7 @@ Polymer({
 
       select {
         @apply(--things-select);
+        width: 65%;
         background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
       }
 
@@ -47,14 +48,18 @@ Polymer({
         float: left;
       }
 
-      div label {
+      div > label {
         width: 18%;
         margin-right: 3px;
         top: 4px;
       }
 
-      div input {
+      div > input {
         width: 24%;
+      }
+
+      things-editor-number-input {
+        width: 30%;
       }
 
       input[type="checkbox"] {

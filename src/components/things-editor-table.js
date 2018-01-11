@@ -47,11 +47,23 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
       .icon-only-label{
         @apply(--things-properties-icon-only-label);
       }
-      things-editor-color{
-        width:95px;
+
+      things-editor-number-input, things-editor-color {
+        width:35%;
       }
-      things-editor-color::shadow input{
-        width:83% !important;
+
+      things-editor-color {
+        --things-editor-color-input-text: {
+          width: 100%;
+          margin-bottom: 10px;
+          padding: 3px 5px 2px 5px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          border:1px solid rgba(0,0,0,.15);
+          font-size: 14px;
+          font-weight: 300;
+        }
       }
       paper-dropdown-menu::shadow .underline .unfocused-line{background-color:#ccc}
       paper-dropdown-menu::shadow .underline .focused-line{background-color:var(--secondary-color)}

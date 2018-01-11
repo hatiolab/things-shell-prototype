@@ -88,16 +88,7 @@ things-editor-value {
     font-size: 12px;
     font-weight: 300;
   }
-  --things-editor-color-input-color: {
-    -webkit-appearance: none;
-    display: inline-block;
-    position: absolute;
-    top: 1px;
-    right: 3px;
-    margin: 2px 0 1px 2px;
-    text-align: center;
-    font-size: 0;
-  }
+
   --things-select: {
     min-width:50%;
     margin-bottom:10px;

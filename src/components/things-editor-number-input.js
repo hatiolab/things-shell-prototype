@@ -11,6 +11,8 @@ Polymer({
     }
     ::slotted(input) {
       width: 100%;
+      box-sizing: border-box;
+      @apply(--things-editor-number-input);
     }
   </style>
 

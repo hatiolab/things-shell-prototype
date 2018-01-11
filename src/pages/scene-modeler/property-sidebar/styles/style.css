@@ -15,15 +15,6 @@ paper-listbox {
   max-width: 140px;
 }
 
-things-editor-number-input{
-  @apply(--things-editor-number-input);
-}
-
-things-editor-number-input input{
-  @apply(--things-input);
-  width: 95%;
-}
-
 fieldset{
   @apply(--things-fieldset);
 }
@@ -46,22 +37,6 @@ select{
 }
 .icon-only-label{
   @apply(--things-properties-icon-only-label);
-}
-
-things-editor-color {
-  width: 95px;
-
-  --things-editor-color-input-text: {
-    width: 100%;
-    margin-bottom:10px;
-    padding:3px 5px 2px 5px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    border:1px solid rgba(0,0,0,.15);
-    font-size:14px;
-    font-weight:300;
-  }
 }
 
 things-editor-color-style {
@@ -96,8 +71,8 @@ paper-dropdown-menu.line-type-round-dot .paper-input-container input {
 .full-width > * {
   float:left;
 }
-.full-width > input, .full-width > things-editor-number-input {
-  width:32.4%;
+.full-width > input, .full-width > things-editor-number-input, .full-width > things-editor-color {
+  width:37%;
 }
 .full-width > select{
   width:48%;

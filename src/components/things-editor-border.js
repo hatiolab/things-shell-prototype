@@ -26,7 +26,7 @@ Example:
 */
 Polymer({
   _template: `
-    <style include="shared-style">
+    <style>
        :host {
         display: block;
         @apply(--things-editor-border)

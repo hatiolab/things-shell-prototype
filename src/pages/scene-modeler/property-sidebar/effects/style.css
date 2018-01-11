@@ -6,7 +6,11 @@ label{
   @apply(--things-label);
 }
 
-input{
+input[type=checkbox] {
+  @apply(--things-input);
+}
+
+fieldset > input{
   @apply(--things-input);
 }
 
@@ -33,6 +37,7 @@ fieldset paper-slider{
 }
 
 things-editor-shadow {
+
   --things-editor-color-input-text: {
     width: 100%;
     margin-bottom: 10px;

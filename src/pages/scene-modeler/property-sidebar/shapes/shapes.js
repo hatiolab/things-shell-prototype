@@ -11,6 +11,7 @@ import '../../../../components/things-i18n-msg';
 import '../../../../components/things-editor-buttons-radio';
 import '../../../../components/things-editor-number-input';
 import '../../../../components/things-editor-angle-input';
+import '../../../../components/things-editor-buttons-radio';
 
 class PropertyShapes extends ReduxMixin(PolymerElement) {
   static get template() {

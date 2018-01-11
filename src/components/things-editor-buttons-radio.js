@@ -22,17 +22,17 @@ Example:
 Polymer({
   _template: `
     <style>
-       :host {
+      :host {
         width: 65%;
         display: inline-block;
       }
 
-       ::content>paper-button {
+      ::slotted(paper-button) {
         @apply(--things-editor-buttons-radio-button)
       }
     </style>
 
-    <content select="paper-button"></content>
+    <slot select="paper-button"></slot>
 `,
 
   is: 'things-editor-buttons-radio',

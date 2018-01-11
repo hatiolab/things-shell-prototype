@@ -30,19 +30,26 @@ Example:
 Polymer({
   _template: `
     <style>
-       :host {
-        display: block;
+      :host {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 0;
+        grid-auto-rows: minmax(0, auto);
+
         @apply(--things-editor-color-stops)
       }
 
       #color-stops {
+        grid-column: 1 / 11;
+        grid-row: 1;
+
         clear: both;
         margin-bottom: -3px;
         @apply(--things-editor-colorbar-container)
       }
 
       #colorbar {
-        width: 90%;
+        width: 95%;
         height: 12px;
         margin: auto;
         margin-bottom: 25px;
@@ -94,34 +101,33 @@ Polymer({
       }
 
       .icon-only-label.color {
+        grid-column: 1 / 2;
+        grid-row: 2;
+
         background-position: 70% -498px;
         float: left;
         margin-top: 0;
       }
 
       .icon-only-label.position {
+        grid-column: 7 / 8;
+        grid-row: 2;
+
         background-position: 70% -797px;
         float: left;
         margin-top: 0;
       }
 
       things-editor-color {
-        width: 100px;
+        grid-column: 2 / 7;
+        grid-row: 2;
       }
 
-      things-editor-color input[type="text"] {
-        width: 85%;
+      things-editor-number-input {
+        grid-column: 8 / 11;
+        grid-row: 2;
       }
 
-      input[type=number] {
-        @apply(--things-input);
-        width: 79px;
-      }
-
-      things-editor-color,
-      input[type="number"] {
-        float: left;
-      }
     </style>
 
     <div id="color-stops">

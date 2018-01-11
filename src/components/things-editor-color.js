@@ -172,6 +172,7 @@ Polymer({
     <style>
       :host {
         position: relative;
+        display: inline-block;
         @apply(--things-editor-color)
       }
 
@@ -180,10 +181,12 @@ Polymer({
         border-radius: 10%;
         box-sizing: border-box;
         font-size: 13px;
+        width: 100%;
+
         @apply(--things-editor-color-input-text);
       }
 
-      #color {
+      a {
         -webkit-appearance: none;
         display: inline-block;
         position: absolute;
@@ -192,20 +195,23 @@ Polymer({
         margin: 4px 0 0 4px;
         text-align: center;
         font-size: 0;
+
         @apply(--things-editor-color-input-color)
       }
 
-      #color > span {
+      span {
         display: inline-block;
         width: 15px;
         height: 14px;
         line-height: 12px;
         border-radius: 10%;
+
+        @apply(--things-editor-color-input-span)
       }
     </style>
 
     <input id="text" type="text" value="{{value}}" placeholder="[[placeholder]]" on-change="_onInputChanged">
-    <a id="color" on-click="showPicker">
+    <a on-click="showPicker">
       <span id="color-thumbnail"></span>
     </a>
   `,

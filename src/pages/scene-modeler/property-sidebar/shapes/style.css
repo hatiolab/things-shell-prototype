@@ -22,7 +22,7 @@ legend{
   @apply(--things-fieldset-legend);
 }
 input[type="checkbox"]{width:15px;}
-/*.unit.ratio input{width:46%;}*/
+
 .ratio paper-button{
   @apply(--things-properties-ratio-btn);
   background:url(./assets/images/icon-properties-ratio.png) 100% -87px no-repeat;
@@ -32,24 +32,7 @@ input[type="checkbox"]{width:15px;}
 }
 .merge-column{padding-left:25%;}
 .unit{font-size:11px;}
-select{
-  @apply(--things-select);
-  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
-}
-.unit things-editor-number-input{
-  width:55%;
-}
-.unit things-editor-number-input input{
-  @apply(--things-input);
-  width:100%;
-}
-.unit things-editor-angle-input{
-  width:65%;
-}
-.unit things-editor-angle-input input{
-  @apply(--things-input);
-  width:100%;
-}
+
 things-editor-buttons-radio paper-button{
   background:url(./assets/images/icon-properties.png) no-repeat;
 }

@@ -99,25 +99,29 @@ Polymer({
         background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
       }
 
-      .full-width * {
+      .full-width > * {
         float: left;
       }
 
-      .full-width label {
+      .full-width > label {
         width: initial;
         top: 2px;
         margin-right: 4px;
       }
 
-      .full-width select {
+      .full-width > select {
         width: 40%;
         min-width: 40%;
         margin-right: 2px;
       }
 
-      .full-width input {
+      .full-width > input {
         @apply(--things-input);
         width: 28%;
+      }
+
+      .full-width > things-editor-angle-input {
+        width: 32%;
       }
 
       .icon-only-label {
@@ -133,8 +137,13 @@ Polymer({
 
       iron-pages {
         display: inline-block;
-        margin: 0 5px;
-        width: 65%;
+        margin: 0 20px;
+        /* width: 65%; */
+        width: 100%;
+      }
+
+      things-editor-color-stops {
+        margin: 0 10px;
       }
 
       .merge-column {
@@ -154,37 +163,33 @@ Polymer({
       </things-editor-angle-input>
     </div>
 
-    <label>direction</label>
+    <!--label>direction</label-->
+
     <iron-pages attr-for-selected="gradient-type" selected="[[type]]">
-      <div gradient-type="linear">
-        <paper-dropdown-menu no-label-float="true">
-          <paper-listbox slot="dropdown-content" gradient-direction selected="{{direction}}" attr-for-selected="name">
-            <paper-item name="lefttop-to-rightbottom"></paper-item>
-            <paper-item name="top-to-bottom"></paper-item>
-            <paper-item name="righttop-to-leftbottom"></paper-item>
-            <paper-item name="right-to-left"></paper-item>
-            <paper-item name="rightbottom-to-lefttop"></paper-item>
-            <paper-item name="bottom-to-top"></paper-item>
-            <paper-item name="leftbottom-to-righttop"></paper-item>
-            <paper-item name="left-to-right"></paper-item>
-            <paper-item name="center-to-corner"></paper-item>
-          </paper-listbox>
-        </paper-dropdown-menu>
+      <paper-dropdown-menu gradient-type="linear" no-label-float="true">
+        <paper-listbox slot="dropdown-content" gradient-direction selected="{{direction}}" attr-for-selected="name">
+          <paper-item name="lefttop-to-rightbottom"></paper-item>
+          <paper-item name="top-to-bottom"></paper-item>
+          <paper-item name="righttop-to-leftbottom"></paper-item>
+          <paper-item name="right-to-left"></paper-item>
+          <paper-item name="rightbottom-to-lefttop"></paper-item>
+          <paper-item name="bottom-to-top"></paper-item>
+          <paper-item name="leftbottom-to-righttop"></paper-item>
+          <paper-item name="left-to-right"></paper-item>
+          <paper-item name="center-to-corner"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
 
-      </div>
 
-      <div gradient-type="radial">
-        <paper-dropdown-menu no-label-float="true">
-          <paper-listbox slot="dropdown-content" gradient-direction selected="{{center}}" attr-for-selected="name">
-            <paper-item name="center"></paper-item>
-            <paper-item name="left-top"></paper-item>
-            <paper-item name="right-top"></paper-item>
-            <paper-item name="right-bottom"></paper-item>
-            <paper-item name="left-bottom"></paper-item>
-          </paper-listbox>
-        </paper-dropdown-menu>
-      </div>
-
+      <paper-dropdown-menu gradient-type="radial" no-label-float="true">
+        <paper-listbox slot="dropdown-content" gradient-direction selected="{{center}}" attr-for-selected="name">
+          <paper-item name="center"></paper-item>
+          <paper-item name="left-top"></paper-item>
+          <paper-item name="right-top"></paper-item>
+          <paper-item name="right-bottom"></paper-item>
+          <paper-item name="left-bottom"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
     </iron-pages>
 
     <things-editor-color-stops type="gradient" value="{{colorStops}}">

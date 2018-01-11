@@ -174,21 +174,18 @@ Polymer({
       }
 
       input[type=text] {
-        @apply(--things-editor-color-input-input-text);
         font-size: 13px;
-      }
 
-      input[type=alpha] {
-        @apply(--things-editor-color-input-input-alpha)
+        @apply(--things-editor-color-input-text);
       }
 
       input[type=color] {
-        @apply(--things-editor-color-input-input-color)
-      }
+        @apply(--things-editor-color-input-color)
 
-      #color {
         -webkit-appearance: none;
         position: relative;
+        right: 4px;
+        bottom: 4px;
         margin: 4px 0 0 -2px;
         display: inline-block;
         border: 1px solid #ccc;

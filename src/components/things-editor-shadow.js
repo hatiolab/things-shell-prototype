@@ -46,7 +46,7 @@ Polymer({
         @apply(--things-label);
       }
 
-      input {
+      :host > input {
         @apply(--things-input);
       }
 

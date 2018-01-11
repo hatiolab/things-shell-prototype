@@ -35,36 +35,31 @@ Polymer({
       }
 
       things-editor-color {
-        width: 38.5%
-      }
-
-      things-editor-color::shadow input {
-        width: 76% !important;
-        border-radius: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 1px 19px 1px 3px !important;
-        font-size: 12px !important
-      }
-
-      things-editor-color::shadow a {
-        float: right;
-        margin: 0 !important;
-        margin-top: -17px !important;
-      }
-
-      things-editor-color::shadow a span {
-        height: 13px !important
-      }
-
-      div input[data-value-type='color']:nth-child(3) {
         width: 38.5%;
+        --things-editor-color-input-text: {
+          border-radius: 0;
+          margin-bottom: 0;
+          padding: 1px 3px 1px 3px;
+          font-size: 12px
+        };
+        --things-editor-color-input-color: {
+          margin: 2px;
+        };
+        --things-editor-color-input-span: {
+          width: 12px;
+          height: 12px;
+        };
       }
 
-      div things-editor-color.default-value {
+      div > input[placeholder=value] {
+        width: 36%;
+      }
+
+      div > things-editor-color.default-value {
         width: 62%;
       }
 
-      div things-editor-color.default-value::shadow input {
+      div > things-editor-color.default-value::shadow input {
         width: 125px !important
       }
 

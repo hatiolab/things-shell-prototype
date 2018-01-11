@@ -44,10 +44,6 @@ Polymer({
       .icon-only-label.color {
         background-position: 70% -498px;
       }
-
-      things-editor-color::shadow #text {
-        width: 71%;
-      }
     </style>
 
     <paper-radio-group selected="{{fillType}}" on-change="onChangedFillType">

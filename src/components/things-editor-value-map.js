@@ -29,37 +29,25 @@ Polymer({
         float: left;
       }
 
-      input,
-      things-editor-color {
+      input, things-editor-color {
         width: 41%;
         margin: 3px 0 3px 3px;
       }
 
       things-editor-color {
-        height: 15px;
-      }
-
-      things-editor-color:after {
-        content: '';
-        clear: both;
-      }
-
-      things-editor-color::shadow input {
-        width: 78% !important;
-        border-radius: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 1px 19px 1px 3px !important;
-        font-size: 12px !important
-      }
-
-      things-editor-color::shadow a {
-        float: right;
-        margin: 0 !important;
-        margin-top: -17px !important;
-      }
-
-      things-editor-color::shadow a span {
-        height: 13px !important
+        --things-editor-color-input-text: {
+          border-radius: 0;
+          margin-bottom: 0;
+          padding: 1px 3px 1px 3px;
+          font-size: 12px
+        };
+        --things-editor-color-input-color: {
+          margin: 2px;
+        };
+        --things-editor-color-input-span: {
+          width: 12px;
+          height: 12px;
+        };
       }
 
       input[type="checkbox"] {
