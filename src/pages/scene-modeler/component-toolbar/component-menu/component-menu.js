@@ -47,11 +47,16 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
   onTapTypeList (e) {
     var item = e.path[0];
 
-    while (item && !item.hasAttribute('data-type') && item !== document.body)
-      item = item.parentNode;
-
-    if(!item || item == document.body)
+    if(!item || !item.hasAttribute || !item.hasAttribute('data-type'))
       return;
+    // console.log('item', item)
+    // while (item && item.hasAttribute && !item.hasAttribute('data-type') && item !== document.body) {
+    //   item = item.parentNode;
+    //   console.log('item', item)
+    // }
+
+    // if(!item || item == document.body)
+    //   return;
 
     var type = item.getAttribute('data-type')
 

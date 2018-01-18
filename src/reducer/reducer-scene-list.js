@@ -1,19 +1,20 @@
-// const STATE = Array(100).fill({}).map((o, seq) => {
+// const STATE = Object.keys(META.samples).map((sample) => {
 //   return {
-//     name: 'scene ' + seq,
-//     description: 'Scene .... Click to edit.'
+//     name: sample,
+//     description: META.samples[sample]
 //   }
 // });
 
-const STATE = Object.keys(META.samples).map((sample) => {
-  return {
-    name: sample,
-    description: META.samples[sample]
-  }
-});
+const STATE = {}
 
-export default function(state = STATE, action) {
+export default function (state = STATE, action) {
   switch (action.type) {
+    case 'SCENE-LIST':
+      return action.list;
+
+    case 'CLEAR-SCENE-LIST':
+      return [];
+
     default:
       return state
   }

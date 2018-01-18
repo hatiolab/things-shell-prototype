@@ -1,0 +1,38 @@
+{
+  "board-001": {
+    "description": "Board-001 Description",
+    "group": "Group A",
+    "createdAt": 4567890,
+    "updatedAt": 34567890,
+    "creator": "heartyoh",
+    "updator": "heartyoh",
+    "modelPath": "1.json"
+  },
+  "board-002": {
+    "description": "Board-002 Description",
+    "group": "Group A",
+    "createdAt": 4567890,
+    "updatedAt": 34567890,
+    "creator": "heartyoh",
+    "updator": "heartyoh",
+    "modelPath": "2.json"
+  },
+  "board-003": {
+    "description": "Board-003 Description",
+    "group": "Group B",
+    "createdAt": 4567890,
+    "updatedAt": 34567890,
+    "creator": "heartyoh",
+    "updator": "heartyoh",
+    "modelPath": "3.json"
+  },
+  "board-004": {
+    "description": "Board-004 Description",
+    "group": "Group B",
+    "createdAt": 4567890,
+    "updatedAt": 34567890,
+    "creator": "heartyoh",
+    "updator": "heartyoh",
+    "modelPath": "4.json"
+  }
+}

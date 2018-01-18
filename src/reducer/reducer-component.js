@@ -1,4 +1,4 @@
-function shapes () {
+function shapes() {
   return [{
     type: 'rect',
     model: {
@@ -132,7 +132,7 @@ function shapes () {
   }]
 };
 
-function lines () {
+function lines() {
   return [{
     type: 'line',
     model: {
@@ -216,7 +216,7 @@ function lines () {
   }]
 };
 
-function textAndMedias () {
+function textAndMedias() {
   return [{
     type: 'text',
     model: {
@@ -276,923 +276,923 @@ function textAndMedias () {
   }]
 };
 
-function chartAndGauges () {
+function chartAndGauges() {
   return [{
-      type: 'bar chart',
-      model: {
-        type: 'chartjs',
-        top: 200,
-        left: 300,
-        width: 200,
-        height: 200,
-        lineWidth: 5,
-        alpha: 1,
-        chart: {
-          type: 'bar',
-          data: {
-            labels: [],
-            datasets: [{
-              label: 'series 1',
-              type: 'bar',
-              data: [],
-              backgroundColor: 'rgb(66, 110, 164)',
-              borderColor: 'rgb(66, 110, 164)',
-              borderWidth: 0,
-              dataKey: 'value',
-              yAxisID: 'left'
-            }],
-            labelDataKey: 'color'
-          },
-          options: {
-            theme: 'dark',
-            xGridLine: false,
-            yGridLine: true,
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            scales: {
-              xAxes: [{
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  display: true
-                }
-              }],
-              yAxes: [{
-                id: 'left',
-                position: 'left',
-                gridLines: {
-                  display: true
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }, {
-                id: 'right',
-                position: 'right',
-                display: false,
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }]
-            }
-          }
+    type: 'bar chart',
+    model: {
+      type: 'chartjs',
+      top: 200,
+      left: 300,
+      width: 200,
+      height: 200,
+      lineWidth: 5,
+      alpha: 1,
+      chart: {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'series 1',
+            type: 'bar',
+            data: [],
+            backgroundColor: 'rgb(66, 110, 164)',
+            borderColor: 'rgb(66, 110, 164)',
+            borderWidth: 0,
+            dataKey: 'value',
+            yAxisID: 'left'
+          }],
+          labelDataKey: 'color'
         },
-        data: [{
-          color: "Red",
-          value: 12
-        }, {
-          color: "Blue",
-          value: 19
-        }, {
-          color: "Yellow",
-          value: 3
-        }, {
-          color: "Green",
-          value: 5
-        }, {
-          color: "Purple",
-          value: 2
-        }, {
-          color: "Orange",
-          value: 3
-        }]
-      }
-    }, {
-      type: 'horizontal bar chart',
-      model: {
-        type: 'chartjs',
-        top: 200,
-        left: 300,
-        width: 200,
-        height: 200,
-        lineWidth: 5,
-        alpha: 1,
-        chart: {
-          type: 'horizontalBar',
-          data: {
-            labels: [],
-            datasets: [{
-              label: 'series 1',
-              data: [],
-              backgroundColor: 'rgb(66, 110, 164)',
-              borderColor: 'rgb(66, 110, 164)',
-              borderWidth: 0,
-              dataKey: 'value1'
-            }, {
-              label: 'series 2',
-              data: [],
-              backgroundColor: "rgb(62, 196, 221)",
-              borderColor: "rgb(62, 196, 221)",
-              borderWidth: 0,
-              dataKey: 'value2'
-            }],
-            labelDataKey: 'color'
+        options: {
+          theme: 'dark',
+          xGridLine: false,
+          yGridLine: true,
+          legend: {
+            display: true,
+            position: 'top'
           },
-          options: {
-            theme: 'dark',
-            xGridLine: true,
-            yGridLine: false,
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            scales: {
-              xAxes: [{
-                gridLines: {
-                  display: true
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }],
-              yAxes: [{
-                id: 'left',
-                position: 'left',
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }]
-            }
-          }
-        },
-        data: [{
-          color: "Red",
-          value1: 12,
-          value2: 24
-        }, {
-          color: "Blue",
-          value1: 19,
-          value2: 9
-        }, {
-          color: "Yellow",
-          value1: 3,
-          value2: 6
-        }, {
-          color: "Green",
-          value1: 5,
-          value2: 2
-        }, {
-          color: "Purple",
-          value1: 2,
-          value2: 4
-        }, {
-          color: "Orange",
-          value1: 3,
-          value2: 1
-        }]
-      }
-    }, {
-      type: 'line chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        lineWidth: 5,
-        chart: {
-          type: 'line',
-          data: {
-            labels: [],
-            datasets: [{
-              label: "series 1",
-              type: 'line',
-              backgroundColor: "rgb(66, 110, 164)",
-              borderColor: "rgb(66, 110, 164)",
-              borderWidth: 3,
-              pointBorderColor: "rgb(66, 110, 164)",
-              pointBorderWidth: 3,
-              pointBackgroundColor: "rgba(255,255,255,1)",
-              lineTension: 0.4,
-              yAxisID: 'left',
-              data: [],
-              dataKey: 'value1',
-              fill: false
-            }, {
-              label: "series 2",
-              type: 'line',
-              backgroundColor: "rgb(62, 196, 221)",
-              borderColor: "rgb(62, 196, 221)",
-              borderWidth: 3,
-              pointBorderColor: "rgb(62, 196, 221)",
-              pointBorderWidth: 3,
-              pointBackgroundColor: "rgba(255,255,255,1)",
-              lineTension: 0.4,
-              yAxisID: 'left',
-              data: [],
-              dataKey: 'value2',
-              fill: false
-            }],
-            labelDataKey: 'data'
-          },
-          options: {
-            theme: 'dark',
-            xGridLine: false,
-            yGridLine: true,
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            scales: {
-              xAxes: [{
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  display: true
-                }
-              }],
-              yAxes: [{
-                id: 'left',
-                position: 'left',
-                gridLines: {
-                  display: true
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }, {
-                id: 'right',
-                position: 'right',
-                display: false,
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }]
-            }
-          }
-        },
-        data: [{
-          data: "Data 1",
-          value1: 20,
-          value2: 60
-        }, {
-          data: "Data 2",
-          value1: 30,
-          value2: 10
-        }, {
-          data: "Data 3",
-          value1: 80,
-          value2: 40
-        }, {
-          data: "Data 4",
-          value1: 20,
-          value2: 30
-        }, {
-          data: "Data 5",
-          value1: 40,
-          value2: 80
-        }, {
-          data: "Data 6",
-          value1: 10,
-          value2: 30
-        }, {
-          data: "Data 7",
-          value1: 60,
-          value2: 20
-        }]
-      }
-    }, {
-      type: 'mixed chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        fontColor: '#FF0000',
-        lineWidth: 5,
-        chart: {
-          type: 'bar',
-          subType: 'mixed',
-          data: {
-            labels: [],
-            datasets: [{
-              type: 'line',
-              label: "series 1",
-              backgroundColor: "rgb(66, 110, 164)",
-              borderColor: "rgb(66, 110, 164)",
-              borderWidth: 3,
-              pointBorderColor: "rgb(66, 110, 164)",
-              pointBorderWidth: 3,
-              pointBackgroundColor: "rgba(255,255,255,1)",
-              lineTension: 0.4,
-              fill: false,
-              yAxisID: 'left',
-              data: [],
-              dataKey: 'value1'
-            }, {
-              type: 'bar',
-              label: "series 2",
-              backgroundColor: "rgb(62, 196, 221)",
-              borderColor: "rgb(62, 196, 221)",
-              borderWidth: 0,
-              yAxisID: 'right',
-              data: [],
-              dataKey: 'value2'
-            }],
-            labelDataKey: 'data'
-          },
-          options: {
-            theme: 'dark',
-            multiAxis: true,
-            xGridLine: false,
-            yGridLine: true,
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            scales: {
-              xAxes: [{
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  display: true
-                }
-              }],
-              yAxes: [{
-                position: 'left',
-                id: 'left',
-                gridLines: {
-                  display: true
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }, {
-                id: 'right',
-                position: 'right',
-                display: true,
-                gridLines: {
-                  display: false
-                },
-                scaleLabel: {
-                  labelString: '',
-                  display: false
-                },
-                ticks: {
-                  autoMin: true,
-                  autoMax: true,
-                  display: true
-                }
-              }]
-            }
-          }
-        },
-        data: [{
-          data: "Data 1",
-          value1: 20,
-          value2: 60
-        }, {
-          data: "Data 2",
-          value1: 30,
-          value2: 10
-        }, {
-          data: "Data 3",
-          value1: 80,
-          value2: 40
-        }, {
-          data: "Data 4",
-          value1: 20,
-          value2: 30
-        }, {
-          data: "Data 5",
-          value1: 40,
-          value2: 80
-        }, {
-          data: "Data 6",
-          value1: 10,
-          value2: 30
-        }, {
-          data: "Data 7",
-          value1: 60,
-          value2: 20
-        }]
-      }
-    }, {
-      type: 'radar chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        fontColor: '#FF0000',
-        lineWidth: 5,
-        chart: {
-          type: 'radar',
-          data: {
-            labels: [],
-            datasets: [
-              {
-                label: "My First dataset",
-                type: 'radar',
-                backgroundColor: "rgb(66, 110, 164)",
-                borderColor: "rgb(66, 110, 164)",
-                pointBackgroundColor: "rgba(255,255,255,1)",
-                pointBorderColor: "rgb(66, 110, 164)",
-                data: [],
-                fill: false,
-                dataKey: 'rate1'
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
               },
-              {
-                label: "My Second dataset",
-                type: 'radar',
-                backgroundColor: "rgb(62, 196, 221)",
-                borderColor: "rgb(62, 196, 221)",
-                pointBackgroundColor: "rgba(255,255,255,1)",
-                pointBorderColor: "rgb(62, 196, 221)",
-                data: [],
-                fill: false,
-                dataKey: 'rate2'
-              }
-            ],
-            labelDataKey: 'hobby'
-          },
-          options: {
-            theme: 'dark',
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            scale: {
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
               ticks: {
+                display: true
               }
-            }
+            }],
+            yAxes: [{
+              id: 'left',
+              position: 'left',
+              gridLines: {
+                display: true
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }, {
+              id: 'right',
+              position: 'right',
+              display: false,
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }]
           }
+        }
+      },
+      data: [{
+        color: "Red",
+        value: 12
+      }, {
+        color: "Blue",
+        value: 19
+      }, {
+        color: "Yellow",
+        value: 3
+      }, {
+        color: "Green",
+        value: 5
+      }, {
+        color: "Purple",
+        value: 2
+      }, {
+        color: "Orange",
+        value: 3
+      }]
+    }
+  }, {
+    type: 'horizontal bar chart',
+    model: {
+      type: 'chartjs',
+      top: 200,
+      left: 300,
+      width: 200,
+      height: 200,
+      lineWidth: 5,
+      alpha: 1,
+      chart: {
+        type: 'horizontalBar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'series 1',
+            data: [],
+            backgroundColor: 'rgb(66, 110, 164)',
+            borderColor: 'rgb(66, 110, 164)',
+            borderWidth: 0,
+            dataKey: 'value1'
+          }, {
+            label: 'series 2',
+            data: [],
+            backgroundColor: "rgb(62, 196, 221)",
+            borderColor: "rgb(62, 196, 221)",
+            borderWidth: 0,
+            dataKey: 'value2'
+          }],
+          labelDataKey: 'color'
         },
-        data: [{
-          hobby: "Eating",
-          rate1: 65,
-          rate2: 28
-        }, {
-          hobby: "Drinking",
-          rate1: 59,
-          rate2: 48
-        }, {
-          hobby: "Sleeping",
-          rate1: 90,
-          rate2: 40
-        }, {
-          hobby: "Designing",
-          rate1: 81,
-          rate2: 19
-        }, {
-          hobby: "Coding",
-          rate1: 56,
-          rate2: 96
-        }, {
-          hobby: "Cycling",
-          rate1: 55,
-          rate2: 27
-        }, {
-          hobby: "Running",
-          rate1: 40,
-          rate2: 100
-        }]
-      }
-    }, {
-      type: 'polar area chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        fontColor: '#FF0000',
-        lineWidth: 5,
-        chart: {
-          type: 'polarArea',
-          data: {
-            labels: [],
-            datasets: [{
+        options: {
+          theme: 'dark',
+          xGridLine: true,
+          yGridLine: false,
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: true
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }],
+            yAxes: [{
+              id: 'left',
+              position: 'left',
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }]
+          }
+        }
+      },
+      data: [{
+        color: "Red",
+        value1: 12,
+        value2: 24
+      }, {
+        color: "Blue",
+        value1: 19,
+        value2: 9
+      }, {
+        color: "Yellow",
+        value1: 3,
+        value2: 6
+      }, {
+        color: "Green",
+        value1: 5,
+        value2: 2
+      }, {
+        color: "Purple",
+        value1: 2,
+        value2: 4
+      }, {
+        color: "Orange",
+        value1: 3,
+        value2: 1
+      }]
+    }
+  }, {
+    type: 'line chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      lineWidth: 5,
+      chart: {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: "series 1",
+            type: 'line',
+            backgroundColor: "rgb(66, 110, 164)",
+            borderColor: "rgb(66, 110, 164)",
+            borderWidth: 3,
+            pointBorderColor: "rgb(66, 110, 164)",
+            pointBorderWidth: 3,
+            pointBackgroundColor: "rgba(255,255,255,1)",
+            lineTension: 0.4,
+            yAxisID: 'left',
+            data: [],
+            dataKey: 'value1',
+            fill: false
+          }, {
+            label: "series 2",
+            type: 'line',
+            backgroundColor: "rgb(62, 196, 221)",
+            borderColor: "rgb(62, 196, 221)",
+            borderWidth: 3,
+            pointBorderColor: "rgb(62, 196, 221)",
+            pointBorderWidth: 3,
+            pointBackgroundColor: "rgba(255,255,255,1)",
+            lineTension: 0.4,
+            yAxisID: 'left',
+            data: [],
+            dataKey: 'value2',
+            fill: false
+          }],
+          labelDataKey: 'data'
+        },
+        options: {
+          theme: 'dark',
+          xGridLine: false,
+          yGridLine: true,
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                display: true
+              }
+            }],
+            yAxes: [{
+              id: 'left',
+              position: 'left',
+              gridLines: {
+                display: true
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }, {
+              id: 'right',
+              position: 'right',
+              display: false,
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }]
+          }
+        }
+      },
+      data: [{
+        data: "Data 1",
+        value1: 20,
+        value2: 60
+      }, {
+        data: "Data 2",
+        value1: 30,
+        value2: 10
+      }, {
+        data: "Data 3",
+        value1: 80,
+        value2: 40
+      }, {
+        data: "Data 4",
+        value1: 20,
+        value2: 30
+      }, {
+        data: "Data 5",
+        value1: 40,
+        value2: 80
+      }, {
+        data: "Data 6",
+        value1: 10,
+        value2: 30
+      }, {
+        data: "Data 7",
+        value1: 60,
+        value2: 20
+      }]
+    }
+  }, {
+    type: 'mixed chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      fontColor: '#FF0000',
+      lineWidth: 5,
+      chart: {
+        type: 'bar',
+        subType: 'mixed',
+        data: {
+          labels: [],
+          datasets: [{
+            type: 'line',
+            label: "series 1",
+            backgroundColor: "rgb(66, 110, 164)",
+            borderColor: "rgb(66, 110, 164)",
+            borderWidth: 3,
+            pointBorderColor: "rgb(66, 110, 164)",
+            pointBorderWidth: 3,
+            pointBackgroundColor: "rgba(255,255,255,1)",
+            lineTension: 0.4,
+            fill: false,
+            yAxisID: 'left',
+            data: [],
+            dataKey: 'value1'
+          }, {
+            type: 'bar',
+            label: "series 2",
+            backgroundColor: "rgb(62, 196, 221)",
+            borderColor: "rgb(62, 196, 221)",
+            borderWidth: 0,
+            yAxisID: 'right',
+            data: [],
+            dataKey: 'value2'
+          }],
+          labelDataKey: 'data'
+        },
+        options: {
+          theme: 'dark',
+          multiAxis: true,
+          xGridLine: false,
+          yGridLine: true,
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                display: true
+              }
+            }],
+            yAxes: [{
+              position: 'left',
+              id: 'left',
+              gridLines: {
+                display: true
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }, {
+              id: 'right',
+              position: 'right',
+              display: true,
+              gridLines: {
+                display: false
+              },
+              scaleLabel: {
+                labelString: '',
+                display: false
+              },
+              ticks: {
+                autoMin: true,
+                autoMax: true,
+                display: true
+              }
+            }]
+          }
+        }
+      },
+      data: [{
+        data: "Data 1",
+        value1: 20,
+        value2: 60
+      }, {
+        data: "Data 2",
+        value1: 30,
+        value2: 10
+      }, {
+        data: "Data 3",
+        value1: 80,
+        value2: 40
+      }, {
+        data: "Data 4",
+        value1: 20,
+        value2: 30
+      }, {
+        data: "Data 5",
+        value1: 40,
+        value2: 80
+      }, {
+        data: "Data 6",
+        value1: 10,
+        value2: 30
+      }, {
+        data: "Data 7",
+        value1: 60,
+        value2: 20
+      }]
+    }
+  }, {
+    type: 'radar chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      fontColor: '#FF0000',
+      lineWidth: 5,
+      chart: {
+        type: 'radar',
+        data: {
+          labels: [],
+          datasets: [
+            {
               label: "My First dataset",
-              backgroundColor: [
-                "rgba(248, 42, 18, 1)",
-                "rgba(255,99,132,1)",
-                "rgba(9, 64, 169, 1)",
-                "rgba(24, 185, 87, 1)",
-                "rgba(216, 100, 19, 1)",
-                "rgba(82, 8, 99, 1)",
-                "rgba(225, 102, 234, 1)"
-              ],
-              borderColor: "rgba(179,181,198,1)",
-              borderWidth: 0,
+              type: 'radar',
+              backgroundColor: "rgb(66, 110, 164)",
+              borderColor: "rgb(66, 110, 164)",
+              pointBackgroundColor: "rgba(255,255,255,1)",
+              pointBorderColor: "rgb(66, 110, 164)",
               data: [],
+              fill: false,
               dataKey: 'rate1'
-            }],
-            labelDataKey: 'hobby'
-          },
-          options: {
-            theme: 'dark',
-            legend: {
-              display: true,
-              position: 'top'
-            }
-          }
-        },
-        data: [{
-          hobby: "Eating",
-          rate1: 65,
-          rate2: 28
-        }, {
-          hobby: "Drinking",
-          rate1: 59,
-          rate2: 48
-        }, {
-          hobby: "Sleeping",
-          rate1: 90,
-          rate2: 40
-        }, {
-          hobby: "Designing",
-          rate1: 81,
-          rate2: 19
-        }, {
-          hobby: "Coding",
-          rate1: 56,
-          rate2: 96
-        }, {
-          hobby: "Cycling",
-          rate1: 55,
-          rate2: 27
-        }, {
-          hobby: "Running",
-          rate1: 40,
-          rate2: 100
-        }]
-      }
-    }, {
-      type: 'pie chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        fontColor: '#FF0000',
-        lineWidth: 5,
-        chart: {
-          type: 'pie',
-          data: {
-            labels: [],
-            datasets: [{
-              data: [],
-              backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-              ],
-              borderWidth: 0,
-              dataKey: 'value'
-            }],
-            labelDataKey: 'label'
-          },
-          options: {
-            theme: 'dark',
-            legend: {
-              display: true,
-              position: 'top'
             },
-            animation: {
-              animateScale: true
-            }
-          }
-        },
-        data: [{
-          label: "A",
-          value: 80
-        }, {
-          label: "B",
-          value: 15
-        }, {
-          label: "C",
-          value: 15
-        }]
-      }
-    }, {
-      type: 'doughnut chart',
-      model: {
-        type: 'chartjs',
-        top: 0,
-        left: 0,
-        width: 200,
-        height: 200,
-        fontColor: '#FF0000',
-        lineWidth: 5,
-        chart: {
-          type: 'doughnut',
-          data: {
-            labels: [],
-            datasets: [{
+            {
+              label: "My Second dataset",
+              type: 'radar',
+              backgroundColor: "rgb(62, 196, 221)",
+              borderColor: "rgb(62, 196, 221)",
+              pointBackgroundColor: "rgba(255,255,255,1)",
+              pointBorderColor: "rgb(62, 196, 221)",
               data: [],
-              backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-              ],
-              borderWidth: 0,
-              dataKey: 'value'
-            }],
-            labelDataKey: 'label'
+              fill: false,
+              dataKey: 'rate2'
+            }
+          ],
+          labelDataKey: 'hobby'
+        },
+        options: {
+          theme: 'dark',
+          legend: {
+            display: true,
+            position: 'top'
           },
-          options: {
-            theme: 'dark',
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            animation: {
-              animateScale: true
+          scale: {
+            ticks: {
             }
           }
+        }
+      },
+      data: [{
+        hobby: "Eating",
+        rate1: 65,
+        rate2: 28
+      }, {
+        hobby: "Drinking",
+        rate1: 59,
+        rate2: 48
+      }, {
+        hobby: "Sleeping",
+        rate1: 90,
+        rate2: 40
+      }, {
+        hobby: "Designing",
+        rate1: 81,
+        rate2: 19
+      }, {
+        hobby: "Coding",
+        rate1: 56,
+        rate2: 96
+      }, {
+        hobby: "Cycling",
+        rate1: 55,
+        rate2: 27
+      }, {
+        hobby: "Running",
+        rate1: 40,
+        rate2: 100
+      }]
+    }
+  }, {
+    type: 'polar area chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      fontColor: '#FF0000',
+      lineWidth: 5,
+      chart: {
+        type: 'polarArea',
+        data: {
+          labels: [],
+          datasets: [{
+            label: "My First dataset",
+            backgroundColor: [
+              "rgba(248, 42, 18, 1)",
+              "rgba(255,99,132,1)",
+              "rgba(9, 64, 169, 1)",
+              "rgba(24, 185, 87, 1)",
+              "rgba(216, 100, 19, 1)",
+              "rgba(82, 8, 99, 1)",
+              "rgba(225, 102, 234, 1)"
+            ],
+            borderColor: "rgba(179,181,198,1)",
+            borderWidth: 0,
+            data: [],
+            dataKey: 'rate1'
+          }],
+          labelDataKey: 'hobby'
         },
-        data: [{
-          label: "Red",
-          value: 300
-        }, {
-          label: "Blue",
-          value: 50
-        }, {
-          label: "Yellow",
-          value: 100
-        }]
-      }
-    },
-    {
+        options: {
+          theme: 'dark',
+          legend: {
+            display: true,
+            position: 'top'
+          }
+        }
+      },
+      data: [{
+        hobby: "Eating",
+        rate1: 65,
+        rate2: 28
+      }, {
+        hobby: "Drinking",
+        rate1: 59,
+        rate2: 48
+      }, {
+        hobby: "Sleeping",
+        rate1: 90,
+        rate2: 40
+      }, {
+        hobby: "Designing",
+        rate1: 81,
+        rate2: 19
+      }, {
+        hobby: "Coding",
+        rate1: 56,
+        rate2: 96
+      }, {
+        hobby: "Cycling",
+        rate1: 55,
+        rate2: 27
+      }, {
+        hobby: "Running",
+        rate1: 40,
+        rate2: 100
+      }]
+    }
+  }, {
+    type: 'pie chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      fontColor: '#FF0000',
+      lineWidth: 5,
+      chart: {
+        type: 'pie',
+        data: {
+          labels: [],
+          datasets: [{
+            data: [],
+            backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+              "#FFCE56"
+            ],
+            borderWidth: 0,
+            dataKey: 'value'
+          }],
+          labelDataKey: 'label'
+        },
+        options: {
+          theme: 'dark',
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          animation: {
+            animateScale: true
+          }
+        }
+      },
+      data: [{
+        label: "A",
+        value: 80
+      }, {
+        label: "B",
+        value: 15
+      }, {
+        label: "C",
+        value: 15
+      }]
+    }
+  }, {
+    type: 'doughnut chart',
+    model: {
+      type: 'chartjs',
+      top: 0,
+      left: 0,
+      width: 200,
+      height: 200,
+      fontColor: '#FF0000',
+      lineWidth: 5,
+      chart: {
+        type: 'doughnut',
+        data: {
+          labels: [],
+          datasets: [{
+            data: [],
+            backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+              "#FFCE56"
+            ],
+            borderWidth: 0,
+            dataKey: 'value'
+          }],
+          labelDataKey: 'label'
+        },
+        options: {
+          theme: 'dark',
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          animation: {
+            animateScale: true
+          }
+        }
+      },
+      data: [{
+        label: "Red",
+        value: 300
+      }, {
+        label: "Blue",
+        value: 50
+      }, {
+        label: "Yellow",
+        value: 100
+      }]
+    }
+  },
+  {
+    type: 'gauge-circle',
+    model: {
       type: 'gauge-circle',
-      model: {
-        type: 'gauge-circle',
-        cx: 150,
-        cy: 150,
-        rx: 100,
-        ry: 100,
-        fontSize: 15,
-        fillStyle: '#ff00ff',
-        // strokeStyle: '#552555',
-        fontColor: 'black',
-        lineWidth: 0,
-        value: 65,
-        startValue: 0,
-        endValue: 100,
-        step: 20,
-        colorStops: [
-          {
-            position: 50,
-            color: '#76c045'
-          },
-          {
-            position: 80,
-            color: '#ffa302'
-          },
-          {
-            position: 100,
-            color: '#fd3c00'
-          }],
-        textFillStyle: '#585858',
-        stepFillStyle: '#ffffff',
-        needleFillStyle: '#585858',
-        ratio: 70,
-        startAngle: -120,
-        endAngle: 120,
-        subStep: 5,
-        stepTextSize: 5,
-        stepNeedleSize: 1,
-        alpha: 1,
-        showStartValue: true,
-        showEndValue: true,
-        showStepLine: true,
-        showStepText: true,
-        showSubStep: true,
-        inText: true
-      }
-    }, {
+      cx: 150,
+      cy: 150,
+      rx: 100,
+      ry: 100,
+      fontSize: 15,
+      fillStyle: '#ff00ff',
+      // strokeStyle: '#552555',
+      fontColor: 'black',
+      lineWidth: 0,
+      value: 65,
+      startValue: 0,
+      endValue: 100,
+      step: 20,
+      colorStops: [
+        {
+          position: 50,
+          color: '#76c045'
+        },
+        {
+          position: 80,
+          color: '#ffa302'
+        },
+        {
+          position: 100,
+          color: '#fd3c00'
+        }],
+      textFillStyle: '#585858',
+      stepFillStyle: '#ffffff',
+      needleFillStyle: '#585858',
+      ratio: 70,
+      startAngle: -120,
+      endAngle: 120,
+      subStep: 5,
+      stepTextSize: 5,
+      stepNeedleSize: 1,
+      alpha: 1,
+      showStartValue: true,
+      showEndValue: true,
+      showStepLine: true,
+      showStepText: true,
+      showSubStep: true,
+      inText: true
+    }
+  }, {
+    type: 'gauge-vertical',
+    model: {
       type: 'gauge-vertical',
-      model: {
-        type: 'gauge-vertical',
-        top: 100,
-        left: 100,
-        width: 60,
-        height: 200,
-        value: 65,
-        fontSize: 15,
-        fontColor: '#585858',
-        startValue: 0,
-        endValue: 100,
-        needleFillStyle: '#585858',
-        stepFillStyle: '#ffffff',
-        textFillStyle: '#585858',
-        needleSize: 3,
-        stepNeedleSize: 1,
-        stepTextSize: 7,
-        step: 20,
-        subStep: 5,
-        showStepText: true,
-        showStartValue: true,
-        showEndValue: true,
-        showStepLine: true,
-        showSubStep: true,
-        colorStops: [
-          {
-            position: 50,
-            color: '#76c045'
-          },
-          {
-            position: 80,
-            color: '#ffa302'
-          },
-          {
-            position: 100,
-            color: '#fd3c00'
-          }],
-        alpha: 1
-      }
-    }, {
+      top: 100,
+      left: 100,
+      width: 60,
+      height: 200,
+      value: 65,
+      fontSize: 15,
+      fontColor: '#585858',
+      startValue: 0,
+      endValue: 100,
+      needleFillStyle: '#585858',
+      stepFillStyle: '#ffffff',
+      textFillStyle: '#585858',
+      needleSize: 3,
+      stepNeedleSize: 1,
+      stepTextSize: 7,
+      step: 20,
+      subStep: 5,
+      showStepText: true,
+      showStartValue: true,
+      showEndValue: true,
+      showStepLine: true,
+      showSubStep: true,
+      colorStops: [
+        {
+          position: 50,
+          color: '#76c045'
+        },
+        {
+          position: 80,
+          color: '#ffa302'
+        },
+        {
+          position: 100,
+          color: '#fd3c00'
+        }],
+      alpha: 1
+    }
+  }, {
+    type: 'gauge-horizon',
+    model: {
       type: 'gauge-horizon',
-      model: {
-        type: 'gauge-horizon',
-        top: 100,
-        left: 100,
-        width: 200,
-        height: 60,
-        value: 65,
-        fontSize: 15,
-        fontColor: '#585858',
-        fillStyle: '#ff00ff',
-        startValue: 0,
-        endValue: 100,
-        needleFillStyle: '#585858',
-        stepFillStyle: '#ffffff',
-        textFillStyle: '#585858',
-        stepNeedleSize: 1,
-        needleSize: 3,
-        stepTextSize: 7,
-        step: 20,
-        subStep: 5,
-        showStepText: true,
-        showStartValue: true,
-        showEndValue: true,
-        showStepLine: true,
-        showSubStep: true,
-        colorStops: [
-          {
-            position: 50,
-            color: '#76c045'
-          },
-          {
-            position: 80,
-            color: '#ffa302'
-          },
-          {
-            position: 100,
-            color: '#fd3c00'
-          }],
-        alpha: 1
-      }
-    }, {
+      top: 100,
+      left: 100,
+      width: 200,
+      height: 60,
+      value: 65,
+      fontSize: 15,
+      fontColor: '#585858',
+      fillStyle: '#ff00ff',
+      startValue: 0,
+      endValue: 100,
+      needleFillStyle: '#585858',
+      stepFillStyle: '#ffffff',
+      textFillStyle: '#585858',
+      stepNeedleSize: 1,
+      needleSize: 3,
+      stepTextSize: 7,
+      step: 20,
+      subStep: 5,
+      showStepText: true,
+      showStartValue: true,
+      showEndValue: true,
+      showStepLine: true,
+      showSubStep: true,
+      colorStops: [
+        {
+          position: 50,
+          color: '#76c045'
+        },
+        {
+          position: 80,
+          color: '#ffa302'
+        },
+        {
+          position: 100,
+          color: '#fd3c00'
+        }],
+      alpha: 1
+    }
+  }, {
+    type: 'progress-vertical',
+    model: {
       type: 'progress-vertical',
-      model: {
-        type: 'progress-vertical',
-        top: 100,
-        left: 100,
-        width: 70,
-        height: 200,
-        value: 65,
-        fontSize: 20,
-        fontColor: '#fff',
-        fontFamily: 'Arial',
-        fillStyle: '#76c045',
-        strokeStyle: '#585858',
-        text: '#{value}%',
-        alpha: 1,
-        hidden: false,
-        lineWidth: 1,
-        lineDash: 'solid',
-        lineCap: 'butt'
-      }
-    }, {
+      top: 100,
+      left: 100,
+      width: 70,
+      height: 200,
+      value: 65,
+      fontSize: 20,
+      fontColor: '#fff',
+      fontFamily: 'Arial',
+      fillStyle: '#76c045',
+      strokeStyle: '#585858',
+      text: '#{value}%',
+      alpha: 1,
+      hidden: false,
+      lineWidth: 1,
+      lineDash: 'solid',
+      lineCap: 'butt'
+    }
+  }, {
+    type: 'progress-horizontal',
+    model: {
       type: 'progress-horizontal',
-      model: {
-        type: 'progress-horizontal',
-        top: 100,
-        left: 100,
-        width: 200,
-        height: 70,
-        value: 65,
-        reverse: false,
-        fontSize: 20,
-        fontColor: '#fff',
-        fontFamily: 'Arial',
-        fillStyle: '#76c045',
-        strokeStyle: '#585858',
-        text: '#{value}%',
-        alpha: 1,
-        hidden: false,
-        lineWidth: 1,
-        lineDash: 'solid',
-        lineCap: 'butt'
-      }
-    }, {
+      top: 100,
+      left: 100,
+      width: 200,
+      height: 70,
+      value: 65,
+      reverse: false,
+      fontSize: 20,
+      fontColor: '#fff',
+      fontFamily: 'Arial',
+      fillStyle: '#76c045',
+      strokeStyle: '#585858',
+      text: '#{value}%',
+      alpha: 1,
+      hidden: false,
+      lineWidth: 1,
+      lineDash: 'solid',
+      lineCap: 'butt'
+    }
+  }, {
+    type: 'progress-circle',
+    model: {
       type: 'progress-circle',
-      model: {
-        type: 'progress-circle',
-        cy: 150,
-        cx: 150,
-        rx: 70,
-        ry: 70,
-        value: 65,
-        startAngle: 0,
-        endAngle: 360,
-        fontSize: 20,
-        strokeStyle: '#76c045',
-        blankStrokeStyle: '#ccc',
-        fontFamily: 'Arial',
-        fontColor: '#585858',
-        text: '#{value}%',
-        alpha: 1,
-        hidden: false,
-        lineWidth: 20,
-        lineDash: 'solid',
-        lineCap: 'round'
-      }
-    }, {
+      cy: 150,
+      cx: 150,
+      rx: 70,
+      ry: 70,
+      value: 65,
+      startAngle: 0,
+      endAngle: 360,
+      fontSize: 20,
+      strokeStyle: '#76c045',
+      blankStrokeStyle: '#ccc',
+      fontFamily: 'Arial',
+      fontColor: '#585858',
+      text: '#{value}%',
+      alpha: 1,
+      hidden: false,
+      lineWidth: 20,
+      lineDash: 'solid',
+      lineCap: 'round'
+    }
+  }, {
+    type: 'echart',
+    model: {
       type: 'echart',
-      model: {
-        type: 'echart',
-        top: 0,
-        left: 0,
-        width: 400,
-        height: 300,
-        fontColor: "red",
-        lineWidth: 1,
-        series:
-`[{
+      top: 0,
+      left: 0,
+      width: 400,
+      height: 300,
+      fontColor: "red",
+      lineWidth: 1,
+      series:
+        `[{
 name:'利润',
 type:'bar',
 label: {
@@ -1224,8 +1224,8 @@ position: 'left'
 },
 data:[-120, -132, -101, -134, -190, -230, -210]
 }]`,
-        option:
-`{
+      option:
+        `{
 tooltip : {
 trigger: 'axis',
 axisPointer : {
@@ -1276,7 +1276,7 @@ data : ['周一','周二','周三','周四','周五','周六','周日']
   }]
 };
 
-function table () {
+function table() {
   return [{
     type: 'table',
     model: {
@@ -1299,7 +1299,7 @@ function table () {
   }]
 };
 
-function container () {
+function container() {
   return [{
     type: 'container',
     model: {
@@ -1374,7 +1374,7 @@ function container () {
   }]
 }
 
-function dataSource () {
+function dataSource() {
   return [{
     type: 'stomp',
     model: {
@@ -1443,7 +1443,7 @@ function dataSource () {
   }]
 };
 
-function IoTs () {
+function IoTs() {
   return [{
     type: 'beacon',
     model: {
@@ -1471,7 +1471,7 @@ function IoTs () {
   }]
 };
 
-function threeD () {
+function threeD() {
   return [{
     type: 'three container',
     model: {
@@ -1575,7 +1575,7 @@ function threeD () {
   }]
 };
 
-function warehouse () {
+function warehouse() {
   return [{
     type: 'visualizer',
     model: {
@@ -1764,9 +1764,9 @@ function warehouse () {
   }]
 };
 
-function form () {
+function form() {
 
-  var inputs01 = ['text', 'password', 'email', 'search', 'number', 'color', 'range', 'file', 'date'].map(function(type) {
+  var inputs01 = ['text', 'password', 'email', 'search', 'number', 'color', 'range', 'file', 'date'].map(function (type) {
     return {
       type: 'input-' + type,
       model: {
@@ -1788,7 +1788,7 @@ function form () {
     }
   })
 
-  var inputs02 = ['submit', 'reset'].map(function(type) {
+  var inputs02 = ['submit', 'reset'].map(function (type) {
     return {
       type: 'input-' + type,
       model: {
@@ -1805,7 +1805,7 @@ function form () {
     }
   })
 
-  var button = ['button'].map(function(type) {
+  var button = ['button'].map(function (type) {
     return {
       type: type,
       model: {
@@ -1822,7 +1822,7 @@ function form () {
     }
   })
 
-  var textibles = ['input-radio', 'input-checkbox'].map(function(type) {
+  var textibles = ['input-radio', 'input-checkbox'].map(function (type) {
     return {
       type: type,
       model: {
@@ -1839,7 +1839,7 @@ function form () {
     }
   })
 
-  var fieldset = ['fieldset', 'iframe', 'img', 'link'].map(function(type) {
+  var fieldset = ['fieldset', 'iframe', 'img', 'link'].map(function (type) {
     return {
       type: type,
       model: {
@@ -1859,7 +1859,7 @@ function form () {
     }
   })
 
-  var others = ['textarea', 'select'].map(function(type) {
+  var others = ['textarea', 'select'].map(function (type) {
     return {
       type: type,
       model: {
@@ -1903,7 +1903,7 @@ function form () {
   return form.concat(inputs01, inputs02, button, textibles, fieldset, others)
 };
 
-function etc () {
+function etc() {
   return [{
     type: 'info. window',
     model: {
@@ -2061,7 +2061,7 @@ const STATE = {
   }
 };
 
-export default function(state = STATE, action) {
+export default function (state = STATE, action) {
   switch (action.type) {
     default:
       return state

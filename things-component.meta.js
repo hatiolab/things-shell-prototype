@@ -14,24 +14,24 @@ try {
       path: path.relative(__dirname, path.resolve(thingsDir, folder, package.main))
     }
   });
-} catch(e) {
+} catch (e) {
   console.error(e);
 }
 
-const samplesDir = path.resolve(__dirname, 'samples');
-const samples = {};
+// const samplesDir = path.resolve(__dirname, 'samples');
+// const samples = {};
 
-try {
-  const files = fs.readdirSync(samplesDir);
+// try {
+//   const files = fs.readdirSync(samplesDir);
 
-  files.forEach(function (file) {
-    samples[file] = path.resolve(samplesDir, file);
-  });
-} catch(e) {
-  console.error(e);
-}
+//   files.forEach(function (file) {
+//     samples[file] = path.resolve(samplesDir, file);
+//   });
+// } catch(e) {
+//   console.error(e);
+// }
 
 module.exports = {
   components,
-  samples
+  // samples
 };

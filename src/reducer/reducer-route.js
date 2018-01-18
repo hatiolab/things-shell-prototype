@@ -7,7 +7,7 @@ function set(state, o) {
   return Object.assign({}, state, o)
 }
 
-export default function(state = STATE, action) {
+export default function (state = STATE, action) {
   switch (action.type) {
     case 'INIT-ROUTE':
       return set(state, {

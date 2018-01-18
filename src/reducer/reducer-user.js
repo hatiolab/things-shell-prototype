@@ -1,10 +1,10 @@
 const STATE = {
   id: 'heartyoh',
   name: 'heartyoh',
-  language: 'ko-KR'
+  language: 'zh-CN'
 }
 
-export default function(state = STATE, action) {
+export default function (state = STATE, action) {
   switch (action.type) {
     default:
       return state

@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var resolve = require('resolve');
+var path = require('path');
+
+process.title = 'things-shell';
+
+resolve('things-shell', { basedir: process.cwd() }, function (error, libpath) {
+  var server = require('../server');
+
+  //   server.
+  //   // var clipath = libpath ? path.resolve(libpath, '../cli') : '../lib/cli';
+  //   // var cli = require(clipath);
+  //   // cli.run(process.argv)
+  //   //   .catch(function (e) {
+  //   //     console.error(e);
+  //   //     process.exit(69);
+  //   //   });
+});

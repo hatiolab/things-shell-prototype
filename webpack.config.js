@@ -14,7 +14,10 @@ var outputPath = resolve('dist');
 
 module.exports = {
   entry: {
-    'bundle': './src/index.js'
+    bundle: [
+      './src/index.js',
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+    ]
   },
   output: {
     path: outputPath,
@@ -22,8 +25,7 @@ module.exports = {
   },
   resolve: {
     modules: [
-      resolve(__dirname, 'node_modules'),
-      resolve(__dirname, 'bower_components')
+      resolve(__dirname, 'node_modules')
     ]
   },
   resolveLoader: {
@@ -149,7 +151,8 @@ module.exports = {
     //   arch: "x64",
     //   packageManager: "yarn",
     //   platform: "darwin",
-    // })
+    // }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devtool: 'cheap-module-source-map',
   devServer: {

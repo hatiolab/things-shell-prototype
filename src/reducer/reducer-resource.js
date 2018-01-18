@@ -1,4 +1,4 @@
-import {merge} from 'lodash';
+import { merge } from 'lodash';
 
 import en_US from '../resources/en-US.json';
 import ko_KR from '../resources/ko-KR.json';
@@ -21,7 +21,7 @@ const STATE = {
 
 merge(STATE, en_US, ko_KR, zh_CN);
 
-export default function(state = STATE, action) {
+export default function (state = STATE, action) {
   switch (action.type) {
     default:
       return state
