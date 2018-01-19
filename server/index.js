@@ -14,6 +14,7 @@ var DIST_DIR = path.join(__dirname, 'dist'),
   router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(webpackHotMiddleware(compiler, {
   log: console.log

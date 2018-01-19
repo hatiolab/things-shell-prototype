@@ -1,6 +1,6 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {AppLocalizeBehavior} from '../components/app-localize-behavior';
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { AppLocalizeBehavior } from '../components/app-localize-behavior';
 
 import '@polymer/app-layout/app-drawer/app-drawer';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout';
@@ -26,7 +26,7 @@ import '@polymer/iron-icons/social-icons';
 
 // import 'polymerfire/firebase-app.html';
 
-import {ReduxMixin} from '../reducer/redux-mixin';
+import { ReduxMixin } from '../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -89,7 +89,7 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
       },
       mainTitle: {
         type: String,
-        statePath: 'sceneCurrent.title'
+        statePath: 'sceneCurrent.name'
       },
       user: {
         type: Object,
@@ -126,12 +126,12 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
   }
 
   _onPageChanged(page = 'list') {
-    switch(page) {
-    case 'modeler':
-      this.$.drawerlayout.forceNarrow = true;
-      break;
-    default:
-      this.$.drawerlayout.forceNarrow = false;
+    switch (page) {
+      case 'modeler':
+        this.$.drawerlayout.forceNarrow = true;
+        break;
+      default:
+        this.$.drawerlayout.forceNarrow = false;
     }
 
     // Close a non-persistent drawer when the page & route are changed.
@@ -147,7 +147,7 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
     // .catch(e => this._showPage404());
   }
 
-  onDrawerCollapsedChanged (collapsed) {
+  onDrawerCollapsedChanged(collapsed) {
     this.$.drawerlayout.drawer.toggle();
   }
 

@@ -11,8 +11,31 @@ module.exports = function (app, db) {
     var indexFile = path.resolve(process.cwd(), 'boards/groups.json');
 
     var contents = fs.readFileSync(indexFile);
-    var jsonContent = JSON.parse(contents);
+    var list = JSON.parse(contents);
 
-    res.send(jsonContent);
+    var list = Object.keys(list).map(key => {
+      return {
+        name: key,
+        value: list[key]
+      }
+    });
+
+    res.send(list);
+  });
+
+  app.get('/groups/:group/boards', (req, res) => {
+    var indexFile = path.resolve(process.cwd(), 'boards/boards.json');
+
+    var contents = fs.readFileSync(indexFile);
+    var list = JSON.parse(contents);
+
+    var list = Object.keys(list).map(key => {
+      return {
+        name: key,
+        value: list[key]
+      }
+    }).filter(model => model.value.group == req.params.group);
+
+    res.send(list);
   })
 };

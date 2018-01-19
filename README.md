@@ -17,7 +17,7 @@
 - 서버리스 구성을 위한 방안 필요함.
 - 웹폰트 기능을 Model에 추가하는 방안.
 - things-resource-combo 제거.
-### lit-html template (미진행)
+### lit-html template (미진행 - https://github.com/nhnent/fe.javascript/wiki/December-11---December-15,-2017)
 - 내부에서 HTML 템플릿을 동적으로 만드는 경우에 적용.
 - 향후 Polymer 3 내부에서 광범위하게 사용될 것으로 예상되므로, 미리 익숙해지기 위함임.
 ### 폴더 구조

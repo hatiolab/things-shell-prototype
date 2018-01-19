@@ -5,21 +5,38 @@
 //   }
 // });
 
-import '@hatiolab/things-scene';
+// import '@hatiolab/things-scene';
 
-const STATE = Object.keys(META.components).map((name) => {
-  let component = META.components[name];
+// const STATE = Object.keys(META.components).map((name) => {
+//   let component = META.components[name];
 
-  // System.import('../../' + component.path);
+//   // System.import('../../' + component.path);
 
-  return {
-    name: name,
-    description: META.components[name].path
-  }
-});
+//   return {
+//     name: name,
+//     description: META.components[name].path
+//   }
+// });
+
+// export default function (state = STATE, action) {
+//   switch (action.type) {
+//     default:
+//       return state
+//   }
+// }
+
+
+
+const STATE = [];
 
 export default function (state = STATE, action) {
   switch (action.type) {
+    case 'GROUP-LIST':
+      return action.list;
+
+    case 'CLEAR-GROUP-LIST':
+      return [];
+
     default:
       return state
   }

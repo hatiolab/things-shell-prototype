@@ -3,7 +3,7 @@
   <label>{{labelName}}</label>
 
   <paper-icon-button id="undo" title="undo ([[getShortcutString('cmd', 'z')]])"></paper-icon-button>
-    <paper-icon-button id="redo" title="redo ([[getShortcutString('cmd', 'shift', 'z')]])"></paper-icon-button>
+  <paper-icon-button id="redo" title="redo ([[getShortcutString('cmd', 'shift', 'z')]])"></paper-icon-button>
 
   <span class="vline"></span>
 
@@ -28,9 +28,11 @@
   <paper-icon-button data-align="middle" id="align-middle" title="align middle ([[getShortcutString('alt', 'shift', 'm')]])"></paper-icon-button>
   <paper-icon-button data-align="bottom" id="align-bottom" title="align bottom ([[getShortcutString('alt', 'shift', 'b')]])"></paper-icon-button>
 
-  <paper-icon-button data-distribute="HORIZONTAL" id="distribute-horizontal" title="distribute horizontally ([[getShortcutString('alt', 'shift', 'h')]])"></paper-icon-button>
+  <paper-icon-button data-distribute="HORIZONTAL" id="distribute-horizontal"
+    title="distribute horizontally ([[getShortcutString('alt', 'shift', 'h')]])"></paper-icon-button>
 
-  <paper-icon-button data-distribute="VERTICAL" id="distribute-vertical" title="distribute vertically ([[getShortcutString('alt', 'shift', 'v')]])"></paper-icon-button>
+  <paper-icon-button data-distribute="VERTICAL" id="distribute-vertical"
+    title="distribute vertically ([[getShortcutString('alt', 'shift', 'v')]])"></paper-icon-button>
 
   <span class="vline"></span>
 
@@ -68,6 +70,7 @@
 
   <paper-icon-button id="fullscreen" title="fullscreen ([[getShortcutString('f11')]])"></paper-icon-button>
 
-  <paper-icon-button id="toggle-property" title="toggle property panel ([[getShortcutString('cmd', 'h')]])" toggles="true"></paper-icon-button>
+  <paper-icon-button id="toggle-property" title="toggle property panel ([[getShortcutString('cmd', 'h')]])"
+    toggles="true"></paper-icon-button>
 
 </page-toolbar>

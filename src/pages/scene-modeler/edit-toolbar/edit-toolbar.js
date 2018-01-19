@@ -1,9 +1,9 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/paper-slider/paper-slider';
 import '@polymer/paper-toast/paper-toast';
 
-import {ReduxMixin} from '../../../reducer/redux-mixin';
+import { ReduxMixin, saveScene } from '../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -39,6 +39,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         value: false
       },
       labelName: {
+        value: 'SAMPLE',
         notify: true
       },
       variables: {
@@ -84,7 +85,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     var modelerScene = this.parentNode.querySelector('things-shell');
     var modelerHtoolbar = this;
 
-    var userOS =  this._isMacOS()// OS가 맥인지 확인
+    var userOS = this._isMacOS()// OS가 맥인지 확인
 
     modelerScene.addEventListener('keydown', e => {
       this.onShortcut(e, userOS)
@@ -111,7 +112,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
   getSymbol(key) {
     var symbol;
-    switch(key) {
+    switch (key) {
       case 'cmd':
       case 'ctrl':
         symbol = this._isMacOS() ? '⌘' : 'Ctrl'
@@ -137,7 +138,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     return symbol;
   }
 
-  getShortcutString () {
+  getShortcutString() {
     var symbols = [];
     for (var i = 0; i < arguments.length; i++) {
       symbols.push(this.getSymbol(arguments[i]))
@@ -146,7 +147,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     return symbols.join(this._isMacOS() ? '' : '+')
   }
 
-  onShortcut (e, MacOS) {
+  onShortcut(e, MacOS) {
     if (MacOS)
       var ctrlKey = e.metaKey
     else
@@ -228,8 +229,9 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         this.onTapFullscreen()
         break
       case 'KeyS':
-        if (ctrlKey)
-          document.querySelector('things-modeler-scene').onTapSave()
+        if (ctrlKey) {
+          this.dispatch(saveScene(this.scene.model));
+        }
         break
       case 'KeyP':
         if (ctrlKey)
@@ -288,25 +290,25 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onExecute (command, undoable, redoable) {
+  onExecute(command, undoable, redoable) {
 
     this.$.undo.disabled = !undoable
     this.$.redo.disabled = !redoable
   }
 
-  onUndo (undoable, redoable) {
+  onUndo(undoable, redoable) {
 
     this.$.undo.disabled = !undoable
     this.$.redo.disabled = !redoable
   }
 
-  onRedo (undoable, redoable) {
+  onRedo(undoable, redoable) {
 
     this.$.undo.disabled = !undoable
     this.$.redo.disabled = !redoable
   }
 
-  onSceneChanged (after, before) {
+  onSceneChanged(after, before) {
 
     if (before) {
       before.off('execute', this.onExecute, this)
@@ -321,7 +323,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onSelectedChanged (after, before) {
+  onSelectedChanged(after, before) {
 
     var alignable = after.length > 1
 
@@ -343,22 +345,22 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.$['back'].disabled = !(alignable || movable)
   }
 
-  onTapUndo (e) {
+  onTapUndo(e) {
     this.scene && this.scene.undo()
   }
 
-  onTapRedo (e) {
+  onTapRedo(e) {
     this.scene && this.scene.redo()
   }
 
-  onTapCut (e) {
+  onTapCut(e) {
     this.scene && this.scene.cut()
   }
 
-  onTapCopy (e) {
+  onTapCopy(e) {
     var copied = this.scene && this.scene.copy();
 
-    if(!copied)
+    if (!copied)
       return;
 
     var textArea = document.createElement('textarea');
@@ -377,19 +379,19 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.cliped = copied;
   }
 
-  onTapPaste (e) {
+  onTapPaste(e) {
     this.scene && this.scene.paste(this.cliped)
   }
 
-  onTapDelete (e) {
+  onTapDelete(e) {
     this.scene && this.scene.remove()
   }
 
-  onTapSelectAll (e) {
+  onTapSelectAll(e) {
     this.scene.select('(child)');
   }
 
-  onTapFontIncrease (e) {
+  onTapFontIncrease(e) {
     var selected = this.scene.selected
 
     this.scene.undoableChange(function () {
@@ -408,7 +410,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     })
   }
 
-  onTapFontDecrease (e) {
+  onTapFontDecrease(e) {
     var selected = this.scene.selected
 
     this.scene.undoableChange(function () {
@@ -428,7 +430,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     })
   }
 
-  onTapAlign (e) {
+  onTapAlign(e) {
 
     if (!this.scene)
       return
@@ -451,7 +453,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.scene.align(align)
   }
 
-  onTapZorder (e) {
+  onTapZorder(e) {
     if (!this.scene)
       return
 
@@ -472,15 +474,15 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.scene.zorder(zorder)
   }
 
-  onTapSymmetryX (e) {
+  onTapSymmetryX(e) {
     this.scene && this.scene.symmetryX()
   }
 
-  onTapSymmetryY (e) {
+  onTapSymmetryY(e) {
     this.scene && this.scene.symmetryY()
   }
 
-  onTapRotateCW (e) {
+  onTapRotateCW(e) {
     if (!this.scene)
       return
 
@@ -499,7 +501,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     })
   }
 
-  onTapRotateCCW (e) {
+  onTapRotateCCW(e) {
     if (!this.scene)
       return
 
@@ -518,23 +520,23 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     })
   }
 
-  onTapGroup (e) {
+  onTapGroup(e) {
     this.scene && this.scene.group()
   }
 
-  onTapUngroup (e) {
+  onTapUngroup(e) {
     this.scene && this.scene.ungroup()
   }
 
-  onTapFullscreen (e) {
+  onTapFullscreen(e) {
     this.dispatchEvent(new CustomEvent('modeler-fullscreen'));
   }
 
-  onTapToggle (e) {
+  onTapToggle(e) {
     this.hideProperty = !this.hideProperty
   }
 
-  onTapFitScene (e) {
+  onTapFitScene(e) {
     this.scene.resize();
     this.scene.fit('ratio');
   }
@@ -547,7 +549,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.dispatchEvent(new CustomEvent('download-model'));
   }
 
-  onTapDistribute (e) {
+  onTapDistribute(e) {
     if (!this.scene)
       return
 

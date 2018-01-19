@@ -1,6 +1,6 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
 
-import {ReduxMixin} from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchGroupList } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 
@@ -17,7 +17,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
     <paper-listbox>
       <template is="dom-repeat" items="[[sceneGroupList]]">
-        <group-card name="[[item.name]]" sequence="[[index]]">[[item.description]]</group-card>
+        <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
       </template>
       <group-card name='+' add>Click to add new scene.</group-card>
     </paper-listbox>
@@ -44,7 +44,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
     this.shadowRoot.addEventListener('click', e => {
       var card = e.target;
-      if(card.tagName !== 'GROUP-CARD')
+      if (card.tagName !== 'GROUP-CARD')
         return;
 
       this.dispatch({
@@ -52,6 +52,8 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
         scene: '101'
       })
     })
+
+    this.dispatch(fetchGroupList());
   }
 }
 

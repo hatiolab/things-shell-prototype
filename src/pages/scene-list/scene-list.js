@@ -1,10 +1,10 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/app-layout/app-grid/app-grid-style';
 
-import {ReduxMixin, fetchSceneList} from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchSceneList } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
-import {AppLocalizeBehavior} from '../../components/app-localize-behavior';
+import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
 import style from './style.css';
 
@@ -23,8 +23,8 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     </page-toolbar>
 
     <div class="app-grid">
-      <scene-card name='+' add>Click to add new scene.</scene-card>
-      <template is="dom-repeat" items="[[_toArray(sceneList)]]">
+      <scene-card name='+' add on-click="onClickNew">Click to add new scene.</scene-card>
+      <template is="dom-repeat" items="[[sceneList]]">
         <scene-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</scene-card>
       </template>
     </div>
@@ -36,7 +36,7 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
   static get properties() {
     return {
       sceneList: {
-        type: Object,
+        type: Array,
         statePath: 'sceneList'
       },
       selected: {
@@ -57,7 +57,7 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
 
     this.shadowRoot.addEventListener('click', e => {
       var card = e.target;
-      if(card.tagName !== 'SCENE-CARD')
+      if (card.tagName !== 'SCENE-CARD')
         return;
 
       this.dispatch({
@@ -69,12 +69,9 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     this.dispatch(fetchSceneList());
   }
 
-  _toArray(obj) {
-    return Object.keys(obj).map(function(key) {
-      return {
-        name: key,
-        value: obj[key]
-      };
+  onClickNew() {
+    this.dispatch({
+      type: 'NEW-SCENE'
     });
   }
 }

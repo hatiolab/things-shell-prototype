@@ -5,7 +5,7 @@
 //   }
 // });
 
-const STATE = {}
+const STATE = []
 
 export default function (state = STATE, action) {
   switch (action.type) {
