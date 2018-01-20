@@ -11,6 +11,9 @@
       <paper-item>settings</paper-item>
       <paper-item>logout</paper-item>
       <paper-item>help</paper-item>
+      <paper-item on-click="onChangeLocale" locale="en-US">English</paper-item>
+      <paper-item on-click="onChangeLocale" locale="ko-KR">한글</paper-item>
+      <paper-item on-click="onChangeLocale" locale="zh-CN">中文</paper-item>
     </paper-listbox>
   </paper-menu-button>
 

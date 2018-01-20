@@ -39,6 +39,15 @@ class PageToolbar extends ReduxMixin(PolymerElement) {
     })
   }
 
+  onChangeLocale(e) {
+    var target = e.target;
+
+    this.dispatch({
+      type: 'SET-LOCALE',
+      locale: target.getAttribute('locale')
+    })
+  }
+
 }
 
 customElements.define(PageToolbar.is, PageToolbar);

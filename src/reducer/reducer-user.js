@@ -6,6 +6,11 @@ const STATE = {
 
 export default function (state = STATE, action) {
   switch (action.type) {
+    case 'SET-LOCALE':
+      return Object.assign({}, state, {
+        language: action.locale
+      });
+
     default:
       return state
   }
