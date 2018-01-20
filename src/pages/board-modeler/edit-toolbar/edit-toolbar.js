@@ -233,12 +233,23 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         break
       case 'KeyS':
         if (ctrlKey) {
-          console.log('board model', Object.assign({}, this.boardCurrent, {
-            model: this.scene.model
-          }));
-          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
-            model: this.scene.model
-          })));
+          try {
+            this.scene.toDataURL('png', null, 400, 300)
+              .then(url => {
+                this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+                  thumbnail: url,
+                  model: this.scene.model
+                })));
+              }, err => {
+                console.error(err)
+
+                this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+                  model: this.scene.model
+                })));
+              })
+          } catch (e) {
+            if (this.showToastMsg) this.showToastMsg(e);
+          }
         }
         break
       case 'KeyP':

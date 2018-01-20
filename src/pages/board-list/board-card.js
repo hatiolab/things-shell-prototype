@@ -10,8 +10,9 @@ class BoardCard extends ReduxMixin(PolymerElement) {
       <style>${style}</style>
 
       <div class="card">
-        <h1>[[name]]</h1>
-        <p><slot></slot></p>
+        <h1>[[board.name]]</h1>
+        <p>[[board.description]]</p>
+        <img src="[[thumbnail()]]"></img>
       </div>
     `;
   }
@@ -20,13 +21,12 @@ class BoardCard extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
-      sequence: {
-        type: Number
-      },
-      name: {
-        type: String
-      }
+      board: Object
     }
+  }
+
+  thumbnail() {
+    return this.board.thumbnail || "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
   }
 }
 

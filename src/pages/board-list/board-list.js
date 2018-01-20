@@ -23,9 +23,9 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     </page-toolbar>
 
     <div class="app-grid">
-      <board-card name='+' add on-click="onClickNew">Click to add new scene.</board-card>
+      <board-card board="[[board4add]]" add on-click="onClickNew"></board-card>
       <template is="dom-repeat" items="[[boardList]]">
-        <board-card name="[[item.name]]" sequence="[[index]]" on-click="onClickOpen">[[item.value.description]]</board-card>
+        <board-card board="[[item]]" on-click="onClickOpen"></board-card>
       </template>
     </div>
     `;
@@ -49,6 +49,12 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
       resources: {
         statePath: 'resource'
       },
+      board4add: {
+        value: {
+          name: '+',
+          description: 'Click to add new board'
+        }
+      }
     }
   }
 
@@ -76,7 +82,7 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
   }
 
   onClickOpen(e) {
-    this.dispatch(fetchBoard(e.target.name));
+    this.dispatch(fetchBoard(e.target.board.name));
   }
 }
 

@@ -4,11 +4,11 @@
   "type": "model-layer",
   "translate": {
     "x": -2.842170943040401e-14,
-    "y": 199.87499999999997
+    "y": 221.87499999999997
   },
   "scale": {
-    "x": 0.52375,
-    "y": 0.52375
+    "x": 0.261875,
+    "y": 0.261875
   },
   "left": 0,
   "top": 0,
@@ -859,6 +859,42 @@
           "rotation": 0
         }
       ]
+    },
+    {
+      "type": "rect",
+      "xx": 0,
+      "left": 706.0859188544154,
+      "top": 622.5536992840096,
+      "width": 546.4200477326968,
+      "height": 408.9498806682577,
+      "fillStyle": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "colorStops": [
+          {
+            "position": 0,
+            "color": "#fff"
+          },
+          {
+            "color": "rgb(18, 12, 177)",
+            "position": 0.48333333333333334
+          },
+          {
+            "position": 1,
+            "color": "#fff"
+          }
+        ],
+        "rotation": 0,
+        "center": "center",
+        "rotateWithShapes": true
+      },
+      "strokeStyle": "#000",
+      "alpha": 1,
+      "hidden": false,
+      "lineWidth": 1,
+      "lineDash": "solid",
+      "lineCap": "butt",
+      "rotation": 0
     }
   ]
 }
