@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 export {
   fetchBoardList,
   fetchGroupList,
+  fetchBoard,
   saveBoard
 } from './actions';
 

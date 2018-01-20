@@ -14,12 +14,26 @@ export const fetchBoardList = (group) => async dispatch => {
   }
 }
 
-export const saveBoard = (model) => async dispatch => {
+export const fetchBoard = (board) => async dispatch => {
   try {
-    const url = `boards/${model.name || 'NEW'}`;
+    const url = `boards/${board}`;
+    const response = await fetch(url);
+    const responseBody = await response.json();
+    dispatch({
+      type: 'REFRESH-BOARD',
+      board: responseBody.board
+    });
+  } catch (error) {
+    console.error(error);
+    /* TODO error */
+  }
+}
 
+export const saveBoard = (board) => async dispatch => {
+  try {
+    const url = `boards/${board.name || 'NEW'}`;
     // var data = new FormData();
-    // data.append("json", JSON.stringify(model));
+    // data.append("json", JSON.stringify(board));
 
     const response = await fetch(url, {
       headers: {
@@ -27,12 +41,12 @@ export const saveBoard = (model) => async dispatch => {
         'Content-Type': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify(model)
+      body: JSON.stringify(board)
     });
     const responseBody = await response.json();
     dispatch({
       type: 'REFRESH-BOARD',
-      model: responseBody
+      board: responseBody.board
     });
   } catch (error) {
     console.error(error);

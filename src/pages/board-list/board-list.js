@@ -2,7 +2,7 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/app-layout/app-grid/app-grid-style';
 
-import { ReduxMixin, fetchBoardList } from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchBoard, fetchBoardList } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
 import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
@@ -25,7 +25,7 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     <div class="app-grid">
       <board-card name='+' add on-click="onClickNew">Click to add new scene.</board-card>
       <template is="dom-repeat" items="[[boardList]]">
-        <board-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</board-card>
+        <board-card name="[[item.name]]" sequence="[[index]]" on-click="onClickOpen">[[item.value.description]]</board-card>
       </template>
     </div>
     `;
@@ -73,6 +73,10 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     this.dispatch({
       type: 'NEW-BOARD'
     });
+  }
+
+  onClickOpen(e) {
+    this.dispatch(fetchBoard(e.target.name));
   }
 }
 

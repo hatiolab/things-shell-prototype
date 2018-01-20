@@ -44,6 +44,9 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
       },
       variables: {
         type: Object
+      },
+      boardCurrent: {
+        statePath: 'boardCurrent'
       }
     }
   }
@@ -230,7 +233,12 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         break
       case 'KeyS':
         if (ctrlKey) {
-          this.dispatch(saveBoard(this.scene.model));
+          console.log('board model', Object.assign({}, this.boardCurrent, {
+            model: this.scene.model
+          }));
+          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+            model: this.scene.model
+          })));
         }
         break
       case 'KeyP':
@@ -310,11 +318,11 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
   onSceneChanged(after, before) {
 
-    if (before) {
-      before.off('execute', this.onExecute, this)
-      before.off('undo', this.onUndo, this)
-      before.off('redo', this.onRedo, this)
-    }
+    // if (before) {
+    //   before.off('execute', this.onExecute, this)
+    //   before.off('undo', this.onUndo, this)
+    //   before.off('redo', this.onRedo, this)
+    // }
 
     if (after) {
       after.on('execute', this.onExecute, this)

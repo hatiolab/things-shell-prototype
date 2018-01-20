@@ -294,7 +294,7 @@ Polymer({
       if (this.type == 'gradient') {
         var stopsStrings = (value || []).map(function (stop) {
           var position = (stop.position - min) / (max - min)
-          return html`${stop.color} ${position * 100}%`
+          return `${stop.color} ${position * 100}%`
         })
       } else {
         var stops = value || []

@@ -18,7 +18,10 @@ module.exports = function (app, db) {
     console.log(req.body);
     boards[board] = req.body;
     fs.writeFileSync(indexFile, JSON.stringify(boards, null, 2), 'utf8');
-    res.send('success');
+    res.send({
+      success: false,
+      board: boards[board]
+    });
     // }
   });
 
@@ -33,37 +36,12 @@ module.exports = function (app, db) {
       // already exist
       res.send('fail-not-exist');
     } else {
-      // crete ...
+      // create ...
       boards[board] = req.body;
       fs.writeFileSync(indexFile, JSON.stringify(boards, null, 2), 'utf8');
       res.send('success');
     }
   });
-
-  app.get('/boards/:group', (req, res) => {
-    var indexFile = path.resolve(process.cwd(), 'boards/boards.json');
-
-    var contents = fs.readFileSync(indexFile);
-    var jsonContent = JSON.parse(contents);
-
-    var list = Object.keys(jsonContent).map(key => {
-      return {
-        name: key,
-        value: jsonContent[key]
-      }
-    }).filter(model => model.value.group == req.params.group);
-
-    res.send(list);
-  })
-
-  app.get('/boards/:board', (req, res) => {
-    var indexFile = path.resolve(process.cwd(), 'boards/boards.json');
-
-    var contents = fs.readFileSync(indexFile);
-    var list = JSON.parse(contents);
-
-    res.send(list[req.params.board]);
-  })
 
   app.get('/boards', (req, res) => {
     var indexFile = path.resolve(process.cwd(), 'boards/boards.json');
@@ -80,53 +58,19 @@ module.exports = function (app, db) {
 
     res.send(list);
   })
+
+  app.get('/boards/:board', (req, res) => {
+
+    var indexFile = path.resolve(process.cwd(), 'boards/boards.json');
+
+    var contents = fs.readFileSync(indexFile);
+    var list = JSON.parse(contents);
+
+    console.log('get board', req.params.board, list[req.params.board]);
+    res.send({
+      success: true,
+      board: list[req.params.board]
+    });
+  })
+
 };
-
-/*
-if (!this.scene)
-return
-
-var self = this
-
-try {
-this.scene.toDataURL('png', null, 400, 300)
-.then(function(url) {
-  self._sendSaveRequest(url)
-}, function(err) {
-  console.error(err)
-
-  self._sendSaveRequest('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==')
-})
-} catch (e) {
-if (this.showToastMsg) this.showToastMsg(e);
-}
-
-_sendSaveRequest: function (thumbnail) {
-  var model = this.scene.model
-
-  delete model.translate
-  delete model.scale
-  if (!model.width)
-    model.width = 1200
-  if (!model.height)
-    model.height = 800
-
-  this.request = {
-    name: this.board.name,
-    description: this.board.description,
-    width: model.width,
-    height: model.height,
-    group_id: this.board.group,
-    model: this.scene.serialize(),
-    tags: this.board.tags,
-    lat: 37.389222,
-    lng: 127.0897292,
-    thumbnail: thumbnail
-  }
-
-  this.$['save-scene'].generateRequest()
-},
-
-<things-ajax id="save-scene" method="PUT" content-type="application/json" resource-url="scenes/{{saveUrl}}" body="{{request}}">
-</things-ajax>
-*/
