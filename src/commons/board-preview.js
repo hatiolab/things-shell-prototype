@@ -4,10 +4,10 @@ import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-res
 
 import * as scene from '@hatiolab/things-scene';
 
-export default class ScenePreview extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
+export default class BoardPreview extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
 
   static get is() {
-    return 'scene-preview';
+    return 'board-preview';
   }
 
   static get template() {
@@ -108,4 +108,4 @@ export default class ScenePreview extends mixinBehaviors([IronResizableBehavior]
   }
 }
 
-customElements.define(ScenePreview.is, ScenePreview);
+customElements.define(BoardPreview.is, BoardPreview);

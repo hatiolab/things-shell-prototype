@@ -9,10 +9,10 @@ const STATE = []
 
 export default function (state = STATE, action) {
   switch (action.type) {
-    case 'SCENE-LIST':
+    case 'BOARD-LIST':
       return action.list;
 
-    case 'CLEAR-SCENE-LIST':
+    case 'CLEAR-BOARD-LIST':
       return [];
 
     default:

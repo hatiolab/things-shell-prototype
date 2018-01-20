@@ -1,12 +1,12 @@
-import {Element as PolymerElement, html} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import {ReduxMixin} from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 
 import '../../components/things-shell/things-shell';
 
-class SceneViewer extends ReduxMixin(PolymerElement) {
+class BoardInfo extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
@@ -20,16 +20,16 @@ class SceneViewer extends ReduxMixin(PolymerElement) {
     `;
   }
 
-  static get is() { return 'scene-viewer'; }
+  static get is() { return 'board-info'; }
 
   static get properties() {
     return {
       model: {
         type: Object,
-        statePath: 'sceneCurrent.model'
+        statePath: 'boardCurrent.model'
       }
     }
   }
 }
 
-customElements.define(SceneViewer.is, SceneViewer);
+customElements.define(BoardInfo.is, BoardInfo);

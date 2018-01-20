@@ -33,11 +33,11 @@ import template from './html.template';
 
 import '../layouts/shell-drawer/shell-drawer';
 
-import '../pages/scene-list/scene-list';
-import '../pages/scene-modeler/scene-modeler';
-import '../pages/scene-viewer/scene-viewer';
-import '../pages/scene-info/scene-info';
-import '../pages/scene-player/scene-player';
+import '../pages/board-list/board-list';
+import '../pages/board-modeler/board-modeler';
+import '../pages/board-viewer/board-viewer';
+import '../pages/board-info/board-info';
+import '../pages/board-player/board-player';
 
 class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
@@ -89,7 +89,7 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
       },
       mainTitle: {
         type: String,
-        statePath: 'sceneCurrent.name'
+        statePath: 'boardCurrent.name'
       },
       user: {
         type: Object,

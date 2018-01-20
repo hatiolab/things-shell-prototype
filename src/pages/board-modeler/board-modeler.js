@@ -7,14 +7,14 @@ import style from './style.css';
 import template from './html.template';
 
 import { togglefullscreen } from '../../commons/utils';
-import '../../commons/scene-preview';
+import '../../commons/board-preview';
 import '../../components/things-shell/things-shell';
 
 import './edit-toolbar/edit-toolbar';
 import './component-toolbar/component-toolbar';
 import './property-sidebar/property-sidebar';
 
-class SceneModeler extends ReduxMixin(PolymerElement) {
+class BoardModeler extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
@@ -23,13 +23,13 @@ class SceneModeler extends ReduxMixin(PolymerElement) {
     `;
   }
 
-  static get is() { return 'scene-modeler'; }
+  static get is() { return 'board-modeler'; }
 
   static get properties() {
     return {
       model: {
         type: Object,
-        statePath: 'sceneCurrent.model'
+        statePath: 'boardCurrent.model'
       },
 
       baseUrl: {
@@ -62,7 +62,7 @@ class SceneModeler extends ReduxMixin(PolymerElement) {
      * https://github.com/PolymerElements/paper-dialog/issues/152
      **/
 
-    var preview = document.createElement('scene-preview');
+    var preview = document.createElement('board-preview');
 
     preview.style.width = '100%';
     preview.style.height = '100%';
@@ -98,4 +98,4 @@ class SceneModeler extends ReduxMixin(PolymerElement) {
   }
 }
 
-customElements.define(SceneModeler.is, SceneModeler);
+customElements.define(BoardModeler.is, BoardModeler);

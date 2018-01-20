@@ -12,14 +12,14 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     <style include="shared-styles">${style}</style>
 
     <app-toolbar>
-      <div main-title>Scene Groups</div>
+      <div main-title>Board Groups</div>
     </app-toolbar>
 
     <paper-listbox>
-      <template is="dom-repeat" items="[[sceneGroupList]]">
+      <template is="dom-repeat" items="[[boardGroupList]]">
         <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
       </template>
-      <group-card name='+' add>Click to add new scene.</group-card>
+      <group-card name='+' add>Click to add new board.</group-card>
     </paper-listbox>
     `;
   }
@@ -28,9 +28,9 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
-      sceneGroupList: {
+      boardGroupList: {
         type: Array,
-        statePath: 'sceneGroupList'
+        statePath: 'boardGroupList'
       },
       selected: {
         type: Number,
@@ -48,7 +48,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
         return;
 
       this.dispatch({
-        type: 'SHOW-SCENE-LIST',
+        type: 'SHOW-BOARD-LIST',
         scene: '101'
       })
     })

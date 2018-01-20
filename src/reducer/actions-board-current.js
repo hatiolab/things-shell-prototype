@@ -1,17 +1,17 @@
 export const createBoard = () => {
   return {
-    type: 'SCENE-LIST',
+    type: 'BOARD-LIST',
     list
   }
 };
 
 export const clearSceneList = () => {
   return {
-    type: 'CLEAR-SCENE-LIST'
+    type: 'CLEAR-BOARD-LIST'
   }
 };
 
-export const fetchSceneList = (group) => async dispatch => {
+export const fetchBoardList = (group) => async dispatch => {
   try {
     const url = group ? `groups/${group}/boards` : 'boards';
     const response = await fetch(url);

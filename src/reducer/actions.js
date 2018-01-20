@@ -1,35 +1,20 @@
-export const refreshSceneList = list => {
-  return {
-    type: 'SCENE-LIST',
-    list
-  }
-};
-
-export const clearSceneList = () => {
-  return {
-    type: 'CLEAR-SCENE-LIST'
-  }
-};
-
-export const fetchSceneList = (group) => async dispatch => {
+export const fetchBoardList = (group) => async dispatch => {
   try {
     const url = group ? `groups/${group}/boards` : 'boards';
     const response = await fetch(url);
     const responseBody = await response.json();
-    dispatch(refreshSceneList(responseBody));
+    dispatch({
+      type: 'BOARD-LIST',
+      list: responseBody
+    });
   } catch (error) {
-    dispatch(clearSceneList());
+    dispatch({
+      type: 'CLEAR-BOARD-LIST'
+    });
   }
 }
 
-export const refreshScene = (model) => {
-  return {
-    type: 'REFRESH-SCENE',
-    model: model
-  }
-}
-
-export const saveScene = (model) => async dispatch => {
+export const saveBoard = (model) => async dispatch => {
   try {
     const url = `boards/${model.name || 'NEW'}`;
 
@@ -45,25 +30,15 @@ export const saveScene = (model) => async dispatch => {
       body: JSON.stringify(model)
     });
     const responseBody = await response.json();
-    dispatch(refreshScene(responseBody));
+    dispatch({
+      type: 'REFRESH-BOARD',
+      model: responseBody
+    });
   } catch (error) {
     console.error(error);
     /* TODO error */
   }
 }
-
-export const refreshGroupList = list => {
-  return {
-    type: 'GROUP-LIST',
-    list
-  }
-};
-
-export const clearGroupList = () => {
-  return {
-    type: 'CLEAR-GROUP-LIST'
-  }
-};
 
 export const fetchGroupList = () => async dispatch => {
   try {
@@ -71,33 +46,29 @@ export const fetchGroupList = () => async dispatch => {
     const response = await fetch(url)
     const responseBody = await response.json();
 
-    dispatch(refreshGroupList(responseBody));
+    dispatch({
+      type: 'GROUP-LIST',
+      list: responseBody
+    });
   } catch (error) {
-    dispatch(clearGroupList());
+    dispatch({
+      type: 'CLEAR-GROUP-LIST'
+    });
   }
 }
-
-
-export const refreshPlayGroupList = list => {
-  return {
-    type: 'PLAY-GROUP-LIST',
-    list
-  }
-};
-
-export const clearPlayGroupList = () => {
-  return {
-    type: 'CLEAR-PLAY-GROUP-LIST'
-  }
-};
 
 export const fetchPlayGroupList = () => async dispatch => {
   try {
     const url = `play-groups`;
     const response = await fetch(url)
     const responseBody = await response.json();
-    dispatch(refreshPlayGroupList(responseBody));
+    dispatch({
+      type: 'PLAY-GROUP-LIST',
+      list: responseBody
+    });
   } catch (error) {
-    dispatch(clearPlayGroupList());
+    dispatch({
+      type: 'CLEAR-PLAY-GROUP-LIST'
+    });
   }
 }

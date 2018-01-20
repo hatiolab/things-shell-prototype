@@ -2,9 +2,9 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 
-import style from './scene-card-style.css';
+import style from './board-card-style.css';
 
-class SceneCard extends ReduxMixin(PolymerElement) {
+class BoardCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
       <style>${style}</style>
@@ -16,7 +16,7 @@ class SceneCard extends ReduxMixin(PolymerElement) {
     `;
   }
 
-  static get is() { return 'scene-card'; }
+  static get is() { return 'board-card'; }
 
   static get properties() {
     return {
@@ -30,4 +30,4 @@ class SceneCard extends ReduxMixin(PolymerElement) {
   }
 }
 
-customElements.define(SceneCard.is, SceneCard);
+customElements.define(BoardCard.is, BoardCard);

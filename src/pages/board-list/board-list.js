@@ -2,16 +2,16 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/app-layout/app-grid/app-grid-style';
 
-import { ReduxMixin, fetchSceneList } from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchBoardList } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
 import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
 import style from './style.css';
 
 import '../../layouts/page-toolbar/page-toolbar';
-import './scene-card';
+import './board-card';
 
-class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
+class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return html`
     <style include="app-grid-style"></style>
@@ -23,21 +23,21 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     </page-toolbar>
 
     <div class="app-grid">
-      <scene-card name='+' add on-click="onClickNew">Click to add new scene.</scene-card>
-      <template is="dom-repeat" items="[[sceneList]]">
-        <scene-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</scene-card>
+      <board-card name='+' add on-click="onClickNew">Click to add new scene.</board-card>
+      <template is="dom-repeat" items="[[boardList]]">
+        <board-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</board-card>
       </template>
     </div>
     `;
   }
 
-  static get is() { return 'scene-list'; }
+  static get is() { return 'board-list'; }
 
   static get properties() {
     return {
-      sceneList: {
+      boardList: {
         type: Array,
-        statePath: 'sceneList'
+        statePath: 'boardList'
       },
       selected: {
         type: Number,
@@ -57,23 +57,23 @@ class SceneList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
 
     this.shadowRoot.addEventListener('click', e => {
       var card = e.target;
-      if (card.tagName !== 'SCENE-CARD')
+      if (card.tagName !== 'BOARD-CARD')
         return;
 
       this.dispatch({
-        type: 'SHOW-SCENE-MODELER',
+        type: 'SHOW-BOARD-MODELER',
         scene: '101'
       })
     })
 
-    this.dispatch(fetchSceneList());
+    this.dispatch(fetchBoardList());
   }
 
   onClickNew() {
     this.dispatch({
-      type: 'NEW-SCENE'
+      type: 'NEW-BOARD'
     });
   }
 }
 
-customElements.define(SceneList.is, SceneList);
+customElements.define(BoardList.is, BoardList);

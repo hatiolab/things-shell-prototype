@@ -22,15 +22,15 @@ export default function (state = STATE, action) {
       return set(state, {
         route: action.route
       });
-    case 'SHOW-SCENE-INFO':
+    case 'SHOW-BOARD-INFO':
       return set(state, {
         route: 'info'
       });
-    case 'SHOW-SCENE-MODELER':
+    case 'SHOW-BOARD-MODELER':
       return set(state, {
         route: 'modeler'
       });
-    case 'SHOW-SCENE-LIST':
+    case 'SHOW-BOARD-LIST':
       return set(state, {
         route: 'list'
       });

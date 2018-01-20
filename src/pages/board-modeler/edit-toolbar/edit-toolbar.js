@@ -3,7 +3,7 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/paper-slider/paper-slider';
 import '@polymer/paper-toast/paper-toast';
 
-import { ReduxMixin, saveScene } from '../../../reducer/redux-mixin';
+import { ReduxMixin, saveBoard } from '../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -230,7 +230,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         break
       case 'KeyS':
         if (ctrlKey) {
-          this.dispatch(saveScene(this.scene.model));
+          this.dispatch(saveBoard(this.scene.model));
         }
         break
       case 'KeyP':

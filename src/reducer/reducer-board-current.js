@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash';
+
 // import sample from '../../boards/models/sample-001';
 
 // const STATE = {
@@ -18,20 +20,20 @@ const NEW_MODEL = {
 
 export default function (state = STATE, action) {
   switch (action.type) {
-    case 'NEW-SCENE':
-      return Object.assign({}, NEW_MODEL);
+    case 'NEW-BOARD':
+      return cloneDeep(NEW_MODEL);
 
-    case 'CHANGE-SCENE-NAME':
+    case 'CHANGE-BOARD-NAME':
       return Object.assign({}, state, {
         name: action.name
       });
 
-    case 'CHANGE-SCENE-SYNOPSIS':
+    case 'CHANGE-BOARD-SYNOPSIS':
       return Object.assign({}, state, {
         synopsis: action.synopsis
       });
 
-    case 'REFRESH-SCENE':
+    case 'REFRESH-BOARD':
       return action.model;
 
     default:

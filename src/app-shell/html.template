@@ -1,36 +1,30 @@
-<firebase-app
-  app="{{app}}"
-  name="fireboard"
-  api-key="AIzaSyBBFPdeHS9j42DGyWpu3XHW8FIERrbk93A"
-  auth-domain="fireboard-17fb1.firebaseapp.com"
-  database-url="https://fireboard-17fb1.firebaseio.com"
-  storage-bucket="fireboard-17fb1.appspot.com"
-  messaging-sender-id="887850237526">
+<firebase-app app="{{app}}" name="fireboard" api-key="AIzaSyBBFPdeHS9j42DGyWpu3XHW8FIERrbk93A"
+  auth-domain="fireboard-17fb1.firebaseapp.com" database-url="https://fireboard-17fb1.firebaseio.com"
+  storage-bucket="fireboard-17fb1.appspot.com" messaging-sender-id="887850237526">
 </firebase-app>
 
 <app-location route="{{route}}">
 </app-location>
 
-<app-route route="{{route}}" pattern="[[rootPattern]]:page" data="{{routeData}}" tail="{{subroute}}">
+<app-route route="{{route}}" pattern="[[rootPattern]]:page" data="{{routeData}}"
+  tail="{{subroute}}">
 </app-route>
 
-<app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}" disable-swipe>
+<app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}"
+  disable-swipe>
   <!-- Drawer content -->
   <app-drawer slot="drawer">
     <shell-drawer></shell-drawer>
   </app-drawer>
 
   <!-- Main content -->
-  <iron-pages class="flex"
-      selected="[[page]]"
-      attr-for-selected="name"
-      fallback-selection="view404"
-      role="main">
-    <scene-list name="list"></scene-list>
-    <scene-modeler name='modeler' model='[[model]]'></scene-modeler>
-    <scene-viewer name="viewer"></scene-viewer>
-    <scene-info name="info"></scene-info>
-    <scene-player name="player"></scene-player>
+  <iron-pages class="flex" selected="[[page]]" attr-for-selected="name"
+    fallback-selection="view404" role="main">
+    <board-list name="list"></board-list>
+    <board-modeler name='modeler' model='[[model]]'></board-modeler>
+    <board-viewer name="viewer"></board-viewer>
+    <board-info name="info"></board-info>
+    <board-player name="player"></board-player>
   </iron-pages>
 
 </app-drawer-layout>

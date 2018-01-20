@@ -5,7 +5,7 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 
-class ScenePlayer extends ReduxMixin(PolymerElement) {
+class BoardPlayer extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
@@ -25,7 +25,7 @@ class ScenePlayer extends ReduxMixin(PolymerElement) {
     `;
   }
 
-  static get is() { return 'scene-player'; }
+  static get is() { return 'board-player'; }
 
   static get properties() {
     return {
@@ -33,4 +33,4 @@ class ScenePlayer extends ReduxMixin(PolymerElement) {
   }
 }
 
-customElements.define(ScenePlayer.is, ScenePlayer);
+customElements.define(BoardPlayer.is, BoardPlayer);
