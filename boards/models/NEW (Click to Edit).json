@@ -1,0 +1,72 @@
+{
+  "width": 1600,
+  "height": 1200,
+  "type": "model-layer",
+  "translate": {
+    "x": -2.842170943040401e-14,
+    "y": 199.87499999999997
+  },
+  "scale": {
+    "x": 0.261875,
+    "y": 0.261875
+  },
+  "left": 0,
+  "top": 0,
+  "components": [
+    {
+      "type": "rect",
+      "xx": 0,
+      "left": 793.9140811455846,
+      "top": 282.4582338902148,
+      "width": 368.8544152744631,
+      "height": 286.7541766109785,
+      "fillStyle": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "colorStops": [
+          {
+            "position": 0,
+            "color": "#fff"
+          },
+          {
+            "color": "rgb(232, 56, 56)",
+            "position": 0.5291666666666667
+          },
+          {
+            "position": 1,
+            "color": "#fff"
+          }
+        ],
+        "rotation": 0,
+        "center": "center",
+        "rotateWithShapes": true
+      },
+      "strokeStyle": "#000",
+      "alpha": 1,
+      "hidden": false,
+      "lineWidth": 1,
+      "lineDash": "solid",
+      "lineCap": "butt",
+      "rotation": 0
+    },
+    {
+      "type": "ellipse",
+      "xx": 0,
+      "rx": 133.83054892601427,
+      "ry": 130.01193317422434,
+      "cx": 156.38424821002383,
+      "cy": 325,
+      "fillStyle": "black",
+      "strokeStyle": "#000",
+      "alpha": 1,
+      "hidden": false,
+      "lineWidth": 1,
+      "lineDash": "solid",
+      "lineCap": "butt",
+      "rotation": 0,
+      "text": "HAHAHA",
+      "fontColor": "white",
+      "fontSize": 50
+    }
+  ]
+}

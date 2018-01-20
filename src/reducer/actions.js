@@ -5,7 +5,7 @@ export const fetchBoardList = (group) => async dispatch => {
     const responseBody = await response.json();
     dispatch({
       type: 'BOARD-LIST',
-      list: responseBody
+      list: responseBody.list
     });
   } catch (error) {
     dispatch({
@@ -62,7 +62,7 @@ export const fetchGroupList = () => async dispatch => {
 
     dispatch({
       type: 'GROUP-LIST',
-      list: responseBody
+      list: responseBody.list
     });
   } catch (error) {
     dispatch({
@@ -78,7 +78,7 @@ export const fetchPlayGroupList = () => async dispatch => {
     const responseBody = await response.json();
     dispatch({
       type: 'PLAY-GROUP-LIST',
-      list: responseBody
+      list: responseBody.list
     });
   } catch (error) {
     dispatch({

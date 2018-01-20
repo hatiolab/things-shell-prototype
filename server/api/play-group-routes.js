@@ -1,18 +1,29 @@
-var resolve = require('resolve');
-var fs = require('mz/fs');
-var path = require('path');
+var groups = require('./play-groups');
+var boards = require('./boards');
 
 module.exports = function (app, db) {
-  app.post('/play-groups', (req, res) => {
-    res.send('Hello');
+  app.post('/play-groups/:group', (req, res) => {
+    groups.create(req.params.group);
+
+    res.send({
+      success: true,
+      list: groups.list()
+    });
   });
 
   app.get('/play-groups', (req, res) => {
-    var indexFile = path.resolve(process.cwd(), 'boards/play-groups.json');
+    res.send({
+      success: true,
+      list: groups.list()
+    });
+  });
 
-    var contents = fs.readFileSync(indexFile);
-    var jsonContent = JSON.parse(contents);
+  app.get('/play-groups/:group/boards', (req, res) => {
+    let group = req.params.group;
 
-    res.send(jsonContent);
-  })
+    res.send({
+      success: true,
+      list: boards.list().filter(board => board.group == group)
+    })
+  });
 };

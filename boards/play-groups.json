@@ -1,16 +1,1 @@
-{
-  "Play Group PA": {
-    "description": "Play Group PA Description",
-    "members": [
-      "board-001",
-      "board-002"
-    ]
-  },
-  "Play Group B": {
-    "description": "Play Group PB Description",
-    "members": [
-      "board-003",
-      "board-004"
-    ]
-  }
-}
+{}
