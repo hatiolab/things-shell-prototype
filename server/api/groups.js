@@ -7,10 +7,8 @@ var boards = require('./boards');
 const boardRootPath = path.resolve(process.cwd(), 'boards');
 const boardIndexPath = path.resolve(boardRootPath, 'boards.json');
 const groupIndexPath = path.resolve(boardRootPath, 'groups.json');
-const playGroupIndexPath = path.resolve(boardRootPath, 'play-groups.json');
 
 var groups = {};
-var playGroups = {};
 
 function initialize() {
 
@@ -19,14 +17,15 @@ function initialize() {
     const fileContent = fs.readFileSync(groupIndexPath)
     groups = JSON.parse(fileContent);
   } catch (err) {
-    console.error(err);
-
-    groups = [];
+    console.log('Building group index file', groupIndexPath);
 
     boards.list().forEach(board => {
       let group = board.group;
-      if (group && groups.indexOf(group) == -1) {
-        groups.push(group);
+      if (group && !groups[group]) {
+        groups[group] = {
+          name: group,
+          description: 'DESC-' + group
+        }
       }
     })
 

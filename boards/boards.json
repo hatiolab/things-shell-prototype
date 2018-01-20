@@ -1,6 +1,7 @@
 {
   "NEW (Click to Edit)": {
     "name": "NEW (Click to Edit)",
+    "description": "DESCRIPTION (Click to Edit)",
     "width": 1600,
     "height": 1200,
     "group": "DEFAULT-GROUP",

@@ -1,1 +1,6 @@
-[]
+{
+  "DEFAULT-GROUP": {
+    "name": "DEFAULT-GROUP",
+    "description": "DESC-DEFAULT-GROUP"
+  }
+}

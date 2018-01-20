@@ -16,7 +16,8 @@ function initialize() {
     const fileContent = fs.readFileSync(playGroupIndexPath)
     playGroups = JSON.parse(fileContent);
   } catch (err) {
-    console.error(err);
+    console.log('Building play-group index file', playGroupIndexPath);
+
     saveGroup();
   }
 }

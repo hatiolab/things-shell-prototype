@@ -36,7 +36,7 @@ function initialize() {
     const fileContent = fs.readFileSync(boardIndexPath)
     boards = JSON.parse(fileContent);
   } catch (err) {
-    console.error(err);
+    console.log('Building board index file', boardIndexPath);
 
     // 3-1. 보드 모델폴더를 스캔하면서, 모든 모델을 디폴트 그룹에 넣는다.
     try {
