@@ -1,18 +1,18 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {PaperDialogBehavior} from '@polymer/paper-dialog-behavior/paper-dialog-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { PaperDialogBehavior } from '@polymer/paper-dialog-behavior/paper-dialog-behavior';
 import '@polymer/paper-dialog-behavior/paper-dialog-shared-styles';
 
-import {ReduxMixin} from '../../../../reducer/redux-mixin';
+import { ReduxMixin } from '../../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
 
-import {deepClone} from '../../../../commons/utils';
+import { deepClone } from '../../../../commons/utils';
 
 class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return `
+    return html`
       <style include="shared-styles">${style}</style>
 
       ${template}
@@ -38,16 +38,16 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
     };
   }
 
-  ready () {
+  ready() {
     super.ready();
 
     this.addEventListener('click', this.onTapTypeList.bind(this));
   }
 
-  onTapTypeList (e) {
+  onTapTypeList(e) {
     var item = e.path[0];
 
-    if(!item || !item.hasAttribute || !item.hasAttribute('data-type'))
+    if (!item || !item.hasAttribute || !item.hasAttribute('data-type'))
       return;
     // console.log('item', item)
     // while (item && item.hasAttribute && !item.hasAttribute('data-type') && item !== document.body) {
@@ -78,7 +78,7 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
     this.close()
   }
 
-  computeGroup (group) {
+  computeGroup(group) {
     return this.groups[group]
   }
 }

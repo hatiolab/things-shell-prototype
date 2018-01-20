@@ -1,4 +1,4 @@
-import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/paper-slider/paper-slider';
 import '@polymer/paper-toast/paper-toast';
@@ -12,7 +12,7 @@ import '../../../layouts/page-toolbar/page-toolbar';
 
 class EditToolbar extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}

@@ -1,13 +1,13 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/iron-icons/editor-icons';
 import '@polymer/iron-image/iron-image';
 
-import {ReduxMixin} from '../../../../reducer/redux-mixin';
+import { ReduxMixin } from '../../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
 
-import {deepClone} from '../../../../commons/utils';
+import { deepClone } from '../../../../commons/utils';
 import '../../../../components/things-i18n-msg';
 import '../../../../components/things-editor-buttons-radio';
 import '../../../../components/things-editor-number-input';
@@ -17,7 +17,7 @@ import '../../../../components/things-editor-animation';
 
 class PropertyEffects extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}
@@ -33,13 +33,13 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
       },
       animation: {
         type: Object,
-        value () {
+        value() {
           return {}
         }
       },
       event: {
         type: Object,
-        value () {
+        value() {
           return {
             hover: {},
             tap: {}
@@ -70,11 +70,11 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
     });
   }
 
-  onOpenSelect () {
+  onOpenSelect() {
     this.variables = this.scene && this.scene.ids
   }
 
-  onModelChanged (model) {
+  onModelChanged(model) {
     if (model) {
       this.animation = Object.assign({
         oncreate: {}
@@ -89,14 +89,14 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onShadowChanged (change) {
+  onShadowChanged(change) {
     if (change.path == 'shadow')
       return
 
     this.set('model.shadow', Object.assign({}, this.shadow))
   }
 
-  onAnimationChanged (change) {
+  onAnimationChanged(change) {
     if (change.path == 'animation')
       return
 
@@ -108,7 +108,7 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
     this.set('model.animation', deepClone(this.animation))
   }
 
-  onEventChanged (change) {
+  onEventChanged(change) {
     if (change.path == 'event')
       return
 
@@ -141,12 +141,12 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
   //   }
   // }
 
-  _isTypeOf (value, type) {
+  _isTypeOf(value, type) {
     if (value == type)
       return true
   }
 
-  _getPlaceholder (target) {
+  _getPlaceholder(target) {
     var placeholder = ""
     switch (target) {
       case 'goto':
@@ -162,7 +162,7 @@ class PropertyEffects extends ReduxMixin(PolymerElement) {
     return placeholder
   }
 
-  _is (a, b) {
+  _is(a, b) {
     return a == b
   }
 }

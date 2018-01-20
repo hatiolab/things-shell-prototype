@@ -1,6 +1,6 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
 import * as scene from '@hatiolab/things-scene';
 
@@ -11,7 +11,7 @@ export default class ScenePreview extends mixinBehaviors([IronResizableBehavior]
   }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         width:100%;
@@ -68,12 +68,12 @@ export default class ScenePreview extends mixinBehaviors([IronResizableBehavior]
    * Preview에 사용된 Scene을 dispose.
    */
 
-  ready () {
+  ready() {
     super.ready();
 
     this.addEventListener('iron-resize', () => {
       requestAnimationFrame(() => {
-        if(!this.scene)
+        if (!this.scene)
           return;
         this.scene.resize();
         this.scene.fit(this.fit);
@@ -85,7 +85,7 @@ export default class ScenePreview extends mixinBehaviors([IronResizableBehavior]
     super.disconnectedCallback();
 
     if (this.scene && this.disposeWhenDetached) {
-      if(this.scene)
+      if (this.scene)
         this.scene.target = null;
       delete this.scene
     }
@@ -93,7 +93,7 @@ export default class ScenePreview extends mixinBehaviors([IronResizableBehavior]
 
   onModelChanged() {
 
-    if(!this.model)
+    if (!this.model)
       return
 
     this.scene = scene.create({

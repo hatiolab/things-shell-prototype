@@ -1,6 +1,6 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 import '@polymer/paper-item/paper-item';
@@ -32,7 +32,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
   static get is() { return 'things-editor-table'; }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         display: block;
@@ -194,7 +194,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
     var target = e.target;
     while (target && !target.hasAttribute('table-event') && target !== this)
       target = target.parentElement;
-    if(target === this || target === null)
+    if (target === this || target === null)
       return;
     this.dispatchEvent(new CustomEvent('table-' + target.id, {
       bubbles: true,
@@ -207,7 +207,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
     var target = e.target;
     while (target && !target.hasAttribute('data-value') && target !== this)
       target = target.parentElement;
-    if(target === this || target === null)
+    if (target === this || target === null)
       return;
     this.dispatchEvent(new CustomEvent('table-cell-border-set', {
       bubbles: true,

@@ -1,4 +1,4 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
 export default class ThingsShellProperty extends PolymerElement {
 

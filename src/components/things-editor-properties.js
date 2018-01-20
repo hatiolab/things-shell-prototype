@@ -1,4 +1,4 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
 import './things-editor-property';
 
@@ -27,10 +27,10 @@ Example:
 */
 
 class ThingsEditorProperties extends PolymerElement {
-  static get is() {return 'things-editor-properties';}
+  static get is() { return 'things-editor-properties'; }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         display: block;
@@ -86,12 +86,12 @@ class ThingsEditorProperties extends PolymerElement {
 
       props: {
         type: Array,
-        value: function() { return []}
+        value: function () { return [] }
       }
     }
   }
 
-  static get observers () {
+  static get observers() {
     return [
       '_onTargetChanged(target.*)'
     ]
@@ -121,10 +121,10 @@ class ThingsEditorProperties extends PolymerElement {
   _onValueChanged(e) {
     var prop = e.target;
 
-    while(prop && prop.tagName != 'THINGS-EDITOR-PROPERTY')
+    while (prop && prop.tagName != 'THINGS-EDITOR-PROPERTY')
       prop = prop.parentNode;
 
-    if(!prop || prop.tagName != 'THINGS-EDITOR-PROPERTY')
+    if (!prop || prop.tagName != 'THINGS-EDITOR-PROPERTY')
       return;
 
     var name = prop.getAttribute('name');

@@ -1,4 +1,4 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/paper-icon-button/paper-icon-button';
 import '@polymer/paper-listbox/paper-listbox';
@@ -8,14 +8,14 @@ import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/iron-icons';
 import '@polymer/iron-icons/social-icons';
 
-import {ReduxMixin} from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
 
 class PageToolbar extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}
@@ -33,7 +33,7 @@ class PageToolbar extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onDrawerToggler (e) {
+  onDrawerToggler(e) {
     this.dispatch({
       type: 'TOGGLE-DRAWER'
     })

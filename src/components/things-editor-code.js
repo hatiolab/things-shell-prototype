@@ -15,7 +15,7 @@ Example:
 @hero hero.svg
 */
 
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import CodeMirrorStyle from 'codemirror/lib/codemirror.css';
 import FullScreenStyle from 'codemirror/addon/display/fullscreen.css';
 import NightThemeStyle from 'codemirror/theme/night.css';
@@ -31,7 +31,7 @@ export default class ThingsEditorCode extends PolymerElement {
   }
 
   static get template() {
-    return `
+    return html`
       <style>
         :host {
           display: block;
@@ -78,7 +78,7 @@ export default class ThingsEditorCode extends PolymerElement {
     ]
   }
 
-  ready () {
+  ready() {
     super.ready();
 
     if (!this.editor) {
@@ -90,10 +90,10 @@ export default class ThingsEditorCode extends PolymerElement {
         showCursorWhenSelecting: true,
         theme: "night",
         extraKeys: {
-          "F11": function(cm) {
+          "F11": function (cm) {
             cm.setOption("fullScreen", !cm.getOption("fullScreen"));
           },
-          "Esc": function(cm) {
+          "Esc": function (cm) {
             cm.setOption("fullScreen", !cm.getOption("fullScreen"))
           }
         }
@@ -107,7 +107,7 @@ export default class ThingsEditorCode extends PolymerElement {
     }
   }
 
-  _valueChanged (value) {
+  _valueChanged(value) {
     if (this._changedOnThis) {
       this.dispatchEvent(new CustomEvent('change'));
       return

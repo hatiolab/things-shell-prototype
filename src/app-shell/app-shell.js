@@ -1,4 +1,4 @@
-import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { AppLocalizeBehavior } from '../components/app-localize-behavior';
 
@@ -41,7 +41,7 @@ import '../pages/scene-player/scene-player';
 
 class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return `
+    return html`
       <style include="shared-styles">${style}</style>
 
       ${template}

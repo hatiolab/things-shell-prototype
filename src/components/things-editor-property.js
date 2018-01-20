@@ -1,4 +1,4 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
 import './things-i18n-msg';
 import './things-editor-color';
@@ -33,7 +33,7 @@ class ThingsEditorProperty extends PolymerElement {
   static get is() { return 'things-editor-property'; }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         display: grid;
@@ -202,7 +202,7 @@ class ThingsEditorProperty extends PolymerElement {
       property: {
         type: Object,
         notify: true,
-        value: function (){ return {} }
+        value: function () { return {} }
       },
       _msgId: {
         type: String,
@@ -211,7 +211,7 @@ class ThingsEditorProperty extends PolymerElement {
     }
   }
 
-  _computeLabelId (label) {
+  _computeLabelId(label) {
     if (label.indexOf('label.') >= 0)
       return label;
 
@@ -230,26 +230,26 @@ class ThingsEditorProperty extends PolymerElement {
   _valueChanged(value) {
     this.dispatchEvent(new CustomEvent('change', { bubbles: true }));
 
-    if(!this.get('observe'))
+    if (!this.get('observe'))
       return
     this.get('observe').call(this, value)
   }
 
-  _getOptionValue (item) {
+  _getOptionValue(item) {
     if (typeof item == 'string')
       return item;
 
     return item.value;
   }
 
-  _getOptionDisplay (item) {
+  _getOptionDisplay(item) {
     if (typeof item == 'string')
       return item;
 
     return item.display;
   }
 
-  _isSelected (value, item) {
+  _isSelected(value, item) {
     return value == this._getOptionValue(item)
   }
 }

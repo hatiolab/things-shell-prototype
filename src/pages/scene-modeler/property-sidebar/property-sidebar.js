@@ -1,14 +1,14 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
-import {NeonAnimationRunnerBehavior} from '@polymer/neon-animation/neon-animation-runner-behavior';
+import { NeonAnimationRunnerBehavior } from '@polymer/neon-animation/neon-animation-runner-behavior';
 import '@polymer/neon-animation/animations/slide-right-animation';
 import '@polymer/neon-animation/animations/slide-from-right-animation';
 
 import '@polymer/paper-tabs/paper-tabs';
 
-import {ReduxMixin} from '../../../reducer/redux-mixin';
+import { ReduxMixin } from '../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -21,7 +21,7 @@ import './data-binding/data-binding';
 
 class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}
@@ -93,7 +93,7 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
   }
 
   _defaultPropertyTarget() {
-    if(!this.scene) {
+    if (!this.scene) {
       this.propertyTarget = null
       this.set('specificProps', [])
       this.model = {}
@@ -113,21 +113,21 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
   _onModelChanged(change) {
 
     /* 사용자가 선택한 컴포넌트가 바뀐 경우도 호출되므로, 이 경우는 제외한다. */
-    if(!this.scene || change.path === 'model' || this.changedByScene)
+    if (!this.scene || change.path === 'model' || this.changedByScene)
       return
 
     var self = this
 
-    if(this.propertyTarget) {
-      this.scene.undoableChange(function() {
+    if (this.propertyTarget) {
+      this.scene.undoableChange(function () {
         self.propertyTarget.set(change.path.substr(6), change.value)
       })
       return
     }
 
     /* 여러 컴포넌트의 경우에 적용 */
-    this.scene.undoableChange(function() {
-      self.selected.forEach(function(component) {
+    this.scene.undoableChange(function () {
+      self.selected.forEach(function (component) {
         component.set(change.path.substr(6), change.value)
       })
     })
@@ -135,13 +135,13 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
 
   _onBoundsChanged(change) {
     /* 사용자가 선택한 컴포넌트가 바뀐 경우도 호출되므로, 이 경우는 제외한다. */
-    if(change.path === 'bounds' || this.changedByScene)
+    if (change.path === 'bounds' || this.changedByScene)
       return
 
     var self = this
 
-    if(this.propertyTarget) {
-      this.scene.undoableChange(function() {
+    if (this.propertyTarget) {
+      this.scene.undoableChange(function () {
         self.propertyTarget.bounds = self.bounds
       })
 
@@ -158,8 +158,8 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
     var bounds = {}
     bounds[change.path.substr(7)] = change.value
 
-    this.scene.undoableChange(function() {
-      self.selected.forEach(function(component) {
+    this.scene.undoableChange(function () {
+      self.selected.forEach(function (component) {
         component.bounds = Object.assign({}, component.bounds, bounds)
       })
     })
@@ -171,8 +171,8 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
 
     this.changedByScene = true
 
-    for(var property in after) {
-      if(property)
+    for (var property in after) {
+      if (property)
         this.set('model.' + property, after[property])
     }
 
@@ -185,7 +185,7 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
 
     this.changedByScene = true
 
-    if(after.length == 1) {
+    if (after.length == 1) {
 
       this.propertyTarget = after[0]
       // 컴포넌트 특성 속성(specific properties)을 먼저 바꾸고, 모델을 바꾸어준다.
@@ -194,14 +194,14 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
       this.model = JSON.parse(JSON.stringify(this.propertyTarget.model))
       this._setBounds(this.propertyTarget.bounds)
 
-    } else if(after.length == 0) { // 선택이 안된 경우
+    } else if (after.length == 0) { // 선택이 안된 경우
 
       this._defaultPropertyTarget()
     } else { // 다중 선택된 경우
 
       var type = after[0].model.type;
-      for(let i = 1;i < after.length;i++) {
-        if(after[i].model.type != type) {
+      for (let i = 1; i < after.length; i++) {
+        if (after[i].model.type != type) {
           type = undefined;
           break;
         }
@@ -209,7 +209,7 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
 
       this.propertyTarget = null
 
-      if(type)
+      if (type)
         this.set('specificProps', after[0].nature.properties);
       else
         this.set('specificProps', null)
@@ -226,10 +226,10 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
   }
 
   _onPropertyTargetChanged(after, before) {
-    if(before) {
+    if (before) {
       before.off('change', this._onModelChangedB, this)
     }
-    if(after) {
+    if (after) {
       after.on('change', this._onModelChangedB, this)
     }
   }
@@ -243,7 +243,7 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
     }
   }
 
-  _onNeonAnimationFinish () {
+  _onNeonAnimationFinish() {
     if (this.collapsed) {
       this.style.width = '0px';
     }
@@ -251,13 +251,13 @@ class PropertySidebar extends mixinBehaviors([NeonAnimationRunnerBehavior, IronR
     this.notifyResize();
   }
 
-  _onCollapsedChanged (collapsed) {
+  _onCollapsedChanged(collapsed) {
     if (collapsed) {
       /* to hide */
       this._backup_style_width = this.style.width;
       this.playAnimation('exit')
     } else {
-      if(this._backup_style_width !== undefined) {
+      if (this._backup_style_width !== undefined) {
         this.style.width = this._backup_style_width;
         /* to show */
         this.playAnimation('entry');

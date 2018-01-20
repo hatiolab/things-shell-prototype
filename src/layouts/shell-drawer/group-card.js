@@ -1,12 +1,12 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import {ReduxMixin} from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style-group-card.css';
 
 class GroupCard extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     <div class="card">

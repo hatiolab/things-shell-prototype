@@ -1,7 +1,7 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {ReduxMixin} from '../reducer/redux-mixin';
-import {AppLocalizeBehavior} from './app-localize-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { ReduxMixin } from '../reducer/redux-mixin';
+import { AppLocalizeBehavior } from './app-localize-behavior';
 
 class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get is() { return 'things-i18n-msg'; }
@@ -21,9 +21,9 @@ class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Pol
     };
   }
 
-  onChange () {
+  onChange() {
     var formatted = this.localize(this.msgid);
-    if(formatted)
+    if (formatted)
       this.innerHTML = formatted;
   }
 

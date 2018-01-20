@@ -1,12 +1,12 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/paper-dialog/paper-dialog';
 
-import {ReduxMixin} from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
 
-import {togglefullscreen} from '../../commons/utils';
+import { togglefullscreen } from '../../commons/utils';
 import '../../commons/scene-preview';
 import '../../components/things-shell/things-shell';
 
@@ -16,7 +16,7 @@ import './property-sidebar/property-sidebar';
 
 class SceneModeler extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}
@@ -48,13 +48,13 @@ class SceneModeler extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onSelectedChanged (selected) {
+  onSelectedChanged(selected) {
     this.dispatch({
       type: 'CHANGE-SELECTED'
     })
   }
 
-  onOpenPreview () {
+  onOpenPreview() {
     this.previewModel = JSON.parse(JSON.stringify(this.scene.model));
 
     /*
@@ -89,11 +89,11 @@ class SceneModeler extends ReduxMixin(PolymerElement) {
     })
   }
 
-  onDownloadModel () {
+  onDownloadModel() {
     this.downloadModel()
   }
 
-  onFullscreen () {
+  onFullscreen() {
     togglefullscreen(this)
   }
 }

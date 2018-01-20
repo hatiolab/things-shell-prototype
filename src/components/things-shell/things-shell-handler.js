@@ -1,4 +1,4 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
 import './things-shell-property';
 
@@ -8,7 +8,7 @@ export default class ThingsShellHandler extends PolymerElement {
   }
 
   static get template() {
-    return `
+    return html`
       <slot select="things-shell-property"></slot>
     `;
   }
@@ -31,16 +31,16 @@ export default class ThingsShellHandler extends PolymerElement {
     };
 
     model = Array.from(this.querySelectorAll('things-shell-property'))
-    .reduce((model, property) => {
-      const name = property.getAttribute('name');
-      const value = property.getAttribute('value');
+      .reduce((model, property) => {
+        const name = property.getAttribute('name');
+        const value = property.getAttribute('value');
 
-      if (name) {
-        model[name] = value;
-      }
+        if (name) {
+          model[name] = value;
+        }
 
-      return model;
-    }, model);
+        return model;
+      }, model);
 
     model.__host__ = this;
 

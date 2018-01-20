@@ -1,8 +1,8 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/iron-icons/editor-icons';
 import '@polymer/iron-image/iron-image';
 
-import {ReduxMixin} from '../../../../reducer/redux-mixin';
+import { ReduxMixin } from '../../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -11,7 +11,7 @@ import '../../../../components/things-editor-properties';
 
 class PropertySpecific extends ReduxMixin(PolymerElement) {
   static get template() {
-    return `
+    return html`
     <style include="shared-styles">${style}</style>
 
     ${template}
@@ -82,7 +82,7 @@ class PropertySpecific extends ReduxMixin(PolymerElement) {
     this.removeEventListener('table-distribute-vertical', this.boundTableCellEvent);
   }
 
-  _onRackTableCellIncrementSet (e, detail) {
+  _onRackTableCellIncrementSet(e, detail) {
     if (!this.model)
       return;
 
@@ -97,7 +97,7 @@ class PropertySpecific extends ReduxMixin(PolymerElement) {
 
     this.scene.undoableChange(function () {
       selected.forEach(cell => {
-        if(increasingDirection == 'cw')
+        if (increasingDirection == 'cw')
           cell.increaseLocationCW(skipNumbering, startSection, startUnit)
         else
           cell.increaseLocationCCW(skipNumbering, startSection, startUnit)
@@ -106,7 +106,7 @@ class PropertySpecific extends ReduxMixin(PolymerElement) {
     })
   }
 
-  _onTableCellBorderSet (e) {
+  _onTableCellBorderSet(e) {
     if (!this.model)
       return;
 
@@ -129,13 +129,13 @@ class PropertySpecific extends ReduxMixin(PolymerElement) {
     })
   }
 
-  _onActionClick (e) {
+  _onActionClick(e) {
     var action = e.detail;
 
     typeof (action) === 'function' && action(this.selected[0])
   }
 
-  _onTableCellEvent (e) {
+  _onTableCellEvent(e) {
     var table = this.selected[0].parent;
     if (!table || !table.get('type').match(/table$/))
       return;

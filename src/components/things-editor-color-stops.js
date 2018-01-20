@@ -1,5 +1,5 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 import './things-editor-color';
 import './things-editor-number-input';
 
@@ -210,8 +210,8 @@ Polymer({
     return value instanceof Array ? value : []
   },
 
-  _setFocused: function(index) {
-    if(this.focused && this.focused.index === index)
+  _setFocused: function (index) {
+    if (this.focused && this.focused.index === index)
       return
 
     /* 마커 템플릿을 다시 만든다. */
@@ -221,15 +221,15 @@ Polymer({
     var olds = this.root.querySelectorAll('#markers div[focused]')
     olds.length > 0 && olds.forEach(old => old.removeAttribute('focused'))
     marker && marker.setAttribute('focused', true)
-    if(!marker) {
+    if (!marker) {
       this.focused = null
       return
     }
     var colorStop = this.value[index]
     var position = colorStop.position
-    if(position < this.min)
+    if (position < this.min)
       position = this.min
-    if(position > this.max)
+    if (position > this.max)
       position = this.max
     this.focused = {
       index: index,
@@ -294,7 +294,7 @@ Polymer({
       if (this.type == 'gradient') {
         var stopsStrings = (value || []).map(function (stop) {
           var position = (stop.position - min) / (max - min)
-          return `${stop.color} ${position * 100}%`
+          return html`${stop.color} ${position * 100}%`
         })
       } else {
         var stops = value || []

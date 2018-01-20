@@ -1,8 +1,8 @@
-import {Element as PolymerElement} from '@polymer/polymer/polymer-element';
-import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
-import {create as createScene} from '@hatiolab/things-scene';
+import { create as createScene } from '@hatiolab/things-scene';
 
 import './things-scene-components.import';
 
@@ -18,7 +18,7 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
   }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         @apply(--things-shell);
@@ -114,7 +114,7 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
     }
   }
 
-  ready () {
+  ready() {
     super.ready();
 
     this.addEventListener('iron-resize', () => {
@@ -161,10 +161,10 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
     }
 
     const layers = Array.from(this.querySelectorAll('things-shell-layer'))
-    .map(layer => layer.getModel());
+      .map(layer => layer.getModel());
 
     const handlers = Array.from(this.querySelectorAll('things-shell-handler'))
-    .map(handler => handler.getAttribute('type'));
+      .map(handler => handler.getAttribute('type'));
 
     this.scene = createScene({
       target: this,
