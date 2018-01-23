@@ -1,6 +1,6 @@
 <page-toolbar>
 
-  <label>{{labelName}}</label>
+  <label>[[boardCurrent.name]]</label>
 
   <paper-icon-button id="undo" title="undo ([[getShortcutString('cmd', 'z')]])"></paper-icon-button>
   <paper-icon-button id="redo" title="redo ([[getShortcutString('cmd', 'shift', 'z')]])"></paper-icon-button>
@@ -74,3 +74,21 @@
     toggles="true"></paper-icon-button>
 
 </page-toolbar>
+
+<paper-dialog id="save-new-dialog" entry-animation="scale-up-animation"
+  exit-animation="fade-out-animation" on-iron-overlay-closed="onSaveNewDialogClosed"
+  no-overlap>
+
+  <h2>Save New Board</h2>
+  <paragraph>
+    새로 만들어진 보드입니다. 보드의 이름을 지어주세요.
+  </paragraph>
+
+  <paper-input always-float-label label="이름" value="{{newBoardName}}"></paper-input>
+  <paper-textarea always-float-label label="설명" rows=1 value="{{newBoardDescription}}"></paper-textarea>
+
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm autofocus>Accept</paper-button>
+  </div>
+</paper-dialog>

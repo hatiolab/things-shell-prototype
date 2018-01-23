@@ -12,7 +12,7 @@ class BoardCard extends ReduxMixin(PolymerElement) {
       <div class="card">
         <h1>[[board.name]]</h1>
         <p>[[board.description]]</p>
-        <img src="[[thumbnail()]]"></img>
+        <img src="[[thumbnail(board)]]"></img>
       </div>
     `;
   }
@@ -25,8 +25,8 @@ class BoardCard extends ReduxMixin(PolymerElement) {
     }
   }
 
-  thumbnail() {
-    return this.board.thumbnail || "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+  thumbnail(board) {
+    return board.thumbnail || "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
   }
 }
 

@@ -13,3 +13,7 @@ paper-listbox {
   -webkit-overflow-scrolling: touch;
   padding: 0px;
 }
+
+#new-group-dialog {
+  min-width: 300px;
+}

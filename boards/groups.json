@@ -2,5 +2,19 @@
   "DEFAULT-GROUP": {
     "name": "DEFAULT-GROUP",
     "description": "DESC-DEFAULT-GROUP"
+  },
+  "AAA": {
+    "name": "AAA"
+  },
+  "BBB": {
+    "name": "BBB"
+  },
+  "CCC": {
+    "name": "CCC",
+    "description": "CCC Description"
+  },
+  "DDD": {
+    "name": "DDD",
+    "description": "DDD"
   }
 }

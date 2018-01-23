@@ -1,8 +1,16 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import '@polymer/paper-input/paper-input';
+import '@polymer/paper-input/paper-textarea';
 
-import { ReduxMixin, fetchGroupList } from '../../reducer/redux-mixin';
+import '@polymer/neon-animation/animations/scale-up-animation';
+import '@polymer/neon-animation/animations/fade-out-animation';
+import '@polymer/paper-dialog/paper-dialog';
+import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
+
+import { ReduxMixin, fetchGroupList, fetchBoardList, newGroup } from '../../reducer/redux-mixin';
 
 import style from './style.css';
+import template from './html.template';
 
 import './group-card';
 
@@ -11,16 +19,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     return html`
     <style include="shared-styles">${style}</style>
 
-    <app-toolbar>
-      <div main-title>Board Groups</div>
-    </app-toolbar>
-
-    <paper-listbox>
-      <template is="dom-repeat" items="[[boardGroupList]]">
-        <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
-      </template>
-      <group-card name='+' add>Click to add new board.</group-card>
-    </paper-listbox>
+    ${template}
     `;
   }
 
@@ -42,18 +41,39 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
   ready() {
     super.ready();
 
-    this.shadowRoot.addEventListener('click', e => {
-      var card = e.target;
-      if (card.tagName !== 'GROUP-CARD')
-        return;
-
-      this.dispatch({
-        type: 'SHOW-BOARD-LIST',
-        scene: '101'
-      })
-    })
-
     this.dispatch(fetchGroupList());
+    this.dispatch(fetchBoardList('DEFAULT-GROUP'));
+  }
+
+  onGroupClicked(e) {
+    var card = e.target;
+    var name = card.name;
+
+    if (!name)
+      return;
+
+    if (name == '+') {
+      this.newGroupName = '';
+      this.newGroupDescription = '';
+
+      this.$['new-group-dialog'].open();
+    } else {
+      this.dispatch(fetchBoardList(name));
+    }
+  }
+
+  onNewGroupDialogClosed(e) {
+    var dialog = e.target;
+
+    if (!dialog.closingReason.confirmed)
+      return;
+
+    var group = {
+      name: this.newGroupName,
+      description: this.newGroupDescription
+    }
+
+    this.dispatch(newGroup(group));
   }
 }
 

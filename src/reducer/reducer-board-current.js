@@ -8,8 +8,8 @@ import { cloneDeep } from 'lodash';
 // };
 const STATE = {};
 const NEW_MODEL = {
-  name: 'NEW (Click to Edit)',
-  description: 'DESCRIPTION (Click to Edit)',
+  name: '',
+  description: '',
   width: 800,
   height: 600,
   model: {

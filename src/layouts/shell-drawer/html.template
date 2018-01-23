@@ -1,0 +1,28 @@
+<app-toolbar>
+  <div main-title>Board Groups</div>
+</app-toolbar>
+
+<paper-listbox on-click="onGroupClicked">
+  <template is="dom-repeat" items="[[boardGroupList]]">
+    <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
+  </template>
+  <group-card name='+' add>Click to add new board.</group-card>
+</paper-listbox>
+
+<paper-dialog id="new-group-dialog" entry-animation="scale-up-animation"
+  exit-animation="fade-out-animation" on-iron-overlay-closed="onNewGroupDialogClosed"
+  no-overlap>
+
+  <h2>New Group</h2>
+  <paragraph>
+    새로 만들 그룹의 이름을 지어주세요.
+  </paragraph>
+
+  <paper-input label="이름" value="{{newGroupName}}"></paper-input>
+  <paper-textarea label="설명" rows=1 value="{{newGroupDescription}}"></paper-textarea>
+
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm autofocus>Accept</paper-button>
+  </div>
+</paper-dialog>

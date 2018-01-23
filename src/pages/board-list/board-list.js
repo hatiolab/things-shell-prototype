@@ -58,31 +58,22 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     }
   }
 
-  ready() {
-    super.ready();
-
-    this.shadowRoot.addEventListener('click', e => {
-      var card = e.target;
-      if (card.tagName !== 'BOARD-CARD')
-        return;
-
-      this.dispatch({
-        type: 'SHOW-BOARD-MODELER',
-        scene: '101'
-      })
-    })
-
-    this.dispatch(fetchBoardList());
-  }
-
   onClickNew() {
     this.dispatch({
       type: 'NEW-BOARD'
     });
+
+    this.dispatch({
+      type: 'SHOW-BOARD-MODELER'
+    })
   }
 
   onClickOpen(e) {
     this.dispatch(fetchBoard(e.target.board.name));
+
+    this.dispatch({
+      type: 'SHOW-BOARD-MODELER'
+    })
   }
 }
 

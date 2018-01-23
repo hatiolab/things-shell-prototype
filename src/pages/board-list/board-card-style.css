@@ -21,8 +21,9 @@ h1 {
 }
 
 img {
-  width: 120px;
-  height: 80px;
+  max-height:200px;
+  min-height:200px;
+  object-fit: contain;
 }
 
 :host([add]) div{

@@ -2,6 +2,13 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/paper-slider/paper-slider';
 import '@polymer/paper-toast/paper-toast';
+import '@polymer/paper-input/paper-input';
+import '@polymer/paper-input/paper-textarea';
+
+import '@polymer/neon-animation/animations/scale-up-animation';
+import '@polymer/neon-animation/animations/fade-out-animation';
+import '@polymer/paper-dialog/paper-dialog';
+import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
 import { ReduxMixin, saveBoard } from '../../../reducer/redux-mixin';
 
@@ -47,6 +54,9 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
       },
       boardCurrent: {
         statePath: 'boardCurrent'
+      },
+      group: {
+        statePath: 'boardGroupCurrent'
       }
     }
   }
@@ -97,12 +107,12 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
       modelerScene.focus()
     })
 
-    modelerHtoolbar.addEventListener('keydown', e => {
-      this.onShortcut(e, userOS)
-      e.stopPropagation()
-      e.preventDefault()
-      modelerScene.focus()
-    })
+    // modelerHtoolbar.$['page-toolbar'].addEventListener('keydown', e => {
+    //   this.onShortcut(e, userOS)
+    //   e.stopPropagation()
+    //   e.preventDefault()
+    //   modelerScene.focus()
+    // })
 
     window.addEventListener('paste', e => {
       this.cliped = e.clipboardData.getData('text/plain');
@@ -233,23 +243,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
         break
       case 'KeyS':
         if (ctrlKey) {
-          try {
-            this.scene.toDataURL('png', null, 400, 300)
-              .then(url => {
-                this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
-                  thumbnail: url,
-                  model: this.scene.model
-                })));
-              }, err => {
-                console.error(err)
-
-                this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
-                  model: this.scene.model
-                })));
-              })
-          } catch (e) {
-            if (this.showToastMsg) this.showToastMsg(e);
-          }
+          this.onTapSave();
         }
         break
       case 'KeyP':
@@ -587,6 +581,50 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     }
 
     this.scene.distribute(distribute)
+  }
+
+  saveBoard() {
+    try {
+      this.scene.toDataURL('png', null, 400, 300)
+        .then(url => {
+          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+            thumbnail: url,
+            model: this.scene.model
+          })));
+        }, err => {
+          console.error(err)
+
+          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+            model: this.scene.model
+          })));
+        })
+    } catch (e) {
+      if (this.showToastMsg) this.showToastMsg(e);
+    }
+  }
+
+  onTapSave(e) {
+    if (!this.boardCurrent.name) {
+      this.newBoardName = '';
+      this.newBoardDescription = '';
+
+      this.$['save-new-dialog'].open();
+    } else {
+      this.saveBoard();
+    }
+  }
+
+  onSaveNewDialogClosed(e) {
+    var dialog = e.target;
+
+    if (!dialog.closingReason.confirmed)
+      return;
+
+    this.boardCurrent.name = this.newBoardName;
+    this.boardCurrent.description = this.newBoardDescription;
+    this.boardCurrent.group = this.group;
+
+    this.saveBoard();
   }
 
 }
