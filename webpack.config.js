@@ -1,8 +1,6 @@
-const {resolve, join} = require('path');
+const { resolve, join } = require('path');
 const NodePackage = require('./package.json');
 const webpack = require('webpack');
-
-const meta = require('./things-component.meta');
 
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -89,8 +87,7 @@ module.exports = {
           process.argv.find(arg => arg.includes('webpack-dev-server')) ? 'development' : 'production'
         ),
         'APP-VERSION': JSON.stringify(NodePackage.version)
-      },
-      META: JSON.stringify(meta)
+      }
     }),
     new ExtractTextPlugin('./bundle.css'),
     // This plugin will generate an index.html file for us that can be used
@@ -103,9 +100,9 @@ module.exports = {
     // That's important because the custom-elements-es5-adapter.js MUST
     // remain in ES2015. We’ll talk about this a bit later :)
     new CopyWebpackPlugin([{
-    //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
-    //   to: '/webcomponentsjs/[name].[ext]'
-    // }, {
+      //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
+      //   to: '/webcomponentsjs/[name].[ext]'
+      // }, {
       from: 'styles/**',
       context: resolve('./src'),
       to: outputPath
