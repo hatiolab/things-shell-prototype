@@ -66,16 +66,14 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
         statePath: 'route.page',
         observer: '_onPageChanged'
       },
-      path: {
+      routePath: {
         type: String,
         statePath: 'route.path',
-        observer: '_onPathChanged'
+        observer: '_onRoutePathChanged'
       },
-      appRoute: Object,
-      routeData: Object,
-      subroute: {
-        type: String,
-        // statePath: 'route.subroute'
+      routeData: {
+        type: Object,
+        observer: '_onRouteDataChanged'
       },
       rootPath: {
         type: String,
@@ -118,27 +116,11 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
     };
   }
 
-  static get observers() {
-    return [
-      '_onRouteChanged(routeData)',
-      '_onAppRouteChanged(appRoute)'
-    ];
-  }
-
-  _onAppRouteChanged(appRoute) {
-    console.log('appRouteChanged', appRoute);
-  }
-
-  _onRouteChanged(routeData) {
-    console.log('routeDataChanged', routeData)
+  _onRouteDataChanged(routeData) {
     this.dispatch(followRouteChange(routeData.page, routeData.id));
-    // this.dispatch({
-    //   type: 'CHANGE-ROUTE',
-    //   routeData: routeData
-    // });
   }
 
-  _onPathChanged(path) {
+  _onRoutePathChanged(path) {
     this.set('appRoute.path', path);
   }
 

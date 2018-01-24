@@ -1,0 +1,31 @@
+{
+  "width": 800,
+  "height": 600,
+  "type": "model-layer",
+  "translate": {
+    "x": 182.99319727891162,
+    "y": 158.86009576960726
+  },
+  "scale": {
+    "x": 0.23500000000000007,
+    "y": 0.23500000000000007
+  },
+  "components": [
+    {
+      "type": "ellipse",
+      "xx": 0,
+      "rx": 50,
+      "ry": 50,
+      "cx": 216.70285135330738,
+      "cy": 432.7833260963961,
+      "fillStyle": "#fff",
+      "strokeStyle": "#000",
+      "alpha": 1,
+      "hidden": false,
+      "lineWidth": 1,
+      "lineDash": "solid",
+      "lineCap": "butt",
+      "rotation": 0
+    }
+  ]
+}

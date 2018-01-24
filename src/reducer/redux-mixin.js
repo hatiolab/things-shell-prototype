@@ -10,7 +10,7 @@ export {
   saveBoard,
   newGroup,
   followRouteChange,
-  changeLocation
+  setRoute
 } from './actions';
 
 const store = Redux.createStore(

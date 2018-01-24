@@ -58,6 +58,8 @@ export const saveBoard = (board) => async dispatch => {
       type: 'REFRESH-BOARD',
       board: responseBody.board
     });
+
+    dispatch(setRoute('modeler', board.name));
   } catch (error) {
     console.error(error);
     /* TODO error */
@@ -118,30 +120,39 @@ export const fetchPlayGroupList = () => async dispatch => {
   }
 }
 
-export const followRouteChange = (page, id) => async dispatch => {
+export const followRouteChange = (page, id) => dispatch => {
+
   switch (page) {
     case 'list':
-      dispatch(fetchBoardList(id));
+      if (!id) {
+        dispatch(setRoute('list', 'DEFAULT-GROUP'));
+        return;
+      } else {
+        dispatch(fetchBoardList(id));
+      }
       break;
     case 'modeler':
       dispatch(fetchBoard(id));
       break;
     case 'player':
       break;
+    default:
+      if (!id) {
+        dispatch(setRoute('list', 'DEFAULT-GROUP'));
+      }
+      return;
   }
 
   dispatch({
-    type: 'CHANGE-ROUTE',
-    route: {
-      page: page,
-      id
-    }
+    type: 'SET-PAGE-AND-ID',
+    route: { page, id }
   })
 }
 
-export const changeLocation = (page, id) => async dispatch => {
+export const setRoute = (page, id) => dispatch => {
+
   dispatch({
-    type: 'CHANGE-LOCATION',
-    location: { page, id }
+    type: 'SET-ROUTE-PATH',
+    route: { page, id }
   })
 }
