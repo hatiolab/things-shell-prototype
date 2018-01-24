@@ -8,7 +8,9 @@ export {
   fetchGroupList,
   fetchBoard,
   saveBoard,
-  newGroup
+  newGroup,
+  followRouteChange,
+  changeLocation
 } from './actions';
 
 const store = Redux.createStore(

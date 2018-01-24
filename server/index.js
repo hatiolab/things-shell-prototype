@@ -8,10 +8,11 @@ const path = require('path'),
 var config = require('../webpack.config.js'),
   compiler = webpack(config);
 
-var DIST_DIR = path.join(__dirname, 'dist'),
+var DIST_DIR = config.output.path,
   PORT = 3000,
   app = express(),
-  router = express.Router();
+  router = express.Router(),
+  currentApp = app;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -26,13 +27,23 @@ app.use(webpackDevMiddleware(compiler, {
   stats: { colors: true }
 }));
 
+const ROOT_DIR = path.join(__dirname, '..');
+
 //Send index.html when the user access the web
 router.get('/', function (req, res) {
-  res.sendFile(path.join(DIST_DIR, 'index.html'));
+  res.sendFile(path.join(ROOT_DIR, 'index.html'));
 });
 
-//Serving the files on the dist folder
-app.use(express.static(DIST_DIR));
+router.get('/:page', function (req, res) {
+  res.sendFile(path.join(ROOT_DIR, 'index.html'));
+});
+
+router.get('/:page/:id', function (req, res) {
+  res.sendFile(path.join(ROOT_DIR, 'index.html'));
+});
+
+//Serving the files on the root folder
+app.use(express.static(ROOT_DIR));
 
 require('./api')(app, {});
 

@@ -3,11 +3,11 @@
   storage-bucket="fireboard-17fb1.appspot.com" messaging-sender-id="887850237526">
 </firebase-app>
 
-<app-location route="{{route}}">
+<app-location route="{{appRoute}}">
 </app-location>
 
-<app-route route="{{route}}" pattern="[[rootPattern]]:page" data="{{routeData}}"
-  tail="{{subroute}}">
+<app-route route="{{appRoute}}" pattern="[[rootPattern]]:page/:id"
+  data="{{routeData}}" tail="{{subroute}}">
 </app-route>
 
 <app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}"

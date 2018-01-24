@@ -2,7 +2,7 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/app-layout/app-grid/app-grid-style';
 
-import { ReduxMixin, fetchBoard, fetchBoardList } from '../../reducer/redux-mixin';
+import { ReduxMixin, changeLocation } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
 import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
@@ -69,11 +69,11 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
   }
 
   onClickOpen(e) {
-    this.dispatch(fetchBoard(e.target.board.name));
+    this.dispatch(changeLocation('modeler', e.target.board.name));
 
-    this.dispatch({
-      type: 'SHOW-BOARD-MODELER'
-    })
+    // this.dispatch({
+    //   type: 'SHOW-BOARD-MODELER'
+    // })
   }
 }
 

@@ -1,39 +1,40 @@
-const STATE = {
-  rootPath: '',
-  route: 'list'
-};
-
 function set(state, o) {
   return Object.assign({}, state, o)
 }
 
-export default function (state = STATE, action) {
+export default function (state = {}, action) {
   switch (action.type) {
     case 'INIT-ROUTE':
       return set(state, {
         rootPattern: (new URL(action.path)).pathname
       });
     case 'CHANGE-ROUTE':
-      let routeData = action.routeData;
+      let route = action.route;
       return set(state, {
-        route: routeData.page || 'list'
+        page: route.page || 'list',
+        id: route.id
       });
     case 'SET-ROUTE':
       return set(state, {
-        route: action.route
+        page: action.route
       });
     case 'SHOW-BOARD-INFO':
       return set(state, {
-        route: 'info'
+        page: 'info'
       });
     case 'SHOW-BOARD-MODELER':
       return set(state, {
-        route: 'modeler'
+        page: 'modeler'
       });
     case 'SHOW-BOARD-LIST':
       return set(state, {
-        route: 'list'
+        page: 'list'
       });
+    case 'CHANGE-LOCATION':
+      let location = action.location;
+      return set(state, {
+        path: `${location.page}/${location.id}`
+      })
     default:
       return state
   }

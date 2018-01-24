@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
-module.exports = function(content) {
+module.exports = function (content) {
   const thingsDir = path.resolve(__dirname, '../node_modules/@things-elements');
   const components = [];
 
@@ -13,10 +13,10 @@ module.exports = function(content) {
     const folders = fs.readdirSync(thingsDir);
 
     folders.forEach(function (folder) {
-      let package = require(path.resolve(thingsDir, folder, './package.json'));
-      components.push(package.name);
+      let pkg = require(path.resolve(thingsDir, folder, './package.json'));
+      components.push(pkg.name);
     });
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
 

@@ -26,7 +26,7 @@ import '@polymer/iron-icons/social-icons';
 
 // import 'polymerfire/firebase-app.html';
 
-import { ReduxMixin } from '../reducer/redux-mixin';
+import { ReduxMixin, followRouteChange } from '../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -63,13 +63,19 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
     return {
       page: {
         type: String,
-        statePath: 'route.route',
+        statePath: 'route.page',
         observer: '_onPageChanged'
       },
+      path: {
+        type: String,
+        statePath: 'route.path',
+        observer: '_onPathChanged'
+      },
+      appRoute: Object,
       routeData: Object,
       subroute: {
         type: String,
-        statePath: 'route.subroute'
+        // statePath: 'route.subroute'
       },
       rootPath: {
         type: String,
@@ -115,14 +121,25 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
   static get observers() {
     return [
       '_onRouteChanged(routeData)',
+      '_onAppRouteChanged(appRoute)'
     ];
   }
 
+  _onAppRouteChanged(appRoute) {
+    console.log('appRouteChanged', appRoute);
+  }
+
   _onRouteChanged(routeData) {
-    this.dispatch({
-      type: 'CHANGE-ROUTE',
-      routeData: routeData
-    });
+    console.log('routeDataChanged', routeData)
+    this.dispatch(followRouteChange(routeData.page, routeData.id));
+    // this.dispatch({
+    //   type: 'CHANGE-ROUTE',
+    //   routeData: routeData
+    // });
+  }
+
+  _onPathChanged(path) {
+    this.set('appRoute.path', path);
   }
 
   _onPageChanged(page = 'list') {

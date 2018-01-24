@@ -8,30 +8,16 @@ try {
   const folders = fs.readdirSync(thingsDir);
 
   folders.forEach(function (folder) {
-    let package = require(path.resolve(thingsDir, folder, './package.json'));
+    let pkg = require(path.resolve(thingsDir, folder, 'package.json'));
 
-    components[package.name] = {
-      path: path.relative(__dirname, path.resolve(thingsDir, folder, package.main))
+    components[pkg.name] = {
+      path: path.relative(__dirname, path.resolve(thingsDir, folder, pkg.main))
     }
   });
 } catch (e) {
   console.error(e);
 }
 
-// const samplesDir = path.resolve(__dirname, 'samples');
-// const samples = {};
-
-// try {
-//   const files = fs.readdirSync(samplesDir);
-
-//   files.forEach(function (file) {
-//     samples[file] = path.resolve(samplesDir, file);
-//   });
-// } catch(e) {
-//   console.error(e);
-// }
-
 module.exports = {
-  components,
-  // samples
+  components
 };

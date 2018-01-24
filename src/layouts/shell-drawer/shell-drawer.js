@@ -7,7 +7,7 @@ import '@polymer/neon-animation/animations/fade-out-animation';
 import '@polymer/paper-dialog/paper-dialog';
 import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
-import { ReduxMixin, fetchGroupList, fetchBoardList, newGroup } from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchGroupList, fetchBoardList, newGroup, changeLocation } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -42,7 +42,6 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     super.ready();
 
     this.dispatch(fetchGroupList());
-    this.dispatch(fetchBoardList('DEFAULT-GROUP'));
   }
 
   onGroupClicked(e) {
@@ -58,7 +57,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
       this.$['new-group-dialog'].open();
     } else {
-      this.dispatch(fetchBoardList(name));
+      this.dispatch(changeLocation('list', name));
     }
   }
 

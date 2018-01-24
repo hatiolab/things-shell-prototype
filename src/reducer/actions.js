@@ -117,3 +117,31 @@ export const fetchPlayGroupList = () => async dispatch => {
     });
   }
 }
+
+export const followRouteChange = (page, id) => async dispatch => {
+  switch (page) {
+    case 'list':
+      dispatch(fetchBoardList(id));
+      break;
+    case 'modeler':
+      dispatch(fetchBoard(id));
+      break;
+    case 'player':
+      break;
+  }
+
+  dispatch({
+    type: 'CHANGE-ROUTE',
+    route: {
+      page: page,
+      id
+    }
+  })
+}
+
+export const changeLocation = (page, id) => async dispatch => {
+  dispatch({
+    type: 'CHANGE-LOCATION',
+    location: { page, id }
+  })
+}
