@@ -34,14 +34,36 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
       selected: {
         type: Number,
         value: 0
+      },
+      boardGroupCurrent: {
+        type: String,
+        statePath: 'boardGroupCurrent'
       }
     }
+  }
+
+  static get observers() {
+    return [
+      'onBoardGroupChanged(boardGroupCurrent, boardGroupList)'
+    ]
   }
 
   ready() {
     super.ready();
 
     this.dispatch(fetchGroupList());
+  }
+
+  onBoardGroupChanged(boardGroupCurrent, boardGroupList) {
+    /* group-card 엘리먼트들이 만들어지기를 기다려서, 처리한다. */
+    setTimeout(() => {
+      this.root.querySelectorAll('group-card').forEach(element => {
+        if (boardGroupCurrent == element.name)
+          element.setAttribute('active', true);
+        else
+          element.removeAttribute('active');
+      });
+    }, 100);
   }
 
   onGroupClicked(e) {
@@ -73,6 +95,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     }
 
     this.dispatch(newGroup(group));
+    this.dispatch(setRoute('list', name));
   }
 }
 

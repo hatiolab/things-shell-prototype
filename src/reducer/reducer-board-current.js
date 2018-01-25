@@ -34,7 +34,7 @@ export default function (state = STATE, action) {
       });
 
     case 'REFRESH-BOARD':
-      return action.board;
+      return action.board || cloneDeep(NEW_MODEL);
 
     default:
       return state;

@@ -1,6 +1,6 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import { ReduxMixin, fetchBoardList } from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style-group-card.css';
 

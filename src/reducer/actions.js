@@ -1,13 +1,10 @@
-export const fetchBoardList = (group) => async dispatch => {
+export const fetchBoardList = (group, callback) => async dispatch => {
   try {
     const url = group ? `groups/${group}/boards` : 'boards';
     const response = await fetch(url);
     const responseBody = await response.json();
 
-    dispatch({
-      type: 'CHANGE-GROUP',
-      group: group
-    });
+    dispatch(setRoute('list', group));
 
     dispatch({
       type: 'BOARD-LIST',
@@ -124,12 +121,18 @@ export const followRouteChange = (page, id) => dispatch => {
 
   switch (page) {
     case 'list':
+      dispatch({
+        type: 'CHANGE-GROUP',
+        group: id || 'DEFAULT-GROUP'
+      });
+
       if (!id) {
         dispatch(setRoute('list', 'DEFAULT-GROUP'));
         return;
       } else {
         dispatch(fetchBoardList(id));
       }
+
       break;
     case 'modeler':
       dispatch(fetchBoard(id));
