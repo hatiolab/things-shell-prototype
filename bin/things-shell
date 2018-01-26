@@ -7,15 +7,14 @@ var path = require('path');
 
 process.title = 'things-shell';
 
-resolve('things-shell', { basedir: process.cwd() }, function (error, libpath) {
-  var server = require('../server');
+resolve('@hatiolab/things-scene', { basedir: process.cwd() }, function (error, modulePath) {
 
-  //   server.
-  //   // var clipath = libpath ? path.resolve(libpath, '../cli') : '../lib/cli';
-  //   // var cli = require(clipath);
-  //   // cli.run(process.argv)
-  //   //   .catch(function (e) {
-  //   //     console.error(e);
-  //   //     process.exit(69);
-  //   //   });
+  var serverPath = modulePath ? path.resolve(modulePath, '../../../../server') : '../server';
+  var server = require(serverPath);
+
+  // server.run(process.argv)
+  //   .catch(function (e) {
+  //     console.error(e);
+  //     process.exit(69);
+  //   });
 });

@@ -8,7 +8,12 @@ const boardRootPath = path.resolve(process.cwd(), 'boards');
 const boardIndexPath = path.resolve(boardRootPath, 'boards.json');
 const groupIndexPath = path.resolve(boardRootPath, 'groups.json');
 
-var groups = {};
+var groups = {
+  'DEFAULT-GROUP': {
+    name: 'DEFAULT-GROUP',
+    description: 'DESC-DEFAULT-GROUP'
+  }
+};
 
 function initialize() {
 

@@ -43,12 +43,12 @@ module.exports = function (content) {
  * 5. 아이콘 리소스
  * 
  * 이 메타정보를 어떻게 관리할까..
- * 1. package.json 에 things-scene 속성을 정의
- *  - 값 : true | config file path(default : things-scene.config.js)
- * 2. things-scene.config.js 파일에 메타정보를 정의하도록 함
+ * 1. package.json 에 things-shell 속성을 정의
+ *  - 값 : true | config file path(default : things-shell.config.js)
+ * 2. things-shell.config.js 파일에 메타정보를 정의하도록 함
  * 
  * 메타정보를 참조하여 임포트하는 방법
  * 1. 모델러의 경우와 뷰어의 경우가 다를 것 같은데, 어떻게 구별해서 로딩하지 ?
- * 2. things-scene-components.import 는 컴포넌트 구현만 임포트한다.
- * 3. things-scene-components-with-meta.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
+ * 2. things-shell-components.import 는 컴포넌트 구현만 임포트한다.
+ * 3. things-shell-components-with-meta.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
  */

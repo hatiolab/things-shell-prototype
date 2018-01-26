@@ -13,7 +13,7 @@ var outputPath = resolve('dist');
 module.exports = {
   entry: {
     bundle: [
-      './src/index.js',
+      resolve(__dirname, './src/index.js'),
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
     ]
   },
@@ -27,7 +27,10 @@ module.exports = {
     ]
   },
   resolveLoader: {
-    modules: ["node_modules", "web_loaders"]
+    modules: [
+      resolve(__dirname, "node_modules"),
+      resolve(__dirname, "web_loaders")
+    ]
   },
   module: {
     rules: [{
@@ -89,7 +92,9 @@ module.exports = {
         'APP-VERSION': JSON.stringify(NodePackage.version)
       }
     }),
-    new ExtractTextPlugin('./bundle.css'),
+    new webpack.HotModuleReplacementPlugin(),
+
+    // new ExtractTextPlugin('./bundle.css'),
     // This plugin will generate an index.html file for us that can be used
     // by the Webpack dev server. We can give it a template file (written in EJS)
     // and it will handle injecting our bundle for us.
@@ -99,67 +104,66 @@ module.exports = {
     // This plugin will copy files over to ‘./dist’ without transforming them.
     // That's important because the custom-elements-es5-adapter.js MUST
     // remain in ES2015. We’ll talk about this a bit later :)
-    new CopyWebpackPlugin([{
-      //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
-      //   to: '/webcomponentsjs/[name].[ext]'
-      // }, {
-      from: 'styles/**',
-      context: resolve('./src'),
-      to: outputPath
-    }, {
-      from: 'node_modules/@polymer/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'node_modules/@npm-polymer/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'node_modules/web-animations-js/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'node_modules/@webcomponents/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'libs/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'licenses/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'assets/**',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'index.html',
-      context: resolve('.'),
-      to: outputPath
-    }, {
-      from: 'manifest.json',
-      context: resolve('.'),
-      to: outputPath
-    }]),
+    // new CopyWebpackPlugin([{
+    //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
+    //   to: '/webcomponentsjs/[name].[ext]'
+    // }, {
+    //   from: 'styles/**',
+    //   context: resolve('./src'),
+    //   to: outputPath
+    // }, {
+    //   from: 'node_modules/@polymer/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'node_modules/@npm-polymer/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'node_modules/web-animations-js/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'node_modules/@webcomponents/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'libs/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'licenses/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'assets/**',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    //   from: 'index.html',
+    //   context: resolve('.'),
+    //   to: outputPath
+    // }, {
+    // from: 'manifest.json',
+    // context: resolve('.'),
+    // to: outputPath
+    // }]),
     // new ElectronPackager({
     //   dir: ".",
     //   arch: "x64",
     //   packageManager: "yarn",
     //   platform: "darwin",
-    // }),
-    new webpack.HotModuleReplacementPlugin()
+    // })
   ],
-  devtool: 'cheap-module-source-map',
-  devServer: {
-    contentBase: resolve('.'),
-    compress: true,
-    overlay: {
-      errors: true
-    },
-    port: 3000,
-    host: '0.0.0.0',
-    disableHostCheck: true
-  }
+  // devtool: 'cheap-module-source-map',
+  // devServer: {
+  //   contentBase: resolve('.'),
+  //   compress: true,
+  //   overlay: {
+  //     errors: true
+  //   },
+  //   port: 3000,
+  //   host: '0.0.0.0',
+  //   disableHostCheck: true
+  // }
 }
