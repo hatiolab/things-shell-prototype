@@ -3,6 +3,7 @@ docs/
 licenses/
 node_modules/
 test/
+boards/
 npm-debug.log
 .babel.rc
 .editorconfig
