@@ -10,3 +10,4 @@ node_modules
 *.report.html
 bower_components
 licenses/*/**
+boards
