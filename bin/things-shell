@@ -7,9 +7,11 @@ var path = require('path');
 
 process.title = 'things-shell';
 
-resolve('@hatiolab/things-scene', { basedir: process.cwd() }, function (error, modulePath) {
+resolve('@hatiolab/things-shell', { basedir: process.cwd() }, function (error, modulePath) {
 
-  var serverPath = modulePath ? path.resolve(modulePath, '../../../../server') : '../server';
+  var serverPath = modulePath ?
+    path.resolve(modulePath, '../../server') :
+    path.resolve(__dirname, '../server');
   var server = require(serverPath);
 
   // server.run(process.argv)

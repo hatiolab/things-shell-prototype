@@ -1,4 +1,5 @@
 const { resolve, join } = require('path');
+const module_resolve = require('resolve');
 const NodePackage = require('./package.json');
 const webpack = require('webpack');
 
@@ -10,10 +11,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var outputPath = resolve('dist');
 
+try {
+  let path = module_resolve.sync('@hatiolab/things-shell', { basedir: process.cwd() });
+  var thingsShellModulePath = resolve(path, '..');
+  var externModulesPath = resolve(path, '../../..');
+
+} catch (e) {
+  console.log('@hatiolab/things-shell module not found.');
+  var thingsShellModulePath = __dirname;
+  var externModulesPath = resolve(__dirname, 'node_modules');
+}
+
+console.log('ThingsShell Module Path', thingsShellModulePath);
+console.log('Extern Module Path', externModulesPath);
+
 module.exports = {
   entry: {
     bundle: [
-      resolve(__dirname, './src/index.js'),
+      resolve(thingsShellModulePath, './src/index.js'),
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
     ]
   },
@@ -23,13 +38,13 @@ module.exports = {
   },
   resolve: {
     modules: [
-      resolve(__dirname, 'node_modules')
+      externModulesPath
     ]
   },
   resolveLoader: {
     modules: [
-      resolve(__dirname, "node_modules"),
-      resolve(__dirname, "web_loaders")
+      externModulesPath,
+      resolve(thingsShellModulePath, "web_loaders")
     ]
   },
   module: {
