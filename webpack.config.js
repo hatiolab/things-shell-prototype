@@ -13,8 +13,8 @@ var outputPath = resolve('dist');
 
 try {
   let path = module_resolve.sync('@hatiolab/things-shell', { basedir: process.cwd() });
-  var thingsShellModulePath = resolve(path, '..');
-  var externModulesPath = resolve(path, '../../..');
+  var thingsShellModulePath = resolve(path, '../..');
+  var externModulesPath = resolve(path, '../../../..');
 
 } catch (e) {
   console.log('@hatiolab/things-shell module not found.');
@@ -91,6 +91,7 @@ module.exports = {
       }, {
         loader: 'things-scene-webpack-loader',
         options: {
+          module_path: externModulesPath,
           excludes: [
             '@things-elements/things-scene-chartjs'
           ]

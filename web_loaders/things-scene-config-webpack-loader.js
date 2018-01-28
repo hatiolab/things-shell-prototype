@@ -3,12 +3,15 @@ const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-  const thingsDir = path.resolve(__dirname, '../node_modules/@things-elements');
+  var thingsDir = path.resolve(__dirname, '../node_modules/@things-elements');
   const components = [];
 
   const options = loaderUtils.getOptions(this) || {};
   const excludes = options.excludes || [];
-
+  if (options.module_path) {
+    thingsDir = path.resolve(options.module_path, '@things-elements');
+  }
+  
   try {
     const folders = fs.readdirSync(thingsDir);
 
