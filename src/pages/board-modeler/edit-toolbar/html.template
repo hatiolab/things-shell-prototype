@@ -79,9 +79,11 @@
   exit-animation="fade-out-animation" on-iron-overlay-closed="onSaveNewDialogClosed"
   no-overlap>
 
-  <h2>Save New Board</h2>
+  <h2>
+    <things-i18n-msg msgid="label.save-new-board">Save New Board</things-i18n-msg>
+  </h2>
   <paragraph>
-    새로 만들어진 보드입니다. 보드의 이름을 지어주세요.
+    <things-i18n-msg msgid="label.pls-name-board">Please, give a name for the new board.</things-i18n-msg>
   </paragraph>
 
   <paper-input always-float-label label="이름" value="{{newBoardName}}"></paper-input>

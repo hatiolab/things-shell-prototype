@@ -1,5 +1,7 @@
 <app-toolbar>
-  <div main-title>Board Groups</div>
+  <div main-title>
+    <things-i18n-msg msgid="label.board-groups">Board Groups</things-i18n-msg>
+  </div>
 </app-toolbar>
 
 <paper-listbox on-click="onGroupClicked">
@@ -15,16 +17,22 @@
   exit-animation="fade-out-animation" on-iron-overlay-closed="onNewGroupDialogClosed"
   no-overlap>
 
-  <h2>New Group</h2>
+  <h2>
+    <things-i18n-msg msgid="label.new-group">New Group</things-i18n-msg>
+  </h2>
   <paragraph>
-    새로 만들 그룹의 이름을 지어주세요.
+    <things-i18n-msg msgid="label.pls-name-group">Please, give a name for the new group.</things-i18n-msg>
   </paragraph>
 
   <paper-input label="이름" value="{{newGroupName}}"></paper-input>
   <paper-textarea label="설명" rows=1 value="{{newGroupDescription}}"></paper-textarea>
 
   <div class="buttons">
-    <paper-button dialog-dismiss>Cancel</paper-button>
-    <paper-button dialog-confirm autofocus>Accept</paper-button>
+    <paper-button dialog-dismiss>
+      <things-i18n-msg msgid="label.cancel">Cancel</things-i18n-msg>
+    </paper-button>
+    <paper-button dialog-confirm autofocus>
+      <things-i18n-msg msgid="label.accept">Accept</things-i18n-msg>
+    </paper-button>
   </div>
 </paper-dialog>

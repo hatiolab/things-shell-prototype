@@ -1,5 +1,5 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {dom} from '@polymer/polymer/lib/legacy/polymer.dom';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom';
 
 import '@polymer/iron-flex-layout/iron-flex-layout';
 import '@polymer/paper-slider/paper-slider';
@@ -200,7 +200,7 @@ Polymer({
       <div class="buttons">
         <paper-button dialog-dismiss>Cancel</paper-button>
         <paper-button on-tap="toggleAdvancedMode" hidden$="{{advanced}}">Advanced</paper-button>
-        <paper-button dialog-confirm on-tap="setColor">OK</paper-button>
+        <paper-button dialog-confirm on-tap="setColor" autofocus>OK</paper-button>
       </div>
     </div>
 
@@ -322,87 +322,87 @@ Polymer({
   observers: [
     'immediateColorChanged(immediateColor.*)'
   ],
-  ready: function(){
-    if(!this.advanced){
+  ready: function () {
+    if (!this.advanced) {
       this.set('advanced', false);
     }
-    if(!this.alwaysShowAlpha){
+    if (!this.alwaysShowAlpha) {
       this.set('alwaysShowAlpha', false);
     }
-    this.async(function(){
-      if(this._isColorDefined()){
-        if(this.allowAlpha && typeof this.color.alpha !== 'undefined'){
+    this.async(function () {
+      if (this._isColorDefined()) {
+        if (this.allowAlpha && typeof this.color.alpha !== 'undefined') {
           this._initialAlphaValueHack = this.color.alpha;
-        }else{
+        } else {
           this._initialAlphaValueHack = 1;
         }
-      }else if(this._isImmediateColorDefined()){
-        if(this.allowAlpha && typeof this.immediateColor.alpha !== 'undefined'){
+      } else if (this._isImmediateColorDefined()) {
+        if (this.allowAlpha && typeof this.immediateColor.alpha !== 'undefined') {
           this._initialAlphaValueHack = this.immediateColor.alpha;
-        }else{
+        } else {
           this._initialAlphaValueHack = 1;
         }
-      }else{
+      } else {
         this._initialAlphaValueHack = 1;
       }
       this._initialAlphaValueHackApplied = true;
     });
-    window.addEventListener('resize', function(){
+    window.addEventListener('resize', function () {
       this.$.dialog.resetFit();
     }.bind(this));
   },
-  _and: function(a,b){
+  _and: function (a, b) {
     return a && b;
   },
-  _or: function(a,b){
+  _or: function (a, b) {
     return a || b;
   },
-  _isColorDefined: function(){
+  _isColorDefined: function () {
     return this.color.red >= 0 && this.color.green >= 0 && this.color.blue >= 0;
   },
-  _isImmediateColorDefined: function(){
+  _isImmediateColorDefined: function () {
     return this.immediateColor.red >= 0 && this.immediateColor.green >= 0 && this.immediateColor.blue >= 0;
   },
-  setColorWheel: function(){
-    if (!this.disableUpdate){
-      if(this._showValueSlider()){
+  setColorWheel: function () {
+    if (!this.disableUpdate) {
+      if (this._showValueSlider()) {
         this.set('colorValue', this.sliderValue / 100);
       }
-      if(this._showLightnessSlider())
+      if (this._showLightnessSlider())
         this.colorLightness = this.sliderLightness / 100;
-      setTimeout(function(){
+      setTimeout(function () {
         this.disableUpdate = false;
       }.bind(this), 50);
     }
     this.disableUpdate = true;
   },
-  sliderValueChanged: function(){
+  sliderValueChanged: function () {
     this.setColorWheel();
   },
-  sliderLightnessChanged: function(){
+  sliderLightnessChanged: function () {
     this.setColorWheel();
   },
-  _calculateLuminance: function(r, g, b){
-    var a = [r,g,b].map(function(v) {
+  _calculateLuminance: function (r, g, b) {
+    var a = [r, g, b].map(function (v) {
       v /= 255;
       return (v <= 0.03928) ?
-      v / 12.92 :
-              Math.pow( ((v+0.055)/1.055), 2.4 );
+        v / 12.92 :
+        Math.pow(((v + 0.055) / 1.055), 2.4);
     });
     return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
   },
-  immediateColorChanged: function(){
-    if(typeof this.immediateColor.alpha == 'undefined'){
+  immediateColorChanged: function () {
+    if (typeof this.immediateColor.alpha == 'undefined') {
       this.immediateColor.alpha = 1;
     }
     var colorAsString = 'rgba(' + this.immediateColor['red'] + ',' + this.immediateColor['green'] + ',' + this.immediateColor['blue'] + ',' + this.immediateColor['alpha'] + ')'
     this.$.color.style.backgroundColor = colorAsString;
     this.immediateColorAsString = colorAsString;
   },
-  drawHuePicker: function(){
+  drawHuePicker: function () {
     this._huePickerCtx = dom(this.root).querySelector('#huePicker').getContext('2d');
     var bitmap = this._huePickerCtx.getImageData(0, 0, 360, 30);
-    for (var x = 0; x < 360; x++){
+    for (var x = 0; x < 360; x++) {
       var hue = x;
       var color = this.$.picker.hsv2rgb(hue, 1, 1);
       bitmap.data[4 * x + 0] = color[0];
@@ -412,13 +412,13 @@ Polymer({
     }
     this._huePickerCtx.putImageData(bitmap, 0, 0);
   },
-  huePickerPickColor: function(e){
+  huePickerPickColor: function (e) {
     var rect = dom(this.root).querySelector('#huePicker').getBoundingClientRect();
     var percentage = (e.detail.x - rect.left) / rect.width;
-    if(percentage > 0 && percentage < 1)
+    if (percentage > 0 && percentage < 1)
       this.colorHue = percentage;
   },
-  changeColorMixture: function(){
+  changeColorMixture: function () {
     var red = this.$.redField.value;
     var green = this.$.greenField.value;
     var blue = this.$.blueField.value;
@@ -429,14 +429,14 @@ Polymer({
     };
     this.set('immediateColor', colors);
   },
-  setColor: function(){
+  setColor: function () {
     this.set('color.red', this.immediateColor.red);
     this.set('color.green', this.immediateColor.green);
     this.set('color.blue', this.immediateColor.blue);
     this.set('color.alpha', this.immediateColor.alpha);
     this.set('colorAsString', this.immediateColorAsString);
   },
-  open: function(){
+  open: function () {
     if (this.color && this.color['green'])
       this.immediateColor = this.color;
     this.immediateColorChanged();
@@ -444,38 +444,38 @@ Polymer({
     if (this._showHuePicker())
       this.drawHuePicker();
   },
-  _computeColouredaaborder: function(){
+  _computeColouredaaborder: function () {
     return {
       red: 50,
       green: 50,
       blue: 50
     };
   },
-  _showValueSlider: function(){
+  _showValueSlider: function () {
     return this.type == 'hsv' && this.shape !== 'huebox';
   },
-  _showLightnessSlider: function(){
+  _showLightnessSlider: function () {
     return this.type == 'hsl' && this.shape !== 'huebox';
   },
-  _showHuePicker: function(){
+  _showHuePicker: function () {
     return this.shape == 'huebox';
   },
-  toggleAdvancedMode: function(){
+  toggleAdvancedMode: function () {
     this.advanced = !this.advanced;
   },
-  _recenterDialog: function(){
-    if(this.$.dialog.opened)
+  _recenterDialog: function () {
+    if (this.$.dialog.opened)
       this.$.dialog.center();
   },
-  _setSliders: function(){
-    this.async(function(){
+  _setSliders: function () {
+    this.async(function () {
       var valueSlider = dom(this.root).querySelector('#valueSlider');
-      if(valueSlider){
-        valueSlider.set('value', this.colorValue*100);
+      if (valueSlider) {
+        valueSlider.set('value', this.colorValue * 100);
       }
       var lightnessSlider = dom(this.root).querySelector('#lightnessSlider');
-      if(lightnessSlider){
-        lightnessSlider.set('value', this.colorLightness*100);
+      if (lightnessSlider) {
+        lightnessSlider.set('value', this.colorLightness * 100);
       }
     });
   }

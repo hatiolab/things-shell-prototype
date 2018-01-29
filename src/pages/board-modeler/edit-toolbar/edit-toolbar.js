@@ -11,6 +11,7 @@ import '@polymer/paper-dialog/paper-dialog';
 import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
 import { ReduxMixin, saveBoard } from '../../../reducer/redux-mixin';
+import '../../../components/things-i18n-msg';
 
 import style from './style.css';
 import template from './html.template';
