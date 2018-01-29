@@ -7,15 +7,21 @@ import zh_CN from '../resources/zh-CN.json';
 const STATE = {
   'en-US': {
     'env-mention': 'v{version} - ENV {env}.',
-    'keyword': 'keyword'
+    'keyword': 'keyword',
+    'label.click-to-add-new-board': 'Click to add new board',
+    'label.click-to-add-new-group': 'Click to add new group'
   },
   'ko-KR': {
     'env-mention': '버전 {version} - {env} 환경',
-    'keyword': '키워드'
+    'keyword': '키워드',
+    'label.click-to-add-new-board': '새로운 보드를 만드려면 클릭하세요.',
+    'label.click-to-add-new-group': '새로운 그룹을 만드려면 클릭하세요.'
   },
   'zh-CN': {
     'env-mention': '版{version} - {env}环境',
-    'keyword': 'keyword'
+    'keyword': 'keyword',
+    'label.click-to-add-new-board': 'Click to add new board',
+    'label.click-to-add-new-group': 'Click to add new group'
   }
 };
 

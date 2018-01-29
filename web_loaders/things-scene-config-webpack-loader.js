@@ -11,7 +11,14 @@ module.exports = function (content) {
   if (options.module_path) {
     thingsDir = path.resolve(options.module_path, '@things-elements');
   }
-  
+
+  /**
+   * package.json의 things-shell 속성이 truthy 인 경우를 필터링한다.
+   * things-shell 값이 true 이면, require할 file name을 things-shell.config.js 로 하고,
+   * 그 외에는 things-shell 의 값으로 한다.
+   * 
+   * 이 결과로는 
+   */
   try {
     const folders = fs.readdirSync(thingsDir);
 
@@ -26,6 +33,14 @@ module.exports = function (content) {
   return components.filter(component => excludes.indexOf(component) == -1)
     .map(component => `import '${component}';\n`).join('');
 };
+
+/**
+ * 임포트의 결과는...
+ * 1. Property Editor들을 모두 import 시킨다.
+ * 2. Group별 component 리스트를 완성한다.
+ * 
+ */
+
 
 /**
  * Modeller를 위한 메타 정보 로더.
@@ -53,5 +68,5 @@ module.exports = function (content) {
  * 메타정보를 참조하여 임포트하는 방법
  * 1. 모델러의 경우와 뷰어의 경우가 다를 것 같은데, 어떻게 구별해서 로딩하지 ?
  * 2. things-shell-components.import 는 컴포넌트 구현만 임포트한다.
- * 3. things-shell-components-with-meta.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
+ * 3. things-shell-components-with-tools.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
  */

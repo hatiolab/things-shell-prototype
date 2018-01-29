@@ -23,7 +23,9 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     </page-toolbar>
 
     <div class="app-grid">
-      <board-card board="[[board4add]]" add on-click="onClickNew"></board-card>
+      <board-card board="[[board4add]]" add on-click="onClickNew">
+        <things-i18n-msg msgid="label.click-to-add-new-board">Click to add new board.</things-i18n-msg>
+      </board-card>
       <template is="dom-repeat" items="[[boardList]]">
         <board-card board="[[item]]" on-click="onClickOpen"></board-card>
       </template>
@@ -51,8 +53,7 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
       },
       board4add: {
         value: {
-          name: '+',
-          description: 'Click to add new board'
+          name: '+'
         }
       }
     }

@@ -6,7 +6,9 @@
   <template is="dom-repeat" items="[[boardGroupList]]">
     <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
   </template>
-  <group-card name='+' add>Click to add new board.</group-card>
+  <group-card name='+' add>
+    <things-i18n-msg msgid="label.click-to-add-new-group">Click to add new group.</things-i18n-msg>
+  </group-card>
 </paper-listbox>
 
 <paper-dialog id="new-group-dialog" entry-animation="scale-up-animation"
