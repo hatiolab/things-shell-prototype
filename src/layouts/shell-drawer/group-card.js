@@ -10,9 +10,6 @@ class GroupCard extends ReduxMixin(PolymerElement) {
     <style include="shared-styles">${style}</style>
 
     <div class="card">
-      <template is="dom-if" if="[[_isValidCard()]]">
-        <div class="circle">[[sequence]]</div>
-      </template>
       <h1>[[name]]</h1>
       <p><slot></slot></p>
     </div>
@@ -23,17 +20,10 @@ class GroupCard extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
-      sequence: {
-        type: Number
-      },
       name: {
         type: String
       }
     }
-  }
-
-  _isValidCard() {
-    return this.sequence !== undefined
   }
 }
 

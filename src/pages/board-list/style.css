@@ -7,9 +7,8 @@ div {
   --app-grid-columns: 4;
   --app-grid-item-height: 200px;
 
-  flex: 1;
   overflow-y: auto;
-  padding: 0px;
+  padding: 0 0 10px 0;
   margin: 0px;
 }
 

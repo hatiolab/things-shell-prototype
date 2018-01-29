@@ -4,7 +4,7 @@
 
 <paper-listbox on-click="onGroupClicked">
   <template is="dom-repeat" items="[[boardGroupList]]">
-    <group-card name="[[item.name]]" sequence="[[index]]">[[item.value.description]]</group-card>
+    <group-card name="[[item.name]]" sequence="[[index]]">[[item.description]]</group-card>
   </template>
   <group-card name='+' add>
     <things-i18n-msg msgid="label.click-to-add-new-group">Click to add new group.</things-i18n-msg>
