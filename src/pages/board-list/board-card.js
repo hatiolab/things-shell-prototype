@@ -10,9 +10,9 @@ class BoardCard extends ReduxMixin(PolymerElement) {
       <style>${style}</style>
 
       <div class="card">
+        <img src="[[thumbnail(board)]]"></img>
         <h1>[[board.name]]</h1>
         <p>[[board.description]]<slot></slot></p>
-        <img src="[[thumbnail(board)]]"></img>
       </div>
     `;
   }
