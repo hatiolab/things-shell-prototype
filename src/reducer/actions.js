@@ -139,6 +139,9 @@ export const followRouteChange = (page, id) => dispatch => {
       break;
     case 'player':
       break;
+    case 'viewer':
+      dispatch(fetchBoard(id));
+      break;
     default:
       if (!id) {
         dispatch(setRoute('list', 'DEFAULT-GROUP'));

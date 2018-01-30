@@ -39,7 +39,7 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
 
       selected: {
         type: Array,
-        observer: 'onSelectedChanged'
+        // observer: 'onSelectedChanged'
       },
 
       mode: {
@@ -48,11 +48,11 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
     }
   }
 
-  onSelectedChanged(selected) {
-    this.dispatch({
-      type: 'CHANGE-SELECTED'
-    })
-  }
+  // onSelectedChanged(selected) {
+  //   this.dispatch({
+  //     type: 'CHANGE-SELECTED'
+  //   })
+  // }
 
   onOpenPreview() {
     this.previewModel = JSON.parse(JSON.stringify(this.scene.model));

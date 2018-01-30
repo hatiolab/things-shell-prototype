@@ -1,6 +1,6 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import { ReduxMixin } from '../../reducer/redux-mixin';
+import { ReduxMixin, setRoute } from '../../reducer/redux-mixin';
 
 import style from './board-card-style.css';
 
@@ -9,11 +9,12 @@ class BoardCard extends ReduxMixin(PolymerElement) {
     return html`
       <style>${style}</style>
 
-      <div class="card">
+      <div class="card" on-click="onClickViewer">
         <img src="[[thumbnail(board)]]"></img>
         <div class="name">
           <h1>[[board.name]]</h1>
           <p>[[board.description]]<slot></slot></p>
+          <iron-icon icon="icons:create" on-click="onClickEdit"></iron-icon>
         </div>
       </div>
     `;
@@ -24,6 +25,32 @@ class BoardCard extends ReduxMixin(PolymerElement) {
   static get properties() {
     return {
       board: Object
+    }
+  }
+
+  createNewBoard() {
+    this.dispatch({
+      type: 'NEW-BOARD'
+    });
+
+    this.dispatch(setRoute('modeler', ''));
+  }
+
+  onClickEdit(e) {
+    if (this.hasAttribute('add')) {
+      this.createNewBoard();
+    } else {
+      this.dispatch(setRoute('modeler', this.board.name));
+      e.stopPropagation();
+    }
+  }
+
+  onClickViewer(e) {
+    if (this.hasAttribute('add')) {
+      this.createNewBoard();
+    } else {
+      this.dispatch(setRoute('viewer', this.board.name));
+      e.stopPropagation();
     }
   }
 

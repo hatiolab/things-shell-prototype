@@ -1,8 +1,9 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/app-layout/app-grid/app-grid-style';
+import '@polymer/paper-input/paper-input';
 
-import { ReduxMixin, setRoute } from '../../reducer/redux-mixin';
+import { ReduxMixin } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
 import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
@@ -23,11 +24,11 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
     </page-toolbar>
 
     <div class="app-grid">
-      <board-card board="[[board4add]]" add on-click="onClickNew">
+      <board-card board="[[board4add]]" add>
         <things-i18n-msg msgid="label.click-to-add-new-board">Click to add new board.</things-i18n-msg>
       </board-card>
       <template is="dom-repeat" items="[[boardList]]">
-        <board-card board="[[item]]" on-click="onClickOpen"></board-card>
+        <board-card board="[[item]]"></board-card>
       </template>
     </div>
     `;
@@ -57,18 +58,6 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
         }
       }
     }
-  }
-
-  onClickNew() {
-    this.dispatch({
-      type: 'NEW-BOARD'
-    });
-
-    this.dispatch(setRoute('modeler', ''));
-  }
-
-  onClickOpen(e) {
-    this.dispatch(setRoute('modeler', e.target.board.name));
   }
 }
 

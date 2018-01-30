@@ -41,3 +41,9 @@ div.name {
   position: relative;
   bottom: 0;
 }
+
+iron-icon {
+  position: absolute;
+  color: gray;
+  right: 0px;
+}
