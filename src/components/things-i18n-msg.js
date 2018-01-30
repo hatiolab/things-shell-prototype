@@ -11,6 +11,9 @@ class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Pol
       msgid: {
         type: String
       },
+      msg: {
+        notify: true
+      },
       language: {
         statePath: 'user.language',
         observer: 'onChange'
@@ -23,8 +26,10 @@ class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Pol
 
   onChange() {
     var formatted = this.localize(this.msgid);
-    if (formatted)
+    if (formatted) {
       this.innerHTML = formatted;
+      this.msg = formatted;
+    }
   }
 
 }

@@ -2,6 +2,7 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import '@polymer/iron-icons/editor-icons';
 import '@polymer/iron-image/iron-image';
 import '@polymer/paper-radio-group/paper-radio-group';
+import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 
 import { ReduxMixin } from '../../../../reducer/redux-mixin';
 
@@ -30,6 +31,10 @@ class PropertyStyles extends ReduxMixin(PolymerElement) {
     return {
       model: {
         notify: true
+      },
+      fonts: {
+        type: Array,
+        statePath: 'style.fonts'
       }
     }
   }

@@ -4,9 +4,8 @@ import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import scene from '@hatiolab/things-scene';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
-import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
-class ThingsProvider extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
+class ThingsProvider extends ReduxMixin(PolymerElement) {
 
   static get template() {
     return html`

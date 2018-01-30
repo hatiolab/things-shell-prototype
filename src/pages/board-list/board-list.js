@@ -5,14 +5,13 @@ import '@polymer/paper-input/paper-input';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 import '@polymer/iron-icons/iron-icons';
-import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 
 import style from './style.css';
 
 import '../../layouts/page-toolbar/page-toolbar';
 import './board-card';
 
-class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
+class BoardList extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="app-grid-style"></style>
@@ -20,7 +19,8 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
 
     <page-toolbar>
       <iron-icon icon="icons:search"></iron-icon>
-      <paper-input label="[[localize('keyword')]]" value="{{keyword::change}}" no-label-float></paper-input>
+      <things-i18n-msg msgid="label.keyword" msg="{{lKeyword}}" hidden></things-i18n-msg>
+      <paper-input label="[[lKeyword]]" value="{{keyword::change}}" no-label-float></paper-input>
     </page-toolbar>
 
     <div class="app-grid">
@@ -50,12 +50,6 @@ class BoardList extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polymer
       selected: {
         type: Number,
         value: 0
-      },
-      language: {
-        statePath: 'user.language'
-      },
-      resources: {
-        statePath: 'resource'
       }
     }
   }

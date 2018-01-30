@@ -10,6 +10,7 @@ import resource from './reducer-resource';
 import process from './reducer-process';
 import component from './reducer-component';
 import drawer from './reducer-drawer';
+import style from './reducer-style';
 
 export default Redux.combineReducers({
   route,
@@ -21,5 +22,6 @@ export default Redux.combineReducers({
   resource,
   process,
   component,
-  drawer
+  drawer,
+  style
 })

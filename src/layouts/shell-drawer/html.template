@@ -29,9 +29,12 @@
     <things-i18n-msg msgid="label.pls-name-group">Please, give a name for the new group.</things-i18n-msg>
   </paragraph>
 
-  <paper-input label="[[localize('label.name')]]" value="{{newGroupName}}"></paper-input>
-  <paper-textarea label="[[localize('label.description')]]" rows=1
-    value="{{newGroupDescription}}"></paper-textarea>
+  <things-i18n-msg msgid="label.name" msg="{{lName}}" hidden></things-i18n-msg>
+  <things-i18n-msg msgid="label.description" msg="{{lDescription}}"
+    hidden></things-i18n-msg>
+
+  <paper-input label="[[lName]]" value="{{newGroupName}}"></paper-input>
+  <paper-textarea label="[[lDescription]]" rows=1 value="{{newGroupDescription}}"></paper-textarea>
 
   <paper-radio-group selected="{{newGroupType}}">
     <paper-radio-button name="group">Group</paper-radio-button>

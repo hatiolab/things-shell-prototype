@@ -1,6 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
-import { AppLocalizeBehavior } from '../../components/app-localize-behavior';
 import '@polymer/paper-input/paper-input';
 import '@polymer/paper-input/paper-textarea';
 
@@ -17,7 +16,7 @@ import template from './html.template';
 
 import './group-card';
 
-class ShellDrawer extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
+class ShellDrawer extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
@@ -41,12 +40,6 @@ class ShellDrawer extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Polym
       boardGroupCurrent: {
         type: String,
         statePath: 'boardGroupCurrent'
-      },
-      language: {
-        statePath: 'user.language'
-      },
-      resources: {
-        statePath: 'resource'
       }
     }
   }
