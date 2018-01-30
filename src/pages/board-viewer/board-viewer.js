@@ -12,10 +12,6 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     <style include="shared-styles">${style}</style>
 
     <things-shell model='[[model]]' fit='ratio'>
-      <!-- <things-shell-layer type="shift-layer"></things-shell-layer>
-        <things-shell-layer type="confidential-overlay">
-        <things-shell-property name="text" value="[[confidential]]"></things-shell-property>
-      </things-shell-layer> -->
     </things-shell>
     `;
   }
