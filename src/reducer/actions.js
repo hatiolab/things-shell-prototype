@@ -1,6 +1,6 @@
-export const fetchBoardList = (group, callback) => async dispatch => {
+export const fetchBoardList = (group) => async dispatch => {
   try {
-    const url = group ? `groups/${group}/boards` : 'boards';
+    const url = `groups/${group}/boards`;
     const response = await fetch(url);
     const responseBody = await response.json();
 

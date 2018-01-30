@@ -33,10 +33,6 @@ img {
   margin: auto;
 }
 
-:host([add]) > div {
-  text-align: center;
-}
-
 div.name {
   position: relative;
   bottom: 0;

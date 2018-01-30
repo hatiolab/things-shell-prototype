@@ -6,12 +6,17 @@
 
 <paper-listbox on-click="onGroupClicked">
   <template is="dom-repeat" items="[[boardGroupList]]">
-    <group-card name="[[item.name]]" sequence="[[index]]">[[item.description]]</group-card>
+    <group-card group="[[item]]"></group-card>
   </template>
-  <group-card name='+' add>
-    <things-i18n-msg msgid="label.click-to-add-new-group">Click to add new group.</things-i18n-msg>
-  </group-card>
+  <!-- <group-card group="[[newGroup]]" add>
+    <things-i18n-msg msgid="label.click-to-add-new-group"></things-i18n-msg>
+  </group-card> -->
 </paper-listbox>
+
+<div id="new-group">
+  <span>Click to add new group.</span>
+  <paper-icon-button icon="av:add-to-queue" on-click="onClickNewGroup"></paper-icon-button>
+</div>
 
 <paper-dialog id="new-group-dialog" entry-animation="scale-up-animation"
   exit-animation="fade-out-animation" on-iron-overlay-closed="onNewGroupDialogClosed"
@@ -24,8 +29,14 @@
     <things-i18n-msg msgid="label.pls-name-group">Please, give a name for the new group.</things-i18n-msg>
   </paragraph>
 
-  <paper-input label="이름" value="{{newGroupName}}"></paper-input>
-  <paper-textarea label="설명" rows=1 value="{{newGroupDescription}}"></paper-textarea>
+  <paper-input label="[[localize('label.name')]]" value="{{newGroupName}}"></paper-input>
+  <paper-textarea label="[[localize('label.description')]]" rows=1
+    value="{{newGroupDescription}}"></paper-textarea>
+
+  <paper-radio-group selected="{{newGroupType}}">
+    <paper-radio-button name="group">Group</paper-radio-button>
+    <paper-radio-button name="play-group">Play Group</paper-radio-button>
+  </paper-radio-group>
 
   <div class="buttons">
     <paper-button dialog-dismiss>

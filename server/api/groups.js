@@ -11,7 +11,8 @@ const groupIndexPath = path.resolve(boardRootPath, 'groups.json');
 var groups = {
   'DEFAULT-GROUP': {
     name: 'DEFAULT-GROUP',
-    description: 'DESC-DEFAULT-GROUP'
+    description: '',
+    type: 'group'
   }
 };
 
@@ -29,7 +30,8 @@ function initialize() {
       if (group && !groups[group]) {
         groups[group] = {
           name: group,
-          description: 'DESC-' + group
+          description: 'DESC-' + group,
+          type: 'group'
         }
       }
     })
@@ -43,12 +45,18 @@ initialize();
 function create(group) {
   var {
     name,
-    description
+    description,
+    type
   } = group;
+
+  if(groups[name]) {
+    throw Error(`group '${name}' already exist.`);
+  }
 
   groups[name] = {
     name,
-    description
+    description,
+    type
   };
 
   saveGroup();
@@ -60,15 +68,22 @@ function update(group) {
     description
   } = group;
 
-  groups[name] = {
-    name,
-    description
-  };
+  if(!groups[name]) {
+    throw Error(`group '${name}' not exist.`);
+  }
+
+  /* description 만 바꿀 수 있다. */
+  groups[name][description] = description;
 
   saveGroup();
 }
 
 function remove(name) {
+  /**
+   * TODO 
+   * - group type 인 경우 : 그룹에 속하는 보드가 하나도 없어야 삭제가 가능하다.
+   * - play-group type 인 경우 : 언제든지 삭제가 가능하다.
+   */
   delete groups[name];
   saveGroup();
 }

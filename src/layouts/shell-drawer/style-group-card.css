@@ -5,6 +5,7 @@
 }
 
 .card {
+  position: relative;
   margin: 8px;
   padding: 8px;
   color: #757575;
@@ -26,10 +27,17 @@ h1 {
 }
 
 p {
+  display: inline-block;
   font-size: 12px;
   margin: 0;
 }
 
 :host([add]) div{
   text-align: center;
+}
+
+paper-icon-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

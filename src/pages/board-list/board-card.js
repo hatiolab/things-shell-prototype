@@ -28,30 +28,14 @@ class BoardCard extends ReduxMixin(PolymerElement) {
     }
   }
 
-  createNewBoard() {
-    this.dispatch({
-      type: 'NEW-BOARD'
-    });
-
-    this.dispatch(setRoute('modeler', ''));
-  }
-
   onClickEdit(e) {
-    if (this.hasAttribute('add')) {
-      this.createNewBoard();
-    } else {
-      this.dispatch(setRoute('modeler', this.board.name));
-      e.stopPropagation();
-    }
+    this.dispatch(setRoute('modeler', this.board.name));
+    e.stopPropagation();
   }
 
   onClickViewer(e) {
-    if (this.hasAttribute('add')) {
-      this.createNewBoard();
-    } else {
-      this.dispatch(setRoute('viewer', this.board.name));
-      e.stopPropagation();
-    }
+    this.dispatch(setRoute('viewer', this.board.name));
+    e.stopPropagation();
   }
 
   thumbnail(board) {

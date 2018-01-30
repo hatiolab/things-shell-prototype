@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -16,4 +17,22 @@ paper-listbox {
 
 #new-group-dialog {
   min-width: 300px;
+}
+
+#new-group {
+  position: absolute;
+  bottom: 0;
+  right: 12px;
+}
+
+#new-group span {
+  pointer-events: none;
+  font-size: 0.7em;
+  cursor: default;
+  opacity: 0.5;
+  user-select: none;
+}
+
+#new-group paper-icon-button {
+  color: gray;
 }

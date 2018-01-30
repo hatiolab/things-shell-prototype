@@ -86,6 +86,10 @@ function create(board) {
     group = GROUP
   } = board;
 
+  if (boards[name]) {
+    throw Error(`board '${board.name} already exist.`);
+  }
+
   var model;
 
   try {
@@ -94,7 +98,13 @@ function create(board) {
     model = MODEL;
   }
 
-  boards[board.name] = {
+  /**
+   * TODO 그룹의 존재여부가 확인되어야 한다.
+   * 그룹이 없는 경우나 지정 그룹이 플레이 그룹인 경우에는 default group으로 설정된다.
+   * 플레이그룹인 경우에는 default group으로 설정 이후 play-group에도 자동으로 추가된다.
+   */
+
+  boards[name] = {
     name,
     description,
     width: model.width,
@@ -105,7 +115,7 @@ function create(board) {
     thumbnail
   };
 
-  saveModel(board.name, board.model);
+  saveModel(name, model);
 }
 
 function update(board) {
@@ -116,6 +126,10 @@ function update(board) {
     thumbnail = THUMBNAIL,
     group = GROUP
   } = board;
+
+  if (!boards[board.name]) {
+    throw Error(`board '${name} not exist.`);
+  }
 
   var model;
 
