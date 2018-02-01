@@ -1,6 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
-import '@polymer/app-layout/app-grid/app-grid-style';
 import '@polymer/paper-input/paper-input';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
@@ -14,7 +13,7 @@ import './board-card';
 class BoardList extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
-    <style include="app-grid-style"></style>
+    <style></style>
     <style include="shared-styles">${style}</style>
 
     <page-toolbar>

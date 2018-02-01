@@ -3,9 +3,10 @@
   flex-direction: column;
 }
 
-div {
-  --app-grid-columns: 4;
-  --app-grid-item-height: 200px;
+div.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(0, 220px);
 
   overflow-y: auto;
   padding: 0 0 10px 0;
@@ -26,19 +27,19 @@ paper-input {
 }
 
 @media (max-width: 1600px) {
-  div {
-    --app-grid-columns: 3;
+  div.app-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 1280px) {
-  div {
-    --app-grid-columns: 2;
+  div.app-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 800px) {
-  div {
-    --app-grid-columns: 1;
+  div.app-grid {
+    grid-template-columns: 1fr;
   }
 }
