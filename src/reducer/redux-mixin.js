@@ -8,8 +8,9 @@ export {
   fetchGroupList,
   fetchBoard,
   fetchSettings,
-  saveBoard,
-  newGroup,
+  updateBoard,
+  createBoard,
+  createGroup,
   followRouteChange,
   setRoute
 } from './actions';

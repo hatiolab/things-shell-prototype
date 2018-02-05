@@ -10,7 +10,7 @@ import '@polymer/neon-animation/animations/fade-out-animation';
 import '@polymer/paper-dialog/paper-dialog';
 import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
-import { ReduxMixin, saveBoard } from '../../../reducer/redux-mixin';
+import { ReduxMixin, createBoard, updateBoard } from '../../../reducer/redux-mixin';
 import '../../../components/things-i18n-msg';
 
 import style from './style.css';
@@ -584,18 +584,38 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.scene.distribute(distribute)
   }
 
-  saveBoard() {
+  createBoard() {
     try {
       this.scene.toDataURL('png', null, 400, 300)
         .then(url => {
-          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+          this.dispatch(createBoard(Object.assign({}, this.boardCurrent, {
             thumbnail: url,
             model: this.scene.model
           })));
         }, err => {
           console.error(err)
 
-          this.dispatch(saveBoard(Object.assign({}, this.boardCurrent, {
+          this.dispatch(createBoard(Object.assign({}, this.boardCurrent, {
+            model: this.scene.model
+          })));
+        })
+    } catch (e) {
+      if (this.showToastMsg) this.showToastMsg(e);
+    }
+  }
+
+  updateBoard() {
+    try {
+      this.scene.toDataURL('png', null, 400, 300)
+        .then(url => {
+          this.dispatch(updateBoard(Object.assign({}, this.boardCurrent, {
+            thumbnail: url,
+            model: this.scene.model
+          })));
+        }, err => {
+          console.error(err)
+
+          this.dispatch(updateBoard(Object.assign({}, this.boardCurrent, {
             model: this.scene.model
           })));
         })
@@ -611,7 +631,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
       this.$['save-new-dialog'].open();
     } else {
-      this.saveBoard();
+      this.updateBoard();
     }
   }
 
@@ -625,7 +645,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.boardCurrent.description = this.newBoardDescription;
     this.boardCurrent.group = this.group;
 
-    this.saveBoard();
+    this.createBoard();
   }
 
 }

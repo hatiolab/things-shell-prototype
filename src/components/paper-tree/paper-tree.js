@@ -62,9 +62,9 @@ class PaperTree extends ReduxMixin(PolymerElement) {
   }
 
   ready() {
-    this.addEventListener('select', this._selectNode);
-
     super.ready();
+
+    this.root.addEventListener('select', this._selectNode.bind(this));
   }
 
   /**
@@ -87,14 +87,15 @@ class PaperTree extends ReduxMixin(PolymerElement) {
    * @param {object} e An event object.
    */
   _selectNode(e) {
+    var target = e.path[0];
+
     if (this.selected) {
-      this.toggleClass("selected", false, this.selected);
+      this.selected.classList.remove('selected');
     }
 
-    // Only selects `< paper - tree - node > `.
-    if (e.detail && e.detail.tagName === 'PAPER-TREE-NODE') {
-      this.selected = e.detail;
-      this.toggleClass("selected", true, this.selected);
+    if (target) {
+      this.selected = target;
+      this.selected.classList.add('selected');
     } else {
       this.selected = null;
     }

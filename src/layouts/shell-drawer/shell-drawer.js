@@ -8,7 +8,7 @@ import '@polymer/neon-animation/animations/fade-out-animation';
 import '@polymer/paper-dialog/paper-dialog';
 import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
-import { ReduxMixin, fetchGroupList, fetchBoardList, newGroup, setRoute } from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchGroupList, fetchBoardList, createGroup, setRoute } from '../../reducer/redux-mixin';
 import '../../components/things-i18n-msg';
 
 import style from './style.css';
@@ -100,7 +100,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
       type: this.newGroupType
     }
 
-    this.dispatch(newGroup(group));
+    this.dispatch(createGroup(group));
     this.dispatch(setRoute('list', name));
   }
 }

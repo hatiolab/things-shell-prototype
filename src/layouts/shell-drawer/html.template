@@ -8,7 +8,7 @@
   <template is="dom-repeat" items="[[boardGroupList]]">
     <group-card group="[[item]]"></group-card>
   </template>
-  <!-- <group-card group="[[newGroup]]" add>
+  <!-- <group-card group="[[createGroup]]" add>
     <things-i18n-msg msgid="label.click-to-add-new-group"></things-i18n-msg>
   </group-card> -->
 </paper-listbox>

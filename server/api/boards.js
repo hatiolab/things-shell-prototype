@@ -90,14 +90,7 @@ function create(board) {
     throw Error(`board '${board.name} already exist.`);
   }
 
-  var model;
-
-  try {
-    model = JSON.parse(board.model);
-  } catch (e) {
-    model = MODEL;
-  }
-
+  var model = board.model;
   /**
    * TODO 그룹의 존재여부가 확인되어야 한다.
    * 그룹이 없는 경우나 지정 그룹이 플레이 그룹인 경우에는 default group으로 설정된다.
@@ -131,13 +124,7 @@ function update(board) {
     throw Error(`board '${name} not exist.`);
   }
 
-  var model;
-
-  try {
-    model = JSON.parse(board.model);
-  } catch (e) {
-    model = MODEL;
-  }
+  var model = board.model;
 
   boards[board.name] = {
     name,
