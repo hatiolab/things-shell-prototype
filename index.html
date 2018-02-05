@@ -1,96 +1,101 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>Things Shell</title>
-    <meta name="description" content="Things Shell">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <base href="/">
+  <title>Things Shell</title>
+  <meta name="description" content="Things Shell">
 
-    <link rel="icon" href="assets/favicon.ico">
+  <base href="/">
 
-    <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/favicon.ico">
 
-    <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#3f51b5">
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Things Shell">
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#3f51b5">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Things Shell">
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Things Shell">
 
-    <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" href="assets/manifest/icon-48x48.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/manifest/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="assets/manifest/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/manifest/icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="assets/manifest/icon-192x192.png">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Things Shell">
 
-    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="assets/manifest/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#3f51b5">
-    <meta name="msapplication-tap-highlight" content="no">
+  <!-- Homescreen icons -->
+  <link rel="apple-touch-icon" href="assets/manifest/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/manifest/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="assets/manifest/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/manifest/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/manifest/icon-192x192.png">
 
-    <script>
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#3f51b5">
+  <meta name="msapplication-tap-highlight" content="no">
 
-      const baseUrl = document.querySelector('base').href;
+  <script>
 
-      // Load and register pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('service-worker.js', {
-            scope: baseUrl
-          }).then(registration => {
-            console.log('SW registered: ', registration);
-          }).catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
+    const baseUrl = document.querySelector('base').href;
+
+    // Load and register pre-caching Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js', {
+          scope: baseUrl
+        }).then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
         });
-      }
-    </script>
+      });
+    }
+  </script>
 
-    <script src="./node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js"></script>
-    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="./node_modules/web-animations-js/web-animations-next.min.js"></script>
+  <script src="./node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js"></script>
+  <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+  <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="./node_modules/web-animations-js/web-animations-next.min.js"></script>
 
-    <custom-style>
-      <style include="things-shell-theme">
-      </style>
-    </custom-style>
+  <script src="./node_modules/aframe/dist/aframe.js"></script>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-      }
+  <custom-style>
+    <style include="things-shell-theme">
     </style>
+  </custom-style>
 
-    <script src="./licenses/things/things-lic.js"></script>
-    <script src="./licenses/grid/dataludi-lic-production.js"></script>
-    <script src="./libs/smart-datagrid-product.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-color: #eeeeee;
+    }
+  </style>
 
-    <script src="./bundle.js"></script>
+  <script src="./licenses/things/things-lic.js"></script>
+  <script src="./licenses/grid/dataludi-lic-production.js"></script>
+  <script src="./libs/smart-datagrid-product.min.js"></script>
 
-  </head>
-  <body fullbleed>
-    <app-shell>
-      Loading..
-    </app-shell>
+  <script src="./bundle.js"></script>
 
-    <noscript>
-      Please enable JavaScript to view this website.
-    </noscript>
+</head>
 
-  </body>
+<body fullbleed>
+  <app-shell>
+    Loading..
+  </app-shell>
+
+  <noscript>
+    Please enable JavaScript to view this website.
+  </noscript>
+
+</body>
+
 </html>

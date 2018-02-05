@@ -74,6 +74,7 @@
     "@things-elements/things-scene-random": "^0.1.0",
     "@things-elements/things-scene-table": "^2.1.0",
     "ace-builds": "^1.2.9",
+    "aframe": "^0.7.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
