@@ -3,7 +3,8 @@ const path = require('path'),
   webpack = require('webpack'),
   webpackDevMiddleware = require('webpack-dev-middleware'),
   webpackHotMiddleware = require('webpack-hot-middleware'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  graphqlApi = require('./graphql-api');
 
 var config = require('../webpack.config.js'),
   compiler = webpack(config);
@@ -26,6 +27,8 @@ app.use(webpackDevMiddleware(compiler, {
   hot: true,
   stats: { colors: true }
 }));
+
+graphqlApi(app);
 
 const ROOT_DIR = path.join(__dirname, '..');
 

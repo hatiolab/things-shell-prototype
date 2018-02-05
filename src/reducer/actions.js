@@ -1,3 +1,32 @@
+export const fetchSettings = (query) => async dispatch => {
+  try {
+
+    const url = `settings`;
+    const response = await fetch(url, {
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ query })
+    });
+    const responseBody = await response.json();
+
+    console.log('/settings response', responseBody);
+    // dispatch({
+    //   type: 'REFRESH-SETTINGS',
+    //   list: responseBody.list
+    // });
+
+  } catch (error) {
+
+    console.error(error);
+    // dispatch({
+    //   type: 'CLEAR-BOARD-LIST'
+    // });
+  }
+}
+
 export const fetchBoardList = (group) => async dispatch => {
   try {
     const url = `groups/${group}/boards`;

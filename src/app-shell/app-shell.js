@@ -26,7 +26,7 @@ import '@polymer/iron-icons/social-icons';
 
 // import 'polymerfire/firebase-app.html';
 
-import { ReduxMixin, followRouteChange } from '../reducer/redux-mixin';
+import { ReduxMixin, followRouteChange, fetchSettings } from '../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -118,6 +118,8 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
 
   _onRouteDataChanged(routeData) {
     this.dispatch(followRouteChange(routeData.page, routeData.id));
+
+    this.dispatch(fetchSettings("{hello}"));
   }
 
   _onRoutePathChanged(path) {

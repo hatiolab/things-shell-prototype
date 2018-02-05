@@ -7,6 +7,7 @@ export {
   fetchBoardList,
   fetchGroupList,
   fetchBoard,
+  fetchSettings,
   saveBoard,
   newGroup,
   followRouteChange,

@@ -1,0 +1,70 @@
+:host(.selected) > .node-container > .node-row {
+  background-color: var(--paper-tree-selected-background-color, rgba(200, 200, 200, 0.5));
+  color: var(--paper-tree-selected-color, inherit);
+}
+
+:host(.selected) > .node-container > .node-row > #actions {
+  display: inline-block;
+}
+
+.node-container {
+  white-space: nowrap;
+}
+
+.node-row {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.node-preicon.collapsed,
+.node-preicon.expanded {
+  padding-left: 0px;
+}
+
+.node-preicon {
+  padding-left: 18px;
+}
+
+.node-preicon:before {
+  margin-right: 5px;
+  @apply(--paper-tree-toggle-theme);
+}
+
+.node-preicon.collapsed:before {
+  content: '\002B';
+}
+
+.node-preicon.expanded:before {
+  content: '\2212';
+}
+
+.node-preicon, .node-name {
+  cursor: pointer;
+}
+
+.node-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  @apply(--paper-tree-icon-theme);
+}
+
+#actions {
+  display: none;
+  float: right;
+  padding: 0;
+  top: -8px; /* cancel the padding of `paper-icon-button`. */
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+[hidden] {
+  display: none;
+}
