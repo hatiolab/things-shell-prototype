@@ -145,8 +145,10 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
   resize() {
     if (this.scene) {
       if (this.fit === 'both' || Math.abs((this.offsetWidth - (this.lastOffsetWidth || 0))) >= 1) {
-        this.scene.resize();
-        this._fit();
+        requestAnimationFrame(() => {
+          this.scene.resize();
+          this._fit();
+        })
       }
 
       this.lastOffsetWidth = this.offsetWidth;

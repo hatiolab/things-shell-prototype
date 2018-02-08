@@ -7,10 +7,12 @@ import '@polymer/paper-icon-button/paper-icon-button';
 import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-menu-button/paper-menu-button';
 
-import { ReduxMixin } from '../../reducer/redux-mixin';
+import { ReduxMixin, saveScene } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './template.html';
+
+import '../polymer-sortablejs/polymer-sortablejs';
 
 /**
  * `<paper-tree-node>` display a tree node with expandable / collapsible capabilities and actions menu.

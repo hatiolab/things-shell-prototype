@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  @apply(--layout-horizontal);
+  @apply(--layout-wrap);
+}
+
+:host ::content > * {
+  width:33.3%;
+}
+
+:host[column="2"] ::content > * {
+  width:50%;
+}
+
+:host[column="3"] ::content > * {
+  width:33.3%;
+}
+
+:host[column="4"] ::content > * {
+  width:25%;
+}

@@ -5,12 +5,17 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 import style from './style.css';
 
 import '../../components/things-shell/things-shell';
+import '../../layouts/page-toolbar/page-toolbar';
 
 class BoardViewer extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
 
+    <page-toolbar>
+    </page-toolbar>
+
+    <!--
     <a-scene>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
@@ -18,11 +23,10 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
+    -->
 
-    <!--
     <things-shell model='[[model]]' fit='ratio'>
     </things-shell>
-    -->
     `;
   }
 

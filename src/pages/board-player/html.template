@@ -1,0 +1,57 @@
+<div id="player-area">
+  <template is="dom-if" if="[[isSame(transition, 'flip-card')]]"
+    restamp>
+    <things-player-flipcard axis="y" focus>
+      <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
+        provider="[[provider]]">
+      </things-scene-player>
+      <things-scene-player back scene-name="[[boardNames.1]]" fit="both"
+        provider="[[provider]]">
+      </things-scene-player>
+    </things-player-flipcard>
+  </template>
+
+  <template is="dom-if" if="[[isSame(transition, 'flip-card2')]]"
+    restamp>
+    <things-player-flipcard-edge axis="y" focus>
+      <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
+        provider="[[provider]]">
+      </things-scene-player>
+      <things-scene-player back scene-name="[[boardNames.1]]" fit="both"
+        provider="[[provider]]">
+      </things-scene-player>
+    </things-player-flipcard-edge>
+  </template>
+
+  <template is="dom-if" if="[[isSame(transition, 'carousel')]]"
+    restamp>
+    <things-player-carousel axis="y" backface-visibility=false focus>
+      <template is='dom-repeat' items="[[boardNames]]">
+        <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
+        </things-scene-player>
+      </template>
+    </things-player-carousel>
+  </template>
+
+  <template is="dom-if" if="[[isSame(transition, 'grid')]]" restamp>
+    <things-player-grid column="3" focus>
+      <template is='dom-repeat' items="[[boardNames]]">
+        <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
+        </things-scene-player>
+      </template>
+    </things-player-grid>
+  </template>
+</div>
+
+<paper-fab-speed-dial id="fab" direction="top">
+  <paper-fab icon="add" class="dropdown-trigger"></paper-fab>
+  <div class="dropdown-content">
+    <template is="dom-if" if="[[!_sameAs(globals.os, 'iOS')]]">
+      <paper-fab mini id="fullscreen" icon="fullscreen" title="full screen"
+        on-tap="_onTapFullscreen"></paper-fab>
+      <div class="fab-text">full screen</div>
+    </template>
+    <paper-fab mini id="stop" noink icon="av:stop" title="stop play"></paper-fab>
+    <div class="fab-text">stop</div>
+  </div>
+</paper-fab-speed-dial>

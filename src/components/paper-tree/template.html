@@ -17,11 +17,13 @@
   </div>
   <template is="dom-if" if="[[data.open]]">
     <ul>
-      <template is="dom-repeat" items="[[data.children]]">
-        <li>
-          <paper-tree-node data="[[item]]" actions="[[actions]]"></paper-tree-node>
-        </li>
-      </template>
+      <sortable-js>
+        <template is="dom-repeat" items="[[data.children]]">
+          <li>
+            <paper-tree-node data="[[item]]" actions="[[actions]]"></paper-tree-node>
+          </li>
+        </template>
+      </sortable-js>
     </ul>
   </template>
 </div>

@@ -39,6 +39,8 @@ import '../pages/board-viewer/board-viewer';
 import '../pages/board-info/board-info';
 import '../pages/board-player/board-player';
 
+import '../components/things-provider/things-provider';
+
 class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return html`

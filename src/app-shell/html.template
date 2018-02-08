@@ -10,6 +10,9 @@
   data="{{routeData}}" tail="{{subroute}}">
 </app-route>
 
+<things-provider ref-provider="{{provider}}">
+</things-provider>
+
 <app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}"
   disable-swipe>
   <!-- Drawer content -->
@@ -21,10 +24,10 @@
   <iron-pages class="flex" selected="[[page]]" attr-for-selected="name"
     fallback-selection="view404" role="main">
     <board-list name="list"></board-list>
-    <board-modeler name='modeler' model='[[model]]'></board-modeler>
-    <board-viewer name="viewer"></board-viewer>
+    <board-modeler name="modeler" model="[[model]]"></board-modeler>
+    <board-viewer name="viewer" provider="[[provider]]"></board-viewer>
     <board-info name="info"></board-info>
-    <board-player name="player"></board-player>
+    <board-player name="player" provider="[[provider]]"></board-player>
   </iron-pages>
 
 </app-drawer-layout>

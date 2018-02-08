@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-perspective: 1600px;
+          perspective: 1600px;
+}
+
+#card{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 1.5s ease-in-out;
+          transition: all 1.5s ease-in-out;
+}
+
+#card{
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+:host([axis="x"]) #card{
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+#card > ::content [front], #card > ::content [back]{
+  margin: 0;
+  display: block;
+  background: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#card > ::content [back]{
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+:host[flipped] div{
+  -webkit-transform: translateX( -100% ) rotateY( -180deg );
+          transform: translateX( -100% ) rotateY( -180deg );
+}
+
+:host([axis="x"]) #card > ::content [back]{
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+:host([axis="x"][flipped]) div{
+  -webkit-transform: translateY( -100% ) rotateX(180deg);
+          transform: translateY( -100% ) rotateX(180deg);
+}
