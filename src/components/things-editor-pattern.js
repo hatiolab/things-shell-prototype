@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 
 import './things-i18n-msg';
 import './things-editor-number-input';
@@ -26,45 +26,47 @@ Example:
 Polymer({
   _template: `
     <style>
-       :host {
-        display: block;
+      :host, .grid-10 {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
       }
 
-      label {
-        @apply(--things-label);
+      :host > * {
+        line-height: 1.5;
       }
 
-      input {
-        @apply(--things-input);
+      :host > label {
+        grid-column: span 2;
+        text-align: right;
+        text-transform: capitalize;
       }
 
-      select {
-        @apply(--things-select);
-        width: 65%;
-        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+      :host > select, :host > input {
+        grid-column: span 8;
       }
 
-      div * {
-        float: left;
+      :host > input[type=checkbox] {
+        grid-column: 3 / 4;
       }
 
-      div > label {
-        width: 18%;
-        margin-right: 3px;
-        top: 4px;
+      :host > .grid-10 {
+        grid-column: span 10;
       }
 
-      div > input {
-        width: 24%;
+      .grid-10 > things-editor-number-input {
+        grid-column: span 3;
       }
 
-      things-editor-number-input {
-        width: 30%;
+      input[type=checkbox] ~ label {
+        grid-column: 4 / 5;
+        text-align: left;
       }
 
-      input[type="checkbox"] {
-        width: 15px;
-        margin-left: 53px;
+      .grid-10 > label {
+        grid-column: span 2;
+        text-align: right;
       }
     </style>
 
@@ -86,7 +88,7 @@ Polymer({
       <option value="right-bottom">Right Bottom</option>
     </select>
 
-    <div>
+    <div class="grid-10">
       <label><things-i18n-msg msgid="label.offset-x" auto="">offsetX</things-i18n-msg></label>
       <things-editor-number-input number="{{offsetX::change}}">
         <input>

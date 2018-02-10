@@ -1,5 +1,5 @@
 :host {
-  @apply(--things-properties-panel);
+  /* @apply(--things-properties-panel); */
 }
 label{
   @apply(--things-label);
@@ -16,16 +16,16 @@ input{
   @apply(--things-input);
 }
 fieldset{
-  @apply(--things-fieldset);
+  @apply(--things-property-fieldset);
 }
 legend{
-  @apply(--things-fieldset-legend);
+  @apply(--things-property-fieldset-legend);
 }
 input[type="checkbox"]{width:15px;}
 
 .ratio paper-button{
   @apply(--things-properties-ratio-btn);
-  background:url(./assets/images/icon-properties-ratio.png) 100% -87px no-repeat;
+  background:url(./assets/images/icon-properties-ratio.png) 100% -80px no-repeat;
 }
 .ratio paper-button[active]{
   background-position: 100% 11px

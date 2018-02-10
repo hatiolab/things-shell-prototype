@@ -28,7 +28,7 @@ paper-button {
   opacity: 0.6;
 }
 
-::slotted(paper-icon-button), paper-icon-button {
+::slotted(paper-icon-button) {
   --paper-icon-button-ink-color: white;
 
   padding: 4px;

@@ -1,26 +1,42 @@
-:host {
-  @apply(--things-properties-panel);
-}
-
-label{
+/* label{
   @apply(--things-label);
 }
 
 input{
   @apply(--things-input);
-}
+} */
 
 fieldset{
-  @apply(--things-fieldset);
+  @apply(--things-property-fieldset);
 }
 
 legend{
-  @apply(--things-fieldset-legend);
+  @apply(--things-property-fieldset-legend);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(24px, auto);
+}
+
+.property-grid > * {
+  line-height: 1.5;
+}
+
+.property-grid > label {
+  grid-column: span 3;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+.property-grid > input, .property-grid > select, .property-grid > things-editor-number-input {
+  grid-column: span 7;
 }
 
 paper-tabs{
   width:229px;height:25px;
-  margin:5px 0 0 7px;
   border:1px solid rgba(0,0,0,.2);
   border-width:1px 1px 0 1px;
 }
@@ -57,30 +73,25 @@ paper-tab.iron-selected{
 }
 
 iron-pages {
-  width: 270px;
+  max-width: 260px;
   height: 300px;
-  padding: 0 0 6px 0;
 }
 
 #grid{
-  width: 94%;
   height: 100%;
   margin:0 0 10px 7px;padding:0px;
   border:1px solid rgba(0,0,0,.2);
 }
 
 things-editor-code {
-  width: 94%;
   height: 100%;
-  margin: -7px 0 7px 7px;
   overflow: auto;
 }
 
 things-editor-value {
   --things-editor-color-input-text: {
-    width: 100%;
-    margin-bottom: 0px;
-    padding: 2px 5px 0px 5px;
+    /* width: 100%; */
+    /* margin-bottom: 0px; */
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;

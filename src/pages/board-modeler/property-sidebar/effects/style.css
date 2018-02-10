@@ -1,54 +1,30 @@
-:host {
-  @apply(--things-properties-panel);
+fieldset {
+  @apply(--things-property-fieldset);
 }
 
-label{
-  @apply(--things-label);
+fieldset legend {
+  @apply(--things-property-fieldset-legend);
 }
 
-input[type=checkbox] {
-  @apply(--things-input);
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(24px, auto);
 }
 
-fieldset > input{
-  @apply(--things-input);
+.property-grid > * {
+  line-height: 1.5;
 }
 
-fieldset{
-  @apply(--things-fieldset);
+.property-grid > label {
+  grid-column: span 3;
+  text-align: right;
+  text-transform: capitalize;
 }
 
-legend{
-  @apply(--things-fieldset-legend);
-}
-
-select{
-  @apply(--things-select);
-  min-width:65%;
-  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
-}
-
-fieldset paper-slider{
-  width:69%;height: 20px;
-  float:right;
-  margin:0 12px 10px 0;
-  --paper-slider-active-color:var(--primary-color);
-  --paper-slider-knob-color:var(--primary-color);
-}
-
-things-editor-shadow {
-
-  --things-editor-color-input-text: {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 3px 5px 2px 5px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border:1px solid rgba(0,0,0,.15);
-    font-size: 14px;
-    font-weight: 300;
-  }
+.property-grid > input, .property-grid > select, .property-grid > things-editor-number-input {
+  grid-column: span 7;
 }
 
 /**

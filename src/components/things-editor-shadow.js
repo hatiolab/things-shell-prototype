@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 
 import './things-i18n-msg';
@@ -23,8 +23,26 @@ Polymer({
   _template: `
     <style>
        :host {
-        display: block;
         @apply(--things-editor-shadow)
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
+      }
+
+      :host > * {
+        line-height: 1.5;
+      }
+
+      :host > label {
+        grid-column: span 3;
+        text-align: right;
+        text-transform: capitalize;
+      }
+
+      :host > things-editor-number-input, :host > things-editor-color {
+        grid-column: span 7;
       }
 
       paper-radio-button {
@@ -42,21 +60,6 @@ Polymer({
         background-position: 70% -498px;
       }
 
-      label {
-        @apply(--things-label);
-      }
-
-      :host > input {
-        @apply(--things-input);
-      }
-
-      fieldset {
-        @apply(--things-fieldset);
-      }
-
-      legend {
-        @apply(--things-fieldset-legend);
-      }
     </style>
 
     <label>
@@ -100,12 +103,12 @@ Polymer({
 
   onChangedValue: function (changed) {
 
-    if(this.changedOnThis)
+    if (this.changedOnThis)
       return;
 
     var value = changed;
 
-    if(!value){
+    if (!value) {
       this.shadow = {};
       return;
     }

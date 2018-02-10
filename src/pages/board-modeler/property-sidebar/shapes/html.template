@@ -23,12 +23,12 @@
     </label>
     <input required value="{{model.textFormat::change}}" list="format-list">
     <datalist id="format-list">
-        <option value="#,###.">
+      <option value="#,###.">
         <option value="#,###.#">
-        <option value="#,###.0">
-        <option value="#,##0.#">
-        <option value="#,##0.0">
-        <option value="#,##0.0%">
+          <option value="#,###.0">
+            <option value="#,##0.#">
+              <option value="#,##0.0">
+                <option value="#,##0.0%">
     </datalist>
   </template>
 
@@ -36,7 +36,8 @@
     <div class="merge-column">
       <input type="checkbox" checked="{{model.hidden::change}}" required>
       <things-i18n-msg msgid="label.item-hidden" auto>Item Hidden</things-i18n-msg>
-      <input type="checkbox" checked="{{model.locked::change}}" required style="margin-left:20px">
+      <input type="checkbox" checked="{{model.locked::change}}" required
+        style="margin-left:20px">
       <things-i18n-msg msgid="label.locked" auto>Locked</things-i18n-msg>
     </div>
   </template>
@@ -49,28 +50,29 @@
     <legend>
       <things-i18n-msg msgid="label.size" auto>size</things-i18n-msg>
     </legend>
-    <!-- <label>X</label>
+
+    <!-- <label>LEFT</label>
     <things-editor-number-input required number="{{bounds.left::change}}">
       <input>
     </things-editor-number-input>
-    <label>Y</label>
+    <label>TOP</label>
     <things-editor-number-input required number="{{bounds.top::change}}">
       <input>
-    </things-editor-number-input>-->
-    <div id="width-element-group">
-      <label class="width">
-        <things-i18n-msg msgid="label.width" auto>width</things-i18n-msg>
-      </label>
-      <things-editor-number-input number="{{bounds.width}}"><input required></things-editor-number-input>
-      <paper-button toggles active="{{related}}"></paper-button>
-    </div>
+    </things-editor-number-input> -->
+
+    <label class="width">
+      <things-i18n-msg msgid="label.width" auto>width</things-i18n-msg>
+    </label>
+    <things-editor-number-input number="{{bounds.width}}">
+      <input required>
+    </things-editor-number-input>
     <label class="height">
       <things-i18n-msg msgid="label.height" auto>height</things-i18n-msg>
     </label>
-    <things-editor-number-input number="{{bounds.height}}"><input required></things-editor-number-input>
-    <!-- <div class="merge-column">
-      <input type="checkbox" name="food" value="pizza" required>Lock aspect ratio
-    </div> -->
+    <things-editor-number-input number="{{bounds.height}}">
+      <input required>
+    </things-editor-number-input>
+
     <label class="rotate">
       <things-i18n-msg msgid="label.rotate" auto>rotate</things-i18n-msg>
     </label>
@@ -122,16 +124,16 @@
       <tr>
         <td class="slide4"></td>
         <td class="slide5">
-          <things-editor-number-input  number="{{model.paddingTop}}">
+          <things-editor-number-input number="{{model.paddingTop}}">
             <input>
           </things-editor-number-input>
-          <things-editor-number-input  number="{{model.paddingLeft}}">
+          <things-editor-number-input number="{{model.paddingLeft}}">
             <input>
           </things-editor-number-input>
-          <things-editor-number-input  number="{{model.paddingRight}}">
+          <things-editor-number-input number="{{model.paddingRight}}">
             <input>
           </things-editor-number-input>
-          <things-editor-number-input  number="{{model.paddingBottom}}">
+          <things-editor-number-input number="{{model.paddingBottom}}">
             <input>
           </things-editor-number-input>
         </td>

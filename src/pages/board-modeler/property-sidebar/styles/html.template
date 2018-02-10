@@ -1,7 +1,7 @@
 <fieldset>
-  <label>
+  <legend>
     <things-i18n-msg msgid="label.opacity" auto>opacity</things-i18n-msg>
-  </label>
+  </legend>
   <paper-slider min="0" max="1" step="0.1" value="{{model.alpha::change}}"
     editable></paper-slider>
 </fieldset>
@@ -10,46 +10,50 @@
   <legend>
     <things-i18n-msg msgid="label.text-style" auto>text style</things-i18n-msg>
   </legend>
-  <div class="full-width">
+  <div class="property-grid">
 
-    <label class="font-size">
+    <label class="property-full-label">
       <things-i18n-msg msgid="label.font-family" auto>Font Family</things-i18n-msg>
     </label>
 
-    <select value="{{model.fontFamily::change}}">
+    <select value="{{model.fontFamily::change}}" class="property-full-input">
       <option value=""></option>
       <template is="dom-repeat" items="[[fonts]]">
         <option value="[[item.name]]">[[item.name]]</option>
       </template>
     </select>
 
-    <label class="icon-only-label font-size"></label>
-    <things-editor-number-input number="{{model.fontSize::change}}">
+    <label class="property-half-label icon-only-label font-size"></label>
+    <things-editor-number-input number="{{model.fontSize::change}}"
+      class="property-half-input">
       <input>
     </things-editor-number-input>
 
-    <label class="icon-only-label lineHeight"></label>
-    <things-editor-number-input number="{{model.lineHeight::change}}">
+    <label class="property-half-label icon-only-label lineHeight"></label>
+    <things-editor-number-input number="{{model.lineHeight::change}}"
+      class="property-half-input">
       <input>
     </things-editor-number-input>
 
-    <label class="icon-only-label color"></label>
-    <things-editor-color value="{{model.fontColor}}">
+    <label class="property-half-label icon-only-label color"></label>
+    <things-editor-color value="{{model.fontColor}}" class="property-half-input">
     </things-editor-color>
 
-    <div class="btn-group" style="padding-left:30px">
+    <label class="property-half-label"></label>
+    <div class="property-half-input btn-group">
       <paper-button toggles active="{{model.bold}}" class="tbold"></paper-button>
       <paper-button toggles active="{{model.italic}}" class="titalic"></paper-button>
       <!--
       <paper-button toggles active="{{model.uppercase}}" data-style="uppercase" class="icon-properties text-allcaps"></paper-button>
-      <paper-button toggles active="{{model.lowercase}}" data-style="lowercase" class="icon-properties text-smallcaps"></paper-button>
--->
+      <paper-button toggles active="{{model.lowercase}}" data-style="lowercase"
+        class="icon-properties text-smallcaps"></paper-button>
+      -->
     </div>
   </div>
 
 </fieldset>
 
-<fieldset class="same-width">
+<fieldset>
   <legend>
     <things-i18n-msg msgid="label.fill-style" auto>fill style</things-i18n-msg>
   </legend>
@@ -62,132 +66,134 @@
     <things-i18n-msg msgid="label.line-style" auto>line style</things-i18n-msg>
   </legend>
 
-  <div class="full-width">
-    <label class="icon-only-label linewidth"></label>
-    <things-editor-number-input number="{{model.lineWidth::change}}">
+  <div class="property-grid">
+
+    <label class="property-half-label icon-only-label linewidth"></label>
+    <things-editor-number-input number="{{model.lineWidth::change}}"
+      class="property-half-input">
       <input>
     </things-editor-number-input>
 
-    <label class="icon-only-label color"></label>
-    <things-editor-color value="{{model.strokeStyle}}">
+    <label class="property-half-label icon-only-label color"></label>
+    <things-editor-color value="{{model.strokeStyle}}" class="property-half-input">
     </things-editor-color>
+
+    <label class="property-full-label">
+      <things-i18n-msg msgid="label.line-type" auto>line type</things-i18n-msg>
+    </label>
+    <paper-dropdown-menu no-label-float="true" class="property-full-input line-type solid">
+      <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
+      <paper-listbox slot="dropdown-content" selected="{{model.lineDash}}"
+        attr-for-selected="name">
+        <paper-item class="solid" name="solid"></paper-item>
+        <paper-item class="round-dot" name="round-dot"></paper-item>
+        <paper-item class="square-dot" name="square-dot"></paper-item>
+        <paper-item class="dash" name="dash"></paper-item>
+        <paper-item class="dash-dot" name="dash-dot"></paper-item>
+        <paper-item class="long-dash" name="long-dash"></paper-item>
+        <paper-item class="long-dash-dot" name="long-dash-dot"></paper-item>
+        <paper-item class="long-dash-dot-dot" name="long-dash-dot-dot"></paper-item>
+      </paper-listbox>
+    </paper-dropdown-menu>
+
+    <label class="property-full-label">
+      <things-i18n-msg msgid="label.cap-type" auto>cap type</things-i18n-msg>
+    </label>
+    <select class="property-full-input select-content" value="{{model.lineCap::change}}">
+      <option value="butt">
+        <things-i18n-msg msgid="label.square" auto>square</things-i18n-msg>
+      </option>
+      <option value="round">
+        <things-i18n-msg msgid="label.round" auto>round</things-i18n-msg>
+      </option>
+    </select>
+
+    <label class="property-full-label">
+      <things-i18n-msg msgid="label.join-type" auto>join type</things-i18n-msg>
+    </label>
+    <select class="property-full-input select-content" value="{{model.lineJoin::change}}">
+      <option value="miter">
+        <things-i18n-msg msgid="label.miter" auto>miter</things-i18n-msg>
+      </option>
+      <option value="round">
+        <things-i18n-msg msgid="label.round" auto>round</things-i18n-msg>
+      </option>
+      <option value="bevel">
+        <things-i18n-msg msgid="label.bevel" auto>bevel</things-i18n-msg>
+      </option>
+    </select>
+
+    <template is="dom-if" if="[[_isLine(selected)]]">
+
+      <label class="property-full-label">
+        <things-i18n-msg msgid="label.begin-type" auto>begin type</things-i18n-msg>
+      </label>
+      <paper-dropdown-menu no-label-float="true" class="property-full-input arrow-type begin-no">
+        <!-- begin-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
+        <paper-listbox slot="dropdown-content" selected="{{model.begin}}"
+          attr-for-selected="name">
+          <paper-item class="begin-no" name="none"></paper-item>
+          <paper-item class="begin-arrow" name="arrow"></paper-item>
+          <paper-item class="begin-open-arrow" name="open-arrow"></paper-item>
+          <paper-item class="begin-stealth-arrow" name="sharp-arrow"></paper-item>
+          <paper-item class="begin-diamond-arrow" name="diamond"></paper-item>
+          <paper-item class="begin-oval-arrow" name="oval"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <label class="property-full-label">
+        <things-i18n-msg msgid="label.begin-size" auto>begin size</things-i18n-msg>
+      </label>
+      <paper-dropdown-menu no-label-float="true" class="property-full-input arrow-type begin-size1">
+        <!-- begin-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
+        <paper-listbox slot="dropdown-content" selected="{{model.beginSize}}"
+          attr-for-selected="name">
+          <paper-item class="begin-size1" name="size1"></paper-item>
+          <paper-item class="begin-size2" name="size2"></paper-item>
+          <paper-item class="begin-size3" name="size3"></paper-item>
+          <paper-item class="begin-size4" name="size4"></paper-item>
+          <paper-item class="begin-size5" name="size5"></paper-item>
+          <paper-item class="begin-size6" name="size6"></paper-item>
+          <paper-item class="begin-size7" name="size7"></paper-item>
+          <paper-item class="begin-size8" name="size8"></paper-item>
+          <paper-item class="begin-size9" name="size9"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <label class="property-full-label">
+        <things-i18n-msg msgid="label.end-type" auto>end type</things-i18n-msg>
+      </label>
+      <paper-dropdown-menu no-label-float="true" class="property-full-input arrow-type end-no">
+        <!-- end-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
+        <paper-listbox slot="dropdown-content" selected="{{model.end}}"
+          attr-for-selected="name">
+          <paper-item class="end-no" name="none"></paper-item>
+          <paper-item class="end-arrow" name="arrow"></paper-item>
+          <paper-item class="end-open-arrow" name="open-arrow"></paper-item>
+          <paper-item class="end-stealth-arrow" name="sharp-arrow"></paper-item>
+          <paper-item class="end-diamond-arrow" name="diamond"></paper-item>
+          <paper-item class="end-oval-arrow" name="oval"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <label class="property-full-label">
+        <things-i18n-msg msgid="label.end-size" auto>end size</things-i18n-msg>
+      </label>
+      <paper-dropdown-menu no-label-float="true" class="property-full-input arrow-type end-size1">
+        <!-- end-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
+        <paper-listbox slot="dropdown-content" selected="{{model.endSize}}"
+          attr-for-selected="name">
+          <paper-item class="end-size1" name="size1"></paper-item>
+          <paper-item class="end-size2" name="size2"></paper-item>
+          <paper-item class="end-size3" name="size3"></paper-item>
+          <paper-item class="end-size4" name="size4"></paper-item>
+          <paper-item class="end-size5" name="size5"></paper-item>
+          <paper-item class="end-size6" name="size6"></paper-item>
+          <paper-item class="end-size7" name="size7"></paper-item>
+          <paper-item class="end-size8" name="size8"></paper-item>
+          <paper-item class="end-size9" name="size9"></paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+    </template>
   </div>
-
-  <label>
-    <things-i18n-msg msgid="label.line-type" auto>line type</things-i18n-msg>
-  </label>
-  <paper-dropdown-menu no-label-float="true" class="line-type solid">
-    <!-- solid는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-    <paper-listbox slot="dropdown-content" selected="{{model.lineDash}}"
-      attr-for-selected="name">
-      <paper-item class="solid" name="solid"></paper-item>
-      <paper-item class="round-dot" name="round-dot"></paper-item>
-      <paper-item class="square-dot" name="square-dot"></paper-item>
-      <paper-item class="dash" name="dash"></paper-item>
-      <paper-item class="dash-dot" name="dash-dot"></paper-item>
-      <paper-item class="long-dash" name="long-dash"></paper-item>
-      <paper-item class="long-dash-dot" name="long-dash-dot"></paper-item>
-      <paper-item class="long-dash-dot-dot" name="long-dash-dot-dot"></paper-item>
-    </paper-listbox>
-  </paper-dropdown-menu>
-
-  <label>
-    <things-i18n-msg msgid="label.cap-type" auto>cap type</things-i18n-msg>
-  </label>
-  <select class="select-content" value="{{model.lineCap::change}}">
-    <option value="butt">
-      <things-i18n-msg msgid="label.square" auto>square</things-i18n-msg>
-    </option>
-    <option value="round">
-      <things-i18n-msg msgid="label.round" auto>round</things-i18n-msg>
-    </option>
-  </select>
-
-  <label>
-    <things-i18n-msg msgid="label.join-type" auto>join type</things-i18n-msg>
-  </label>
-  <select class="select-content" value="{{model.lineJoin::change}}">
-    <option value="miter">
-      <things-i18n-msg msgid="label.miter" auto>miter</things-i18n-msg>
-    </option>
-    <option value="round">
-      <things-i18n-msg msgid="label.round" auto>round</things-i18n-msg>
-    </option>
-    <option value="bevel">
-      <things-i18n-msg msgid="label.bevel" auto>bevel</things-i18n-msg>
-    </option>
-  </select>
-
-  <template is="dom-if" if="[[_isLine(selected)]]">
-
-    <label>
-      <things-i18n-msg msgid="label.begin-type" auto>begin type</things-i18n-msg>
-    </label>
-    <paper-dropdown-menu no-label-float="true" class="arrow-type begin-no">
-      <!-- begin-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-listbox slot="dropdown-content" selected="{{model.begin}}"
-        attr-for-selected="name">
-        <paper-item class="begin-no" name="none"></paper-item>
-        <paper-item class="begin-arrow" name="arrow"></paper-item>
-        <paper-item class="begin-open-arrow" name="open-arrow"></paper-item>
-        <paper-item class="begin-stealth-arrow" name="sharp-arrow"></paper-item>
-        <paper-item class="begin-diamond-arrow" name="diamond"></paper-item>
-        <paper-item class="begin-oval-arrow" name="oval"></paper-item>
-      </paper-listbox>
-    </paper-dropdown-menu>
-
-    <label>
-      <things-i18n-msg msgid="label.begin-size" auto>begin size</things-i18n-msg>
-    </label>
-    <paper-dropdown-menu no-label-float="true" class="arrow-type begin-size1">
-      <!-- begin-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-listbox slot="dropdown-content" selected="{{model.beginSize}}"
-        attr-for-selected="name">
-        <paper-item class="begin-size1" name="size1"></paper-item>
-        <paper-item class="begin-size2" name="size2"></paper-item>
-        <paper-item class="begin-size3" name="size3"></paper-item>
-        <paper-item class="begin-size4" name="size4"></paper-item>
-        <paper-item class="begin-size5" name="size5"></paper-item>
-        <paper-item class="begin-size6" name="size6"></paper-item>
-        <paper-item class="begin-size7" name="size7"></paper-item>
-        <paper-item class="begin-size8" name="size8"></paper-item>
-        <paper-item class="begin-size9" name="size9"></paper-item>
-      </paper-listbox>
-    </paper-dropdown-menu>
-
-    <label>
-      <things-i18n-msg msgid="label.end-type" auto>end type</things-i18n-msg>
-    </label>
-    <paper-dropdown-menu no-label-float="true" class="arrow-type end-no">
-      <!-- end-no는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-listbox slot="dropdown-content" selected="{{model.end}}"
-        attr-for-selected="name">
-        <paper-item class="end-no" name="none"></paper-item>
-        <paper-item class="end-arrow" name="arrow"></paper-item>
-        <paper-item class="end-open-arrow" name="open-arrow"></paper-item>
-        <paper-item class="end-stealth-arrow" name="sharp-arrow"></paper-item>
-        <paper-item class="end-diamond-arrow" name="diamond"></paper-item>
-        <paper-item class="end-oval-arrow" name="oval"></paper-item>
-      </paper-listbox>
-    </paper-dropdown-menu>
-
-    <label>
-      <things-i18n-msg msgid="label.end-size" auto>end size</things-i18n-msg>
-    </label>
-    <paper-dropdown-menu no-label-float="true" class="arrow-type end-size1">
-      <!-- end-size1는 선택된 항목 보여주기위한 class로 하위 paper-item의 class와 동일하게 -->
-      <paper-listbox slot="dropdown-content" selected="{{model.endSize}}"
-        attr-for-selected="name">
-        <paper-item class="end-size1" name="size1"></paper-item>
-        <paper-item class="end-size2" name="size2"></paper-item>
-        <paper-item class="end-size3" name="size3"></paper-item>
-        <paper-item class="end-size4" name="size4"></paper-item>
-        <paper-item class="end-size5" name="size5"></paper-item>
-        <paper-item class="end-size6" name="size6"></paper-item>
-        <paper-item class="end-size7" name="size7"></paper-item>
-        <paper-item class="end-size8" name="size8"></paper-item>
-        <paper-item class="end-size9" name="size9"></paper-item>
-      </paper-listbox>
-    </paper-dropdown-menu>
-  </template>
 </fieldset>

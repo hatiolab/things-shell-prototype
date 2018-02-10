@@ -1,92 +1,48 @@
-:host {
-  @apply(--things-properties-panel);
+fieldset {
+  @apply(--things-property-fieldset);
 }
 
-label{
-  @apply(--things-label);
+fieldset legend {
+  @apply(--things-property-fieldset-legend);
 }
 
-input{
-  @apply(--things-input);
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(24px, auto);
 }
 
-paper-listbox {
-  overflow: hidden;
-  max-width: 140px;
+.property-grid > * {
+  line-height: 1.5;
 }
 
-fieldset{
-  @apply(--things-fieldset);
-}
-legend{
-  @apply(--things-fieldset-legend);
-}
-
-fieldset paper-slider{
-  width:69%;height: 20px;
-  float:right;
-  margin:0 12px 10px 0;
-
-  --paper-slider-active-color:var(--primary-color);
-  --paper-slider-knob-color:var(--primary-color);
+.property-full-label {
+  grid-column: span 3;
+  text-align: right;
+  text-transform: capitalize;
 }
 
-select{
-  @apply(--things-select);
-  background:url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
-}
-.icon-only-label{
-  @apply(--things-properties-icon-only-label);
+.property-half-label {
+  grid-column: span 1;
 }
 
-things-editor-color-style {
-  --things-editor-color-input-text: {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 3px 5px 2px 5px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border:1px solid rgba(0,0,0,.15);
-    font-size: 14px;
-    font-weight: 300;
-  }
+.property-full-input {
+  grid-column: span 7;
 }
 
-paper-dropdown-menu {
-  --paper-dropdown-menu-input: {
-  }
+.property-half-input {
+  grid-column: span 4;
 }
 
-/*
-paper-dropdown-menu .underline .unfocused-line{background-color:#ccc}
-paper-dropdown-menu .underline .focused-line{background-color:var(--secondary-color)}
-*/
-paper-dropdown-menu.line-type-round-dot .paper-input-container input {
-  background:url(./assets/images/icon-properties-line-type.png) 50% -45px no-repeat;
+paper-slider {
+  width: 100%;
 }
-.column-double-iconlabel input{
-  width:45%;
-}
-.full-width > * {
-  float:left;
-}
-.full-width > input, .full-width > things-editor-number-input, .full-width > things-editor-color {
-  width:37%;
-}
-.full-width > select{
-  width:48%;
-  margin-right:2px;
-}
-.btn-group{
-  margin-bottom:10px;padding-left:5px;
-}
+
 .btn-group paper-button {
   @apply(--things-editor-buttons-radio-button);
   background:url(./assets/images/icon-properties.png) no-repeat;
   background-size:70%;
-  margin-right:5px;
-  opacity:.7;
 }
 .btn-group paper-button.tbold         {background-position:50% -170px}
 .btn-group paper-button.titalic       {background-position:50% -205px}

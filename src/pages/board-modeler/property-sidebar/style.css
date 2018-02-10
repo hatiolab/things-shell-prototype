@@ -1,6 +1,7 @@
 :host {
   border-left:1px solid var(--paper-blue-grey-100);
-  @apply(--things-properties-panel);
+  width: 270px;
+  /* @apply(--things-properties-panel); */
 
   display: flex;
   flex-direction: column;

@@ -4,17 +4,23 @@
   </div>
 </app-toolbar>
 
+<app-toolbar class="setting-menu">
+  <paper-icon-button icon="icons:font-download"></paper-icon-button>
+  <paper-icon-button icon="icons:cloud-done"></paper-icon-button>
+  <paper-icon-button icon="icons:cloud-download"></paper-icon-button>
+  <paper-icon-button icon="hardware:security"></paper-icon-button>
+</app-toolbar>
+
 <paper-listbox on-click="onGroupClicked">
   <template is="dom-repeat" items="[[boardGroupList]]">
     <group-card group="[[item]]"></group-card>
   </template>
-  <!-- <group-card group="[[createGroup]]" add>
-    <things-i18n-msg msgid="label.click-to-add-new-group"></things-i18n-msg>
-  </group-card> -->
 </paper-listbox>
 
 <div id="new-group">
-  <span>Click to add new group.</span>
+  <span>
+    <things-i18n-msg msgid="label.click-to-add-new-group"></things-i18n-msg>
+  </span>
   <paper-icon-button icon="av:add-to-queue" on-click="onClickNewGroup"></paper-icon-button>
 </div>
 

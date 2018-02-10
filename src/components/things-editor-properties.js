@@ -36,7 +36,7 @@ class ThingsEditorProperties extends PolymerElement {
         display: block;
       }
       fieldset, fieldset{
-        @apply(--things-fieldset);
+        @apply(--things-property-fieldset);
       }
       label{
         @apply(--things-label);
@@ -47,7 +47,7 @@ class ThingsEditorProperties extends PolymerElement {
         width:55%
       }
       legend{
-        @apply(--things-fieldset-legend);
+        @apply(--things-property-fieldset-legend);
         padding-bottom:7px
       }
       input[type="checkbox"]{

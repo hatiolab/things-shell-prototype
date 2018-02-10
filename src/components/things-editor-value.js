@@ -25,43 +25,40 @@ Example:
 Polymer({
   _template: `
     <style>
-       :host {
-        @apply(--things-properties-varialbe-panel);
+      :host {
+        @apply(--things-properties-variable-panel);
+        padding: 4px;
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 4px;
+        grid-auto-rows: minmax(24px, auto);
       }
 
-      label {
-        @apply(--things-label);
-        width: 24%;
+      :host > * {
+        line-height: 1.5;
       }
 
-      input {
-        @apply(--things-input);
-        width: 66%;
+      :host > label {
+        grid-column: span 3;
+        text-align: right;
+        text-transform: capitalize;
       }
 
-      select {
-        width: 70%;
-        @apply(--things-select);
-        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
+      :host > input, :host > select, :host > paper-radio-group {
+        grid-column: span 7;
       }
 
-      paper-radio-group {
-        position: relative;
-        top: -3px;
+      :host > iron-pages {
+        grid-column: span 10;
       }
 
       paper-radio-button {
         padding: 2px 1px 2px 4px !important;
       }
 
-      paper-radio-button:first-child {
-        padding-left: 0 !important;
-      }
-
       things-editor-code {
-        width: 94%;
         height: 300px;
-        margin: -7px 0 7px 7px;
         overflow: auto;
       }
     </style>
@@ -79,11 +76,6 @@ Polymer({
     <datalist id="target-list">
       <option value="(self)"></option>
       <option value="(key)"></option>
-      <!-- <option value="(parent)"></option> -->
-      <!-- <option value="(child)"></option> -->
-      <!-- <option value="(sibling)"></option> -->
-      <!-- <option value="(root)"></option> -->
-      <!-- <option value="(all)"></option> -->
     </datalist>
 
     <label>

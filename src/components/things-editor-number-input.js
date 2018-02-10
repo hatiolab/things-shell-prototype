@@ -1,5 +1,5 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {dom} from '@polymer/polymer/lib/legacy/polymer.dom';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom';
 
 Polymer({
   is: 'things-editor-number-input',
@@ -11,6 +11,7 @@ Polymer({
     }
     ::slotted(input) {
       width: 100%;
+      height: 100%;
       box-sizing: border-box;
       @apply(--things-editor-number-input);
     }
@@ -29,7 +30,7 @@ Polymer({
   },
 
   attached() {
-    this._observer = dom(this).observeNodes(function(info) {
+    this._observer = dom(this).observeNodes(function (info) {
       this._initSlottedInput();
     }.bind(this));
   },
@@ -43,14 +44,14 @@ Polymer({
   /**
    * Returns the distributed <input> element.
    */
-  get inputElement () {
+  get inputElement() {
     return this._inputElement;
   },
 
-  _initSlottedInput: function() {
+  _initSlottedInput: function () {
     this._inputElement = this.getEffectiveChildren()[0];
 
-    if(!this._inputElement)
+    if (!this._inputElement)
       return;
     this._inputElement.setAttribute('type', 'number');
 
@@ -58,10 +59,10 @@ Polymer({
   },
 
   _onChangeNumber(number) {
-    if(!this.inputElement)
+    if (!this.inputElement)
       return;
     /* 외부에서 바인딩된 변수의 값을 바꾼 경우 */
-    if(isNaN(Number(number))) {
+    if (isNaN(Number(number))) {
       this.inputElement.value = NaN;
     } else {
       this.inputElement.value = Number(number);
@@ -73,7 +74,7 @@ Polymer({
 
     /* 에디터에서 값을 바꾼 경우 */
     var value = this.inputElement.valueAsNumber;
-    if(isNaN(Number(value))) {
+    if (isNaN(Number(value))) {
       this.number = NaN;
     } else {
       this.number = Number(value);

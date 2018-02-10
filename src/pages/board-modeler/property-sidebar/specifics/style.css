@@ -1,8 +1,8 @@
 :host {
-  @apply(--things-properties-panel);
+  /* @apply(--things-properties-panel); */
 }
 legend{
-  @apply(--things-fieldset-legend);
+  @apply(--things-property-fieldset-legend);
 }
 .icon-only-label{
   @apply(--things-properties-icon-only-label);

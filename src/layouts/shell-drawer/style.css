@@ -8,6 +8,10 @@ app-toolbar {
   @apply(--app-toolbar);
 }
 
+app-toolbar.setting-menu {
+  background-color: var(--secondary-color);
+}
+
 paper-listbox {
   flex: 1;
   overflow-y: auto;

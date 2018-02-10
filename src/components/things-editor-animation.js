@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 
 import './things-i18n-msg';
@@ -23,22 +23,32 @@ Example:
 Polymer({
   _template: `
     <style>
-       :host {
-        display: block;
+      :host {
         @apply(--things-editor-animation)
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
       }
 
-      label {
-        @apply(--things-label);
+      :host > * {
+        line-height: 1.5;
       }
 
-      input {
-        @apply(--things-input);
+      :host > label {
+        grid-column: span 3;
+        text-align: right;
+        text-transform: capitalize;
+      }
+
+      :host > input, :host > things-editor-number-input, :host > things-editor-angle-input, :host > things-editor-color {
+        grid-column: span 7;
       }
 
     </style>
 
-    <label>[[localize("label.waiting-time")]]</label>
+    <label><things-i18n-msg msgid="label.waiting-time" auto>waiting time</things-i18n-msg></label>
     <things-editor-number-input number="{{animation.delay::change}}" placeholder="ms">
       <input>
     </things-editor-number-input>
@@ -115,13 +125,13 @@ Polymer({
     'onChangedValue(value)'
   ],
 
-  onChangedValue: function(changed) {
-    if(this.changedOnThis)
+  onChangedValue: function (changed) {
+    if (this.changedOnThis)
       return
 
     var value = changed
 
-    if(!value) {
+    if (!value) {
       this.animation = {}
       return
     }

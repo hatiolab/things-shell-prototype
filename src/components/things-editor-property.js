@@ -82,7 +82,7 @@ class ThingsEditorProperty extends PolymerElement {
         display: inline-block;
         text-align: left;
 
-        @apply(--things-fieldset-legend);
+        @apply(--things-property-fieldset-legend);
         padding-bottom:7px
       }
 

@@ -2,6 +2,8 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/paper-input/paper-input';
 import '@polymer/paper-input/paper-textarea';
+import '@polymer/iron-icons/iron-icons';
+import '@polymer/iron-icons/hardware-icons';
 
 import '@polymer/neon-animation/animations/scale-up-animation';
 import '@polymer/neon-animation/animations/fade-out-animation';

@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import './paper-color-picker/paper-color-picker';
 import tinycolor from 'tinycolor2';
 
@@ -178,10 +178,10 @@ Polymer({
 
       input[type=text] {
         border: 1px solid #ccc;
-        border-radius: 10%;
         box-sizing: border-box;
         font-size: 13px;
         width: 100%;
+        height: 100%;
 
         @apply(--things-editor-color-input-text);
       }
