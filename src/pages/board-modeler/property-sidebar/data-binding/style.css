@@ -1,11 +1,3 @@
-/* label{
-  @apply(--things-label);
-}
-
-input{
-  @apply(--things-input);
-} */
-
 fieldset{
   @apply(--things-property-fieldset);
 }

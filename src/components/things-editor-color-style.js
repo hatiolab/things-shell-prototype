@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/paper-radio-button/paper-radio-button';
 import '@polymer/paper-radio-group/paper-radio-group';
@@ -34,16 +34,30 @@ Polymer({
         padding: 2px 1px 10px 7px !important;
       }
 
-      .icon-only-label {
-        @apply(--things-properties-icon-only-label);
+      .grid-10 {
+        display: grid;
+
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
+      }
+
+      .grid-10 > things-editor-color {
+        grid-column: span 4;
+      }
+
+      .grid-10 > .icon-only-label {
+        grid-column: span 1;
+
         background: url(./assets/images/icon-properties-label.png) no-repeat;
         float: left;
-        margin-top: 0;
+        margin: 0;
       }
 
       .icon-only-label.color {
         background-position: 70% -498px;
       }
+
     </style>
 
     <paper-radio-group selected="{{fillType}}" on-change="onChangedFillType">
@@ -65,11 +79,10 @@ Polymer({
       <div fill-type="no">
       </div>
 
-      <div fill-type="solid">
+      <div fill-type="solid" class="grid-10">
         <label class="icon-only-label color"></label>
         <things-editor-color value="{{solid}}">
         </things-editor-color>
-
       </div>
 
       <div fill-type="gradient">
@@ -99,15 +112,15 @@ Polymer({
     'onChangedValue(value)'
   ],
 
-  onChangedValue: function(value) {
+  onChangedValue: function (value) {
 
-    if(this.changedOnThis)
+    if (this.changedOnThis)
       return
 
     // var value = after.value
 
     /* 설정 값에 따라서, 멤버 속성을 설정한다. */
-    if(!value) {
+    if (!value) {
       this.fillType = 'no'
 
       this.solid = null
@@ -116,59 +129,59 @@ Polymer({
       return
     }
 
-    switch(typeof(value)) {
-    case 'string':
-      this.fillType = 'solid'
-      this.solid = value
-
-      this.gradient = null
-      this.pattern = null
-      break
-    case 'object':
-
-      this.fillType = value.type
-
-      if(value.type === 'gradient') {
-
-        this.gradient = {
-          type: value.gradientType || 'linear',
-          colorStops: value.colorStops || [{
-            position: 0,
-            color: this.solid || '#000000'
-          }, {
-            position: 1,
-            color: this.solid || '#FFFFFF'
-          }],
-          rotation: parseFloat(value.rotation) || 0,
-          center: value.center,
-          rotateWithShapes: true
-        }
-
-        this.pattern = null
-        this.solid = null
-      } else if(value.type === 'pattern') {
-
-        this.pattern = {
-          image: value.image,
-          offsetX: parseInt(value.offsetX) || 0,
-          offsetY: parseInt(value.offsetY) || 0,
-          width: parseInt(value.width),
-          height: parseInt(value.height),
-          align: value.align,
-          fitPattern: value.fitPattern
-        }
+    switch (typeof (value)) {
+      case 'string':
+        this.fillType = 'solid'
+        this.solid = value
 
         this.gradient = null
-        this.solid = null
-      }
+        this.pattern = null
+        break
+      case 'object':
 
-      break
-    default:
+        this.fillType = value.type
+
+        if (value.type === 'gradient') {
+
+          this.gradient = {
+            type: value.gradientType || 'linear',
+            colorStops: value.colorStops || [{
+              position: 0,
+              color: this.solid || '#000000'
+            }, {
+              position: 1,
+              color: this.solid || '#FFFFFF'
+            }],
+            rotation: parseFloat(value.rotation) || 0,
+            center: value.center,
+            rotateWithShapes: true
+          }
+
+          this.pattern = null
+          this.solid = null
+        } else if (value.type === 'pattern') {
+
+          this.pattern = {
+            image: value.image,
+            offsetX: parseInt(value.offsetX) || 0,
+            offsetY: parseInt(value.offsetY) || 0,
+            width: parseInt(value.width),
+            height: parseInt(value.height),
+            align: value.align,
+            fitPattern: value.fitPattern
+          }
+
+          this.gradient = null
+          this.solid = null
+        }
+
+        break
+      default:
     }
   },
 
-  onChangedSolid: function(value) {
-    if(this.fillType !== 'solid')
+  onChangedSolid: function (value) {
+    if (this.fillType !== 'solid')
       return
 
     this.changedOnThis = true
@@ -178,12 +191,12 @@ Polymer({
     this.changedOnThis = false
   },
 
-  onChangedFillType: function(e) {
+  onChangedFillType: function (e) {
     this.changedOnThis = true
 
-    switch(e.target.name) {
+    switch (e.target.name) {
       case 'gradient':
-        if(!this.gradient) {
+        if (!this.gradient) {
           this.gradient = {
             type: 'linear',
             colorStops: [{
@@ -216,7 +229,7 @@ Polymer({
         break
 
       case 'pattern':
-        if(!this.pattern)
+        if (!this.pattern)
           this.pattern = {}
 
         this.value = {
@@ -232,7 +245,7 @@ Polymer({
         break
 
       case 'solid':
-        if(!this.solid)
+        if (!this.solid)
           this.solid = '#FFFFFF'
         this.value = this.solid
         break
@@ -245,20 +258,20 @@ Polymer({
     this.changedOnThis = false
   },
 
-  onChandedGradient: function(after) {
+  onChandedGradient: function (after) {
     /*
      * TODO Gradient의 rotation은 symmetry 기능 등으로 외부에서 변경될 수도 있다.
      * 이 점을 감안해서, 외부 변경에 대한 대응을 해야 한다.
      */
 
-    if(this.fillType !== 'gradient')
+    if (this.fillType !== 'gradient')
       return
 
     this.changedOnThis = true
 
     var gradient = this.gradient
 
-    if(!gradient)
+    if (!gradient)
       gradient = {}
 
     this.value = {
@@ -273,16 +286,16 @@ Polymer({
     this.changedOnThis = false
   },
 
-  onChangedPattern: function(after) {
+  onChangedPattern: function (after) {
 
-    if(this.fillType !== 'pattern')
+    if (this.fillType !== 'pattern')
       return
 
     this.changedOnThis = true
 
     var pattern = this.pattern
 
-    if(!pattern)
+    if (!pattern)
       pattern = {}
 
     this.value = {

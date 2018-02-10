@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 import '@polymer/paper-listbox/paper-listbox';
@@ -8,9 +8,59 @@ import './things-editor-color-stops';
 Polymer({
   _template: `
     <style>
-       :host {
-        display: block;
+      :host {
         @apply(--things-editor-gradient)
+      }
+
+      :host, .grid-10 {
+        display: grid;
+
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
+      }
+
+      .grid-10 {
+        grid-column: span 10;
+      }
+
+      :host > * {
+        line-height: 1.5;
+      }
+
+      :host > label {
+        grid-column: span 2;
+        text-align: right;
+        text-transform: capitalize;
+      }
+
+      :host > .icon-only-label {
+        grid-column: span 1;
+      }
+
+      :host > input, :host > iron-pages {
+        grid-column: span 8;
+      }
+
+      :host > select {
+        grid-column: span 4;
+      }
+
+      :host > things-editor-angle-input {
+        grid-column: span 3;
+      }
+
+      things-editor-color-stops {
+        grid-column: span 10;
+      }
+
+      .grid-10 > input[type=checkbox] {
+        grid-column: 3 / 4;
+      }
+
+      .grid-10 > input[type=checkbox] ~ label {
+        grid-column: span 7;
+        text-align: left;
       }
 
       [gradient-direction] {
@@ -90,40 +140,6 @@ Polymer({
         display: none !important;
       }
 
-      label {
-        @apply(--things-label);
-      }
-
-      select {
-        @apply(--things-select);
-        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
-      }
-
-      .full-width > * {
-        float: left;
-      }
-
-      .full-width > label {
-        width: initial;
-        top: 2px;
-        margin-right: 4px;
-      }
-
-      .full-width > select {
-        width: 40%;
-        min-width: 40%;
-        margin-right: 2px;
-      }
-
-      .full-width > input {
-        @apply(--things-input);
-        width: 28%;
-      }
-
-      .full-width > things-editor-angle-input {
-        width: 32%;
-      }
-
       .icon-only-label {
         @apply(--things-properties-icon-only-label);
         top: 0 !important;
@@ -134,37 +150,24 @@ Polymer({
       .icon-only-label.color {
         background-position: 70% -198px;
       }
-
-      iron-pages {
-        display: inline-block;
-        margin: 0 20px;
-        /* width: 65%; */
-        width: 100%;
-      }
-
-      things-editor-color-stops {
-        margin: 0 10px;
-      }
-
-      .merge-column {
-        margin: 0 0 7px 10px;
-      }
     </style>
 
-    <div class="full-width">
-      <label>type</label>
-      <select value="{{type::change}}">
-        <option>linear</option>
-        <option>radial</option>
-      </select>
-      <label class="icon-only-label color"></label>
-      <things-editor-angle-input radian="{{rotation}}">
-        <input>
-      </things-editor-angle-input>
-    </div>
+    <label>
+      <things-i18n-msg msgid="label.type" auto="">type</things-i18n-msg>
+    </label>
+    <select value="{{type::change}}">
+      <option>linear</option>
+      <option>radial</option>
+    </select>
 
-    <!--label>direction</label-->
+    <label class="icon-only-label color"></label>
+    <things-editor-angle-input radian="{{rotation}}">
+      <input>
+    </things-editor-angle-input>
 
+    <label>
+      <things-i18n-msg msgid="label.direction" auto="">direction</things-i18n-msg>
+    </label>
     <iron-pages attr-for-selected="gradient-type" selected="[[type]]">
       <paper-dropdown-menu gradient-type="linear" no-label-float="true">
         <paper-listbox slot="dropdown-content" gradient-direction selected="{{direction}}" attr-for-selected="name">
@@ -180,7 +183,6 @@ Polymer({
         </paper-listbox>
       </paper-dropdown-menu>
 
-
       <paper-dropdown-menu gradient-type="radial" no-label-float="true">
         <paper-listbox slot="dropdown-content" gradient-direction selected="{{center}}" attr-for-selected="name">
           <paper-item name="center"></paper-item>
@@ -192,13 +194,16 @@ Polymer({
       </paper-dropdown-menu>
     </iron-pages>
 
+    <div class="grid-10">
+      <input type="checkbox" checked="{{rotateWithShapes::change}}" required>
+      <label>
+        <things-i18n-msg msgid="label.rotate-with-shapes" auto="">Rotate with shapes</things-i18n-msg>
+      </label>
+    </div>
+
     <things-editor-color-stops type="gradient" value="{{colorStops}}">
     </things-editor-color-stops>
-
-    <div class="merge-column">
-      <input type="checkbox" checked="{{rotateWithShapes::change}}" required=""> Rotate with shapes
-    </div>
-`,
+  `,
 
   is: 'things-editor-gradient',
 

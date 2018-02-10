@@ -1,9 +1,53 @@
-:host {
-  /* @apply(--things-properties-panel); */
+fieldset{
+  @apply(--things-property-fieldset);
 }
-label{
-  @apply(--things-label);
+
+legend{
+  @apply(--things-property-fieldset-legend);
 }
+
+.property-grid, .checkbox-row {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(24px, auto);
+}
+
+.checkbox-row {
+  grid-column: span 10;
+}
+
+.checkbox-row > input {
+  grid-column: span 1;
+}
+
+.checkbox-row > input:first-of-type {
+  grid-column: 4 / 5;
+}
+
+.checkbox-row > label {
+  grid-column: span 2;
+  text-align: left;
+}
+
+.property-grid > * {
+  line-height: 1.5;
+}
+
+.property-grid > label {
+  grid-column: span 3;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+.property-grid > input,
+.property-grid > table,
+.property-grid > things-editor-angle-input,
+.property-grid > things-editor-number-input,
+.property-grid > things-editor-buttons-radio {
+  grid-column: span 7;
+}
+
 .icon-label label{
   background:url(./assets/images/icon-properties-label.png) 7px -900px no-repeat;
 }
@@ -12,26 +56,6 @@ label{
 .icon-label label.rotate {background-position:7px -200px;}
 .icon-label label.twidth {background-position:7px -300px;}
 .icon-label label.theight{background-position:7px -400px;}
-input{
-  @apply(--things-input);
-}
-fieldset{
-  @apply(--things-property-fieldset);
-}
-legend{
-  @apply(--things-property-fieldset-legend);
-}
-input[type="checkbox"]{width:15px;}
-
-.ratio paper-button{
-  @apply(--things-properties-ratio-btn);
-  background:url(./assets/images/icon-properties-ratio.png) 100% -80px no-repeat;
-}
-.ratio paper-button[active]{
-  background-position: 100% 11px
-}
-.merge-column{padding-left:25%;}
-.unit{font-size:11px;}
 
 things-editor-buttons-radio paper-button{
   background:url(./assets/images/icon-properties.png) no-repeat;
@@ -47,11 +71,11 @@ things-editor-buttons-radio paper-button[active]{
   border-color:#f2471c;
   opacity:1;
 }
-.box-padding{
-  width:69%;
-  float:right;
-  margin:0 12px 15px 0;
+
+.box-padding {
+  width: 100%;
 }
+
 .box-padding td{
   background:url(./assets/images/icon-properties-padding.png) 50% 0 no-repeat;
 }
@@ -87,4 +111,3 @@ things-editor-buttons-radio paper-button[active]{
 .slide5 things-editor-number-input:nth-child(2){float:left;}
 .slide5 things-editor-number-input:nth-child(3){float:right;margin-top:-25px;}
 .slide5 things-editor-number-input:nth-child(4){margin-top:-5px;}
-.radio-btn-group-label{top:-10px;}

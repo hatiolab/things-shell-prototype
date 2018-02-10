@@ -1,4 +1,4 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
 import '@polymer/paper-button/paper-button';
 
 /**
@@ -23,7 +23,6 @@ Polymer({
   _template: `
     <style>
       :host {
-        width: 65%;
         display: inline-block;
       }
 

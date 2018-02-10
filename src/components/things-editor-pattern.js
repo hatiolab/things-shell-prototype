@@ -26,6 +26,10 @@ Example:
 Polymer({
   _template: `
     <style>
+      :host {
+        @apply(--things-editor-pattern);
+      }
+
       :host, .grid-10 {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
@@ -47,8 +51,13 @@ Polymer({
         grid-column: span 8;
       }
 
-      :host > input[type=checkbox] {
+      .grid-10 > input[type=checkbox] {
         grid-column: 3 / 4;
+      }
+
+      .grid-10 > input[type=checkbox] ~ label {
+        grid-column: span 7;
+        text-align: left;
       }
 
       :host > .grid-10 {
@@ -59,15 +68,11 @@ Polymer({
         grid-column: span 3;
       }
 
-      input[type=checkbox] ~ label {
-        grid-column: 4 / 5;
-        text-align: left;
-      }
-
       .grid-10 > label {
         grid-column: span 2;
         text-align: right;
       }
+
     </style>
 
     <label><things-i18n-msg msgid="label.image" auto="">image</things-i18n-msg></label>
@@ -107,8 +112,12 @@ Polymer({
       </things-editor-number-input>
     </div>
 
-    <input type="checkbox" checked="{{fitPattern::change}}" required="">
-    <things-i18n-msg msgid="label.fit" auto="">Fit</things-i18n-msg>
+    <div class="grid-10">
+      <input type="checkbox" checked="{{fitPattern::change}}" required="">
+      <label>
+        <things-i18n-msg msgid="label.fit" auto="">Fit</things-i18n-msg>
+      </label>
+    </div>
 `,
 
   is: 'things-editor-pattern',
