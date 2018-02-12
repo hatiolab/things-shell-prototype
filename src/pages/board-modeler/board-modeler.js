@@ -44,7 +44,9 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
 
       mode: {
         value: 1
-      }
+      },
+
+      provider: Object
     }
   }
 

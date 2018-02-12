@@ -24,7 +24,7 @@
   <iron-pages class="flex" selected="[[page]]" attr-for-selected="name"
     fallback-selection="view404" role="main">
     <board-list name="list"></board-list>
-    <board-modeler name="modeler" model="[[model]]"></board-modeler>
+    <board-modeler name="modeler" model="[[model]]" provider="[[provider]]"></board-modeler>
     <board-viewer name="viewer" provider="[[provider]]"></board-viewer>
     <board-info name="info"></board-info>
     <board-player name="player" provider="[[provider]]"></board-player>

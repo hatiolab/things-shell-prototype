@@ -294,8 +294,4 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   }
 }
 
-
-
-
-
 customElements.define(BoardPlayer.is, BoardPlayer);

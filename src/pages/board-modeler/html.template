@@ -1,51 +1,37 @@
-<edit-toolbar
-  scene="[[scene]]"
-  selected="[[selected]]"
-  hide-property="{{hideProperty}}"
-  on-open-preview="onOpenPreview"
-  on-download-model="onDownloadModel"
+<edit-toolbar scene="[[scene]]" selected="[[selected]]" hide-property="{{hideProperty}}"
+  on-open-preview="onOpenPreview" on-download-model="onDownloadModel"
   on-modeler-fullscreen="onFullscreen">
 </edit-toolbar>
 
 <div>
 
-<component-toolbar scene="[[scene]]" mode="{{mode}}">
-</component-toolbar>
+  <component-toolbar scene="[[scene]]" mode="{{mode}}">
+  </component-toolbar>
 
-<things-shell id="scene"
-              scene="{{scene}}"
-              model="[[model]]"
-              selected="{{selected}}"
-              mode="{{mode}}"
-              fit="ratio"
-              base-url="[[baseUrl]]"
-              on-contextmenu="onContextMenu"
-              provider="[[provider]]"
-              name="modeler">
-  <things-shell-layer type="selection-layer"></things-shell-layer>
-  <things-shell-layer type="modeling-layer"></things-shell-layer>
-  <things-shell-layer type="guide-layer">
-    <things-shell-property name="ruler" value="disabled"></things-shell-property>
-  </things-shell-layer>
-  <things-shell-layer type="shift-layer">
-    <things-shell-property name="text" value="[[overlay]]"></things-shell-property>
-    <things-shell-property name="alpha" value=0.3></things-shell-property>
-    <things-shell-property name="fontFamily" value="arial"></things-shell-property>
-    <things-shell-property name="fontSize" value=30 type="number"></things-shell-property>
-    <things-shell-property name="fontColor" value="navy"></things-shell-property>
-    <things-shell-property name="textBaseline" value="top"></things-shell-property>
-    <things-shell-property name="textAlign" value="left"></things-shell-property>
-    <things-shell-property name="paddingTop" value=50 type="number"></things-shell-property>
-    <things-shell-property name="paddingLeft" value=50 type="number"></things-shell-property>
-  </things-shell-layer>
-  <things-shell-layer type="tag-layer"></things-shell-layer>
-  <things-shell-handler type="text-editor"></things-shell-handler>
-  <things-shell-handler type="move-handler"></things-shell-handler>
-</things-shell>
+  <things-shell id="scene" scene="{{scene}}" model="[[model]]"
+    selected="{{selected}}" mode="{{mode}}" fit="ratio" base-url="[[baseUrl]]"
+    on-contextmenu="onContextMenu" provider="[[provider]]" name="modeler">
+    <things-shell-layer type="selection-layer"></things-shell-layer>
+    <things-shell-layer type="modeling-layer"></things-shell-layer>
+    <things-shell-layer type="guide-layer">
+      <things-shell-property name="ruler" value="disabled"></things-shell-property>
+    </things-shell-layer>
+    <things-shell-layer type="shift-layer">
+      <things-shell-property name="text" value="[[overlay]]"></things-shell-property>
+      <things-shell-property name="alpha" value=0.3></things-shell-property>
+      <things-shell-property name="fontFamily" value="arial"></things-shell-property>
+      <things-shell-property name="fontSize" value=30 type="number"></things-shell-property>
+      <things-shell-property name="fontColor" value="navy"></things-shell-property>
+      <things-shell-property name="textBaseline" value="top"></things-shell-property>
+      <things-shell-property name="textAlign" value="left"></things-shell-property>
+      <things-shell-property name="paddingTop" value=50 type="number"></things-shell-property>
+      <things-shell-property name="paddingLeft" value=50 type="number"></things-shell-property>
+    </things-shell-layer>
+    <things-shell-layer type="tag-layer"></things-shell-layer>
+    <things-shell-handler type="text-editor"></things-shell-handler>
+    <things-shell-handler type="move-handler"></things-shell-handler>
+  </things-shell>
 
-<property-sidebar
-  scene="[[scene]]"
-  selected="[[selected]]"
-  collapsed="[[hideProperty]]">
-</property-sidebar>
+  <property-sidebar scene="[[scene]]" selected="[[selected]]" collapsed="[[hideProperty]]">
+  </property-sidebar>
 </div>

@@ -25,7 +25,7 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     </a-scene>
     -->
 
-    <things-shell model='[[model]]' fit='ratio'>
+    <things-shell model='[[model]]' provider='[[provider]]' fit='ratio'>
     </things-shell>
     `;
   }
@@ -37,7 +37,8 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
       model: {
         type: Object,
         statePath: 'boardCurrent.model'
-      }
+      },
+      provider: Object
     }
   }
 }
