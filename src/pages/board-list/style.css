@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-div.app-grid {
+sortable-js {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(0, 220px);
@@ -27,19 +27,19 @@ paper-input {
 }
 
 @media (max-width: 1600px) {
-  div.app-grid {
+  sortable-js  {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 1280px) {
-  div.app-grid {
+  sortable-js  {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 800px) {
-  div.app-grid {
+  sortable-js  {
     grid-template-columns: 1fr;
   }
 }

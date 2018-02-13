@@ -4,7 +4,7 @@ import { ReduxMixin, setRoute } from '../../reducer/redux-mixin';
 
 import style from './board-card-style.css';
 
-class BoardCard extends ReduxMixin(PolymerElement) {
+export default class BoardCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
       <style>${style}</style>

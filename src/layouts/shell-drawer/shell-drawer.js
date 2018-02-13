@@ -16,7 +16,7 @@ import '../../components/things-i18n-msg';
 import style from './style.css';
 import template from './html.template';
 
-import './group-card';
+import GroupCard from './group-card';
 
 class ShellDrawer extends ReduxMixin(PolymerElement) {
   static get template() {
@@ -104,6 +104,39 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
     this.dispatch(createGroup(group));
     this.dispatch(setRoute('list', name));
+  }
+
+  onCardDrop(e) {
+    e.preventDefault();
+
+    var card = e.target;
+    var board = e.dataTransfer.getData('board');
+
+    card.dim(false);
+
+    // console.log('onCardDrop', board);
+  }
+
+  onCardDragOver(e) {
+    e.preventDefault();
+
+    var card = e.target;
+    var board = e.dataTransfer.getData('board');
+
+    card.dim(true);
+
+    // console.log('onCardDragOver', board);
+  }
+
+  onCardDragLeave(e) {
+    e.preventDefault();
+
+    var card = e.target;
+    var board = e.dataTransfer.getData('board');
+
+    card.dim(false);
+
+    // console.log('onCardDragLeave', board);
   }
 }
 

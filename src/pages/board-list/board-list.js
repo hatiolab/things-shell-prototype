@@ -7,13 +7,14 @@ import '@polymer/iron-icons/iron-icons';
 
 import style from './style.css';
 
+import '../../components/polymer-sortablejs/polymer-sortablejs';
 import '../../layouts/page-toolbar/page-toolbar';
-import './board-card';
+
+import BoardCard from './board-card';
 
 class BoardList extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
-    <style></style>
     <style include="shared-styles">${style}</style>
 
     <page-toolbar>
@@ -23,9 +24,11 @@ class BoardList extends ReduxMixin(PolymerElement) {
     </page-toolbar>
 
     <div class="app-grid">
-      <template is="dom-repeat" items="[[boardList]]">
-        <board-card board="[[item]]"></board-card>
-      </template>
+      <sortable-js>
+        <template is="dom-repeat" items="[[boardList]]">
+          <board-card board="[[item]]" on-dragstart="onDragStart"></board-card>
+        </template>
+      </sortable-js>
     </div>
     `;
   }
@@ -51,6 +54,16 @@ class BoardList extends ReduxMixin(PolymerElement) {
         value: 0
       }
     }
+  }
+
+  onDragStart(e) {
+    var card = e.target;
+
+    if (!(card instanceof BoardCard))
+      return;
+
+    e.dataTransfer.setDragImage(card, 0, -10);
+    e.dataTransfer.setData("board", card.board.name);
   }
 }
 

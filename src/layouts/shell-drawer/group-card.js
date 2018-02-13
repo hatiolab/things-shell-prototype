@@ -6,7 +6,7 @@ import { ReduxMixin, setRoute } from '../../reducer/redux-mixin';
 
 import style from './style-group-card.css';
 
-class GroupCard extends ReduxMixin(PolymerElement) {
+export default class GroupCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
@@ -32,6 +32,14 @@ class GroupCard extends ReduxMixin(PolymerElement) {
         type: Object
       }
     }
+  }
+
+  dim(on) {
+    var button = this.root.querySelector('paper-icon-button');
+    if (on)
+      button.style.color = 'red'
+    else
+      button.style.color = ''
   }
 
   onClickPlay(e) {

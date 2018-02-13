@@ -13,7 +13,8 @@
 
 <paper-listbox on-click="onGroupClicked">
   <template is="dom-repeat" items="[[boardGroupList]]">
-    <group-card group="[[item]]"></group-card>
+    <group-card group="[[item]]" on-drop="onCardDrop" on-dragover="onCardDragOver"
+      on-dragleave="onCardDragLeave"></group-card>
   </template>
 </paper-listbox>
 
