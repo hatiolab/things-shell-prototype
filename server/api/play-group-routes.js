@@ -11,6 +11,15 @@ module.exports = function (app, db) {
     });
   });
 
+  app.post('/play-groups/:group/boards/:board', (req, res) => {
+    groups.create(req.params.group);
+
+    res.send({
+      success: true,
+      list: groups.list()
+    });
+  });
+
   app.get('/play-groups', (req, res) => {
     res.send({
       success: true,

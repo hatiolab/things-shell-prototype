@@ -29,7 +29,7 @@ export const fetchSettings = (query) => async dispatch => {
 
 export const fetchBoardList = (group) => async dispatch => {
   try {
-    const url = `groups/${group}/boards`;
+    const url = `groups/${group}`;
     const response = await fetch(url);
     const responseBody = await response.json();
 
@@ -37,6 +37,7 @@ export const fetchBoardList = (group) => async dispatch => {
 
     dispatch({
       type: 'BOARD-LIST',
+      group: responseBody.group,
       list: responseBody.list
     });
 
@@ -107,8 +108,29 @@ export const updateBoard = (board) => async dispatch => {
       type: 'REFRESH-BOARD',
       board: responseBody.board
     });
+  } catch (error) {
+    console.error(error);
+    /* TODO error */
+  }
+}
 
-    dispatch(setRoute('modeler', board.name));
+export const joinGroup = (boardName, group) => async dispatch => {
+  try {
+    const url = `groups/${group}/boards/${boardName}`;
+
+    const response = await fetch(url, {
+      method: 'POST'
+    });
+
+    const responseBody = await response.json();
+
+    dispatch(setRoute('list', group));
+
+    dispatch({
+      type: 'BOARD-LIST',
+      group: responseBody.group,
+      list: responseBody.list
+    });
   } catch (error) {
     console.error(error);
     /* TODO error */

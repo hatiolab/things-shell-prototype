@@ -10,7 +10,7 @@ import '@polymer/neon-animation/animations/fade-out-animation';
 import '@polymer/paper-dialog/paper-dialog';
 import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable';
 
-import { ReduxMixin, fetchGroupList, fetchBoardList, createGroup, setRoute } from '../../reducer/redux-mixin';
+import { ReduxMixin, fetchGroupList, createGroup, setRoute, joinGroup } from '../../reducer/redux-mixin';
 import '../../components/things-i18n-msg';
 
 import style from './style.css';
@@ -40,7 +40,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
         value: 0
       },
       boardGroupCurrent: {
-        type: String,
+        type: Object,
         statePath: 'boardGroupCurrent'
       }
     }
@@ -63,7 +63,7 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     /* group-card 엘리먼트들이 만들어지기를 기다려서, 처리한다. */
     setTimeout(() => {
       this.root.querySelectorAll('group-card').forEach(element => {
-        if (boardGroupCurrent == element.group.name)
+        if (boardGroupCurrent.name == element.group.name)
           element.setAttribute('active', true);
         else
           element.removeAttribute('active');
@@ -114,7 +114,12 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
 
     card.dim(false);
 
-    // console.log('onCardDrop', board);
+    try {
+
+      this.dispatch(joinGroup(board, card.group.name));
+    } catch (e) {
+      if (this.showToastMsg) this.showToastMsg(e);
+    }
   }
 
   onCardDragOver(e) {

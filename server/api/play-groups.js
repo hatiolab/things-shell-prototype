@@ -11,7 +11,7 @@ var playGroups = {};
 
 function initialize() {
 
-  // 1. 인덱스파일을 로딩한다. 만일, 없다면, 
+  // 1. 인덱스파일을 로딩한다. 만일, 없다면,
   try {
     const fileContent = fs.readFileSync(playGroupIndexPath)
     playGroups = JSON.parse(fileContent);
@@ -63,6 +63,10 @@ function list(query) {
 
 function get(name) {
   return playGroups[name];
+}
+
+function add(board) {
+
 }
 
 function saveGroup() {

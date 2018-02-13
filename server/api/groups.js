@@ -49,7 +49,7 @@ function create(group) {
     type
   } = group;
 
-  if(groups[name]) {
+  if (groups[name]) {
     throw Error(`group '${name}' already exist.`);
   }
 
@@ -68,7 +68,7 @@ function update(group) {
     description
   } = group;
 
-  if(!groups[name]) {
+  if (!groups[name]) {
     throw Error(`group '${name}' not exist.`);
   }
 
@@ -80,7 +80,7 @@ function update(group) {
 
 function remove(name) {
   /**
-   * TODO 
+   * TODO
    * - group type 인 경우 : 그룹에 속하는 보드가 하나도 없어야 삭제가 가능하다.
    * - play-group type 인 경우 : 언제든지 삭제가 가능하다.
    */
@@ -96,6 +96,36 @@ function get(name) {
   return groups[name];
 }
 
+/**
+ *  join into the group.
+ *  group 타입이 play-group이면 그룹 리스트에 추가됨.
+ *  group 타입이 group이면 그룹 정보가 수정됨(이동).
+ */
+function join(groupName, boardName) {
+  var group = get(groupName);
+  if (!group) {
+    throw Error(`group '${groupName}' not exist.`);
+  }
+
+  var board = boards.get(boardName);
+  if (!board) {
+    throw Error(`board '${boardName}' not exist.`);
+  }
+
+  var type = group.type;
+  if (type == 'play-group') {
+    group.plays = group.plays || [];
+    if (group.plays.indexOf(boardName) == -1)
+      group.plays.push(boardName);
+  } else {
+    board.group = groupName;
+  }
+
+  saveGroup();
+
+  return group;
+}
+
 function saveGroup() {
   fs.writeFileSync(groupIndexPath, JSON.stringify(groups, null, 2), 'utf8');
 }
@@ -106,4 +136,5 @@ module.exports = {
   remove,
   create,
   update,
+  join
 }

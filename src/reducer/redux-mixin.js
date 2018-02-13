@@ -10,6 +10,7 @@ export {
   fetchSettings,
   updateBoard,
   createBoard,
+  joinGroup,
   createGroup,
   followRouteChange,
   setRoute

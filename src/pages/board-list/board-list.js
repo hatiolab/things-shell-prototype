@@ -1,9 +1,9 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import '@polymer/paper-input/paper-input';
+import '@polymer/iron-icons/iron-icons';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
-import '@polymer/iron-icons/iron-icons';
 
 import style from './style.css';
 
@@ -24,7 +24,7 @@ class BoardList extends ReduxMixin(PolymerElement) {
     </page-toolbar>
 
     <div class="app-grid">
-      <sortable-js>
+      <sortable-js disabled="[[!isPlayGroup(group)]]">
         <template is="dom-repeat" items="[[boardList]]">
           <board-card board="[[item]]" on-dragstart="onDragStart"></board-card>
         </template>
@@ -46,7 +46,7 @@ class BoardList extends ReduxMixin(PolymerElement) {
         statePath: 'boardGroupList'
       },
       group: {
-        type: String,
+        type: Object,
         statePath: 'boardGroupCurrent'
       },
       selected: {
@@ -64,6 +64,10 @@ class BoardList extends ReduxMixin(PolymerElement) {
 
     e.dataTransfer.setDragImage(card, 0, -10);
     e.dataTransfer.setData("board", card.board.name);
+  }
+
+  isPlayGroup(group) {
+    return group.type == 'play-group';
   }
 }
 

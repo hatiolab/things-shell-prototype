@@ -31,7 +31,7 @@ function initialize() {
     if (err.code !== 'EEXIST') throw err
   }
 
-  // 3. 인덱스파일을 로딩한다. 만일, 없다면, 보드 모델 폴더를 스캔한다.  
+  // 3. 인덱스파일을 로딩한다. 만일, 없다면, 보드 모델 폴더를 스캔한다.
   try {
     const fileContent = fs.readFileSync(boardIndexPath)
     boards = JSON.parse(fileContent);
@@ -112,21 +112,23 @@ function create(board) {
 }
 
 function update(board) {
+
+  var old = boards[board.name];
+
+  if (!old) {
+    throw Error(`board '${board.name} not exist.`);
+  }
+
   var {
     name,
     description,
     createdAt = Date.now,
     thumbnail = THUMBNAIL,
-    group = GROUP
-  } = board;
+    group = GROUP,
+    model = get(name).model
+  } = Object.assign({}, old, board);
 
-  if (!boards[board.name]) {
-    throw Error(`board '${name} not exist.`);
-  }
-
-  var model = board.model;
-
-  boards[board.name] = {
+  boards[name] = {
     name,
     description,
     width: model.width,
@@ -137,7 +139,7 @@ function update(board) {
     thumbnail
   };
 
-  saveModel(board.name, model);
+  saveModel(name, model);
 }
 
 function remove(board) {
