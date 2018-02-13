@@ -145,7 +145,6 @@ class PaperTreeNode extends ReduxMixin(PolymerElement) {
    * Returns the children tree nodes.
    */
   getChildren() {
-    // return Polymer.dom(this.root).querySelectorAll('paper-tree-node');
     return this.root.querySelectorAll('paper-tree-node');
   }
 
