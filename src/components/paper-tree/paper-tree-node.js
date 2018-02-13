@@ -121,14 +121,32 @@ class PaperTreeNode extends ReduxMixin(PolymerElement) {
    * Returns the parent tree node. Returns `null` if root.
    */
   getParent() {
-    return this.domHost.tagName === 'PAPER-TREE-NODE' ? this.domHost : null;
+    if (this.id == 'root')
+      return null;
+
+    var parentNode = this.parentNode;
+
+    while (parentNode) {
+      if (parentNode instanceof ShadowRoot) {
+        let host = parentNode.host;
+        if (host && host.tagName == 'PAPER-TREE-NODE')
+          return parentNode.host;
+        else
+          return null;
+      }
+
+      parentNode = parentNode.parentNode;
+    }
+
+    return null;
   }
 
   /**
    * Returns the children tree nodes.
    */
   getChildren() {
-    return Polymer.dom(this.root).querySelectorAll('paper-tree-node');
+    // return Polymer.dom(this.root).querySelectorAll('paper-tree-node');
+    return this.root.querySelectorAll('paper-tree-node');
   }
 
   /**
