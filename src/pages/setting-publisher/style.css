@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  flex: 1;
+}
+
+h1 {
+  text-align: center;
+}

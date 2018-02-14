@@ -4,11 +4,11 @@
   </div>
 </app-toolbar>
 
-<app-toolbar class="setting-menu">
-  <paper-icon-button icon="icons:font-download"></paper-icon-button>
-  <paper-icon-button icon="icons:cloud-done"></paper-icon-button>
-  <paper-icon-button icon="icons:cloud-download"></paper-icon-button>
-  <paper-icon-button icon="hardware:security"></paper-icon-button>
+<app-toolbar class="setting-menu" on-click="onRouteSetting">
+  <paper-icon-button data-route="setting-font" icon="icons:font-download"></paper-icon-button>
+  <paper-icon-button data-route="setting-datasource" icon="icons:cloud-done"></paper-icon-button>
+  <paper-icon-button data-route="setting-publisher" icon="icons:cloud-download"></paper-icon-button>
+  <paper-icon-button data-route="setting-security" icon="hardware:security"></paper-icon-button>
 </app-toolbar>
 
 <paper-listbox on-click="onGroupClicked">

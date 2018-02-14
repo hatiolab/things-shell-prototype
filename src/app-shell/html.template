@@ -6,9 +6,13 @@
 <app-location route="{{appRoute}}">
 </app-location>
 
-<app-route route="{{appRoute}}" pattern="[[rootPattern]]:page/:id"
+<app-route route="{{appRoute}}" pattern="[[rootPattern]]:page"
   data="{{routeData}}" tail="{{subroute}}">
 </app-route>
+
+<!-- <app-route route="{{appRoute}}" pattern="[[rootPattern]]:page/:id"
+  data="{{routeData}}" tail="{{subroute}}">
+</app-route> -->
 
 <things-provider ref-provider="{{provider}}">
 </things-provider>
@@ -28,6 +32,10 @@
     <board-viewer name="viewer" provider="[[provider]]"></board-viewer>
     <board-info name="info"></board-info>
     <board-player name="player" provider="[[provider]]"></board-player>
+    <setting-font name="setting-font"></setting-font>
+    <setting-datasource name="setting-datasource"></setting-datasource>
+    <setting-publisher name="setting-publisher"></setting-publisher>
+    <setting-security name="setting-security"></setting-security>
   </iron-pages>
 
 </app-drawer-layout>

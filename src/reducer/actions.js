@@ -216,6 +216,11 @@ export const followRouteChange = (page, id) => dispatch => {
     case 'viewer':
       dispatch(fetchBoard(id));
       break;
+    case 'setting-font':
+    case 'setting-datasource':
+    case 'setting-publisher':
+    case 'setting-security':
+      break;
     default:
       if (!id) {
         dispatch(setRoute('list', 'DEFAULT-GROUP'));

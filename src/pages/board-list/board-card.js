@@ -22,10 +22,8 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
         <div back>
           <iron-icon icon="icons:undo" on-click="onFlip" flip></iron-icon>
           <div>
-            <label>Name</label>
-            <paper-input value="{{board.name}}"></paper-input>
-            <label>Description</label>
-            <paper-input value="{{board.description}}"></paper-input>
+            <paper-input label="Name" value="{{board.name}}"></paper-input>
+            <paper-input label="Description" value="{{board.description}}"></paper-input>
           </div>
           <iron-icon icon="icons:create" on-click="onClickEdit" create></iron-icon>
         </div>

@@ -38,6 +38,10 @@ import '../pages/board-modeler/board-modeler';
 import '../pages/board-viewer/board-viewer';
 import '../pages/board-info/board-info';
 import '../pages/board-player/board-player';
+import '../pages/setting-font/setting-font';
+import '../pages/setting-datasource/setting-datasource';
+import '../pages/setting-publisher/setting-publisher';
+import '../pages/setting-security/setting-security';
 
 import '../components/things-provider/things-provider';
 
@@ -76,6 +80,10 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
       routeData: {
         type: Object,
         observer: '_onRouteDataChanged'
+      },
+      subroute: {
+        type: Object,
+        observer: '_onSubrouteChanged'
       },
       rootPath: {
         type: String,
@@ -119,9 +127,18 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
   }
 
   _onRouteDataChanged(routeData) {
-    this.dispatch(followRouteChange(routeData.page, routeData.id));
+    // console.log('_onRouteDataChanged', routeData, this.subroute);
+    // // this.dispatch(followRouteChange(routeData.page, routeData.id));
+    // this.dispatch(followRouteChange(routeData.page, this.subroute.path.substring(1)));
 
-    this.dispatch(fetchSettings("{hello}"));
+    // this.dispatch(fetchSettings("{hello}"));
+  }
+
+  _onSubrouteChanged(subroute) {
+    var page = subroute.prefix.substring(1);
+    var id = subroute.path.substring(1);
+
+    this.dispatch(followRouteChange(page, id));
   }
 
   _onRoutePathChanged(path) {

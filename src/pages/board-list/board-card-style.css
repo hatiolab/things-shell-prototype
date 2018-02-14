@@ -35,16 +35,10 @@
 }
 
 #card > [back] {
+  background: lightgray;
+
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
-}
-
-#card > [front], #card > [back] {
-  background: white;
-  position: absolute;
-
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 
 h1 {
@@ -69,8 +63,9 @@ img {
 
 [front] > div {
   position: relative;
-  bottom: 0;
+  bottom: -2px;
   padding: 0 10px 0 10px;
+  background: lightgray;
 }
 
 [back] > div {
@@ -81,6 +76,8 @@ iron-icon {
   position: absolute;
   color: gray;
   right: 5px;
+  width: 16px;
+  height: 16px;
 }
 
 iron-icon[create] {

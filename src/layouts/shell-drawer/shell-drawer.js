@@ -58,6 +58,12 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     this.dispatch(fetchGroupList());
   }
 
+  onRouteSetting(e) {
+    var route = e.target.getAttribute('data-route');
+
+    this.dispatch(setRoute(route));
+  }
+
   onBoardGroupChanged(boardGroupCurrent, boardGroupList) {
 
     /* group-card 엘리먼트들이 만들어지기를 기다려서, 처리한다. */
