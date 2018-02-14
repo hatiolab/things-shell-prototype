@@ -67,14 +67,14 @@ img {
   margin: auto;
 }
 
-div.name {
+[front] > div {
   position: relative;
   bottom: 0;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
 }
 
 [back] > div {
-  padding: 20px;
+  padding: 10px;
 }
 
 iron-icon {
