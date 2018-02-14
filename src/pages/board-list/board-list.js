@@ -23,7 +23,7 @@ class BoardList extends ReduxMixin(PolymerElement) {
       <paper-input label="[[lKeyword]]" value="{{keyword::change}}" no-label-float></paper-input>
     </page-toolbar>
 
-    <div class="app-grid">
+    <div id="list">
       <sortable-js disabled="[[!isPlayGroup(group)]]">
         <template is="dom-repeat" items="[[boardList]]">
           <board-card board="[[item]]" on-dragstart="onDragStart"></board-card>

@@ -4,7 +4,7 @@
     <iron-icon class="node-icon" icon$="[[_computeIcon(data.icon)]]"
       on-click="select"></iron-icon>
     <span class="node-name" on-click="select">[[data.name]]</span>
-    <template is="dom-if" if="[[actions]]" restamp=true>
+    <template is="dom-if" if="[[actions]]" restamp>
       <paper-menu-button id="actions">
         <paper-icon-button icon="more-vert" noink slot="dropdown-trigger"></paper-icon-button>
         <paper-listbox slot="dropdown-content">
@@ -18,7 +18,7 @@
   <template is="dom-if" if="[[data.open]]">
     <ul>
       <sortable-js>
-        <template is="dom-repeat" items="[[data.children]]">
+        <template is="dom-repeat" items="[[data.children]]" restamp>
           <li>
             <paper-tree-node data="[[item]]" actions="[[actions]]"></paper-tree-node>
           </li>

@@ -9,12 +9,25 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
     return html`
       <style>${style}</style>
 
-      <div class="card" on-click="onClickViewer">
-        <img src="[[thumbnail(board)]]"></img>
-        <div class="name">
-          <h1>[[board.name]]</h1>
-          <p>[[board.description]]<slot></slot></p>
-          <iron-icon icon="icons:create" on-click="onClickEdit"></iron-icon>
+      <div id="card">
+        <div on-click="onClickViewer" front>
+          <iron-icon icon="icons:redo" on-click="onFlip" flip></iron-icon>
+          <img src="[[thumbnail(board)]]"></img>
+          <div class="name">
+            <h1>[[board.name]]</h1>
+            <p>[[board.description]]<slot></slot></p>
+          </div>
+        </div>
+
+        <div back>
+          <iron-icon icon="icons:undo" on-click="onFlip" flip></iron-icon>
+          <div>
+            <label>Name</label>
+            <paper-input value="{{board.name}}"></paper-input>
+            <label>Description</label>
+            <paper-input value="{{board.description}}"></paper-input>
+          </div>
+          <iron-icon icon="icons:create" on-click="onClickEdit" create></iron-icon>
         </div>
       </div>
     `;
@@ -26,6 +39,15 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
     return {
       board: Object
     }
+  }
+
+  onFlip(e) {
+    if (this.classList.contains('flipped') && e.path[0].icon == 'icons:redo') {
+      this.onClickEdit(e);
+    } else {
+      this.classList.toggle('flipped');
+    }
+    e.stopPropagation();
   }
 
   onClickEdit(e) {

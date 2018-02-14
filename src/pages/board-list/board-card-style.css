@@ -1,29 +1,63 @@
-:host {
-  display: block;
+#card {
+  position: relative;
+
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 1.5s ease-in-out;
+          transition: all 1.5s ease-in-out;
 }
 
-.card {
-  height: 96%;
-  /* margin: 0px 12px; */
-  padding: 8px;
+:host(.flipped) > #card {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+#card > [front], #card > [back] {
+  margin: 0;
+  padding: 0;
+  background: white;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
   color: #757575;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  vertical-align: bottom;
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#card > [back] {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+#card > [front], #card > [back] {
+  background: white;
+  position: absolute;
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 h1 {
   display: inline;
   margin: 16px 0;
   color: #212121;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 p {
   margin: 0;
   display: inline;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 img {
@@ -36,10 +70,19 @@ img {
 div.name {
   position: relative;
   bottom: 0;
+  padding: 0 5px 0 5px;
+}
+
+[back] > div {
+  padding: 20px;
 }
 
 iron-icon {
   position: absolute;
   color: gray;
-  right: 0px;
+  right: 5px;
+}
+
+iron-icon[create] {
+  bottom: 5px;
 }
