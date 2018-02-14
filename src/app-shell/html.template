@@ -10,10 +10,6 @@
   data="{{routeData}}" tail="{{subroute}}">
 </app-route>
 
-<!-- <app-route route="{{appRoute}}" pattern="[[rootPattern]]:page/:id"
-  data="{{routeData}}" tail="{{subroute}}">
-</app-route> -->
-
 <things-provider ref-provider="{{provider}}">
 </things-provider>
 

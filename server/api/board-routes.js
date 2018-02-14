@@ -4,7 +4,7 @@ module.exports = function (app, db) {
   app.post('/boards/:board', (req, res) => {
     try {
       let name = req.params.board;
-      boards.create(req.body);
+      boards.create(name, req.body);
 
       res.send({
         success: true,
@@ -22,7 +22,7 @@ module.exports = function (app, db) {
   app.put('/boards/:board', (req, res) => {
     try {
       let name = req.params.board;
-      boards.update(req.body);
+      boards.update(name, req.body);
 
       res.send({
         success: true,

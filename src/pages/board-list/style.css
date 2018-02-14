@@ -29,6 +29,8 @@ board-card {
 }
 
 paper-input {
+  font-size: 0.5em;
+
   --paper-input-container-color: lightgray;
   --paper-input-container-focus-color: lightgray;
   --paper-input-container-input-color: white;

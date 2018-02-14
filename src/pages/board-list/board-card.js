@@ -1,6 +1,6 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import { ReduxMixin, setRoute } from '../../reducer/redux-mixin';
+import { ReduxMixin, setRoute, updateBoard } from '../../reducer/redux-mixin';
 
 import style from './board-card-style.css';
 
@@ -21,9 +21,21 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
 
         <div back>
           <iron-icon icon="icons:undo" on-click="onFlip" flip></iron-icon>
-          <div>
-            <paper-input label="Name" value="{{board.name}}"></paper-input>
-            <paper-input label="Description" value="{{board.description}}"></paper-input>
+
+          <div id="info">
+            <things-i18n-msg msgid="label.description" msg="{{lDescription}}" hidden></things-i18n-msg>
+            <paper-input label="[[lDescription]]" value="{{board.description}}" on-change="onChangeDescription"></paper-input>
+
+            <things-i18n-msg msgid="label.created-at" msg="{{lCreatedAt}}" hidden></things-i18n-msg>
+            <h5>[[lCreatedAt]] [[toDateString(board.createdAt, locale)]]</h5>
+
+            <things-i18n-msg msgid="label.updated-at" msg="{{lUpdatedAt}}" hidden></things-i18n-msg>
+            <h5>[[lUpdatedAt]] [[toDateString(board.updatedAt, locale)]]</h5>
+          </div>
+
+          <div class="name">
+            <h1>[[board.name]]</h1>
+            <p>[[board.description]]<slot></slot></p>
           </div>
           <iron-icon icon="icons:create" on-click="onClickEdit" create></iron-icon>
         </div>
@@ -35,7 +47,10 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
-      board: Object
+      board: Object,
+      locale: {
+        statePath: 'user.locale'
+      }
     }
   }
 
@@ -45,6 +60,15 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
     } else {
       this.classList.toggle('flipped');
     }
+    e.stopPropagation();
+  }
+
+  onChangeDescription(e) {
+    var input = e.target;
+    this.dispatch(updateBoard({
+      name: this.board.name,
+      description: input.value
+    }));
     e.stopPropagation();
   }
 
@@ -60,6 +84,10 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
 
   thumbnail(board) {
     return board.thumbnail || "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+  }
+
+  toDateString(t, locale) {
+    return t ? new Date(t).toLocaleString(locale) : '';
   }
 }
 

@@ -47,13 +47,22 @@ class BoardList extends ReduxMixin(PolymerElement) {
       },
       group: {
         type: Object,
-        statePath: 'boardGroupCurrent'
+        statePath: 'boardGroupCurrent',
+        observer: 'onChangeGroup'
       },
       selected: {
         type: Number,
         value: 0
       }
     }
+  }
+
+  onChangeGroup(e) {
+    var cards = this.root.querySelectorAll('.flipped');
+
+    Array.from(cards).forEach(card => {
+      card.classList.toggle('flipped');
+    });
   }
 
   onDragStart(e) {

@@ -78,7 +78,7 @@ function initialize() {
 
 initialize();
 
-function create(board) {
+function create(boardName, board) {
   var {
     name,
     description,
@@ -86,8 +86,8 @@ function create(board) {
     group
   } = board;
 
-  if (boards[name]) {
-    throw Error(`board '${board.name} already exist.`);
+  if (boards[boardName]) {
+    throw Error(`board '${boardName} already exist.`);
   }
 
   var model = board.model;
@@ -102,8 +102,8 @@ function create(board) {
     description,
     width: model.width,
     height: model.height,
-    updatedAt: Date.now,
-    createdAt: Date.now,
+    updatedAt: Date.now(),
+    createdAt: Date.now(),
     group: group ? group.name : GROUP,
     thumbnail
   };
@@ -111,35 +111,35 @@ function create(board) {
   saveModel(name, model);
 }
 
-function update(board) {
+function update(boardName, board) {
 
-  var old = boards[board.name];
+  var old = boards[boardName];
 
   if (!old) {
-    throw Error(`board '${board.name} not exist.`);
+    throw Error(`board '${boardName} not exist.`);
   }
 
   var {
     name,
     description,
-    createdAt = Date.now,
+    createdAt = Date.now(),
     thumbnail = THUMBNAIL,
     group = GROUP,
     model = get(name).model
   } = Object.assign({}, old, board);
 
-  boards[name] = {
+  boards[boardName] = {
     name,
     description,
     width: model.width,
     height: model.height,
-    updatedAt: Date.now,
+    updatedAt: Date.now(),
     createdAt,
     group,
     thumbnail
   };
 
-  saveModel(name, model);
+  saveModel(boardName, model);
 }
 
 function remove(board) {

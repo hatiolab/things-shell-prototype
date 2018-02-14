@@ -15,7 +15,7 @@ class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Pol
         notify: true
       },
       language: {
-        statePath: 'user.language',
+        statePath: 'user.locale',
         observer: 'onChange'
       },
       resources: {
