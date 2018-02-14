@@ -83,7 +83,7 @@ function create(board) {
     name,
     description,
     thumbnail = THUMBNAIL,
-    group = GROUP
+    group
   } = board;
 
   if (boards[name]) {
@@ -104,7 +104,7 @@ function create(board) {
     height: model.height,
     updatedAt: Date.now,
     createdAt: Date.now,
-    group,
+    group: group ? group.name : GROUP,
     thumbnail
   };
 

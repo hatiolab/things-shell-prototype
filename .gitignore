@@ -5,7 +5,6 @@ npm-debug.log*
 coverage
 dist
 node_modules
-.vscode/
 .DS_Store
 *.report.html
 bower_components
