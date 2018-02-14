@@ -37,39 +37,39 @@ class ThingsEditorProperty extends PolymerElement {
     <style>
       :host {
         display: grid;
-        grid-template-columns: 8px repeat(4, 1fr) 4px repeat(6, 1fr) 8px;
-        grid-gap: 0;
-        grid-auto-rows: minmax(0, auto);
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(24px, auto);
       }
 
       :host > * {
-        grid-column: 7 / 13;
+        grid-column: 4 / 12;
         grid-row: 1;
       }
 
       label {
-        grid-column: 2 / 6;
+        grid-column: 1 / 4;
         text-transform: capitalize;
       }
 
       input[type=checkbox] ~ label {
-        grid-column: 7 / 14;
+        grid-column: 5 / 11;
         text-align: left;
       }
 
       legend {
-        grid-column: 2 / 13;
+        grid-column: 1 / 11;
         text-transform: capitalize;
       }
 
-      things-editor-color-stops, things-editor-code, things-editor-table, things-editor-chartjs-properties {
-        grid-column: 2 / 13;
+      things-editor-color-stops, things-editor-code, things-editor-table, things-editor-chartjs-properties, things-editor-options {
+        grid-column: 1 / 11;
         grid-row: 2;
       }
 
       input[type=checkbox] {
         display: inline-block;
-        grid-column: 5 / 6;
+        grid-column: 4 / 5;
         width: 15px;
       }
 
@@ -85,7 +85,7 @@ class ThingsEditorProperty extends PolymerElement {
         @apply(--things-property-fieldset-legend);
         padding-bottom:7px
       }
-
+/*
       :host > input {
         @apply(--things-input);
       }
@@ -94,7 +94,7 @@ class ThingsEditorProperty extends PolymerElement {
         @apply(--things-select);
         background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
       }
-
+*/
     </style>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'legend')]]" restamp="true">

@@ -1,84 +1,78 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-/**
-@license
-Copyright © HatioLab Inc. All rights reserved.
-*/
-/**
-An element providing a solution to no problem in particular.
+export default class ThingsEditorOptions extends PolymerElement {
 
-Example:
+  static get is() {
+    return 'things-editor-options';
+  }
 
-  <things-editor-options options="{{options}}">
-  </things-editor-options>
-
-@demo demo/index-editor-options.html
-@hero hero.svg
-*/
-Polymer({
-  _template: `
-  <style>
-    :host {
-      /* @apply(--things-variable-ruletype-container) */
-    }
-    *{float:left;}
-
-    input[type="checkbox"]{
-      width:initial !important;
-      margin-top:6px;
-    }
-    div{
-      border-bottom:1px solid #c0c0c0;
-      width:100%;
-    }
-    div:last-child{
-      border-bottom:none;
-    }
-    .record-action{
-      @apply(--things-record-action-button)
+  static get template() {
+    return html`
+    <style>
+    div {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-gap: 5px;
+      grid-auto-rows: minmax(24px, auto);
     }
 
-  </style>
+    input[data-text] {
+      grid-column: span 5;
+    }
 
-  <template is="dom-repeat" items="[[options]]">
-    <div data-record="">
-      <input type="text" data-text="" placeholder="text" value="[[item.text]]">
-      <input type="text" data-value="" placeholder="value" value="[[item.value]]">
-      <button class="record-action" on-click="_delete" tabindex="-1">-</button>
+    input[data-value] {
+      grid-column: span 4;
+    }
+
+    button {
+      grid-column: span 1;
+    }
+    </style>
+
+    <template is="dom-repeat" items="[[options]]">
+      <div data-record="">
+        <input type="text" data-text="" placeholder="text" value="[[item.text]]">
+        <input type="text" data-value="" placeholder="value" value="[[item.value]]">
+        <button class="record-action" on-click="_delete" tabindex="-1">-</button>
+      </div>
+    </template>
+
+    <div data-record-new="">
+      <input type="text" data-text="" placeholder="text" value="">
+      <input type="text" data-value="" placeholder="value" value="" on-change="_add">
+      <button class="record-action" on-click="_add" tabindex="-1">+</button>
     </div>
-  </template>
+    `;
+  }
 
-  <div data-record-new="">
-    <input type="text" data-text="" placeholder="text" value="">
-    <input type="text" data-value="" placeholder="value" value="" on-change="_add">
-    <button class="record-action" on-click="_add" tabindex="-1">+</button>
-  </div>
-`,
-
-  is: 'things-editor-options',
-
-  properties: {
-    options: {
-      type: Array,
-      notify: true,
-      value: []
+  static get properties() {
+    return {
+      options: {
+        type: Array,
+        notify: true,
+        value: []
+      }
     }
-  },
+  }
 
-  attached() {
-    if(!this.boundOnChange)
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (!this.boundOnChange)
       this.boundOnChange = this._onChange.bind(this);
 
     this.addEventListener('change', this.boundOnChange);
-  },
+  }
 
-  detached() {
+  disconnectedCallback() {
+    super.connectedCallback();
+
     this.removeEventListener('change', this.boundOnChange);
-  },
+  }
 
-  _onChange: function(e) {
+  _onChange(e) {
 
-    if(this._changingNow)
+    if (this._changingNow)
       return
 
     this._changingNow = true
@@ -88,79 +82,81 @@ Polymer({
 
     var div = input.parentElement
 
-    if(div.hasAttribute('data-record')) {
+    if (div.hasAttribute('data-record')) {
       var dataList = div.querySelectorAll('[data-value]:not([hidden])')
-      for(var i = 0;i < dataList.length;i++)
-        if(dataList[i] !== input)
+      for (var i = 0; i < dataList.length; i++)
+        if (dataList[i] !== input)
           dataList[i].value = value || ''
     }
 
-    if(div.hasAttribute('data-record'))
+    if (div.hasAttribute('data-record'))
       this._build(true)
-    else if(div.hasAttribute('data-record-new') && input.hasAttribute('data-value'))
+    else if (div.hasAttribute('data-record-new') && input.hasAttribute('data-value'))
       this._add()
 
     e.stopPropagation()
 
     this._changingNow = false
-  },
+  }
 
-  _build: function(includeNewRecord) {
-    if(includeNewRecord)
+  _build(includeNewRecord) {
+    if (includeNewRecord)
       var records = this.root.querySelectorAll('[data-record],[data-record-new]')
     else
       var records = this.root.querySelectorAll('[data-record]')
 
     var newoptions = []
 
-    for(var i = 0;i < records.length;i++) {
+    for (var i = 0; i < records.length; i++) {
       var record = records[i]
 
       var text = record.querySelector('[data-text]').value
       var inputs = record.querySelectorAll('[data-value]:not([style*="display: none"])')
-      if(!inputs || inputs.length == 0)
+      if (!inputs || inputs.length == 0)
         continue;
 
       var input = inputs[inputs.length - 1]
       var value = input.value
 
-      if(text)
-        newoptions.push({text: text, value: value || text})
+      if (text)
+        newoptions.push({ text: text, value: value || text })
     }
 
     this.set('options', newoptions)
-  },
+  }
 
-  _sort: function(e) {
+  _sort(e) {
 
-    var sorter = function(a, b) {
-        return b.text < a.text
-      }
+    var sorter = function (a, b) {
+      return b.text < a.text
+    }
 
-    var options = this._toArray(this.options).sort(sorter).reduce(function(sum, i) {
+    var options = this._toArray(this.options).sort(sorter).reduce(function (sum, i) {
       sum[i.text] = i.value
       return sum
     }, {})
 
     this.set('options', options)
-  },
+  }
 
-  _add: function(e) {
+  _add(e) {
     this._build(true)
 
     var inputs = this.root.querySelectorAll('[data-record-new] input:not([style*="display: none"])')
 
-    for (var i = 0;i < inputs.length;i++) {
+    for (var i = 0; i < inputs.length; i++) {
       let input = inputs[i]
       input.value = ''
     }
 
     inputs[0].focus()
-  },
+  }
 
-  _delete: function(e) {
+  _delete(e) {
     var record = e.target.parentElement
     record.querySelector('[data-text]').value = ''
     this._build()
   }
-});
+}
+
+customElements.define(ThingsEditorOptions.is, ThingsEditorOptions);
