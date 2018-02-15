@@ -45,12 +45,13 @@
 h1 {
   display: inline;
   color: #212121;
-  font-size: 1em;
+  font-weight: normal;
+  font-size: 0.9em;
 }
 
 h5 {
   margin: 0;
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: normal;
   color: #757575;
 }
@@ -58,7 +59,7 @@ h5 {
 p {
   margin: 0;
   display: inline;
-  font-size: 12px;
+  font-size: 0.7em;
   color: #757575;
 }
 
@@ -81,11 +82,18 @@ div.name {
 iron-icon {
   position: absolute;
   color: gray;
+  bottom: 5px;
   right: 5px;
   width: 16px;
   height: 16px;
 }
 
 iron-icon[create] {
-  bottom: 5px;
+  border-radius: 50%;
+  background: lightgray;
+  color: black;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  top: 4px;
 }

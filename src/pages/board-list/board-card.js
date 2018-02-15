@@ -11,33 +11,33 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
 
       <div id="card">
         <div on-click="onClickViewer" front>
-          <iron-icon icon="icons:redo" on-click="onFlip" flip></iron-icon>
           <img src="[[thumbnail(board)]]"></img>
           <div class="name">
             <h1>[[board.name]]</h1>
             <p>[[board.description]]<slot></slot></p>
+            <iron-icon icon="icons:redo" on-click="onFlip" flip></iron-icon>
           </div>
         </div>
 
         <div back>
-          <iron-icon icon="icons:undo" on-click="onFlip" flip></iron-icon>
-
           <div id="info">
-            <things-i18n-msg msgid="label.description" msg="{{lDescription}}" hidden></things-i18n-msg>
-            <paper-input label="[[lDescription]]" value="{{board.description}}" on-change="onChangeDescription"></paper-input>
-
             <things-i18n-msg msgid="label.created-at" msg="{{lCreatedAt}}" hidden></things-i18n-msg>
             <h5>[[lCreatedAt]] [[toDateString(board.createdAt, locale)]]</h5>
 
             <things-i18n-msg msgid="label.updated-at" msg="{{lUpdatedAt}}" hidden></things-i18n-msg>
             <h5>[[lUpdatedAt]] [[toDateString(board.updatedAt, locale)]]</h5>
+
+            <things-i18n-msg msgid="label.description" msg="{{lDescription}}" hidden></things-i18n-msg>
+            <paper-input label="[[lDescription]]" value="{{board.description}}" on-change="onChangeDescription"></paper-input>
           </div>
+
+          <iron-icon icon="icons:create" on-click="onClickEdit" create></iron-icon>
 
           <div class="name">
             <h1>[[board.name]]</h1>
             <p>[[board.description]]<slot></slot></p>
+            <iron-icon icon="icons:undo" on-click="onFlip" flip></iron-icon>
           </div>
-          <iron-icon icon="icons:create" on-click="onClickEdit" create></iron-icon>
         </div>
       </div>
     `;
