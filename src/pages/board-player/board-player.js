@@ -3,8 +3,13 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 
+import '../../components/things-shell/things-shell';
+import '../../layouts/page-toolbar/page-toolbar';
+
 import style from './style.css';
 import template from './html.template';
+
+import './board-player-dialog';
 
 class BoardPlayer extends ReduxMixin(PolymerElement) {
   static get template() {
@@ -20,16 +25,16 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   static get properties() {
     return {
       boards: {
+        statePath: 'boardList',
         observer: '_onBoardsChanged'
+      },
+      group: {
+        type: Object,
+        statePath: 'boardGroupCurrent',
+        // observer: 'onChangeGroup'
       },
       boardNames: {
         value: []
-      },
-      group: {
-        notify: true
-      },
-      route: {
-        observer: '_onRouteChanged'
       },
       transition: {
         value: 'carousel'
@@ -37,9 +42,7 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
       playtime: {
         value: 30
       },
-      provider: {
-        type: Object
-      },
+      provider: Object,
       animationConfig: {
         value: function () {
           return {
@@ -64,13 +67,6 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   //   'player-area.mousemove': '_onMousemove',
   //   'fab.mouseover': '_onMouseoverFab'
   // },
-
-  attached() {
-    var setting = Polymer.dom().querySelector('#player-setting')
-
-    if (setting)
-      this.listen(setting, 'things-player-setting-closed', '_onSettingDialogClosed')
-  }
 
   _resetFadeTimer() {
     this._showHideFab(true);
@@ -108,10 +104,7 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
 
   _onRouteChanged(route) {
 
-    var setting = Polymer.dom().querySelector('#player-setting')
-
-    if (!setting)
-      return
+    this.$['setting-dialog'].open();
 
     if (route === this.getAttribute('data-route')) {
       setting.open()
@@ -124,9 +117,6 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
 
   _onSettingDialogClosed(e) {
 
-    if (e.target.id !== 'player-setting')
-      return
-
     this.showTransition()
     /* focus 속성을 가진 것들 중에서, 스타일에 display:none 을 포함하지 않은 엘리먼트를 찾기 */
     // this.$$(':not([style*="display: none"])[focus]').focus()
@@ -137,8 +127,11 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   }
 
   _onBoardsChanged(after) {
-    if (app.route === this.getAttribute('data-route'))
-      this.showTransition()
+    // if (app.route === this.getAttribute('data-route'))
+    if (!this.boards || this.boards.length == 0)
+      return;
+
+    this.showTransition()
   }
 
   _onMousemove() {
@@ -225,7 +218,7 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
     /* 플레이가 시작되는 조건
      * - boardNames가 채워질 때
      */
-    this.currentPlayer = this.$$(':not([style*="display: none"])[focus]')
+    this.currentPlayer = this.root.querySelector(':not([style*="display: none"])[focus]')
 
     this.listen(this.currentPlayer, 'tap', '_onTap');
     this.listen(this.currentPlayer, 'keydown', '_onKeydown');

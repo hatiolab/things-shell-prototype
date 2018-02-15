@@ -27,13 +27,13 @@ export const fetchSettings = (query) => async dispatch => {
   }
 }
 
-export const fetchBoardList = (group) => async dispatch => {
+export const fetchBoardList = (group, route = 'list') => async dispatch => {
   try {
     const url = `groups/${group}`;
     const response = await fetch(url);
     const responseBody = await response.json();
 
-    dispatch(setRoute('list', group));
+    dispatch(setRoute(route, group));
 
     dispatch({
       type: 'BOARD-LIST',
@@ -191,6 +191,7 @@ export const fetchPlayGroupList = () => async dispatch => {
   }
 }
 
+/* Route 변경시, 각 Route별로 필요한 state 설정 작업을 수행한다. */
 export const followRouteChange = (page, id) => dispatch => {
 
   switch (page) {
@@ -212,6 +213,17 @@ export const followRouteChange = (page, id) => dispatch => {
       dispatch(fetchBoard(id));
       break;
     case 'player':
+      dispatch({
+        type: 'CHANGE-GROUP',
+        group: id || 'DEFAULT-GROUP'
+      });
+
+      if (!id) {
+        dispatch(setRoute('player', 'DEFAULT-GROUP'));
+        return;
+      } else {
+        dispatch(fetchBoardList(id, 'player'));
+      }
       break;
     case 'viewer':
       dispatch(fetchBoard(id));

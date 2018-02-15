@@ -41,18 +41,10 @@ class BoardList extends ReduxMixin(PolymerElement) {
         type: Array,
         statePath: 'boardList'
       },
-      groupList: {
-        type: Array,
-        statePath: 'boardGroupList'
-      },
       group: {
         type: Object,
         statePath: 'boardGroupCurrent',
         observer: 'onChangeGroup'
-      },
-      selected: {
-        type: Number,
-        value: 0
       }
     }
   }

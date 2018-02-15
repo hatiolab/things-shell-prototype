@@ -1,3 +1,6 @@
+<page-toolbar>
+</page-toolbar>
+
 <div id="player-area">
   <template is="dom-if" if="[[isSame(transition, 'flip-card')]]"
     restamp>
@@ -55,3 +58,8 @@
     <div class="fab-text">stop</div>
   </div>
 </paper-fab-speed-dial>
+
+<board-player-dialog transition="{{transition}}" playtime="{{playtime}}"
+  entry-animation="scale-up-animation" exit-animation="fade-out-animation"
+  on-iron-overlay-closed="onSettingDialogClosed" no-overlap modal>
+</board-player-dialog>

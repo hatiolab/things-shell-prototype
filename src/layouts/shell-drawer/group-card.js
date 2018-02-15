@@ -43,7 +43,8 @@ export default class GroupCard extends ReduxMixin(PolymerElement) {
   }
 
   onClickPlay(e) {
-
+    this.dispatch(setRoute('player', this.group.name));
+    e.stopPropagation();
   }
 
   onClickNewBoard(e) {
