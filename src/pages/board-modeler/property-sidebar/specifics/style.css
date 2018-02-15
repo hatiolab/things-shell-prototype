@@ -1,91 +1,8 @@
-:host {
-  /* @apply(--things-properties-panel); */
-}
-legend{
+legend {
   @apply(--things-property-fieldset-legend);
 }
-.icon-only-label{
-  @apply(--things-properties-icon-only-label);
-}
-.full-width *{float:left;}
-.full-width input{width:32.4%;}
 
-#cell-fieldset paper-button:nth-child(4n){
-  margin-right:0 !important
-}
-things-editor-properties.things-property-specificfieldset:first-child legend{
-  padding-top:0 !important
-}
-things-editor-property[name="utc"]{
-  display:block;
-}
-things-editor-property[name="dataKey"]{
-  display:block;
-  margin-top:10px !important;
-}
-#cell-fieldset paper-button{
-  background:url('/assets/images/icon-properties-table.png') no-repeat;
-  display:block;
-  float:left;
-  padding-top:40px;padding-bottom:0px;
-  margin-bottom:3px !important;margin-right:7px !important;
-  min-height:65px;
-  font-size:9px;
-  text-transform:capitalize;
-}
-#cell-fieldset paper-button#merge-cells{background-position:50% 3px}
-#cell-fieldset paper-button#split-cells{background-position:50% -97px}
-#cell-fieldset paper-button#delete-row{background-position:50% -197px}
-#cell-fieldset paper-button#delete-column{background-position:50% -297px}
-#cell-fieldset paper-button#insert-above{background-position:50% -397px}
-#cell-fieldset paper-button#insert-below{background-position:50% -497px}
-#cell-fieldset paper-button#insert-left{background-position:50% -597px}
-#cell-fieldset paper-button#insert-right{background-position:50% -697px}
-#cell-fieldset paper-button#distribute-horizontal{background-position:50% -797px}
-#cell-fieldset paper-button#distribute-vertical{background-position:50% -897px}
-
-div.tab-content paper-button{
-  width:98%;
-  padding:2px 0;margin-bottom:7px;
-  background-color:#999;
-  color:#fff;
-  font-size:11px;
-}
-div.tab-content paper-button iron-icon{
-  padding:0;
-  width:16px;height:16px
-}
-things-editor-property[name="frontSideTemplate"] label,
-things-editor-property[name="backSideTemplate"] label,
-things-editor-property[name="style"] label{
-  width:95%;
-  top:0;
-  margin-bottom:5px;
-  text-align:left;
-  text-indent:7px;
-}
-things-editor-property[name="options"] label,
-things-editor-property[name="options"] things-editor-options{
-  float:left;
-}
-things-editor-property[name="options"] things-editor-options{
-  width:60%;
-}
-things-editor-property[name="options"] things-editor-options div.things-editor-options{
-  border-bottom:1px dotted #cfcfcf;
-  margin-bottom:4px;
-}
-things-editor-property[name="options"] things-editor-options input{
-  margin-left:2px;margin-bottom:4px;
-  width:75%
-}
-things-editor-property[name="submitOnChange"]{
-  display:block;
-}
-things-editor-property[name="debug"]{
-  display:block;
-}
-#pattern-set paper-button{
+#pattern-set paper-button {
   background:url('/assets/images/icon-properties-ipattern.png') no-repeat;
   display:block;
   float:left;
@@ -93,9 +10,11 @@ things-editor-property[name="debug"]{
   width:55px;height:40px;
   min-width:inherit;
 }
-#pattern-set paper-button iron-icon{
-  display:none
+
+#pattern-set paper-button iron-icon {
+  display:none;
 }
+
 #pattern-set paper-button[data-value="+u+s"]{background-position:50% 3px}
 #pattern-set paper-button[data-value="+u-s"]{background-position:50% -97px}
 #pattern-set paper-button[data-value="-u+s"]{background-position:50% -197px}

@@ -1,2 +1,3 @@
 <legend>[[model.type]]</legend>
+
 <things-editor-properties target="{{model}}" props="[[props]]"></things-editor-properties>

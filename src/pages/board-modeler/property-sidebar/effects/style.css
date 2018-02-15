@@ -27,10 +27,6 @@ fieldset legend {
   grid-column: span 7;
 }
 
-/**
- *  임시 style
- */
-
 things-editor-buttons-radio paper-button{
   background:url(./assets/images/icon-properties.png) no-repeat;
 }
