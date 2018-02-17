@@ -32,7 +32,7 @@ class ThingsPlayerCube extends ReduxMixin(PolymerElement) {
     if (before)
       this.removeAttribute('show-' + before)
     this.setAttribute('show-' + after, true)
-    this.fire('transform')
+    this.dispatchEvent(new CustomEvent('transform', {}));
   }
 
   next() {

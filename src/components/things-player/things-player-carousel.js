@@ -16,7 +16,7 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
     `;
   }
 
-  static get is() { return 'thngs-player-carousel'; }
+  static get is() { return 'things-player-carousel'; }
 
   static get properties() {
     return {
@@ -36,7 +36,8 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
 
   _buildCarousel() {
     var panel, angle, i;
-    var panels = this.getContentChildren()
+
+    var panels = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE && n.hasAttribute('page'))
 
     this.isHorizontal = this.axis === 'y'
 
@@ -60,7 +61,7 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
       // panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.8)';
       panel.style.backgroundColor = 'white'
 
-      this.transform(this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)', panel)
+      panel.style.transform = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
     }
 
     // adjust rotation so panels are always flat
@@ -73,16 +74,14 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
   }
 
   _onBackfaceVisibilityChanged(after) {
-    // this.toggleClass('backface-invisible', true, this.$.carousel)
     this.$.carousel.classList.toggle('backface-invisible');
   }
 
   _transform() {
     // push the carousel back in 3D space,
     // and rotate it
-    this.transform('translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)', this.$.carousel)
+    this.$.carousel.style.transform = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
     this.dispatchEvent(new CustomEvent('transform', {}));
-    // this.fire('transform')
   }
 
   previous() {

@@ -58,7 +58,11 @@ Polymer({
   ready: function () {
     if (!this.mandatory) {
       Array.from(this.querySelectorAll('paper-button')).forEach(function (button) {
-        button.toggleAttribute('toggles', true)
+        if (button.hasAttribute('toggles')) {
+          button.removeAttribute('toggles');
+        } else {
+          button.setAttribute('toggles', '');
+        }
       })
     }
   },

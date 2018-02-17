@@ -26,14 +26,14 @@
           transition: transform 1.5s;
 }
 
-#carousel.backface-invisible ::content * {
+#carousel.backface-invisible ::slotted(*) {
   -webkit-backface-visibility: hidden;
      -moz-backface-visibility: hidden;
        -o-backface-visibility: hidden;
           backface-visibility: hidden;
 }
 
-#carousel ::content [page] {
+#carousel ::slotted([page]) {
   display: block;
   position: absolute;
   width: 100%;

@@ -1,4 +1,8 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { NeonAnimationRunnerBehavior } from '@polymer/neon-animation/neon-animation-runner-behavior';
+import '@polymer/neon-animation/animations/fade-out-animation';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
@@ -7,12 +11,19 @@ import '../../components/paper-fab-speed-dial/paper-fab-speed-dial';
 import '../../components/things-shell/things-shell';
 import '../../layouts/page-toolbar/page-toolbar';
 
+import '../../components/things-player/things-player-carousel';
+import '../../components/things-player/things-player-cube';
+import '../../components/things-player/things-player-flipcard';
+import '../../components/things-player/things-player-flipcard-edge';
+import '../../components/things-player/things-player-grid';
+
 import style from './style.css';
 import template from './html.template';
 
 import './board-player-dialog';
+import './things-scene-player';
 
-class BoardPlayer extends ReduxMixin(PolymerElement) {
+class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return html`
       <style include="shared-styles">${style}</style>
@@ -25,6 +36,10 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
+      page: {
+        statePath: 'route.page',
+        observer: '_onPageChanged'
+      },
       boards: {
         statePath: 'boardList',
         observer: '_onBoardsChanged'
@@ -47,10 +62,10 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
       animationConfig: {
         value: function () {
           return {
-            // 'exit': [{
-            //   name: 'fade-out-animation',
-            //   node: this.$.fab
-            // }]
+            'exit': [{
+              name: 'fade-out-animation',
+              node: this.$ && this.$.fab
+            }]
           }
         }
       },
@@ -103,16 +118,14 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
     }
   }
 
-  _onRouteChanged(route) {
+  _onPageChanged(after, before) {
 
-    this.$['setting-dialog'].open();
-
-    if (route === this.getAttribute('data-route')) {
-      setting.open()
-      this.$.fab.hidden = true
-    } else {
-      setting.close()
+    if (before == 'player' && after !== 'player') {
+      this.$['setting-dialog'].close();
       this.started && this._stopPlay()
+    } else if (after == 'player') {
+      this.$['setting-dialog'].open();
+      this.$.fab.hidden = true
     }
   }
 
@@ -128,10 +141,13 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   }
 
   _onBoardsChanged(after) {
+    if (this.page !== 'player')
+      return;
+
     if (!this.boards || this.boards.length == 0)
       return;
 
-    // this.showTransition()
+    this.showTransition()
   }
 
   _onMousemove() {
@@ -190,7 +206,8 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   }
 
   _onKeydown(e) {
-    var player = this.currentPlayer
+    var player = this.currentPlayer;
+
     if (!player)
       return
 
@@ -218,10 +235,7 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
     /* 플레이가 시작되는 조건
      * - boardNames가 채워질 때
      */
-    this.currentPlayer = this.root.querySelector(':not([style*="display: none"])[focus]')
-
-    this.listen(this.currentPlayer, 'tap', '_onTap');
-    this.listen(this.currentPlayer, 'keydown', '_onKeydown');
+    this.currentPlayer = this.root.querySelector(':not([style*="display: none"])[focus]');
 
     this._resetTimeout()
 
@@ -236,8 +250,6 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
      * - 종료 버튼이 눌린다
      * - boardNames가 비워지게될 때
      */
-    this.unlisten(this.currentPlayer, 'tap', '_onTap');
-    this.unlisten(this.currentPlayer, 'keydown', '_onKeydown');
 
     if (this._timer)
       clearTimeout(this._timer)

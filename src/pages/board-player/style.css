@@ -1,22 +1,30 @@
 :host {
-  display: block;
-  width:100%;
-  @apply(--layout-vertical);
-  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
 }
 
 #player-area {
-  width:100%;
-  height: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
 }
 
-carousel-player {
-  @apply(--layout-flex);
+#player-area > * {
+  flex: 1;
+}
+
+things-scene-player {
+  width: 100%;
+  height: 100%;
 }
 
 things-scene-player[front]{
   background:black;
 }
+
 things-scene-player[back]{
   background:black;
 }
@@ -28,27 +36,3 @@ paper-fab-speed-dial {
   right:15px;
   bottom:15px;
 }
-
-.fab-text{
-  @apply(--things-fab-text);
-}
-
-.fab-text:after{
-  @apply(--things-fab-text-arrow);
-}
-
-.fab-text:nth-of-type(2){margin-top:   77px !important}
-.fab-text:nth-of-type(3){margin-top:  132px !important}
-.fab-text:nth-of-type(4){margin-top:  187px !important}
-.fab-text:nth-of-type(5){margin-top:  245px !important}
-
-/* for safari */
-::-webkit-:not(:root:root), .fab-text:nth-of-type(1),::-webkit-:not(:root:root), .fab-text:nth-of-type(2),
-::-webkit-:not(:root:root), .fab-text:nth-of-type(3),::-webkit-:not(:root:root), .fab-text:nth-of-type(4),
-::-webkit-:not(:root:root), .fab-text:nth-of-type(5)
- {margin-top:-36px !important}
-
- /* for firefox */
-.fab-text:nth-of-type(1),.fab-text:nth-of-type(2),.fab-text:nth-of-type(3),.fab-text:nth-of-type(4),
-.fab-text:nth-of-type(5), x:-moz-any-link, x:default
-{margin-top:-36px !important}

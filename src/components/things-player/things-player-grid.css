@@ -1,24 +1,37 @@
 :host {
-  display: block;
   width: 100%;
   height: 100%;
   position: relative;
-  @apply(--layout-horizontal);
-  @apply(--layout-wrap);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
 }
 
-:host ::content > * {
-  width:33.3%;
+:host([column=1]) {
+  grid-template-columns: repeat(1, 1fr);
 }
 
-:host[column="2"] ::content > * {
-  width:50%;
+:host([column=2]) {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-:host[column="3"] ::content > * {
-  width:33.3%;
+:host([column=3]) {
+  grid-template-columns: repeat(3, 1fr);
 }
 
-:host[column="4"] ::content > * {
-  width:25%;
+:host([column=4]) {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+:host([column=5]) {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+:host([column=6]) {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+:host > ::slotted(*) {
+  grid-column: span 1;
 }

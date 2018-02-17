@@ -3,6 +3,9 @@ import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
 class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
+
+  static get is() { return 'things-scene-player'; }
+
   static get template() {
     return html`
       <style include="shared-styles">
@@ -10,13 +13,16 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
         display: block;
         width: 100%;
       }
+
+      #root {
+        width: 100%;
+        height: 100%;
+      }
       </style>
 
-      ${template}
+      <div id='root'></div>
     `;
   }
-
-  static get is() { return 'things-scene-player'; }
 
   static get properties() {
     return {
@@ -49,7 +55,15 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
     super.ready();
 
     this.addEventListener('iron-resize', () => {
-      requestAnimationFrame(this._onIronResize.bind(this));
+      requestAnimationFrame(() => {
+        if (this.scene) {
+          this.scene.resize();
+
+          if (this.offsetWidth) {
+            this._fit();
+          }
+        }
+      });
     });
   }
 
@@ -63,16 +77,6 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
     super.disconnectedCallback();
 
     this._releaseRef()
-  }
-
-  _onIronResize(e) {
-    if (this.scene) {
-      this.scene.resize();
-
-      if (this.offsetWidth) {
-        this._fit();
-      }
-    }
   }
 
   _releaseRef() {
@@ -92,19 +96,19 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
     if (!this.sceneName)
       return
 
-    var self = this
+    var self = this;
 
     this.provider.get(this.sceneName, true)
       .then(function (scene) {
 
         self.scene = scene
-        self.scene.target = self
+        self.scene.target = self.$.root;
 
         /* 이 컴포넌트의 폭이 값을 가지고 있으면 - 화면상에 자리를 잡고 보여지고 있음을 의미한다.
         * 이 때는 정상적으로 그려주고,
         * 그렇지 않으면, 다음 Resize Handling시에 처리하도록 한다.
         */
-        if (self.offsetWidth)
+        if (self.$.root.offsetWidth)
           self._fit()
       }, function (e) {
       })

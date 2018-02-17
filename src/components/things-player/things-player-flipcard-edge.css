@@ -7,7 +7,7 @@
           perspective: 1600px;
 }
 
-#card{
+#card {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -17,17 +17,17 @@
           transition: all 1.5s ease-in-out;
 }
 
-#card{
+#card {
   -webkit-transform-origin: right center;
           transform-origin: right center;
 }
 
-:host([axis="x"]) #card{
+:host([axis="x"]) #card {
   -webkit-transform-origin: center bottom;
           transform-origin: center bottom;
 }
 
-#card > ::content [front], #card > ::content [back]{
+#card > ::slotted([front]), #card > ::slotted([back]) {
   margin: 0;
   display: block;
   background: white;
@@ -38,22 +38,22 @@
           backface-visibility: hidden;
 }
 
-#card > ::content [back]{
+#card > ::slotted([back]) {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-:host[flipped] div{
+:host([flipped]) > div {
   -webkit-transform: translateX( -100% ) rotateY( -180deg );
           transform: translateX( -100% ) rotateY( -180deg );
 }
 
-:host([axis="x"]) #card > ::content [back]{
+:host([axis="x"]) #card > ::slotted([back]) {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
-:host([axis="x"][flipped]) div{
+:host([axis="x"][flipped]) div {
   -webkit-transform: translateY( -100% ) rotateX(180deg);
           transform: translateY( -100% ) rotateX(180deg);
 }

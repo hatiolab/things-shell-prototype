@@ -26,8 +26,13 @@ class ThingsPlayerFlipcardEdge extends ReduxMixin(PolymerElement) {
   }
 
   next() {
-    this.toggleAttribute('flipped')
-    this.fire('transform')
+    if (this.hasAttribute('flipped')) {
+      this.removeAttribute('flipped');
+    } else {
+      this.setAttribute('flipped', '');
+    }
+
+    this.dispatchEvent(new CustomEvent('transform', {}));
   }
 
   previous() {

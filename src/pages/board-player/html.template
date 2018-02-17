@@ -1,7 +1,7 @@
 <page-toolbar>
 </page-toolbar>
 
-<div id="player-area">
+<div id="player-area" on-keydown="_onKeydown" on-tap="_onTap">
   <template is="dom-if" if="[[isSame(transition, 'flip-card')]]"
     restamp>
     <things-player-flipcard axis="y" focus>
@@ -58,7 +58,8 @@
   </div>
 </paper-fab-speed-dial>
 
-<board-player-dialog transition="{{transition}}" playtime="{{playtime}}"
-  entry-animation="scale-up-animation" exit-animation="fade-out-animation"
-  on-iron-overlay-closed="onSettingDialogClosed" no-overlap modal>
+<board-player-dialog id="setting-dialog" transition="{{transition}}"
+  playtime="{{playtime}}" entry-animation="scale-up-animation"
+  exit-animation="fade-out-animation" on-iron-overlay-closed="_onSettingDialogClosed"
+  no-overlap>
 </board-player-dialog>

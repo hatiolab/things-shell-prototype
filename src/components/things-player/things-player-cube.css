@@ -10,7 +10,7 @@
           perspective: 1000px;
 }
 
-#cube{
+#cube {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -24,7 +24,7 @@
           transition: transform 1.5s;
 }
 
-#cube > ::content [page]{
+#cube > ::slotted([page]){
   background: white;
   margin: 0;
   display: block;
@@ -34,7 +34,7 @@
   height: 100%;
 }
 
-#cube.backface-invisible > ::content [page] {
+#cube.backface-invisible > ::slotted([page]) {
   -webkit-backface-visibility: hidden;
      -moz-backface-visibility: hidden;
        -o-backface-visibility: hidden;
@@ -42,81 +42,81 @@
 }
 
 /* 배경색을 바꾸는 경우에 사용한다.
-#cube > ::content :nth-child(1) { background: hsla(   0, 100%, 50%, 0.7 ); }
-#cube > ::content :nth-child(2) { background: hsla(  60, 100%, 50%, 0.7 ); }
-#cube > ::content :nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
-#cube > ::content :nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
-#cube > ::content :nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
-#cube > ::content :nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(1) { background: hsla(   0, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(2) { background: hsla(  60, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
+#cube > ::slotted:nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
 */
-#cube > ::content :nth-child(1)  {
+#cube > ::slotted(:nth-child(1))  {
   -webkit-transform: translateZ( 300px );
      -moz-transform: translateZ( 300px );
        -o-transform: translateZ( 300px );
           transform: translateZ( 300px );
 }
-#cube > ::content :nth-child(2)  {
+#cube > ::slotted(:nth-child(2))  {
   -webkit-transform: translateZ( -300px );
      -moz-transform: translateZ( -300px );
        -o-transform: translateZ( -300px );
           transform: translateZ( -300px );
 }
-#cube > ::content :nth-child(3)  {
+#cube > ::slotted(:nth-child(3))  {
   -webkit-transform: rotateY(   90deg ) translateZ( 300px );
      -moz-transform: rotateY(   90deg ) translateZ( 300px );
        -o-transform: rotateY(   90deg ) translateZ( 300px );
           transform: rotateY(   90deg ) translateZ( 300px );
 }
-#cube > ::content :nth-child(4)  {
+#cube > ::slotted(:nth-child(4))  {
   -webkit-transform: rotateY(  -90deg ) translateZ( 300px );
      -moz-transform: rotateY(  -90deg ) translateZ( 300px );
        -o-transform: rotateY(  -90deg ) translateZ( 300px );
           transform: rotateY(  -90deg ) translateZ( 300px );
 }
-#cube > ::content :nth-child(5)  {
+#cube > ::slotted(:nth-child(5))  {
   -webkit-transform: rotateX(   90deg ) translateZ( 300px );
      -moz-transform: rotateX(   90deg ) translateZ( 300px );
        -o-transform: rotateX(   90deg ) translateZ( 300px );
           transform: rotateX(   90deg ) translateZ( 300px );
 }
-#cube > ::content :nth-child(6)  {
+#cube > ::slotted(:nth-child(6))  {
   -webkit-transform: rotateX(  -90deg ) translateZ( 300px );
      -moz-transform: rotateX(  -90deg ) translateZ( 300px );
        -o-transform: rotateX(  -90deg ) translateZ( 300px );
           transform: rotateX(  -90deg ) translateZ( 300px );
 }
 
-:host[show-front] div{
+:host([show-front]) > div {
   -webkit-transform: translateZ( -300px );
      -moz-transform: translateZ( -300px );
        -o-transform: translateZ( -300px );
           transform: translateZ( -300px );
 }
-:host[show-back] div {
+:host([show-back]) > div {
   -webkit-transform: translateZ( -300px ) rotateX( -180deg );
      -moz-transform: translateZ( -300px ) rotateX( -180deg );
        -o-transform: translateZ( -300px ) rotateX( -180deg );
           transform: translateZ( -300px ) rotateX( -180deg );
 }
-:host[show-right] div {
+:host([show-right]) > div {
   -webkit-transform: translateZ( -300px ) rotateY(  -90deg );
      -moz-transform: translateZ( -300px ) rotateY(  -90deg );
        -o-transform: translateZ( -300px ) rotateY(  -90deg );
           transform: translateZ( -300px ) rotateY(  -90deg );
 }
-:host[show-left] div {
+:host([show-left]) > div {
   -webkit-transform: translateZ( -300px ) rotateY(   90deg );
      -moz-transform: translateZ( -300px ) rotateY(   90deg );
        -o-transform: translateZ( -300px ) rotateY(   90deg );
           transform: translateZ( -300px ) rotateY(   90deg );
 }
-:host[show-top] div {
+:host([show-top]) > div {
   -webkit-transform: translateZ( -300px ) rotateX(  -90deg );
      -moz-transform: translateZ( -300px ) rotateX(  -90deg );
        -o-transform: translateZ( -300px ) rotateX(  -90deg );
           transform: translateZ( -300px ) rotateX(  -90deg );
 }
-:host[show-bottom] div {
+:host([show-bottom]) > div {
   -webkit-transform: translateZ( -300px ) rotateX(   90deg );
      -moz-transform: translateZ( -300px ) rotateX(   90deg );
        -o-transform: translateZ( -300px ) rotateX(   90deg );
