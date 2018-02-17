@@ -47,15 +47,14 @@
 </div>
 
 <paper-fab-speed-dial id="fab" direction="top">
-  <paper-fab icon="add" class="dropdown-trigger"></paper-fab>
-  <div class="dropdown-content">
+  <paper-fab icon="add"></paper-fab>
+  <div slot="dropdown-content">
     <template is="dom-if" if="[[!_sameAs(globals.os, 'iOS')]]">
       <paper-fab mini id="fullscreen" icon="fullscreen" title="full screen"
         on-tap="_onTapFullscreen"></paper-fab>
       <div class="fab-text">full screen</div>
     </template>
     <paper-fab mini id="stop" noink icon="av:stop" title="stop play"></paper-fab>
-    <div class="fab-text">stop</div>
   </div>
 </paper-fab-speed-dial>
 

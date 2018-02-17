@@ -59,6 +59,9 @@ class ThingsEditorProperties extends PolymerElement {
       .full-width > input, .full-width > things-editor-number-input {
         width:32.4%;
       }
+      things-editor-property {
+        margin: 5px 0 5px 0;
+      }
     </style>
 
     <slot></slot>

@@ -49,6 +49,7 @@
     "@polymer/paper-dialog-behavior": "next",
     "@polymer/paper-dialog-scrollable": "next",
     "@polymer/paper-dropdown-menu": "next",
+    "@polymer/paper-fab": "^3.0.0-pre.8",
     "@polymer/paper-icon-button": "next",
     "@polymer/paper-input": "next",
     "@polymer/paper-item": "next",

@@ -3,6 +3,7 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 
+import '../../components/paper-fab-speed-dial/paper-fab-speed-dial';
 import '../../components/things-shell/things-shell';
 import '../../layouts/page-toolbar/page-toolbar';
 
@@ -127,11 +128,10 @@ class BoardPlayer extends ReduxMixin(PolymerElement) {
   }
 
   _onBoardsChanged(after) {
-    // if (app.route === this.getAttribute('data-route'))
     if (!this.boards || this.boards.length == 0)
       return;
 
-    this.showTransition()
+    // this.showTransition()
   }
 
   _onMousemove() {

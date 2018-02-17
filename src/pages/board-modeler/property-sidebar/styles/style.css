@@ -50,5 +50,4 @@ paper-slider {
 .btn-group paper-button.tstrikethrough{background-position:50% -415px}
 .btn-group paper-button[active]{
   border-color:#f2471c;
-  opacity:1;
 }

@@ -106,8 +106,9 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
         bottom: 0;
         font-size: 0.9em;
         line-height: 1.2;
-        text-transform:capitalize;
-        vertical-align:bottom;
+        text-transform: capitalize;
+        text-align: center;
+        vertical-align: bottom;
       }
 
       #merge-cells{background-position:50% 3px}

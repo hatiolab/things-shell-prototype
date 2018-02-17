@@ -18,9 +18,10 @@ class BoardList extends ReduxMixin(PolymerElement) {
     <style include="shared-styles">${style}</style>
 
     <page-toolbar>
-      <iron-icon icon="icons:search"></iron-icon>
       <things-i18n-msg msgid="label.keyword" msg="{{lKeyword}}" hidden></things-i18n-msg>
-      <paper-input label="[[lKeyword]]" value="{{keyword::change}}" no-label-float></paper-input>
+      <paper-input label="[[lKeyword]]" value="{{keyword::change}}" no-label-float>
+        <iron-icon icon="icons:search" slot="prefix"></iron-icon>
+      </paper-input>
     </page-toolbar>
 
     <div id="list">

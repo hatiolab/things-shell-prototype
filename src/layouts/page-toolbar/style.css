@@ -16,16 +16,11 @@ paper-button {
   font-size: 14px;
   margin: 0px;
   padding: 0px;
-  opacity: 0.6;
   vertical-align: middle;
 }
 
 .padding {
   flex: 1;
-}
-
-::slotted(iron-icon), iron-icon {
-  opacity: 0.6;
 }
 
 ::slotted(paper-icon-button) {
@@ -48,10 +43,6 @@ paper-button {
   border-right:1px solid rgba(0,0,0,.1);
   width:0px;height:18px;
   margin:0 4px;
-}
-
-::slotted(paper-icon-button):hover {
-  opacity: 1;
 }
 
 app-toolbar paper-icon-button {

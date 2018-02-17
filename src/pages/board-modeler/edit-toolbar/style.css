@@ -1,10 +1,5 @@
 paper-icon-button {
   background: url(./assets/images/icon-htoolbar.png) no-repeat;
-  opacity: .6;
-}
-
-paper-icon-button:hover {
-  opacity: 1;
 }
 
 #align-left {

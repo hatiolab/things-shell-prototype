@@ -212,7 +212,6 @@ div.innerHTML = `
       right:5px;
       padding:1px;
       width:15px;height:15px;
-      opacity:.5;
     }
 
     things-property-label{border-left:none !important;}

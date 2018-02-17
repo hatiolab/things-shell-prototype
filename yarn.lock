@@ -300,6 +300,16 @@
     "@polymer/paper-styles" "^3.0.0-pre.7"
     "@polymer/polymer" "^3.0.0-pre.7"
 
+"@polymer/paper-fab@^3.0.0-pre.8":
+  version "3.0.0-pre.8"
+  resolved "https://registry.yarnpkg.com/@polymer/paper-fab/-/paper-fab-3.0.0-pre.8.tgz#81ce2199a7e7f963e21fc439d8f9ddf8aecdacce"
+  dependencies:
+    "@polymer/iron-flex-layout" "^3.0.0-pre.7"
+    "@polymer/iron-icon" "^3.0.0-pre.7"
+    "@polymer/paper-behaviors" "^3.0.0-pre.7"
+    "@polymer/paper-styles" "^3.0.0-pre.7"
+    "@polymer/polymer" "^3.0.0-pre.7"
+
 "@polymer/paper-icon-button@^3.0.0-pre.7", "@polymer/paper-icon-button@next":
   version "3.0.0-pre.7"
   resolved "https://registry.yarnpkg.com/@polymer/paper-icon-button/-/paper-icon-button-3.0.0-pre.7.tgz#db070203a58de1ef841b7ffe2972c58b05150e68"

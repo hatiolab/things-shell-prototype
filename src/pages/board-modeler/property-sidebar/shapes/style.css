@@ -69,7 +69,6 @@ things-editor-buttons-radio paper-button[data-value="middle"] {background-positi
 things-editor-buttons-radio paper-button[data-value="bottom"] {background-position:50% -188px}
 things-editor-buttons-radio paper-button[active]{
   border-color:#f2471c;
-  opacity:1;
 }
 
 .box-padding {
