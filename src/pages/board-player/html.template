@@ -2,10 +2,10 @@
 </page-toolbar>
 
 <div id="player-area" on-keydown="_onKeydown" on-tap="_onTap"
-  on-mousemove="_onMousemove" on-transform="_onTransform">
-  <template is="dom-if" if="[[isSame(transition, 'flip-card')]]"
+  on-mousemove="_onMousemove" on-transform="_onTransform" tabindex="-1">
+  <template is="dom-if" if="[[_isSame(transition, 'flip-card')]]"
     restamp>
-    <things-player-flipcard axis="y" focus>
+    <things-player-flipcard axis="y" player>
       <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
         provider="[[provider]]">
       </things-scene-player>
@@ -15,9 +15,9 @@
     </things-player-flipcard>
   </template>
 
-  <template is="dom-if" if="[[isSame(transition, 'flip-card2')]]"
+  <template is="dom-if" if="[[_isSame(transition, 'flip-card2')]]"
     restamp>
-    <things-player-flipcard-edge axis="y" focus>
+    <things-player-flipcard-edge axis="y" player>
       <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
         provider="[[provider]]">
       </things-scene-player>
@@ -27,9 +27,9 @@
     </things-player-flipcard-edge>
   </template>
 
-  <template is="dom-if" if="[[isSame(transition, 'carousel')]]"
+  <template is="dom-if" if="[[_isSame(transition, 'carousel')]]"
     restamp>
-    <things-player-carousel axis="y" backface-visibility=false focus>
+    <things-player-carousel axis="y" backface-visibility=false player>
       <template is='dom-repeat' items="[[boardNames]]">
         <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
         </things-scene-player>
@@ -37,8 +37,8 @@
     </things-player-carousel>
   </template>
 
-  <template is="dom-if" if="[[isSame(transition, 'grid')]]" restamp>
-    <things-player-grid column="3" focus>
+  <template is="dom-if" if="[[_isSame(transition, 'grid')]]" restamp>
+    <things-player-grid column="3" player>
       <template is='dom-repeat' items="[[boardNames]]">
         <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
         </things-scene-player>
