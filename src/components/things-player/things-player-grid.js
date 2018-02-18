@@ -22,8 +22,12 @@ class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
     }
   }
 
+  build() {
+    // do nothing.
+  }
+
   next() {
-    this.dispatchEvent(new CustomEvent('transform', {}));
+    this.dispatchEvent(new CustomEvent('transform', { bubbles: true, composed: true }));
   }
 
   previous() {

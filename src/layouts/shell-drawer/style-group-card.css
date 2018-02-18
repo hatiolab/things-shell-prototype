@@ -40,4 +40,10 @@ paper-icon-button {
   position: absolute;
   top: 0;
   right: 0;
+  border-radius: 50%;
+}
+
+paper-icon-button:hover {
+  background-color: var(--secondary-color);
+  color: white;
 }

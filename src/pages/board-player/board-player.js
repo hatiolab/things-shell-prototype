@@ -17,13 +17,15 @@ import '../../components/things-player/things-player-flipcard';
 import '../../components/things-player/things-player-flipcard-edge';
 import '../../components/things-player/things-player-grid';
 
+import { fullscreen } from '../../commons/utils';
+
 import style from './style.css';
 import template from './html.template';
 
 import './board-player-dialog';
 import './things-scene-player';
 
-class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMixin(PolymerElement)) {
+class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return html`
       <style include="shared-styles">${style}</style>
@@ -58,48 +60,37 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
       playtime: {
         value: 30
       },
-      provider: Object,
-      animationConfig: {
-        value: function () {
-          return {
-            'exit': [{
-              name: 'fade-out-animation',
-              node: this.$ && this.$.fab
-            }]
-          }
-        }
-      },
-      _isFabShow: {
-        value: true
-      }
+      provider: Object
     }
   }
 
   // listeners: {
-  //   'stop.tap': '_onTapStop',
-  //   'transform': '_onTransform',
   //   'signals.iron-signal-subscribed': '_onSubscribed',
-  //   'neon-animation-finish': '_onNeonAnimationFinish',
-  //   'player-area.mousemove': '_onMousemove',
-  //   'fab.mouseover': '_onMouseoverFab'
   // },
 
-  _resetFadeTimer() {
-    this._showHideFab(true);
-    this._isFabShow = true;
+  connectedCallback() {
+    super.connectedCallback();
 
-    if (this._fadeTimer)
-      clearTimeout(this._fadeTimer)
+    this.animationConfig = {
+      'exit': [{
+        name: 'fade-out-animation',
+        node: this.$.fab
+      }]
+    }
 
-    var self = this;
-    this._fadeTimer = setTimeout(function () {
-      self._fadeButtons();
-    }, 3000)
+    this.addEventListener('neon-animation-finish', () => {
+      console.log(this.$.fab);
+      this.$.fab.hidden = true;
+    });
+
+    this.addEventListener('iron-resize', () => this.currentPlayer && this.currentPlayer.build());
   }
 
-  _fadeButtons() {
-    this.playAnimation('exit')
-    this._isFabShow = false;
+  _resetFadeTimer() {
+    this.$.fab.hidden = false;
+
+    this._fab_timer && clearTimeout(this._fab_timer);
+    this._fab_timer = setTimeout(() => this.playAnimation('exit'), 3000);
   }
 
   isSame(a, b) {
@@ -108,9 +99,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
 
   showTransition() {
     if (this.boards) {
-      this.boardNames = this.boards.map(function (board) {
-        return board.name
-      })
+      this.boardNames = this.boards.map(board => board.name);
 
       this._startPlay()
     } else {
@@ -132,12 +121,10 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
   _onSettingDialogClosed(e) {
 
     this.showTransition()
-    /* focus 속성을 가진 것들 중에서, 스타일에 display:none 을 포함하지 않은 엘리먼트를 찾기 */
-    // this.$$(':not([style*="display: none"])[focus]').focus()
-    if (this.currentPlayer)
-      this.currentPlayer.focus()
 
-    this.$.fab.hidden = false
+    this.currentPlayer && this.currentPlayer.focus();
+
+    this.$.fab.hidden = false;
   }
 
   _onBoardsChanged(after) {
@@ -147,7 +134,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
     if (!this.boards || this.boards.length == 0)
       return;
 
-    this.showTransition()
+    this.showTransition();
   }
 
   _onMousemove() {
@@ -155,47 +142,29 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
   }
 
   _onMouseoverFab() {
-    if (this._fadeTimer)
-      clearTimeout(this._fadeTimer)
-  }
-
-  _onTapStop() {
-
-    this._stopPlay()
-    page(`/list/${this.group}`)
+    clearTimeout(this._fab_timer);
   }
 
   _onTapFullscreen() {
-    var self = this;
-
-    fullscreen(this, function () {
-      self._showHideFab(false)
-    }, function () {
-      self._showHideFab(true)
+    fullscreen(this, () => {
+      this.$.fab.hidden = true;
+    }, () => {
+      this.$.fab.hidden = false;
     })
 
-    if (this.currentPlayer) {
-      this.currentPlayer.focus()
-    }
+    this.currentPlayer && this.currentPlayer.focus();
   }
 
   _onTransform() {
-    var self = this
-    requestAnimationFrame(function () {
-      if (self.started)
-        self._resetTimeout()
-    })
+    requestAnimationFrame(() => this.started && this._resetTransformTimer());
   }
 
-  _resetTimeout() {
-    if (this._timer) {
-      clearTimeout(this._timer)
-      delete this._timer
-    }
+  _resetTransformTimer() {
+    clearTimeout(this._transfer_timer)
 
     if (this.currentPlayer) {
-      this._timer = setTimeout(() => {
-        if (this._timer)
+      this._transfer_timer = setTimeout(() => {
+        if (this._transfer_timer)
           this.currentPlayer.next()
       }, this.playtime * 1000)
     }
@@ -232,13 +201,10 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
   }
 
   _startPlay() {
-    /* 플레이가 시작되는 조건
-     * - boardNames가 채워질 때
-     */
+
     this.currentPlayer = this.root.querySelector(':not([style*="display: none"])[focus]');
 
-    this._resetTimeout()
-
+    this._resetTransformTimer()
     this._resetFadeTimer()
 
     this.started = true
@@ -247,29 +213,12 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior], ReduxMix
   _stopPlay() {
     /* 플레이가 종료되는 조건
      * - 라우트가 바뀐다
-     * - 종료 버튼이 눌린다
-     * - boardNames가 비워지게될 때
      */
 
-    if (this._timer)
-      clearTimeout(this._timer)
+    clearTimeout(this._transfer_timer)
 
     this.boardNames = []
     this.started = false
-  }
-
-  _showHideFab(show) {
-    this.$.fab.hidden = !show
-  }
-
-  _onNeonAnimationFinish(e) {
-    if (!this._isFabShow)
-      this._showHideFab(false)
-  }
-
-  _sameAs(a, b) {
-    if (a == b)
-      return true;
   }
 
   _onSubscribed(event) {

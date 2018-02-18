@@ -1,7 +1,8 @@
 <page-toolbar>
 </page-toolbar>
 
-<div id="player-area" on-keydown="_onKeydown" on-tap="_onTap">
+<div id="player-area" on-keydown="_onKeydown" on-tap="_onTap"
+  on-mousemove="_onMousemove" on-transform="_onTransform">
   <template is="dom-if" if="[[isSame(transition, 'flip-card')]]"
     restamp>
     <things-player-flipcard axis="y" focus>
@@ -46,17 +47,8 @@
   </template>
 </div>
 
-<paper-fab-speed-dial id="fab" direction="top">
-  <paper-fab icon="add"></paper-fab>
-  <div slot="dropdown-content">
-    <template is="dom-if" if="[[!_sameAs(globals.os, 'iOS')]]">
-      <paper-fab mini id="fullscreen" icon="fullscreen" title="full screen"
-        on-tap="_onTapFullscreen"></paper-fab>
-      <div class="fab-text">full screen</div>
-    </template>
-    <paper-fab mini id="stop" noink icon="av:stop" title="stop play"></paper-fab>
-  </div>
-</paper-fab-speed-dial>
+<paper-fab id="fab" direction="top" on-mouseover="_onMouseoverFab"
+  icon="fullscreen" title="full screen" on-tap="_onTapFullscreen"></paper-fab>
 
 <board-player-dialog id="setting-dialog" transition="{{transition}}"
   playtime="{{playtime}}" entry-animation="scale-up-animation"

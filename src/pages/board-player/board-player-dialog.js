@@ -1,4 +1,4 @@
-import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { PaperDialogBehavior } from '@polymer/paper-dialog-behavior/paper-dialog-behavior';
 import '@polymer/paper-dialog-behavior/paper-dialog-shared-styles';
@@ -11,11 +11,19 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 
 class BoardPlayerDialog extends mixinBehaviors([NeonAnimationRunnerBehavior, PaperDialogBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return `
+    return html`
     <style include="paper-dialog-shared-styles">
+    :host {
+      padding: 20px;
+    }
+
+    .buttons{
+      padding:5px 12px;
+      text-align:right
+    }
     </style>
 
-    <h2>Setting</h2>
+    <h2>Player Settings</h2>
 
     <div>
       <paper-dropdown-menu label="Transition Type" value="{{transition}}">

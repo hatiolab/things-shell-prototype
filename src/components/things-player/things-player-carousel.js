@@ -1,4 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
@@ -11,7 +12,7 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
       <style>${style}</style>
 
       <div id="carousel">
-        <slot select="[page]"></slot>
+        <slot id="slot" select="[page]"></slot>
       </div>
     `;
   }
@@ -34,7 +35,20 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
     }
   }
 
-  _buildCarousel() {
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._slotObserver = new FlattenedNodesObserver(this.$.slot, (info) => {
+      this.build();
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._slotObserver.disconnect();
+  }
+
+  build() {
     var panel, angle, i;
 
     var panels = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE && n.hasAttribute('page'))
@@ -70,7 +84,7 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
   }
 
   _onAxisChanged(after) {
-    this._buildCarousel();
+    this.build();
   }
 
   _onBackfaceVisibilityChanged(after) {
@@ -81,7 +95,7 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
     // push the carousel back in 3D space,
     // and rotate it
     this.$.carousel.style.transform = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
-    this.dispatchEvent(new CustomEvent('transform', {}));
+    this.dispatchEvent(new CustomEvent('transform', { bubbles: true, composed: true }));
   }
 
   previous() {

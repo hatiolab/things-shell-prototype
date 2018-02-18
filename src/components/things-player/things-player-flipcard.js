@@ -25,6 +25,10 @@ class ThingsPlayerFlipcard extends ReduxMixin(PolymerElement) {
     }
   }
 
+  build() {
+    // do nothing.
+  }
+
   next() {
     if (this.hasAttribute('flipped')) {
       this.removeAttribute('flipped');
@@ -32,7 +36,7 @@ class ThingsPlayerFlipcard extends ReduxMixin(PolymerElement) {
       this.setAttribute('flipped', '');
     }
 
-    this.dispatchEvent(new CustomEvent('transform', {}));
+    this.dispatchEvent(new CustomEvent('transform', { bubbles: true, composed: true }));
   }
 
   previous() {

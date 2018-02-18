@@ -15,7 +15,7 @@ class PaperFabSpeedDial extends mixinBehaviors([NeonAnimationRunnerBehavior], Po
 
   static get template() {
     return html`
-      <style>
+    <style>
       :host {
         display: flex;
         flex-flow: column-reverse;
@@ -34,7 +34,7 @@ class PaperFabSpeedDial extends mixinBehaviors([NeonAnimationRunnerBehavior], Po
         margin: 0px 8px 10px 8px;
       }
 
-      [hidden], ::slotted([hidden]) {
+      :host([hidden]), ::slotted([hidden]) {
         display: none !important;
       }
     </style>
@@ -118,7 +118,7 @@ class PaperFabSpeedDial extends mixinBehaviors([NeonAnimationRunnerBehavior], Po
         name: 'cascaded-animation',
         animation: 'scale-down-animation',
         nodes: array,
-      },
+      }
     };
   }
 

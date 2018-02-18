@@ -28,11 +28,15 @@ class ThingsPlayerCube extends ReduxMixin(PolymerElement) {
     }
   }
 
+  build() {
+    this._onSideChanged(this.side, this.side);
+  }
+
   _onSideChanged(after, before) {
     if (before)
       this.removeAttribute('show-' + before)
     this.setAttribute('show-' + after, true)
-    this.dispatchEvent(new CustomEvent('transform', {}));
+    this.dispatchEvent(new CustomEvent('transform', { bubbles: true, composed: true }));
   }
 
   next() {
