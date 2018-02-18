@@ -44,11 +44,6 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
         statePath: 'boardList',
         observer: '_onBoardsChanged'
       },
-      group: {
-        type: Object,
-        statePath: 'boardGroupCurrent',
-        // observer: 'onChangeGroup'
-      },
       transition: {
         value: 'carousel'
       },
@@ -58,10 +53,6 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
       provider: Object
     }
   }
-
-  // listeners: {
-  //   'signals.iron-signal-subscribed': '_onSubscribed',
-  // },
 
   connectedCallback() {
     super.connectedCallback();
@@ -126,7 +117,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
   }
 
   _onTapFullscreen() {
-    fullscreen(this, () => {
+    fullscreen(this.currentPlayer, () => {
       this.$.fab.hidden = true;
       this.$['player-area'].focus();
     }, () => {
@@ -199,32 +190,6 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
 
     this.boardNames = [];
     this.started = false
-  }
-
-  _onSubscribed(event) {
-    if (this.route !== this.getAttribute('data-route'))
-      return
-
-    var message = event.detail;
-    var currentPlayGroupId = this.group;
-
-    var playGroupId = message.id;
-    var self = this;
-
-    switch (message.type) {
-      case 'play-group-changed':
-        if (currentPlayGroupId == playGroupId) {
-          this.set('boards', []);
-          this.set('boards', message.items);
-        }
-
-        break;
-
-      // TODO: Release notification 관련 처리
-
-      default:
-        break;
-    }
   }
 }
 
