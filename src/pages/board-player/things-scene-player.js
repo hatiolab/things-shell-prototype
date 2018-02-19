@@ -45,8 +45,7 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
         value: 'ratio'
       },
       provider: {
-        type: Object,
-        observer: "onSceneNameChanged"
+        type: Object
       }
     }
   }

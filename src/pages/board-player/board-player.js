@@ -86,7 +86,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
 
     if (before == 'player' && after !== 'player') {
       this.$['setting-dialog'].close();
-      this.started && this._stopPlay()
+      this.started && this._stopPlay();
     } else if (after == 'player') {
       this.$['setting-dialog'].open();
       this.$.fab.hidden = true
@@ -172,7 +172,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
   }
 
   _startPlay() {
-    if (!this.boards || this.boards.length == 0)
+    if (this.page !== 'player' || !this.boards || this.boards.length == 0)
       return;
 
     this.boardNames = this.boards.map(board => board.name);
@@ -189,7 +189,7 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
     clearTimeout(this._transfer_timer)
 
     this.boardNames = [];
-    this.started = false
+    this.started = false;
   }
 }
 

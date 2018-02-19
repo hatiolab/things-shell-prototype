@@ -27,9 +27,15 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
+      page: {
+        statePath: 'route.page',
+        observer: '_onPageChanged'
+      },
+
       model: {
         type: Object,
-        statePath: 'boardCurrent.model'
+        statePath: 'boardCurrent.model',
+        observer: '_onModelChanged'
       },
 
       baseUrl: {
@@ -97,6 +103,22 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
 
   onFullscreen() {
     togglefullscreen(this)
+  }
+
+
+  _onPageChanged(after, before) {
+
+    if (before == 'modeler' && after !== 'modeler') {
+      this.$model = null;
+    }
+  }
+
+  _onModelChanged(after, before) {
+
+    if (this.page !== 'modeler')
+      return;
+
+    this.$model = this.model;
   }
 }
 

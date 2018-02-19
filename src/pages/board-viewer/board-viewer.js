@@ -15,17 +15,7 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     <page-toolbar>
     </page-toolbar>
 
-    <!--
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-    -->
-
-    <things-shell model='[[model]]' provider='[[provider]]' fit='ratio'>
+    <things-shell id='scene' model='[[$model]]' provider='[[provider]]' fit='ratio'>
     </things-shell>
     `;
   }
@@ -34,12 +24,34 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
+      page: {
+        statePath: 'route.page',
+        observer: '_onPageChanged'
+      },
+
       model: {
         type: Object,
-        statePath: 'boardCurrent.model'
+        statePath: 'boardCurrent.model',
+        observer: '_onModelChanged'
       },
+
       provider: Object
     }
+  }
+
+  _onPageChanged(after, before) {
+
+    if (before == 'viewer' && after !== 'viewer') {
+      this.$model = null;
+    }
+  }
+
+  _onModelChanged(after, before) {
+
+    if (this.page !== 'viewer')
+      return;
+
+    this.$model = this.model;
   }
 }
 

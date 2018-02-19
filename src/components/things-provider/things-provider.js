@@ -17,10 +17,6 @@ class ThingsProvider extends ReduxMixin(PolymerElement) {
   }
 
   ready() {
-    this.requests = [];
-    this.names = {};
-    this.subscribers = {};
-
     this.refProvider = new ReferenceMap(
 
       async (boardName, resolve, reject) => {
@@ -34,8 +30,8 @@ class ThingsProvider extends ReduxMixin(PolymerElement) {
           var scene;
 
           try {
-            scene = await this.refProvider.get(name);
-            console.warn("Board fetched more than twice.", name)
+            scene = await this.refProvider.get(boardName);
+            console.warn("Board fetched more than twice.", boardName);
 
           } catch (e) {
             scene = create({
@@ -45,8 +41,6 @@ class ThingsProvider extends ReduxMixin(PolymerElement) {
             });
 
             // s.app.baseUrl = undefined;
-
-            this.names[name] = scene
           }
 
           resolve(scene, board);
@@ -57,21 +51,11 @@ class ThingsProvider extends ReduxMixin(PolymerElement) {
 
       }, async (id, ref) => {
 
-        var boardName;
-
-        for (let name in this.names) {
-          if (this.names[name] !== ref)
-            continue
-          boardName = name
-        }
-
-        delete this.names[boardName]
-
-        // requestAnimationFrame(() => {
         ref.dispose();
-        // })
       }
     )
+
+    window.provider = this.refProvider;
   }
 }
 

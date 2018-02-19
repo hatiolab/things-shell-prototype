@@ -8,7 +8,7 @@
   <component-toolbar scene="[[scene]]" mode="{{mode}}">
   </component-toolbar>
 
-  <things-shell id="scene" scene="{{scene}}" model="[[model]]"
+  <things-shell id="scene" scene="{{scene}}" model="[[$model]]"
     selected="{{selected}}" mode="{{mode}}" fit="ratio" base-url="[[baseUrl]]"
     on-contextmenu="onContextMenu" provider="[[provider]]" name="modeler">
     <things-shell-layer type="selection-layer"></things-shell-layer>
