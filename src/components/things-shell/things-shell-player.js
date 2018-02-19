@@ -2,13 +2,13 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
-class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
+class ThingsShellPlayer extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
 
-  static get is() { return 'things-scene-player'; }
+  static get is() { return 'things-shell-player'; }
 
   static get template() {
     return html`
-      <style include="shared-styles">
+      <style>
       :host {
         display: block;
         width: 100%;
@@ -119,4 +119,4 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
   }
 }
 
-customElements.define(ThingsScenePlayer.is, ThingsScenePlayer);
+customElements.define(ThingsShellPlayer.is, ThingsShellPlayer);

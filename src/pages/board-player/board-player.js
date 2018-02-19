@@ -10,6 +10,7 @@ import '../../components/paper-fab-speed-dial/paper-fab-speed-dial';
 import '../../components/things-shell/things-shell';
 import '../../layouts/page-toolbar/page-toolbar';
 
+import '../../components/things-shell/things-shell-player';
 import '../../components/things-player/things-player-carousel';
 import '../../components/things-player/things-player-cube';
 import '../../components/things-player/things-player-flipcard';
@@ -21,7 +22,6 @@ import style from './style.css';
 import template from './html.template';
 
 import './board-player-dialog';
-import './things-scene-player';
 
 class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
