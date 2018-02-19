@@ -66,7 +66,7 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
     this.previewModel = JSON.parse(JSON.stringify(this.scene.model));
 
     /*
-     * paper-dialog appears behind backdrop when inside a <app-header-layout
+     * paper-dialog appears behind backdrop when inside a <app-header-layout ..
      * https://github.com/PolymerElements/paper-dialog/issues/152
      **/
 
@@ -74,9 +74,10 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
 
     preview.style.width = '100%';
     preview.style.height = '100%';
+    preview.style.margin = '0';
+    preview.style.padding = '0';
     preview.model = this.previewModel;
     preview.provider = this.provider;
-    preview.fit = 'ratio';
 
     var dialog = document.createElement('paper-dialog');
 
