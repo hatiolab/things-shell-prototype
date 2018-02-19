@@ -1,7 +1,6 @@
 <app-toolbar>
-  <div main-title>
-    <things-i18n-msg msgid="label.board-groups">Board Groups</things-i18n-msg>
-  </div>
+  <iron-icon src="assets/logo.png"></iron-icon>
+  <h3 main-title>&nbsp;Things Board</h3>
 </app-toolbar>
 
 <app-toolbar class="setting-menu" on-click="onRouteSetting">

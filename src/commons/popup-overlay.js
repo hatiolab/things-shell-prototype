@@ -1,5 +1,5 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {IronOverlayBehavior} from '@polymer/iron-overlay-behavior/iron-overlay-behavior';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { IronOverlayBehavior } from '@polymer/iron-overlay-behavior/iron-overlay-behavior';
 
 /**
 @license
