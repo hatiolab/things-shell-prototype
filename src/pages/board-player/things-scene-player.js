@@ -44,9 +44,7 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
         type: String,
         value: 'ratio'
       },
-      provider: {
-        type: Object
-      }
+      provider: Object
     }
   }
 
@@ -81,7 +79,7 @@ class ThingsScenePlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
   _releaseRef() {
     if (this.scene) {
       this.scene.target = null;
-      this.scene.release()
+      this.scene.release();
       delete this.scene
     }
   }
