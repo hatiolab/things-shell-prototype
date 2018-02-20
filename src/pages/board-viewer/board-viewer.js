@@ -15,7 +15,7 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     <page-toolbar>
     </page-toolbar>
 
-    <things-shell id='scene' model='[[$model]]' provider='[[provider]]' fit='ratio'>
+    <things-shell id='scene' name='viewer' model='[[$model]]' provider='[[provider]]' fit='ratio'>
     </things-shell>
     `;
   }

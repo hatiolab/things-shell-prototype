@@ -142,9 +142,9 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
     }
   }
 
-  resize() {
+  resize(force) {
     if (this.scene) {
-      if (this.fit === 'both' || Math.abs((this.offsetWidth - (this.lastOffsetWidth || 0))) >= 1) {
+      if (force || this.fit === 'both' || Math.abs((this.offsetWidth - (this.lastOffsetWidth || 0))) >= 1) {
         requestAnimationFrame(() => {
           this.scene.resize();
           this._fit();
@@ -187,7 +187,7 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
      * 이 때는 정상적으로 그려주고,
      * 그렇지 않으면, 다음 Resize Handling시에 처리하도록 한다.
      */
-    this.resize();
+    this.resize(true);
 
     this.variables = model.variables || this.scene.variables;
 
