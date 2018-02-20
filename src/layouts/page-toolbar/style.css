@@ -45,6 +45,14 @@ paper-button {
   margin:0 4px;
 }
 
-app-toolbar paper-icon-button {
+app-toolbar > paper-icon-button {
   --paper-icon-button-ink-color: white;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  margin: 0;
+}
+
+span.space {
+  width: 10px;
 }

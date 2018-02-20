@@ -42,6 +42,10 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
       boardGroupCurrent: {
         type: Object,
         statePath: 'boardGroupCurrent'
+      },
+      drawerCollapsed: {
+        type: Boolean,
+        statePath: 'drawer.collapsed'
       }
     }
   }
@@ -62,6 +66,12 @@ class ShellDrawer extends ReduxMixin(PolymerElement) {
     var route = e.target.getAttribute('data-route');
 
     this.dispatch(setRoute(route));
+  }
+
+  onClickLogo(e) {
+    this.dispatch({
+      type: 'CLOSE-DRAWER'
+    })
   }
 
   onBoardGroupChanged(boardGroupCurrent, boardGroupList) {

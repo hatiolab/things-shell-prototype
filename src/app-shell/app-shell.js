@@ -109,11 +109,13 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
         type: Object,
         statePath: 'user'
       },
-      narrow: {
+      /* drawer의 상태를 반영함 */
+      drawerOpened: {
         type: Boolean,
-        value: false
+        observer: 'onDrawerOpenedChanged'
       },
-      collpased: {
+      /* drawer가 되어야하는 상태를 지시함 */
+      collapsed: {
         statePath: 'drawer.collapsed',
         observer: 'onDrawerCollapsedChanged'
       },
@@ -127,11 +129,6 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
   }
 
   _onRouteDataChanged(routeData) {
-    // console.log('_onRouteDataChanged', routeData, this.subroute);
-    // // this.dispatch(followRouteChange(routeData.page, routeData.id));
-    // this.dispatch(followRouteChange(routeData.page, this.subroute.path.substring(1)));
-
-    // this.dispatch(fetchSettings("{hello}"));
   }
 
   _onSubrouteChanged(subroute) {
@@ -159,7 +156,6 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
       this.$.drawerlayout.drawer.close();
     }
 
-
     // var resolvedPageUrl = this.resolveUrl('./src/things-' + page + '.js');
 
     // import(resolvedPageUrl)
@@ -167,8 +163,28 @@ class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerE
     // .catch(e => this._showPage404());
   }
 
+  onDrawerOpenedChanged(opened) {
+    if (typeof (this.collapsed) === 'undefined' || opened == !this.collapsed)
+      return;
+
+    this.dispatch({
+      type: opened ? 'OPEN-DRAWER' : 'CLOSE-DRAWER'
+    })
+  }
+
   onDrawerCollapsedChanged(collapsed) {
-    this.$.drawerlayout.drawer.toggle();
+
+    if (collapsed == !this.drawerOpened)
+      return;
+
+    var drawerlayout = this.$.drawerlayout;
+
+    if ((drawerlayout.forceNarrow && this.page != 'modeler') || !drawerlayout.narrow) {
+      drawerlayout.forceNarrow = collapsed;
+      requestAnimationFrame(() => dispatchEvent(new Event('resize')));
+    } else {
+      collapsed ? drawerlayout.drawer.close() : drawerlayout.drawer.open();
+    }
   }
 
   _showPage404() {

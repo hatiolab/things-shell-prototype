@@ -1,5 +1,5 @@
 <app-toolbar>
-  <iron-icon src="assets/logo.png"></iron-icon>
+  <iron-icon src="assets/logo.png" on-click="onClickLogo"></iron-icon>
   <h3 main-title>&nbsp;Things Board</h3>
 </app-toolbar>
 

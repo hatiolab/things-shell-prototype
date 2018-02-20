@@ -16,7 +16,7 @@
 <app-drawer-layout id="drawerlayout" fullbleed narrow="{{narrow}}"
   disable-swipe>
   <!-- Drawer content -->
-  <app-drawer slot="drawer">
+  <app-drawer slot="drawer" opened="{{drawerOpened}}">
     <shell-drawer></shell-drawer>
   </app-drawer>
 

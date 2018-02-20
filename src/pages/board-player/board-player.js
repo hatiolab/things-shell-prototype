@@ -50,7 +50,11 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
       playtime: {
         value: 30
       },
-      provider: Object
+      provider: Object,
+      drawerCollapsed: {
+        type: Boolean,
+        statePath: 'drawer.collapsed'
+      }
     }
   }
 
@@ -117,12 +121,25 @@ class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResiz
   }
 
   _onTapFullscreen() {
+    var collapsed = this.drawerCollapsed;
+
+    if (!collapsed) {
+      this.dispatch({
+        type: 'CLOSE-DRAWER'
+      })
+    }
+
     fullscreen(this.currentPlayer, () => {
       this.$.fab.hidden = true;
       this.$['player-area'].focus();
     }, () => {
       this.$.fab.hidden = false;
       this.$['player-area'].focus();
+      if (!collapsed) {
+        this.dispatch({
+          type: 'OPEN-DRAWER'
+        });
+      }
     })
   }
 

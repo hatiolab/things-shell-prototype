@@ -29,6 +29,10 @@ class PageToolbar extends ReduxMixin(PolymerElement) {
       user: {
         type: Object,
         statePath: 'user'
+      },
+      drawerCollapsed: {
+        type: Boolean,
+        statePath: 'drawer.collapsed'
       }
     }
   }
