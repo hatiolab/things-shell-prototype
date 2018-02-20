@@ -90,7 +90,7 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
       name: {
         type: String,
         value() {
-          return 'viewer';
+          return 'noname';
         }
       }
     };
