@@ -551,8 +551,10 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
   }
 
   onTapFitScene(e) {
-    this.scene.resize();
-    this.scene.fit('ratio');
+    if (this.scene) {
+      this.scene.resize();
+      this.scene.fit('ratio');
+    }
   }
 
   onTapPreview(e) {

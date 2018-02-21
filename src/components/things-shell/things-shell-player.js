@@ -57,7 +57,7 @@ class ThingsShellPlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
           this.scene.resize();
 
           if (this.offsetWidth) {
-            this._fit();
+            this.scene.fit(this.fit);
           }
         }
       });
@@ -93,29 +93,20 @@ class ThingsShellPlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
     if (!this.sceneName)
       return
 
-    var self = this;
-
     this.provider.get(this.sceneName, true)
-      .then(function (scene) {
+      .then(scene => {
 
-        self.scene = scene
-        self.scene.target = self.$.root;
+        this.scene = scene
+        this.scene.target = this.$.root;
 
         /* 이 컴포넌트의 폭이 값을 가지고 있으면 - 화면상에 자리를 잡고 보여지고 있음을 의미한다.
         * 이 때는 정상적으로 그려주고,
         * 그렇지 않으면, 다음 Resize Handling시에 처리하도록 한다.
         */
-        if (self.$.root.offsetWidth)
-          self._fit()
-      }, function (e) {
+        if (this.$.root.offsetWidth)
+          this.scene.fit(this.fit);
+      }, e => {
       })
-  }
-
-  _fit() {
-    if (!this.scene)
-      return;
-
-    this.scene.fit(this.fit);
   }
 }
 

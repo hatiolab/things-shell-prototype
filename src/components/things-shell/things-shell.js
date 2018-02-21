@@ -146,8 +146,10 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
     if (this.scene) {
       if (force || this.fit === 'both' || Math.abs((this.offsetWidth - (this.lastOffsetWidth || 0))) >= 1) {
         requestAnimationFrame(() => {
-          this.scene.resize();
-          this._fit();
+          if (this.scene) {
+            this.scene.resize();
+            this.scene.fit(this.fit);
+          }
         })
       }
 
@@ -225,14 +227,6 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
     }
 
     this.scene.data = data;
-  }
-
-  _fit() {
-    if (!this.scene) {
-      return;
-    }
-
-    this.scene.fit(this.fit);
   }
 
   _onSelectedChanged(after) {
