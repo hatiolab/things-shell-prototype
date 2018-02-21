@@ -33,9 +33,6 @@ paper-tabs{
   border-width:1px 1px 0 1px;
 }
 
-paper-tabs::shadow #selectionBar.paper-tabs{
-  background-color:transparent;
-}
 paper-tab{
   background-color:rgba(0,0,0,.2);
   border:1px solid rgba(0,0,0,.07);
@@ -44,17 +41,21 @@ paper-tab{
   color:#fff;
   font-size:13px;
 }
+
 paper-tab[disabled]{
   background-color:rgba(0,0,0,.1);
 }
+
 paper-tab:last-child{
   border-width:0;
 }
+
 paper-tab.iron-selected{
   background-color:rgba(255,255,255,.5);
   color:#585858;
 }
-[has-set]:before{
+
+[has-set]::before{
   content:"";
   position:relative;
   left:3px;

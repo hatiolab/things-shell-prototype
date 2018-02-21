@@ -18,7 +18,7 @@ export default class BoardPreview extends mixinBehaviors([IronResizableBehavior]
         flex-direction: column;
       }
 
-      things-shell {
+      things-scene-viewer {
         flex: 1;
         background-color: white;
       }

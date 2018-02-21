@@ -75,7 +75,10 @@
 - paper-color-picker
   - polymer 3 작업
   - things-editor-color 에서 활용할 때, paper-color-picker를 동적으로 생성하고 사용후 소멸시키도록 함.
-- things-shell
+- paper-tree
+- paper-fab-speed-dial
+- things-scene-viewer
+- things-player
 - things-editor-xxxx
   - things-editor-properties와 things-editor-property 이벤트 연결 관계 단순화 작업
   - things-editor-script 를 대체할 수 있는 things-editor-code 를 추가
@@ -101,7 +104,8 @@
 - shadow-dom v1에 맞게 selector 작업
 - :before => ::before
 - /deep/ ::shadow 제거 => ::slotted(..) 적용
-- 작업할 것 많이 남음.
+- :host.. => :host(..)
+- display: grid 적용
 ## [ 기타 ]
 ### ace-builds => codemirror
 - ace-builds의 API 복잡성때문에 대안으로 codemirror를 적용하여 things-editor-code 라는 컴포넌트를 추가함.

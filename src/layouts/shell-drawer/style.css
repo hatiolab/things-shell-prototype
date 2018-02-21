@@ -13,7 +13,7 @@ app-toolbar.setting-menu {
   background-color: var(--secondary-color);
 }
 
-app-toolbar iron-icon {
+[logo] {
   width: 45px;
   height: 45px;
 }

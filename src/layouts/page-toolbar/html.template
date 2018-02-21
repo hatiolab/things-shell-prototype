@@ -1,12 +1,12 @@
 <app-toolbar>
 
-  <paper-icon-button src="assets/logo.png" on-click="onDrawerToggler"
-    hidden=[[!drawerCollapsed]]></paper-icon-button>
+  <img src="assets/logo.png" on-click="onDrawerToggler" hidden=[[!drawerCollapsed]]
+    logo></img>
   <span class="space"></span>
 
   <slot></slot>
   <div class="padding"></div>
-  <iron-icon icon="social:person" title="acting"></iron-icon>
+  <iron-icon icon="social:person" title="acting" user></iron-icon>
   <paper-menu-button>
     <paper-button label="user" slot="dropdown-trigger">[[user.name]]</paper-button>
     <paper-listbox slot="dropdown-content">

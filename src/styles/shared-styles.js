@@ -73,7 +73,7 @@ div.innerHTML = `
       padding:3px 9px;
       width:80px;
     }
-    /*.line-type.solid::shadow paper-listbox-button::shadow .paper-input-container input{background-position:50%    10px}*/
+
     .line-type paper-item.solid             {background-position:50%    10px}
     .line-type paper-item.round-dot         {background-position:50%   -40px}
     .line-type paper-item.square-dot        {background-position:50%   -90px}
