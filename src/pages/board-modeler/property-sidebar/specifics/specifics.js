@@ -11,8 +11,10 @@ import '../../../../components/things-editor-properties';
 
 class PropertySpecific extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     ${template}
   `;

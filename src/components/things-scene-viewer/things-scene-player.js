@@ -7,7 +7,7 @@ class ThingsShellPlayer extends mixinBehaviors([IronResizableBehavior], PolymerE
   static get is() { return 'things-scene-player'; }
 
   static get template() {
-    return html`
+    return `
       <style>
       :host {
         display: block;

@@ -47,8 +47,10 @@ import '../components/things-provider/things-provider';
 
 class AppShell extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return html`
-      <style include="shared-styles">${style}</style>
+    return `
+      <style include="shared-styles">
+      ${style}
+      </style>
 
       ${template}
     `;

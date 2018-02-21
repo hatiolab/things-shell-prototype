@@ -14,7 +14,7 @@ class PaperFabSpeedDial extends mixinBehaviors([NeonAnimationRunnerBehavior], Po
   static get is() { return 'paper-fab-speed-dial'; }
 
   static get template() {
-    return html`
+    return `
     <style>
       :host {
         display: flex;

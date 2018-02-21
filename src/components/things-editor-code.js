@@ -31,7 +31,7 @@ export default class ThingsEditorCode extends PolymerElement {
   }
 
   static get template() {
-    return html`
+    return `
       <style>
         :host {
           display: block;

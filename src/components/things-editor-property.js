@@ -33,7 +33,7 @@ class ThingsEditorProperty extends PolymerElement {
   static get is() { return 'things-editor-property'; }
 
   static get template() {
-    return html`
+    return `
     <style>
       :host {
         display: grid;

@@ -6,7 +6,7 @@ import style from './board-card-style.css';
 
 export default class BoardCard extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
+    return `
       <style>${style}</style>
 
       <div id="card">

@@ -8,8 +8,10 @@ import style from './style-group-card.css';
 
 export default class GroupCard extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     <div class="card">
       <h1>[[group.name]]</h1>

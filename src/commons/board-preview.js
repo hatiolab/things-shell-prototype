@@ -11,7 +11,7 @@ export default class BoardPreview extends mixinBehaviors([IronResizableBehavior]
   }
 
   static get template() {
-    return html`
+    return `
     <style>
       :host {
         display: flex;

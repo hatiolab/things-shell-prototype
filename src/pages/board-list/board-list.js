@@ -14,8 +14,10 @@ import BoardCard from './board-card';
 
 class BoardList extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     <page-toolbar>
       <things-i18n-msg msgid="label.keyword" msg="{{lKeyword}}" hidden></things-i18n-msg>

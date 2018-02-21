@@ -9,7 +9,7 @@ export default class ThingsShellLayer extends PolymerElement {
   }
 
   static get template() {
-    return html`
+    return `
       <slot select="things-scene-property"></slot>
     `;
   }

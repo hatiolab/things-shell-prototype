@@ -9,8 +9,10 @@ import '../../layouts/page-toolbar/page-toolbar';
 
 class BoardViewer extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     <page-toolbar>
     </page-toolbar>

@@ -11,7 +11,7 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 
 class BoardPlayerDialog extends mixinBehaviors([NeonAnimationRunnerBehavior, PaperDialogBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return html`
+    return `
     <style include="paper-dialog-shared-styles">
     :host {
       padding: 20px;

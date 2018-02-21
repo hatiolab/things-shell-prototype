@@ -8,8 +8,10 @@ import '../../components/things-scene-viewer/things-scene-viewer';
 
 class BoardInfo extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     <things-scene-viewer model='[[model]]' fit='ratio'>
     </things-scene-viewer>

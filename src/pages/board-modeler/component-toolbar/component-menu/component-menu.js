@@ -12,8 +12,10 @@ import { deepClone } from '../../../../commons/utils';
 
 class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return html`
-      <style include="shared-styles">${style}</style>
+    return `
+      <style include="shared-styles">
+      ${style}
+      </style>
 
       ${template}
     `;

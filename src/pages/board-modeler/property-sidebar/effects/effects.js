@@ -17,8 +17,10 @@ import '../../../../components/things-editor-animation';
 
 class PropertyEffects extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     ${template}
   `;

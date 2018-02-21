@@ -8,7 +8,7 @@ import style from './things-player-carousel.css';
 
 class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
+    return `
       <style>${style}</style>
 
       <div id="carousel">

@@ -20,8 +20,10 @@ import GroupCard from './group-card';
 
 class ShellDrawer extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-    <style include="shared-styles">${style}</style>
+    return `
+    <style include="shared-styles">
+    ${style}
+    </style>
 
     ${template}
     `;

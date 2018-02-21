@@ -32,7 +32,7 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
   static get is() { return 'things-editor-table'; }
 
   static get template() {
-    return html`
+    return `
     <style include="shared-styles">
       :host {
         display: block;

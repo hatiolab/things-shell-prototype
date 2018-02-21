@@ -18,7 +18,7 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
   }
 
   static get template() {
-    return html`<slot></slot>`;
+    return `<slot></slot>`;
   }
 
   static get properties() {

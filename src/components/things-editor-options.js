@@ -7,7 +7,7 @@ export default class ThingsEditorOptions extends PolymerElement {
   }
 
   static get template() {
-    return html`
+    return `
     <style>
     div {
       display: grid;

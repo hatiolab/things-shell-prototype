@@ -7,7 +7,7 @@ import style from './things-player-flipcard.css';
 
 class ThingsPlayerFlipcard extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
+    return `
       <style>${style}</style>
 
       <div id="card">

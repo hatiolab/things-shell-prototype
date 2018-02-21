@@ -25,8 +25,10 @@ import './board-player-dialog';
 
 class BoardPlayer extends mixinBehaviors([NeonAnimationRunnerBehavior, IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
-    return html`
-      <style include="shared-styles">${style}</style>
+    return `
+      <style include="shared-styles">
+      ${style}
+      </style>
 
       ${template}
     `;

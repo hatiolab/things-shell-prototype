@@ -8,7 +8,7 @@ export default class ThingsShellHandler extends PolymerElement {
   }
 
   static get template() {
-    return html`
+    return `
       <slot select="things-scene-property"></slot>
     `;
   }
