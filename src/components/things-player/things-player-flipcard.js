@@ -8,7 +8,9 @@ import style from './things-player-flipcard.css';
 class ThingsPlayerFlipcard extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-      <style>${style}</style>
+      <style>
+      ${style}
+      </style>
 
       <div id="card">
         <slot select="[front]"></slot>

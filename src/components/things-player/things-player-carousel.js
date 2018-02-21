@@ -9,7 +9,9 @@ import style from './things-player-carousel.css';
 class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-      <style>${style}</style>
+      <style>
+      ${style}
+      </style>
 
       <div id="carousel">
         <slot id="slot" select="[page]"></slot>

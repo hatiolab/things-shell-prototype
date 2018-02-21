@@ -8,7 +8,9 @@ import style from './things-player-grid.css';
 class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-      <style>${style}</style>
+      <style>
+      ${style}
+      </style>
 
       <slot select="[page]"></slot>
     `;

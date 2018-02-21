@@ -7,7 +7,9 @@ import style from './board-card-style.css';
 export default class BoardCard extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-      <style>${style}</style>
+      <style>
+      ${style}
+      </style>
 
       <div id="card">
         <div on-click="onClickViewer" front>

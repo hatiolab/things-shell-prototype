@@ -8,7 +8,9 @@ import style from './things-player-cube.css';
 class ThingsPlayerCube extends ReduxMixin(PolymerElement) {
   static get template() {
     return `
-      <style>${style}</style>
+      <style>
+      ${style}
+      </style>
 
       <div id="cube">
         <slot select="[page]"></slot>
