@@ -5,7 +5,6 @@ node_modules/
 test/
 boards/
 npm-debug.log
-.babel.rc
 .editorconfig
 .gitignore
 .git
@@ -13,3 +12,4 @@ npm-debug.log
 .travis.yml
 .yarnclean
 .DS_Store
+*.log
