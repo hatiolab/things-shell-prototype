@@ -1,6 +1,6 @@
 {
   "name": "@hatiolab/things-shell",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "things application shell",
   "main": "server/index.js",
   "license": "http://license.hatiolab.com/EULA",
