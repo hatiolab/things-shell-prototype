@@ -96,7 +96,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
     this.$['distribute-horizontal'].addEventListener('tap', this.onTapDistribute.bind(this));
     this.$['preview'].addEventListener('tap', this.onTapPreview.bind(this));
 
-    var modelerScene = this.parentNode.querySelector('things-shell');
+    var modelerScene = this.parentNode.querySelector('things-scene-viewer');
     var modelerHtoolbar = this;
 
     var userOS = this._isMacOS()// OS가 맥인지 확인

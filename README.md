@@ -59,7 +59,7 @@
 ### Component Migration
 #### 구조
 - 기존 things-designer-elements 의 editor 컴포넌트들은 프로젝트의 components 안에 내장함
-- things-scene-viewer 는 프로젝트의 components/things-shell 컴포넌트로 내장함
+- things-scene-viewer 는 프로젝트의 components/things-scene-viewer 컴포넌트로 내장함
 - paper-color-picker 는 프로젝트의 components/paper-color-picker 컴포넌트로 내장함
 - polymer 3를 위한 작업
   - hybrid 또는 polymer 2 모델로 마이그레이션

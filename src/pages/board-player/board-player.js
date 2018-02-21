@@ -7,10 +7,10 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 import '../../components/paper-fab-speed-dial/paper-fab-speed-dial';
-import '../../components/things-shell/things-shell';
+import '../../components/things-scene-viewer/things-scene-viewer';
 import '../../layouts/page-toolbar/page-toolbar';
 
-import '../../components/things-shell/things-shell-player';
+import '../../components/things-scene-viewer/things-scene-player';
 import '../../components/things-player/things-player-carousel';
 import '../../components/things-player/things-player-cube';
 import '../../components/things-player/things-player-flipcard';

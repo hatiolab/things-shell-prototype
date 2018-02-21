@@ -6,24 +6,24 @@
   <template is="dom-if" if="[[_isSame(transition, 'flip-card')]]"
     restamp>
     <things-player-flipcard axis="y" player>
-      <things-shell-player front scene-name="[[boardNames.0]]" fit="both"
+      <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
         provider="[[provider]]">
-      </things-shell-player>
-      <things-shell-player back scene-name="[[boardNames.1]]" fit="both"
+      </things-scene-player>
+      <things-scene-player back scene-name="[[boardNames.1]]" fit="both"
         provider="[[provider]]">
-      </things-shell-player>
+      </things-scene-player>
     </things-player-flipcard>
   </template>
 
   <template is="dom-if" if="[[_isSame(transition, 'flip-card2')]]"
     restamp>
     <things-player-flipcard-edge axis="y" player>
-      <things-shell-player front scene-name="[[boardNames.0]]" fit="both"
+      <things-scene-player front scene-name="[[boardNames.0]]" fit="both"
         provider="[[provider]]">
-      </things-shell-player>
-      <things-shell-player back scene-name="[[boardNames.1]]" fit="both"
+      </things-scene-player>
+      <things-scene-player back scene-name="[[boardNames.1]]" fit="both"
         provider="[[provider]]">
-      </things-shell-player>
+      </things-scene-player>
     </things-player-flipcard-edge>
   </template>
 
@@ -31,8 +31,8 @@
     restamp>
     <things-player-carousel axis="y" backface-visibility=false player>
       <template is='dom-repeat' items="[[boardNames]]">
-        <things-shell-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
-        </things-shell-player>
+        <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
+        </things-scene-player>
       </template>
     </things-player-carousel>
   </template>
@@ -40,8 +40,8 @@
   <template is="dom-if" if="[[_isSame(transition, 'grid')]]" restamp>
     <things-player-grid column="3" player>
       <template is='dom-repeat' items="[[boardNames]]">
-        <things-shell-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
-        </things-shell-player>
+        <things-scene-player page scene-name="[[item]]" fit="both" provider="[[provider]]">
+        </things-scene-player>
       </template>
     </things-player-grid>
   </template>

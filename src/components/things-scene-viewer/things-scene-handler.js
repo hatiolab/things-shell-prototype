@@ -1,15 +1,15 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import './things-shell-property';
+import './things-scene-property';
 
 export default class ThingsShellHandler extends PolymerElement {
   static get is() {
-    return 'things-shell-handler';
+    return 'things-scene-handler';
   }
 
   static get template() {
     return html`
-      <slot select="things-shell-property"></slot>
+      <slot select="things-scene-property"></slot>
     `;
   }
 
@@ -30,7 +30,7 @@ export default class ThingsShellHandler extends PolymerElement {
       type: this.type
     };
 
-    model = Array.from(this.querySelectorAll('things-shell-property'))
+    model = Array.from(this.querySelectorAll('things-scene-property'))
       .reduce((model, property) => {
         const name = property.getAttribute('name');
         const value = property.getAttribute('value');

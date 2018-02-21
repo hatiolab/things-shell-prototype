@@ -3,7 +3,7 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 export default class ThingsShellProperty extends PolymerElement {
 
   static get is() {
-    return 'things-shell-property';
+    return 'things-scene-property';
   }
 
   static get properties() {

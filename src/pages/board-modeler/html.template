@@ -8,29 +8,29 @@
   <component-toolbar scene="[[scene]]" mode="{{mode}}">
   </component-toolbar>
 
-  <things-shell id="scene" scene="{{scene}}" model="[[$model]]"
+  <things-scene-viewer id="scene" scene="{{scene}}" model="[[$model]]"
     selected="{{selected}}" mode="{{mode}}" fit="ratio" base-url="[[baseUrl]]"
     on-contextmenu="onContextMenu" provider="[[provider]]" name="modeler">
-    <things-shell-layer type="selection-layer"></things-shell-layer>
-    <things-shell-layer type="modeling-layer"></things-shell-layer>
-    <things-shell-layer type="guide-layer">
-      <things-shell-property name="ruler" value="disabled"></things-shell-property>
-    </things-shell-layer>
-    <things-shell-layer type="shift-layer">
-      <things-shell-property name="text" value="[[overlay]]"></things-shell-property>
-      <things-shell-property name="alpha" value=0.3></things-shell-property>
-      <things-shell-property name="fontFamily" value="arial"></things-shell-property>
-      <things-shell-property name="fontSize" value=30 type="number"></things-shell-property>
-      <things-shell-property name="fontColor" value="navy"></things-shell-property>
-      <things-shell-property name="textBaseline" value="top"></things-shell-property>
-      <things-shell-property name="textAlign" value="left"></things-shell-property>
-      <things-shell-property name="paddingTop" value=50 type="number"></things-shell-property>
-      <things-shell-property name="paddingLeft" value=50 type="number"></things-shell-property>
-    </things-shell-layer>
-    <things-shell-layer type="tag-layer"></things-shell-layer>
-    <things-shell-handler type="text-editor"></things-shell-handler>
-    <things-shell-handler type="move-handler"></things-shell-handler>
-  </things-shell>
+    <things-scene-layer type="selection-layer"></things-scene-layer>
+    <things-scene-layer type="modeling-layer"></things-scene-layer>
+    <things-scene-layer type="guide-layer">
+      <things-scene-property name="ruler" value="disabled"></things-scene-property>
+    </things-scene-layer>
+    <things-scene-layer type="shift-layer">
+      <things-scene-property name="text" value="[[overlay]]"></things-scene-property>
+      <things-scene-property name="alpha" value=0.3></things-scene-property>
+      <things-scene-property name="fontFamily" value="arial"></things-scene-property>
+      <things-scene-property name="fontSize" value=30 type="number"></things-scene-property>
+      <things-scene-property name="fontColor" value="navy"></things-scene-property>
+      <things-scene-property name="textBaseline" value="top"></things-scene-property>
+      <things-scene-property name="textAlign" value="left"></things-scene-property>
+      <things-scene-property name="paddingTop" value=50 type="number"></things-scene-property>
+      <things-scene-property name="paddingLeft" value=50 type="number"></things-scene-property>
+    </things-scene-layer>
+    <things-scene-layer type="tag-layer"></things-scene-layer>
+    <things-scene-handler type="text-editor"></things-scene-handler>
+    <things-scene-handler type="move-handler"></things-scene-handler>
+  </things-scene-viewer>
 
   <property-sidebar scene="[[scene]]" selected="[[selected]]" collapsed="[[hideProperty]]">
   </property-sidebar>

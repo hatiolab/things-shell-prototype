@@ -1,16 +1,16 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 
-import './things-shell-property';
+import './things-scene-property';
 
 export default class ThingsShellLayer extends PolymerElement {
 
   static get is() {
-    return 'things-shell-layer';
+    return 'things-scene-layer';
   }
 
   static get template() {
     return html`
-      <slot select="things-shell-property"></slot>
+      <slot select="things-scene-property"></slot>
     `;
   }
 
@@ -26,7 +26,7 @@ export default class ThingsShellLayer extends PolymerElement {
       type: this.type
     };
 
-    model = Array.from(this.querySelectorAll('things-shell-property'))
+    model = Array.from(this.querySelectorAll('things-scene-property'))
       .reduce((model, property) => {
         let value = property.value;
 

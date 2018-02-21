@@ -4,7 +4,7 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 
-import '../../components/things-shell/things-shell';
+import '../../components/things-scene-viewer/things-scene-viewer';
 import '../../layouts/page-toolbar/page-toolbar';
 
 class BoardViewer extends ReduxMixin(PolymerElement) {
@@ -15,8 +15,8 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     <page-toolbar>
     </page-toolbar>
 
-    <things-shell id='scene' name='viewer' model='[[$model]]' provider='[[provider]]' fit='ratio'>
-    </things-shell>
+    <things-scene-viewer id='scene' name='viewer' model='[[$model]]' provider='[[provider]]' fit='ratio'>
+    </things-scene-viewer>
     `;
   }
 

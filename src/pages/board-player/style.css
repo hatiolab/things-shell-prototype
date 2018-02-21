@@ -19,16 +19,16 @@
   flex: 1;
 }
 
-things-shell-player {
+things-scene-player {
   width: 100%;
   height: 100%;
 }
 
-things-shell-player[front] {
+things-scene-player[front] {
   background:black;
 }
 
-things-shell-player[back] {
+things-scene-player[back] {
   background:black;
 }
 

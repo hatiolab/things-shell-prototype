@@ -4,19 +4,15 @@ import { ReduxMixin } from '../../reducer/redux-mixin';
 
 import style from './style.css';
 
-import '../../components/things-shell/things-shell';
+import '../../components/things-scene-viewer/things-scene-viewer';
 
 class BoardInfo extends ReduxMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="shared-styles">${style}</style>
 
-    <things-shell model='[[model]]' fit='ratio'>
-      <!-- <things-shell-layer type="shift-layer"></things-shell-layer>
-        <things-shell-layer type="confidential-overlay">
-        <things-shell-property name="text" value="[[confidential]]"></things-shell-property>
-      </things-shell-layer> -->
-    </things-shell>
+    <things-scene-viewer model='[[model]]' fit='ratio'>
+    </things-scene-viewer>
     `;
   }
 

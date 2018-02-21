@@ -4,7 +4,7 @@ import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-res
 
 class ThingsShellPlayer extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
 
-  static get is() { return 'things-shell-player'; }
+  static get is() { return 'things-scene-player'; }
 
   static get template() {
     return html`

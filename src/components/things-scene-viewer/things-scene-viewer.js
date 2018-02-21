@@ -8,24 +8,17 @@ import './things-scene-components.import';
 
 import './confidential-overlay';
 
-import './things-shell-layer';
-import './things-shell-handler';
+import './things-scene-layer';
+import './things-scene-handler';
 
 export default class ThingsShell extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
 
   static get is() {
-    return 'things-shell';
+    return 'things-scene-viewer';
   }
 
   static get template() {
-    return html`
-    <style>
-      :host {
-        @apply(--things-shell);
-      }
-    </style>
-
-    <slot></slot>`;
+    return html`<slot></slot>`;
   }
 
   static get properties() {
@@ -164,10 +157,10 @@ export default class ThingsShell extends mixinBehaviors([IronResizableBehavior],
       return;
     }
 
-    const layers = Array.from(this.querySelectorAll('things-shell-layer'))
+    const layers = Array.from(this.querySelectorAll('things-scene-layer'))
       .map(layer => layer.getModel());
 
-    const handlers = Array.from(this.querySelectorAll('things-shell-handler'))
+    const handlers = Array.from(this.querySelectorAll('things-scene-handler'))
       .map(handler => handler.getAttribute('type'));
 
     this.scene = createScene({

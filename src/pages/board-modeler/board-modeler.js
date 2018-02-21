@@ -8,7 +8,7 @@ import template from './html.template';
 
 import { togglefullscreen } from '../../commons/utils';
 import '../../commons/board-preview';
-import '../../components/things-shell/things-shell';
+import '../../components/things-scene-viewer/things-scene-viewer';
 
 import './edit-toolbar/edit-toolbar';
 import './component-toolbar/component-toolbar';
