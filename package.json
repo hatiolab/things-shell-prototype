@@ -1,6 +1,6 @@
 {
   "name": "@hatiolab/things-shell",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "things application shell",
   "main": "server/index.js",
   "license": "http://license.hatiolab.com/EULA",
@@ -108,7 +108,6 @@
     "remark-cli": "^4.0.0",
     "remark-preset-github": "^0.0.7",
     "resolve": "^1.5.0",
-    "sortablejs": "^1.7.0",
     "spdy": "^3.4.7",
     "start-server-webpack-plugin": "^2.2.0",
     "style-loader": "^0.19.1",

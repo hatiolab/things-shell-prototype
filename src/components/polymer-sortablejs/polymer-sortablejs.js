@@ -1,5 +1,5 @@
 import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
-import Sortable from 'sortablejs/Sortable';
+import Sortable from './sortable';
 
 class SortableJS extends PolymerElement {
   static get template() {
