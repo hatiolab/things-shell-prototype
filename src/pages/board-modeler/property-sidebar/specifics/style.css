@@ -1,12 +1,15 @@
 label {
   display: block;
-  font-size: 1.0em;
+  margin: 10px;
+
   text-align: right;
-  margin: 0 10px;
+  font-size:1.0em;
+  color:#e46c2e;
+  text-transform:capitalize;
 }
 
 legend {
-  @apply(--things-property-fieldset-legend);
+  @apply(--things-fieldset-legend);
 }
 
 #pattern-set paper-button {

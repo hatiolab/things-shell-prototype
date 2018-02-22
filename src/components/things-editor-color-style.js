@@ -7,27 +7,12 @@ import './things-i18n-msg';
 import './things-editor-color';
 import './things-editor-gradient';
 import './things-editor-pattern';
-/**
-@license
-Copyright © HatioLab Inc. All rights reserved.
-*/
-/**
-An element providing a solution to no problem in particular.
 
-Example:
-
-    <things-editor-color-style value="{{colorStyle}}">
-    </things-editor-color-style>
-
-@demo demo/index-editor-color-style.html
-@hero hero.svg
-*/
 Polymer({
   _template: `
     <style>
       :host {
         display: block;
-        @apply(--things-editor-color-style)
       }
 
       paper-radio-button {

@@ -1,5 +1,5 @@
 <label>
-  [ for [[model.type]] ]
+  [[model.type]]
 </label>
 
 <things-editor-properties target="{{model}}" props="[[props]]"></things-editor-properties>

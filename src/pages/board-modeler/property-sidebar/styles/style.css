@@ -1,9 +1,9 @@
 fieldset {
-  @apply(--things-property-fieldset);
+  @apply(--things-fieldset);
 }
 
 fieldset legend {
-  @apply(--things-property-fieldset-legend);
+  @apply(--things-fieldset-legend);
 }
 
 .property-grid {

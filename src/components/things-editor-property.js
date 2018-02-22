@@ -4,14 +4,9 @@ import './things-i18n-msg';
 import './things-editor-color';
 import './things-editor-color-stops';
 import './things-editor-multiple-color';
-import './things-editor-color-style';
 import './things-editor-number-input';
 import './things-editor-angle-input';
-import './things-editor-increase-pattern';
-import './things-editor-location-increase-pattern';
-import './things-editor-legend-status';
 import './things-editor-table';
-import './things-editor-action';
 import './things-editor-code';
 import './things-editor-options';
 
@@ -39,7 +34,6 @@ class ThingsEditorProperty extends PolymerElement {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-gap: 5px;
-        grid-auto-rows: minmax(24px, auto);
       }
 
       :host > * {
@@ -49,7 +43,14 @@ class ThingsEditorProperty extends PolymerElement {
 
       label {
         grid-column: 1 / 4;
+
+        display: inline-block;
+
+        color:var(--primary-text-color);
+        font-size: 0.8em;
+        line-height: 2.0;
         text-transform: capitalize;
+        text-align: right;
       }
 
       input[type=checkbox] ~ label {
@@ -58,8 +59,14 @@ class ThingsEditorProperty extends PolymerElement {
       }
 
       legend {
+        @apply(--things-fieldset-legend);
+
         grid-column: 1 / 11;
+
+        display: inline-block;
+
         text-transform: capitalize;
+        text-align: left;
       }
 
       things-editor-color-stops, things-editor-code, things-editor-table, things-editor-chartjs-properties, things-editor-options {
@@ -68,33 +75,10 @@ class ThingsEditorProperty extends PolymerElement {
       }
 
       input[type=checkbox] {
-        display: inline-block;
         grid-column: 4 / 5;
-        width: 15px;
-      }
 
-      label {
-        display: inline-block;
-        text-align: right;
+        margin: 6px;
       }
-
-      legend {
-        display: inline-block;
-        text-align: left;
-
-        @apply(--things-property-fieldset-legend);
-        padding-bottom:7px
-      }
-/*
-      :host > input {
-        @apply(--things-input);
-      }
-
-      select {
-        @apply(--things-select);
-        background: url(./assets/images/bg-input-select.png) 100% 50% no-repeat #fff;
-      }
-*/
     </style>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'legend')]]" restamp>
@@ -112,7 +96,6 @@ class ThingsEditorProperty extends PolymerElement {
         <input>
       </things-editor-angle-input>
     </template>
-
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'string')]]" restamp>
       <input id="editor" type="text" value="{{value::change}}" placeholder="[[placeholder]]">
@@ -155,10 +138,6 @@ class ThingsEditorProperty extends PolymerElement {
       <things-editor-chartjs-properties id="editor" values="{{value}}">
     </things-editor-chartjs-properties></template>
 
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'action')]]" restamp>
-      <things-editor-action id="editor" icon="[[property.icon]]" action="[[property.action]]">
-    </things-editor-action></template>
-
     <template is="dom-if" if="[[_isTypeofEditor(type, 'image-selector')]]" restamp>
       <input id="editor" value="{{value::change}}"></input>
     </template>
@@ -173,14 +152,6 @@ class ThingsEditorProperty extends PolymerElement {
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'date')]]" restamp>
       <input type="date" value="{{value::change}}" placeholder="[[placeholder]]">
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'location-increase-pattern')]]" restamp>
-      <things-editor-location-increase-pattern id="editor"></things-editor-location-increase-pattern>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'legend-status')]]" restamp>
-      <things-editor-legend-status id="editor" value="{{value}}"></things-editor-legend-status>
     </template>
 
     <template is="dom-if" if="[[label]]" restamp>

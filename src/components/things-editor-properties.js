@@ -32,51 +32,20 @@ class ThingsEditorProperties extends PolymerElement {
   static get template() {
     return `
     <style>
-      :host {
-        display: block;
-      }
-      fieldset, fieldset{
-        @apply(--things-property-fieldset);
-      }
-      label{
-        @apply(--things-label);
-        width:35%
-      }
-      input{
-        @apply(--things-input);
-        width:55%
-      }
-      legend{
-        @apply(--things-property-fieldset-legend);
-        padding-bottom:7px
-      }
-      input[type="checkbox"]{
-        width:15px;
-      }
-      .full-width > * {
-        float:left;
-      }
-      .full-width > input, .full-width > things-editor-number-input {
-        width:32.4%;
-      }
       things-editor-property {
-        margin: 5px 0 5px 0;
+        margin: 5px;
       }
     </style>
 
-    <slot></slot>
-
-    <fieldset>
-      <template id="dom-repeater" is="dom-repeat" items="[[props]]" on-dom-change="_onDomBuilt">
-        <things-editor-property label="[[item.label]]"
-                                type="[[item.type]]"
-                                name$="[[item.name]]"
-                                placeholder="[[item.placeholder]]"
-                                observe="[[item.observe]]"
-                                property="[[item.property]]">
-        </things-editor-property>
-      </template>
-    </fieldset>
+    <template id="dom-repeater" is="dom-repeat" items="[[props]]" on-dom-change="_onDomBuilt">
+      <things-editor-property label="[[item.label]]"
+                              type="[[item.type]]"
+                              name$="[[item.name]]"
+                              placeholder="[[item.placeholder]]"
+                              observe="[[item.observe]]"
+                              property="[[item.property]]">
+      </things-editor-property>
+    </template>
     `;
   }
 
@@ -107,7 +76,7 @@ class ThingsEditorProperties extends PolymerElement {
   }
 
   _onDomBuilt() {
-    this._setValues()
+    this._setValues();
   }
 
   _setValues() {

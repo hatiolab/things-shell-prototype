@@ -28,17 +28,9 @@ class PropertySpecific extends ReduxMixin(PolymerElement) {
         notify: true
       },
 
-      scene: {
-        type: Object
-      },
-
-      selected: {
-        type: Array
-      },
-
-      props: {
-        type: Array
-      }
+      scene: Object,
+      selected: Array,
+      props: Array
     }
   }
 

@@ -1,22 +1,6 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
-/**
-@license
-Copyright © HatioLab Inc. All rights reserved.
-*/
-/**
-스택 구조를 편집하는 컴포넌트이다.
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 
-새로운 층을 쌓거나 제거할 수 있으며, 기존 층의 상하 위치를 변경할 수 있다.
-
-Example:
-
-    <things-editor-stack stack="{{stack}}">
-    </things-editor-stack>
-
-@demo demo/index-editor-stack.html
-@hero hero.svg
-*/
 Polymer({
   _template: `
     <style>

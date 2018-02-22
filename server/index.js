@@ -10,7 +10,7 @@ var config = require('../webpack.config.js'),
   compiler = webpack(config);
 
 var DIST_DIR = config.output.path,
-  PORT = 3000,
+  PORT = 3001,
   app = express(),
   router = express.Router(),
   currentApp = app;
@@ -52,4 +52,4 @@ require('./api')(app, {});
 
 app.use(router);
 
-app.listen(PORT, () => console.log('listening on 3000'));
+app.listen(PORT, () => console.log('listening on', PORT));

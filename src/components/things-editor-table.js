@@ -40,13 +40,13 @@ class ThingsEditorTable extends mixinBehaviors([IronResizableBehavior], PolymerE
       }
 
       fieldset {
-        @apply(--things-property-fieldset);
-        padding: 10px 0 10px 0;
+        @apply(--things-fieldset);
+        padding: 0 0 10px 0;
         margin: 0 0 10px 0;
       }
 
       fieldset legend {
-        @apply(--things-property-fieldset-legend);
+        @apply(--things-fieldset-legend);
       }
 
       .icon-only-label {
