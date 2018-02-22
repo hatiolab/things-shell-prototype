@@ -1,3 +1,10 @@
+label {
+  display: block;
+  font-size: 1.0em;
+  text-align: right;
+  margin: 0 10px;
+}
+
 legend {
   @apply(--things-property-fieldset-legend);
 }
@@ -7,7 +14,8 @@ legend {
   display:block;
   float:left;
   margin:0 7px 10px 0 !important;
-  width:55px;height:40px;
+  width:55px;
+  height:40px;
   min-width:inherit;
 }
 

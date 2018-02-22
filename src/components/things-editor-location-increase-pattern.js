@@ -1,5 +1,5 @@
-import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn';
-import {IronResizableBehavior} from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn';
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 import '@polymer/paper-item/paper-item';
 import '@polymer/iron-icons/editor-icons';
@@ -35,6 +35,7 @@ Polymer({
     <legend>
       <things-i18n-msg msgid="label.location-increase-pattern" auto="">Increase Pattern</things-i18n-msg>
     </legend>
+
     <label>
       <things-i18n-msg msgid="label.start-section" auto="">Start Section</things-i18n-msg>
     </label>

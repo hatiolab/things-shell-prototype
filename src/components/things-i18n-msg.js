@@ -9,7 +9,8 @@ class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(Pol
   static get properties() {
     return {
       msgid: {
-        type: String
+        type: String,
+        observer: 'onChange'
       },
       msg: {
         notify: true
