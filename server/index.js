@@ -46,6 +46,7 @@ router.get('/:page/:id', function (req, res) {
 });
 
 //Serving the files on the root folder
+app.use(express.static(process.cwd()));
 app.use(express.static(ROOT_DIR));
 
 require('./api')(app, {});
