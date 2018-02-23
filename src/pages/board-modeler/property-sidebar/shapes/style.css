@@ -18,15 +18,11 @@ legend{
 }
 
 .checkbox-row > input {
-  grid-column: span 1;
-}
-
-.checkbox-row > input:first-of-type {
   grid-column: 4 / 5;
 }
 
 .checkbox-row > label {
-  grid-column: span 2;
+  grid-column: span 6;
   text-align: left;
 }
 

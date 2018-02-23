@@ -75,10 +75,10 @@
     </legend>
 
     <div class="property-grid">
-      <label>
+      <input type="checkbox" checked="{{event.hover.emphasize::change}}"></input>
+      <label class="checkbox-label">
         <things-i18n-msg msgid="label.emphasize" auto>emphasize</things-i18n-msg>
       </label>
-      <input type="checkbox" checked="{{event.hover.emphasize::change}}"></input>
 
       <label>
         <things-i18n-msg msgid="label.info-window" auto>info window</things-i18n-msg>

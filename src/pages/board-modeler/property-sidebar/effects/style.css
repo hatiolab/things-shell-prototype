@@ -17,6 +17,15 @@ fieldset legend {
   line-height: 1.5;
 }
 
+.property-grid input[type=checkbox] {
+  grid-column: 4 / 5;
+}
+
+.property-grid > label.checkbox-label {
+  grid-column: span 6;
+  text-align: left;
+}
+
 .property-grid > label {
   grid-column: span 3;
   text-align: right;

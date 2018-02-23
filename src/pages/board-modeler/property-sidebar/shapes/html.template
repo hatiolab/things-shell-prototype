@@ -40,8 +40,7 @@
           <things-i18n-msg msgid="label.item-hidden" auto>Item Hidden</things-i18n-msg>
         </label>
 
-        <input type="checkbox" checked="{{model.locked::change}}" required
-          style="margin-left:20px">
+        <input type="checkbox" checked="{{model.locked::change}}" required>
         <label>
           <things-i18n-msg msgid="label.locked" auto>Locked</things-i18n-msg>
         </label>

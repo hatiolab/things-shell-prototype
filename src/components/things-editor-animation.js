@@ -46,6 +46,15 @@ Polymer({
         grid-column: span 7;
       }
 
+      :host > input[type=checkbox] {
+        grid-column: 4 / 5;
+      }
+
+      :host > label.checkbox-label {
+        grid-column: span 6;
+        text-align: left;
+      }
+
     </style>
 
     <label><things-i18n-msg msgid="label.waiting-time" auto>waiting time</things-i18n-msg></label>
@@ -108,8 +117,8 @@ Polymer({
       <input required value="{{animation.rideOn::change}}">
     </template>
 
-    <label><things-i18n-msg msgid="label.repeat" auto>repeat</things-i18n-msg></label>
     <input type="checkbox" checked="{{animation.repeat::change}}"></input>
+    <label class="checkbox-label"><things-i18n-msg msgid="label.repeat" auto>repeat</things-i18n-msg></label>
   `,
 
   is: 'things-editor-animation',
