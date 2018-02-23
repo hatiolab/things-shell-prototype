@@ -69,7 +69,6 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
     window.addEventListener('paste', e => {
       this.cliped = e.clipboardData.getData('text/plain');
-      console.log('onSystemPaste', e, this.cliped)
     });
 
     this.$['align-left'].addEventListener('tap', this.onTapAlign.bind(this));
@@ -389,7 +388,6 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
   }
 
   onTapPaste(e) {
-    console.log('onTapPaste', this, this.cliped)
     setTimeout(() => {
       this.scene && this.scene.paste(this.cliped)
     }, 100);
