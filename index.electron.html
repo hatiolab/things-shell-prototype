@@ -1,48 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
 
-    <title>Things Shell Electron App.</title>
+<head>
 
-    <base href="./">
+  <title>Things Shell Electron App.</title>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-      }
+  <base href="./">
+
+  <script src="./licenses/things-lic.js"></script>
+  <script src="./libs/smart-datagrid-product.min.js"></script>
+
+  <script src="./node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js"></script>
+  <script src="./node_modules/web-animations-js/web-animations-next.min.js"></script>
+
+  <script src="./node_modules/aframe/dist/aframe.js"></script>
+
+  <script>
+    // require("./src/index.js");
+    require("./dist/bundle.js");
+  </script>
+
+  <custom-style>
+    <style include="things-shell-theme">
     </style>
+  </custom-style>
 
-    <script src="./licenses/things/things-lic.js"></script>
-    <script src="./licenses/grid/dataludi-lic-production.js"></script>
-    <script src="./libs/smart-datagrid-product.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-color: #eeeeee;
+    }
+  </style>
 
-    <script src="./node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js"></script>
-    <script src="./node_modules/web-animations-js/web-animations-next.min.js"></script>
+</head>
 
-    <script>
-      // require("./src/index.js");
-      require("./dist/bundle.js");
-    </script>
+<body fullbleed>
+  <app-shell>
+    Loading..
+  </app-shell>
 
-    <custom-style>
-      <style include="things-shell-theme">
-      </style>
-    </custom-style>
+  <noscript>
+    Please enable JavaScript to view this website.
+  </noscript>
 
-  </head>
-  <body fullbleed>
-    <app-shell>
-      Loading..
-    </app-shell>
-
-    <noscript>
-      Please enable JavaScript to view this website.
-    </noscript>
-
-  </body>
+</body>
 
 </html>

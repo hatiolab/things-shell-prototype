@@ -67,6 +67,11 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
   ready() {
     super.ready();
 
+    window.addEventListener('paste', e => {
+      this.cliped = e.clipboardData.getData('text/plain');
+      console.log('onSystemPaste', e, this.cliped)
+    });
+
     this.$['align-left'].addEventListener('tap', this.onTapAlign.bind(this));
     this.$['align-center'].addEventListener('tap', this.onTapAlign.bind(this));
     this.$['align-right'].addEventListener('tap', this.onTapAlign.bind(this));
@@ -105,21 +110,8 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
     modelerScene.addEventListener('keydown', e => {
       this.onShortcut(e, userOS)
-      // e.stopPropagation()
-      e.preventDefault()
-      modelerScene.focus()
+      modelerScene.focus();
     })
-
-    // modelerHtoolbar.$['page-toolbar'].addEventListener('keydown', e => {
-    //   this.onShortcut(e, userOS)
-    //   e.stopPropagation()
-    //   e.preventDefault()
-    //   modelerScene.focus()
-    // })
-
-    window.addEventListener('paste', e => {
-      this.cliped = e.clipboardData.getData('text/plain');
-    });
   }
 
   _isMacOS() {
@@ -247,6 +239,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
       case 'KeyS':
         if (ctrlKey) {
           this.onTapSave();
+          e.preventDefault();
         }
         break
       case 'KeyP':
@@ -396,7 +389,10 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
   }
 
   onTapPaste(e) {
-    this.scene && this.scene.paste(this.cliped)
+    console.log('onTapPaste', this, this.cliped)
+    setTimeout(() => {
+      this.scene && this.scene.paste(this.cliped)
+    }, 100);
   }
 
   onTapDelete(e) {
