@@ -1,52 +1,52 @@
-var resolve = require('resolve');
-
+const resolve = require('resolve');
 const path = require('path');
 const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-  var thingsDir = path.resolve(__dirname, '../node_modules/@things-elements');
-  const components = [];
+  const component_folders = [];
 
   const options = loaderUtils.getOptions(this) || {};
   const excludes = options.excludes || [];
-  if (options.module_path) {
-    thingsDir = path.resolve(options.module_path, '@things-elements');
+
+  var module_path = options.module_path
+    ? options.module_path
+    : path.resolve(__dirname, '../node_modules');
+
+  try {
+    const thingsdir = path.resolve(module_path, '@things-elements');
+    const folders = fs.readdirSync(thingsdir);
+
+    /**
+     * package.json의 things-shell 속성이 truthy 인 경우를 필터링한다.
+     */
+    folders.forEach(folder => {
+      try {
+        const pkg = require(path.resolve(thingsdir, folder, 'package.json'));
+        pkg['things-shell'] && component_folders.push(path.resolve(thingsdir, folder));
+      } catch (e) {
+        console.warn(e);
+      }
+    });
+  } catch (e) {
+    console.warn('@things-elements module folder not found.', e);
   }
 
-  /**
-   * package.json의 things-shell 속성이 truthy 인 경우를 필터링한다.
-   * things-shell 값이 true 이면, require할 file name을 things-shell.config.js 로 하고,
-   * 그 외에는 things-shell 의 값으로 한다.
-   *
-   * 이 결과로는
-   */
   try {
-    const folders = fs.readdirSync(thingsDir);
-
-    folders.forEach(function (folder) {
-      let pkg = require(path.resolve(thingsDir, folder, 'package.json'));
-      pkg['things-shell'] && components.push(pkg.name);
-    });
-
     /* 현재폴더의 package.json을 보고 추가한다. */
     const cwd = process.cwd();
-    let pkg = require(path.resolve(cwd, 'package.json'));
-    if (pkg['things-shell']) {
-      /* __dirname 으로부터 cwd의 상대 패스 정보를 만들어낸다 */
-      components.push(cwd);
-    }
-
+    const pkg = require(path.resolve(cwd, 'package.json'));
+    pkg['things-shell'] && component_folders.push(cwd);
   } catch (e) {
-    console.error(e);
+    console.warn(e);
   }
 
-  return content + components.filter(component => excludes.indexOf(component) == -1)
+  return content + component_folders.filter(component => excludes.indexOf(component) == -1)
     .filter(component => {
       try {
         return resolve.sync('./things-shell.config.js', { basedir: component });
       } catch (e) {
-        console.error(e);
+        console.warn(e);
         return false;
       }
     })
@@ -86,6 +86,6 @@ module.exports = function (content) {
  *
  * 메타정보를 참조하여 임포트하는 방법
  * 1. 모델러의 경우와 뷰어의 경우가 다를 것 같은데, 어떻게 구별해서 로딩하지 ?
- * 2. things-scene-components.import 는 컴포넌트 구현만 임포트한다.
- * 3. things-scene-components-with-tools.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
+ * 2. things-scene-component_folders.import 는 컴포넌트 구현만 임포트한다.
+ * 3. things-scene-component_folders-with-tools.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
  */

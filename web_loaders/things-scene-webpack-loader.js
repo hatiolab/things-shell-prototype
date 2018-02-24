@@ -3,31 +3,38 @@ const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-  var thingsDir = path.resolve(__dirname, '../node_modules/@things-elements');
   const components = [];
 
   const options = loaderUtils.getOptions(this) || {};
   const excludes = options.excludes || [];
-  if (options.module_path) {
-    thingsDir = path.resolve(options.module_path, '@things-elements');
+
+  var module_path = options.module_path
+    ? options.module_path
+    : path.resolve(__dirname, '../node_modules');
+
+  try {
+    const thingsdir = path.resolve(module_path, '@things-elements');
+    const folders = fs.readdirSync(thingsdir);
+
+    folders.forEach(folder => {
+      try {
+        const pkg = require(path.resolve(thingsdir, folder, 'package.json'));
+        components.push(pkg.name);
+      } catch (e) {
+        console.warn(e);
+      }
+    });
+  } catch (e) {
+    console.warn('@things-elements module folder not found.', e);
   }
 
   try {
-    const folders = fs.readdirSync(thingsDir);
-
-    folders.forEach(folder => {
-      let pkg = require(path.resolve(thingsDir, folder, 'package.json'));
-      components.push(pkg.name);
-    });
-
     /* 현재폴더의 package.json을 보고 추가한다. */
     const cwd = process.cwd();
-    let pkg = require(path.resolve(cwd, 'package.json'));
-    if (pkg['things-shell']) {
-      components.push(path.resolve(cwd, pkg.main));
-    }
+    const pkg = require(path.resolve(cwd, 'package.json'));
+    pkg['things-shell'] && components.push(path.resolve(cwd, pkg.main));
   } catch (e) {
-    console.error(e);
+    console.warn(e);
   }
 
   return content + components.filter(component => excludes.indexOf(component) == -1)
