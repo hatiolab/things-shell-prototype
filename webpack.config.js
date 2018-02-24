@@ -103,12 +103,6 @@ module.exports = {
       use: [{
         loader: 'babel-loader'
       }, {
-        loader: 'things-scene-webpack-loader',
-        options: {
-          module_path: externModulesPath,
-          excludes: []
-        }
-      }, {
         loader: 'things-scene-config-webpack-loader',
         options: {
           module_path: externModulesPath,

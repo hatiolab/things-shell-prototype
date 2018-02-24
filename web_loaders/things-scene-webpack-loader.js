@@ -37,6 +37,6 @@ module.exports = function (content) {
     console.warn(e);
   }
 
-  return content + components.filter(component => excludes.indexOf(component) == -1)
+  return components.filter(component => excludes.indexOf(component) == -1)
     .map(component => `import '${component}';\n`).join('');
 };

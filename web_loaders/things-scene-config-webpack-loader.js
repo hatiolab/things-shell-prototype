@@ -41,16 +41,19 @@ module.exports = function (content) {
     console.warn(e);
   }
 
-  return content + component_folders.filter(component => excludes.indexOf(component) == -1)
-    .filter(component => {
+  return 'module.exports = [' + component_folders.filter(folder => excludes.indexOf(folder) == -1)
+    .filter(folder => {
       try {
-        return resolve.sync('./things-shell.config.js', { basedir: component });
+        return resolve.sync('./things-shell.config.js', { basedir: folder });
       } catch (e) {
         console.warn(e);
         return false;
       }
     })
-    .map(component => `import '${component}/things-shell.config.js';\n`).join('');
+    .map(folder => {
+      return JSON.stringify(require(`${folder}/things-shell.config.js`), null, 2)
+    })
+    .join('\n') + '];';
 };
 
 /**

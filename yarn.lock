@@ -5724,8 +5724,8 @@ no-case@^2.2.0:
     lower-case "^1.1.1"
 
 node-hot-loader@^1.5.2:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/node-hot-loader/-/node-hot-loader-1.5.3.tgz#13db4c88adb5a7fb7b1a392a6d154b8c84e6cb0a"
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/node-hot-loader/-/node-hot-loader-1.6.0.tgz#031a902543452c3b5c69d2643420e0bfee2e1741"
   dependencies:
     babel-register "^6.26.0"
     path-is-absolute "^1.0.1"
