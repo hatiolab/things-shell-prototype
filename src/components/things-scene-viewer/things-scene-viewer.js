@@ -4,7 +4,7 @@ import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-res
 
 import { create as createScene } from '@hatiolab/things-scene';
 
-import './things-scene-components.import';
+import './things-scene-components-with-tools.import';
 
 import './confidential-overlay';
 

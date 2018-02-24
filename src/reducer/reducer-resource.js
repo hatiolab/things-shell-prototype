@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 
 import en_US from '../resources/en-US.json';
 import ko_KR from '../resources/ko-KR.json';

@@ -1,3 +1,5 @@
+var resolve = require('resolve');
+
 const path = require('path');
 const fs = require('fs');
 const loaderUtils = require('loader-utils');
@@ -16,35 +18,52 @@ module.exports = function (content) {
    * package.json의 things-shell 속성이 truthy 인 경우를 필터링한다.
    * things-shell 값이 true 이면, require할 file name을 things-shell.config.js 로 하고,
    * 그 외에는 things-shell 의 값으로 한다.
-   * 
-   * 이 결과로는 
+   *
+   * 이 결과로는
    */
   try {
     const folders = fs.readdirSync(thingsDir);
 
     folders.forEach(function (folder) {
-      let pkg = require(path.resolve(thingsDir, folder, './package.json'));
-      components.push(pkg.name);
+      let pkg = require(path.resolve(thingsDir, folder, 'package.json'));
+      pkg['things-shell'] && components.push(pkg.name);
     });
+
+    /* 현재폴더의 package.json을 보고 추가한다. */
+    const cwd = process.cwd();
+    let pkg = require(path.resolve(cwd, 'package.json'));
+    if (pkg['things-shell']) {
+      /* __dirname 으로부터 cwd의 상대 패스 정보를 만들어낸다 */
+      components.push(cwd);
+    }
+
   } catch (e) {
     console.error(e);
   }
 
-  return components.filter(component => excludes.indexOf(component) == -1)
-    .map(component => `import '${component}';\n`).join('');
+  return content + components.filter(component => excludes.indexOf(component) == -1)
+    .filter(component => {
+      try {
+        return resolve.sync('./things-shell.config.js', { basedir: component });
+      } catch (e) {
+        console.error(e);
+        return false;
+      }
+    })
+    .map(component => `import '${component}/things-shell.config.js';\n`).join('');
 };
 
 /**
  * 임포트의 결과는...
  * 1. Property Editor들을 모두 import 시킨다.
  * 2. Group별 component 리스트를 완성한다.
- * 
+ *
  */
 
 
 /**
  * Modeller를 위한 메타 정보 로더.
- * 
+ *
  * 1. 컴포넌트 임포트
  *  - entry point를 통한 기회만 제공한다.
  * 2. 컴포넌트 리스트
@@ -59,14 +78,14 @@ module.exports = function (content) {
  *  - 속성 타입 정의, 에디터 구현 매핑
  * 4. 다국어 정보
  * 5. 아이콘 리소스
- * 
+ *
  * 이 메타정보를 어떻게 관리할까..
  * 1. package.json 에 things-shell 속성을 정의
  *  - 값 : true | config file path(default : things-shell.config.js)
  * 2. things-shell.config.js 파일에 메타정보를 정의하도록 함
- * 
+ *
  * 메타정보를 참조하여 임포트하는 방법
  * 1. 모델러의 경우와 뷰어의 경우가 다를 것 같은데, 어떻게 구별해서 로딩하지 ?
- * 2. things-shell-components.import 는 컴포넌트 구현만 임포트한다.
- * 3. things-shell-components-with-tools.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
+ * 2. things-scene-components.import 는 컴포넌트 구현만 임포트한다.
+ * 3. things-scene-components-with-tools.import 는 모델링을 위한 메타정보를 참조하여 관련정보를 모두 포함하여 컴포넌트를 임포트한다.
  */

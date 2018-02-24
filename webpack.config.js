@@ -93,8 +93,26 @@ module.exports = {
         options: {
           module_path: externModulesPath,
           excludes: [
-            '@things-elements/things-scene-chartjs'
+            // i.e.
+            // '@things-elements/things-scene-chartjs'
           ]
+        }
+      }]
+    }, {
+      test: /things-scene-components-with-tools.import$/,
+      use: [{
+        loader: 'babel-loader'
+      }, {
+        loader: 'things-scene-webpack-loader',
+        options: {
+          module_path: externModulesPath,
+          excludes: []
+        }
+      }, {
+        loader: 'things-scene-config-webpack-loader',
+        options: {
+          module_path: externModulesPath,
+          excludes: []
         }
       }]
     }]

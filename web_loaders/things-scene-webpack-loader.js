@@ -15,14 +15,21 @@ module.exports = function (content) {
   try {
     const folders = fs.readdirSync(thingsDir);
 
-    folders.forEach(function (folder) {
-      let pkg = require(path.resolve(thingsDir, folder, './package.json'));
+    folders.forEach(folder => {
+      let pkg = require(path.resolve(thingsDir, folder, 'package.json'));
       components.push(pkg.name);
     });
+
+    /* 현재폴더의 package.json을 보고 추가한다. */
+    const cwd = process.cwd();
+    let pkg = require(path.resolve(cwd, 'package.json'));
+    if (pkg['things-shell']) {
+      components.push(path.resolve(cwd, pkg.main));
+    }
   } catch (e) {
     console.error(e);
   }
 
-  return components.filter(component => excludes.indexOf(component) == -1)
+  return content + components.filter(component => excludes.indexOf(component) == -1)
     .map(component => `import '${component}';\n`).join('');
 };
