@@ -91,11 +91,7 @@ module.exports = {
       }, {
         loader: 'things-scene-webpack-loader',
         options: {
-          module_path: externModulesPath,
-          excludes: [
-            // i.e.
-            // '@things-elements/things-scene-chartjs'
-          ]
+          module_path: externModulesPath
         }
       }]
     }, {
@@ -105,8 +101,7 @@ module.exports = {
       }, {
         loader: 'things-scene-config-webpack-loader',
         options: {
-          module_path: externModulesPath,
-          excludes: []
+          module_path: externModulesPath
         }
       }]
     }]

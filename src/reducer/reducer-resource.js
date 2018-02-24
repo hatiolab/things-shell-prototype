@@ -36,6 +36,12 @@ const STATE = {
 
 merge(STATE, en_US, ko_KR, zh_CN);
 
+import elements from '../things-scene-components-with-tools.import';
+
+for (let element in elements) {
+  merge(STATE, elements[element].locales);
+}
+
 export default function (state = STATE, action) {
   switch (action.type) {
     default:

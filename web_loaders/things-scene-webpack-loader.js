@@ -3,10 +3,9 @@ const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-  const components = [];
+  const elements = [];
 
   const options = loaderUtils.getOptions(this) || {};
-  const excludes = options.excludes || [];
 
   var module_path = options.module_path
     ? options.module_path
@@ -19,7 +18,7 @@ module.exports = function (content) {
     folders.forEach(folder => {
       try {
         const pkg = require(path.resolve(thingsdir, folder, 'package.json'));
-        components.push(pkg.name);
+        elements.push(pkg.name);
       } catch (e) {
         console.warn(e);
       }
@@ -32,11 +31,10 @@ module.exports = function (content) {
     /* 현재폴더의 package.json을 보고 추가한다. */
     const cwd = process.cwd();
     const pkg = require(path.resolve(cwd, 'package.json'));
-    pkg['things-shell'] && components.push(path.resolve(cwd, pkg.main));
+    pkg['things-shell'] && elements.push(path.resolve(cwd, pkg.main));
   } catch (e) {
     console.warn(e);
   }
 
-  return components.filter(component => excludes.indexOf(component) == -1)
-    .map(component => `import '${component}';\n`).join('');
+  return elements.map(element => `import '${element}';\n`).join('');
 };
