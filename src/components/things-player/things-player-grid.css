@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
+  grid-auto-flow: dense;
 }
 
 :host([column=1]) {
@@ -32,6 +33,7 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
-:host > ::slotted(*) {
-  grid-column: span 1;
+::slotted(*:nth-of-type(1)) {
+  grid-column: span 2;
+  grid-row: span 2;
 }
