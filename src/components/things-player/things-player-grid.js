@@ -31,8 +31,8 @@ class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
 
       var panels = this.querySelectorAll('[page]');
       var length = panels.length;
-      var column = length >= 10 ? Math.ceil(length / 2) : length;
-      var row = length >= 10 ? column - 1 : length;
+      var column = length >= 10 ? Math.ceil(length / 2) : 6;
+      var row = length >= 10 ? column - 1 : 6;
 
       this.style['grid-template-columns'] = `repeat(${column}, 1fr)`;
       this.style['grid-template-rows'] = `repeat(${column}, 1fr)`;
