@@ -19,13 +19,9 @@ sortable-js {
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: minmax(200px, 220px);
   grid-gap: 16px;
-}
-
-board-card {
-  grid-column: span 1;
 }
 
 paper-input {
@@ -34,22 +30,4 @@ paper-input {
   --paper-input-container-color: lightgray;
   --paper-input-container-focus-color: lightgray;
   --paper-input-container-input-color: white;
-}
-
-@media (max-width: 1600px) {
-  sortable-js  {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1280px) {
-  sortable-js  {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 800px) {
-  sortable-js  {
-    grid-template-columns: 1fr;
-  }
 }

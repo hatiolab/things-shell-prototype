@@ -37,47 +37,52 @@ class ThingsEditorProperty extends PolymerElement {
       }
 
       :host > * {
-        grid-column: 4 / 12;
-        grid-row: 1;
+        box-sizing: border-box;
+
+        grid-column: span 7;
+        order: 2;
       }
 
       label {
-        grid-column: 1 / 4;
+        grid-column: span 3;
+        order: 1;
 
-        display: inline-block;
+        justify-self: end;
 
         color:var(--primary-text-color);
         font-size: 0.8em;
         line-height: 2.0;
         text-transform: capitalize;
-        text-align: right;
       }
 
       input[type=checkbox] ~ label {
-        grid-column: 5 / 11;
-        text-align: left;
+        grid-column: span 6;
+        order: 2;
+
+        justify-self: start;
       }
 
       legend {
         @apply(--things-fieldset-legend);
 
-        grid-column: 1 / 11;
+        grid-column: 1 / -1;
+        justify-self: end;
 
         display: inline-block;
 
         text-transform: capitalize;
-        text-align: left;
       }
 
       things-editor-color-stops, things-editor-code, things-editor-table, things-editor-chartjs-properties, things-editor-options {
-        grid-column: 1 / 11;
-        grid-row: 2;
+        grid-column: 1 / -1;
       }
 
       input[type=checkbox] {
-        grid-column: 4 / 5;
+        grid-column: span 4;
+        order: 1;
 
-        margin: 6px;
+        justify-self: end;
+        align-self: center;
       }
     </style>
 

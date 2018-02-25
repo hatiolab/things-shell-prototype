@@ -23,12 +23,6 @@ div.innerHTML = `
       pointer-events: none;
     }
 
-    @media (max-width: 600px) {
-      .page-title {
-        font-size: 24px!important;
-      }
-    }
-
     body {
       background: #fafafa;
       font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -224,15 +218,6 @@ div.innerHTML = `
       width:93%;
       margin-left:3%;
     }
-
-    /* Small devices (tablets, 768px and up) */
-    @media only all and (max-width:300px)  {things-item paper-card.things-item{width:  98% !important;}}
-    @media only all and (min-width: 300px)  {things-item paper-card.things-item{width:  98% !important;}}
-    @media only all and (min-width: 400px)  {things-item paper-card.things-item{width:  47% !important;}}
-    @media only all and (min-width: 750px)  {things-item paper-card.things-item{width:31.5% !important;}}
-    @media only all and (min-width: 990px)  {things-item paper-card.things-item{width:23.5% !important;}}
-    @media only all and (min-width: 1400px) {things-item paper-card.things-item{width:18.5% !important;}}
-
     </style>
   </template>
 </dom-module>`;
