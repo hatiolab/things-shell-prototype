@@ -5,6 +5,7 @@ import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import './things-editor-angle-input';
 import './things-editor-color-stops';
+
 Polymer({
   _template: `
     <style>

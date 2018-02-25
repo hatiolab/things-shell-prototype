@@ -73,7 +73,7 @@ class ThingsEditorProperty extends PolymerElement {
         text-transform: capitalize;
       }
 
-      things-editor-color-stops, things-editor-code, things-editor-table, things-editor-chartjs-properties, things-editor-options {
+      [fullwidth] {
         grid-column: 1 / -1;
       }
 
@@ -107,7 +107,7 @@ class ThingsEditorProperty extends PolymerElement {
     </template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'textarea')]]" restamp>
-      <things-editor-code id="editor" theme="ace/theme/monokai" value="{{value::change}}">
+      <things-editor-code id="editor" theme="ace/theme/monokai" value="{{value::change}}" fullwidth >
       </things-editor-code>
     </template>
 
@@ -128,11 +128,11 @@ class ThingsEditorProperty extends PolymerElement {
     </things-editor-color></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'solid-color-stops')]]" restamp>
-      <things-editor-color-stops id="editor" type="solid" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]">
+      <things-editor-color-stops id="editor" type="solid" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
     </things-editor-color-stops></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'gradient-color-stops')]]" restamp>
-      <things-editor-color-stops id="editor" type="gradient" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]">
+      <things-editor-color-stops id="editor" type="gradient" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
     </things-editor-color-stops></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'multiple-color')]]" restamp>
@@ -140,7 +140,7 @@ class ThingsEditorProperty extends PolymerElement {
     </things-editor-multiple-color></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'chartjs-properties')]]" restamp>
-      <things-editor-chartjs-properties id="editor" values="{{value}}">
+      <things-editor-chartjs-properties id="editor" values="{{value}}" fullwidth >
     </things-editor-chartjs-properties></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'image-selector')]]" restamp>
@@ -148,11 +148,11 @@ class ThingsEditorProperty extends PolymerElement {
     </template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'options')]]" restamp>
-      <things-editor-options id="editor" options="{{value}}">
+      <things-editor-options id="editor" options="{{value}}" fullwidth >
     </things-editor-options></template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'editor-table')]]" restamp>
-      <things-editor-table id="editor" property="[[property]]"></things-editor-table>
+      <things-editor-table id="editor" property="[[property]]" fullwidth ></things-editor-table>
     </template>
 
     <template is="dom-if" if="[[_isTypeofEditor(type, 'date')]]" restamp>
