@@ -1,5 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
-import '@polymer/app-layout/app-toolbar/app-toolbar';
+import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 
@@ -12,7 +12,7 @@ class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
       ${style}
       </style>
 
-      <slot select="[page]"></slot>
+      <slot id="slot" select="[page]" on-click="onClick"></slot>
     `;
   }
 
@@ -24,8 +24,64 @@ class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
     }
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._slotObserver = new FlattenedNodesObserver(this.$.slot, info => {
+
+      var panels = this.querySelectorAll('[page]');
+      var length = panels.length;
+      var column = length >= 10 ? Math.ceil(length / 2) : length;
+      var row = length >= 10 ? column - 1 : length;
+
+      this.style['grid-template-columns'] = `repeat(${column}, 1fr)`;
+      this.style['grid-template-rows'] = `repeat(${column}, 1fr)`;
+
+      if (this._styleElement) {
+        this._styleElement.remove();
+      }
+
+      this._styleElement = document.createElement('style');
+      this._styleElement.textContent = `
+      ::slotted(.enlarge) {
+        grid-column: span ${column - 1};
+        grid-row: span ${row};
+      }
+      `;
+      this.root.appendChild(this._styleElement);
+
+      this.changeEnlarge();
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._slotObserver.disconnect();
+  }
+
+  changeEnlarge(target) {
+    var panels = this.querySelectorAll('[page]');
+    target = target || panels[0];
+
+    Array.from(panels).forEach(panel => {
+      panel.style['order'] = 2;
+      panel.classList.remove('enlarge');
+    });
+
+    target.style['order'] = 1;
+    target.classList.add('enlarge');
+
+    dispatchEvent(new Event('resize'));
+  }
+
+  onClick(e) {
+    var current = this.querySelector('.enlarge');
+    if (current !== e.target) {
+      this.changeEnlarge(e.target);
+    }
+  }
+
   build() {
-    // do nothing.
   }
 
   next() {

@@ -1,5 +1,4 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
-import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 

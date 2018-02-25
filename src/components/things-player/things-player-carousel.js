@@ -1,6 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
-import '@polymer/app-layout/app-toolbar/app-toolbar';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';
 
@@ -53,7 +52,9 @@ class ThingsPlayerCarousel extends ReduxMixin(PolymerElement) {
   build() {
     var panel, angle, i;
 
-    var panels = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE && n.hasAttribute('page'))
+    // var panels = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE && n.hasAttribute('page'))
+    // var panels = this.$.slot.assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE && n.hasAttribute('page'))
+    var panels = this.querySelectorAll('[page]');
 
     this.isHorizontal = this.axis === 'y'
 

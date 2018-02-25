@@ -4,36 +4,10 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   grid-auto-flow: dense;
 }
 
-:host([column=1]) {
-  grid-template-columns: repeat(1, 1fr);
-}
-
-:host([column=2]) {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-:host([column=3]) {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-:host([column=4]) {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-:host([column=5]) {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-:host([column=6]) {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-::slotted(*:nth-of-type(1)) {
-  grid-column: span 2;
-  grid-row: span 2;
+::slotted(*) {
+  border: 1px solid #ccc;
 }
