@@ -48,11 +48,15 @@ module.exports = function (content) {
   for (let element in element_folders) {
     let folder = element_folders[element];
     try {
-      metas[element] = require(`${folder}/things-shell.config.js`);
+      metas[element] = `${folder}/things-shell.config.js`;
     } catch (e) {
       console.warn(e);
     }
   }
 
-  return 'module.exports = ' + JSON.stringify(metas, null, 2);
+  return 'var metas = [];\n'
+    + Object.keys(metas).map((element, idx) => {
+      return `import v${idx} from "${metas[element]}";\nmetas["${element}"] = v${idx};`;
+    }).join(';\n')
+    + ';\nexport default metas;';
 };
