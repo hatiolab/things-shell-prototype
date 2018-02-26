@@ -1405,17 +1405,6 @@ function dataSource() {
       password: 'testpass'
     }
   }, {
-    type: 'mqtt',
-    model: {
-      type: "mqtt",
-      left: 10,
-      top: 10,
-      width: 100,
-      height: 100,
-      hidden: true,
-      dataFormat: 'json'
-    }
-  }, {
     type: 'restful',
     model: {
       type: "restful",
