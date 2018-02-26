@@ -2061,6 +2061,23 @@ const STATE = {
   }
 };
 
+import elements from '../things-scene-components-with-tools.import';
+
+for (let element in elements) {
+  let templates = elements[element].templates;
+
+  templates.forEach(t => {
+    let {
+      group,
+      template,
+      icon
+    } = t;
+
+    console.log('template', template)
+    STATE.groupComponents[group].push(template);
+  });
+}
+
 export default function (state = STATE, action) {
   switch (action.type) {
     default:
