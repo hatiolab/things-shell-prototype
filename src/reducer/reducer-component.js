@@ -1317,17 +1317,6 @@ function dataSource() {
       dataFormat: 'json'
     }
   }, {
-    type: 'restful',
-    model: {
-      type: "restful",
-      left: 10,
-      top: 10,
-      width: 100,
-      height: 100,
-      hidden: true,
-      dataFormat: 'json'
-    }
-  }, {
     type: 'random',
     model: {
       type: "random",
