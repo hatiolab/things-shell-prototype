@@ -3,7 +3,6 @@ const path = require('path'),
   webpack = require('webpack'),
   webpackDevMiddleware = require('webpack-dev-middleware'),
   webpackHotMiddleware = require('webpack-hot-middleware'),
-  bodyParser = require('body-parser'),
   graphqlApi = require('./graphql-api');
 
 var config = require('../webpack.config.js'),
@@ -15,8 +14,8 @@ var DIST_DIR = config.output.path,
   router = express.Router(),
   currentApp = app;
 
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 app.use(webpackHotMiddleware(compiler, {
   log: console.log
