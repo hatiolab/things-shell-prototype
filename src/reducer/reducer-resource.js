@@ -36,14 +36,17 @@ const STATE = {
 
 merge(STATE, en_US, ko_KR, zh_CN);
 
-import elements from '../things-scene-components-with-tools.import';
-
-for (let element in elements) {
-  merge(STATE, elements[element].locales);
-}
-
 export default function (state = STATE, action) {
   switch (action.type) {
+    case 'MODULE-PLUGIN':
+      let elements = action.elements;
+      let newstate = Object.assign({}, state);
+
+      for (let element in elements) {
+        merge(newstate, elements[element].locales);
+      }
+      return newstate;
+
     default:
       return state
   }

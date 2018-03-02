@@ -14,7 +14,18 @@ import './edit-toolbar/edit-toolbar';
 import './component-toolbar/component-toolbar';
 import './property-sidebar/property-sidebar';
 
+import elements from '../../things-scene-components-with-tools.import';
+
 class BoardModeler extends ReduxMixin(PolymerElement) {
+  constructor() {
+    super();
+
+    this.dispatch({
+      type: 'MODULE-PLUGIN',
+      elements
+    });
+  }
+
   static get template() {
     return `
     <style include="shared-styles">

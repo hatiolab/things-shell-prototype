@@ -1,4 +1,5 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { ReduxMixin } from '../reducer/redux-mixin';
 
 import './things-editor-property';
 
@@ -26,26 +27,11 @@ Example:
 @hero hero.svg
 */
 
-class ThingsEditorProperties extends PolymerElement {
+class ThingsEditorProperties extends ReduxMixin(PolymerElement) {
   static get is() { return 'things-editor-properties'; }
 
   static get template() {
-    return `
-    <style>
-      things-editor-property {
-        margin: 5px;
-      }
-    </style>
-
-    <template id="dom-repeater" is="dom-repeat" items="[[props]]" on-dom-change="_onDomBuilt">
-      <things-editor-property label="[[item.label]]"
-                              type="[[item.type]]"
-                              name$="[[item.name]]"
-                              placeholder="[[item.placeholder]]"
-                              observe="[[item.observe]]"
-                              property="[[item.property]]">
-      </things-editor-property>
-    </template>
+    return html`
     `;
   }
 
@@ -58,7 +44,13 @@ class ThingsEditorProperties extends PolymerElement {
 
       props: {
         type: Array,
-        value: function () { return [] }
+        value: function () { return [] },
+        observer: '_onPropsChanged'
+      },
+
+      propertyEditor: {
+        type: Object,
+        statePath: 'propertyEditor'
       }
     }
   }
@@ -69,18 +61,36 @@ class ThingsEditorProperties extends PolymerElement {
     ]
   }
 
+  _onPropsChanged(props) {
+    this.shadowRoot.textContent = '';
+
+    props.forEach(prop => {
+      let config = this.propertyEditor[prop.type];
+      let element = document.createElement(config.element);
+
+      element.label = prop.label;
+      element.type = prop.type;
+      element.setAttribute('name', prop.name);
+      prop.placeholder = prop.placeholder;
+      if (prop.observe)
+        element.observe = prop.observe;
+      element.property = prop.property;
+      element.setAttribute('property-editor', true);
+
+      this.shadowRoot.appendChild(element);
+    });
+
+    this._setValues();
+  }
+
   ready() {
     super.ready();
 
     this.root.addEventListener('change', this._onValueChanged.bind(this));
   }
 
-  _onDomBuilt() {
-    this._setValues();
-  }
-
   _setValues() {
-    this.target && Array.from(this.shadowRoot.querySelectorAll('things-editor-property')).forEach(prop => {
+    this.target && Array.from(this.shadowRoot.querySelectorAll('[name]')).forEach(prop => {
       let name = prop.getAttribute('name')
       prop.set('value', this.target[name])
     })
@@ -93,10 +103,10 @@ class ThingsEditorProperties extends PolymerElement {
   _onValueChanged(e) {
     var prop = e.target;
 
-    while (prop && prop.tagName != 'THINGS-EDITOR-PROPERTY')
+    while (prop && !prop.hasAttribute('property-editor'))
       prop = prop.parentNode;
 
-    if (!prop || prop.tagName != 'THINGS-EDITOR-PROPERTY')
+    if (!prop || !prop.hasAttribute('property-editor'))
       return;
 
     var name = prop.getAttribute('name');

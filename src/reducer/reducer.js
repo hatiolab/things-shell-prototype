@@ -9,6 +9,7 @@ import user from './reducer-user';
 import resource from './reducer-resource';
 import process from './reducer-process';
 import component from './reducer-component';
+import propertyEditor from './reducer-property-editor';
 import drawer from './reducer-drawer';
 import style from './reducer-style';
 
@@ -22,6 +23,7 @@ export default Redux.combineReducers({
   resource,
   process,
   component,
+  propertyEditor,
   drawer,
   style
-})
+});

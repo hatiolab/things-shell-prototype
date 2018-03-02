@@ -23,12 +23,12 @@ Example:
 @hero hero.svg
 */
 
-class ThingsEditorProperty extends PolymerElement {
+export default class ThingsEditorProperty extends PolymerElement {
 
   static get is() { return 'things-editor-property'; }
 
   static get template() {
-    return `
+    return html`
     <style>
       :host {
         display: grid;
@@ -84,80 +84,11 @@ class ThingsEditorProperty extends PolymerElement {
         justify-self: end;
         align-self: center;
       }
+
+      ${this.styleTemplate}
     </style>
 
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'legend')]]" restamp>
-      <legend>[[property.label]]</legend>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'number')]]" restamp>
-      <things-editor-number-input id="editor" number="{{value::change}}">
-        <input>
-      </things-editor-number-input>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'angle')]]" restamp>
-      <things-editor-angle-input id="editor" radian="{{value::change}}" placeholder="[[placeholder]]">
-        <input>
-      </things-editor-angle-input>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'string')]]" restamp>
-      <input id="editor" type="text" value="{{value::change}}" placeholder="[[placeholder]]">
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'textarea')]]" restamp>
-      <things-editor-code id="editor" theme="ace/theme/monokai" value="{{value::change}}" fullwidth >
-      </things-editor-code>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'checkbox')]]" restamp>
-      <input id="editor" type="checkbox" checked="{{value::change}}" placeholder="[[placeholder]]">
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'select')]]" restamp>
-      <select id="editor" value="{{value::change}}">
-        <template is="dom-repeat" items="[[property.options]]">
-          <option value="[[_getOptionValue(item)]]" selected="[[_isSelected(value,item)]]">[[_getOptionDisplay(item)]]</option>
-        </template>
-      </select>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'color')]]" restamp>
-      <things-editor-color id="editor" value="{{value::change}}" placeholder="[[placeholder]]">
-    </things-editor-color></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'solid-color-stops')]]" restamp>
-      <things-editor-color-stops id="editor" type="solid" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
-    </things-editor-color-stops></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'gradient-color-stops')]]" restamp>
-      <things-editor-color-stops id="editor" type="gradient" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
-    </things-editor-color-stops></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'multiple-color')]]" restamp>
-      <things-editor-multiple-color id="editor" values="{{value::change}}">
-    </things-editor-multiple-color></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'chartjs-properties')]]" restamp>
-      <things-editor-chartjs-properties id="editor" values="{{value}}" fullwidth >
-    </things-editor-chartjs-properties></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'image-selector')]]" restamp>
-      <input id="editor" value="{{value::change}}"></input>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'options')]]" restamp>
-      <things-editor-options id="editor" options="{{value}}" fullwidth >
-    </things-editor-options></template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'editor-table')]]" restamp>
-      <things-editor-table id="editor" property="[[property]]" fullwidth ></things-editor-table>
-    </template>
-
-    <template is="dom-if" if="[[_isTypeofEditor(type, 'date')]]" restamp>
-      <input type="date" value="{{value::change}}" placeholder="[[placeholder]]">
-    </template>
+    ${this.editorTemplate}
 
     <template is="dom-if" if="[[label]]" restamp>
       <label for="editor">
@@ -187,6 +118,14 @@ class ThingsEditorProperty extends PolymerElement {
     }
   }
 
+  static get editorTemplate() {
+    return html``;
+  }
+
+  static get styleTemplate() {
+    return html``;
+  }
+
   _computeLabelId(label) {
     if (label.indexOf('label.') >= 0)
       return label;
@@ -194,16 +133,122 @@ class ThingsEditorProperty extends PolymerElement {
     return 'label.' + label
   }
 
-  _isTypeofEditor(editorType, type) {
-    return editorType == type
-  }
-
   _valueChanged(value) {
-    this.dispatchEvent(new CustomEvent('change', { bubbles: true }));
+    this.dispatchEvent(new CustomEvent('change', { bubbles: true, composed: true }));
 
     if (!this.get('observe'))
       return
     this.get('observe').call(this, value)
+  }
+}
+
+class PropertyEditorLegend extends ThingsEditorProperty {
+  static get is() { return 'property-editor-legend'; }
+
+  static get editorTemplate() {
+    return html`
+    <legend>[[property.label]]</legend>
+    `;
+  }
+}
+
+customElements.define(PropertyEditorLegend.is, PropertyEditorLegend);
+
+class PropertyEditorNumber extends ThingsEditorProperty {
+  static get is() { return 'property-editor-number'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-number-input number="{{value::change}}">
+      <input>
+    </things-editor-number-input>
+    `;
+  }
+}
+
+customElements.define(PropertyEditorNumber.is, PropertyEditorNumber);
+
+class PropertyEditorAngle extends ThingsEditorProperty {
+  static get is() { return 'property-editor-angle'; }
+
+  static get properties() {
+    return {
+      value: {
+        notify: true,
+        observer: '_valueChanged'
+      },
+      type: String,
+      label: String,
+      property: {
+        type: Object,
+        notify: true,
+        value: function () { return {} }
+      },
+      _msgId: {
+        type: String,
+        computed: '_computeLabelId(label)'
+      }
+    }
+  }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-angle-input radian="{{value::change}}" placeholder="[[placeholder]]">
+      <input>
+    </things-editor-angle-input>
+    `;
+  }
+}
+
+customElements.define(PropertyEditorAngle.is, PropertyEditorAngle);
+
+class PropertyEditorString extends ThingsEditorProperty {
+  static get is() { return 'property-editor-string'; }
+
+  static get editorTemplate() {
+    return html`
+    <input type="text" value="{{value::change}}" placeholder="[[placeholder]]">
+    `;
+  }
+}
+
+customElements.define(PropertyEditorString.is, PropertyEditorString);
+
+class PropertyEditorTextArea extends ThingsEditorProperty {
+  static get is() { return 'property-editor-textarea'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-code theme="ace/theme/monokai" value="{{value::change}}" fullwidth >
+    </things-editor-code>
+    `;
+  }
+}
+
+customElements.define(PropertyEditorTextArea.is, PropertyEditorTextArea);
+
+class PropertyEditorCheckbox extends ThingsEditorProperty {
+  static get is() { return 'property-editor-checkbox'; }
+
+  static get editorTemplate() {
+    return html`
+    <input type="checkbox" checked="{{value::change}}" placeholder="[[placeholder]]">
+    `;
+  }
+}
+
+customElements.define(PropertyEditorCheckbox.is, PropertyEditorCheckbox);
+
+class PropertyEditorSelect extends ThingsEditorProperty {
+  static get is() { return 'property-editor-select'; }
+
+  static get editorTemplate() {
+    return html`
+    <select value="{{value::change}}">
+    <template is="dom-repeat" items="[[property.options]]">
+      <option value="[[_getOptionValue(item)]]" selected="[[_isSelected(value,item)]]">[[_getOptionDisplay(item)]]</option>
+    </template>
+    `;
   }
 
   _getOptionValue(item) {
@@ -225,4 +270,104 @@ class ThingsEditorProperty extends PolymerElement {
   }
 }
 
-customElements.define(ThingsEditorProperty.is, ThingsEditorProperty);
+customElements.define(PropertyEditorSelect.is, PropertyEditorSelect);
+
+class PropertyEditorColor extends ThingsEditorProperty {
+  static get is() { return 'property-editor-color'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-color value="{{value::change}}" placeholder="[[placeholder]]">
+    `;
+  }
+}
+
+customElements.define(PropertyEditorColor.is, PropertyEditorColor);
+
+class PropertyEditorSolidColorStops extends ThingsEditorProperty {
+  static get is() { return 'property-editor-solid-colorstops'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-color-stops type="solid" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
+    `;
+  }
+}
+
+customElements.define(PropertyEditorSolidColorStops.is, PropertyEditorSolidColorStops);
+
+class PropertyEditorGradientColorStops extends ThingsEditorProperty {
+  static get is() { return 'property-editor-gradient-colorstops'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-color-stops type="gradient" value="{{value::change}}" min="[[property.min]]" max="[[property.max]]" fullwidth >
+    `;
+  }
+}
+
+customElements.define(PropertyEditorGradientColorStops.is, PropertyEditorGradientColorStops);
+
+class PropertyEditorMultipleColor extends ThingsEditorProperty {
+  static get is() { return 'property-editor-multiple-color'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-multiple-color values="{{value::change}}">
+    `;
+  }
+}
+
+try {
+  customElements.define(PropertyEditorMultipleColor.is, PropertyEditorMultipleColor);
+} catch (e) {
+  console.error(e)
+}
+
+class PropertyEditorImageSelector extends ThingsEditorProperty {
+  static get is() { return 'property-editor-image-selector'; }
+
+  static get editorTemplate() {
+    return html`
+    <input type="text" value="{{value::change}}"></input>
+    `;
+  }
+}
+
+try {
+  customElements.define(PropertyEditorImageSelector.is, PropertyEditorImageSelector);
+} catch (e) {
+  console.error(e)
+}
+
+class PropertyEditorDate extends ThingsEditorProperty {
+  static get is() { return 'property-editor-date'; }
+
+  static get editorTemplate() {
+    return html`
+    <input type="date" value="{{value::change}}"></input>
+    `;
+  }
+}
+
+try {
+  customElements.define(PropertyEditorDate.is, PropertyEditorDate);
+} catch (e) {
+  console.error(e)
+}
+
+class PropertyEditorOptions extends ThingsEditorProperty {
+  static get is() { return 'property-editor-options'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-options options="{{value}}" fullwidth>
+    `;
+  }
+}
+
+try {
+  customElements.define(PropertyEditorOptions.is, PropertyEditorOptions);
+} catch (e) {
+  console.error(e)
+}
