@@ -1,10 +1,19 @@
 var boards = require('./boards');
+var groups = require('./groups');
+
+function resolveGroup(groupName) {
+  var group = groups.get(groupName);
+  if (group && (group.type === 'group'))
+    return groupName;
+}
 
 module.exports = function (app, db) {
   app.post('/boards/:board', (req, res) => {
     try {
       let name = req.params.board;
-      boards.create(name, req.body);
+      boards.create(name, Object.assign(req.body, {
+        group: resolveGroup(req.body.group)
+      }));
 
       res.send({
         success: true,
@@ -22,7 +31,9 @@ module.exports = function (app, db) {
   app.put('/boards/:board', (req, res) => {
     try {
       let name = req.params.board;
-      boards.update(name, req.body);
+      boards.update(name, Object.assign(req.body, {
+        group: resolveGroup(req.body.group)
+      }));
 
       res.send({
         success: true,

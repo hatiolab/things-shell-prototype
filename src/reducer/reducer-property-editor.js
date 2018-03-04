@@ -1,73 +1,19 @@
 const STATE = {
-  'legend': {
-    element: 'property-editor-legend'
-  },
-  'number': {
-    element: 'property-editor-number'
-  },
-  'angle': {
-    element: 'property-editor-angle'
-  },
-  'string': {
-    element: 'input',
-    properties: {
-      type: 'text'
-    }
-  },
-  'textarea': {
-    element: 'property-editor-textarea'
-  },
-  'checkbox': {
-    element: 'property-editor-checkbox',
-    type: 'checkbox'
-  },
-  'select': {
-    element: 'property-editor-select',
-    properties: {
-      options: 'options'
-    }
-  },
-  'color': {
-    element: 'property-editor-color'
-  },
-  'solid-color-stops': {
-    element: 'property-editor-solid-colorstops',
-    properties: {
-      min: 'min',
-      max: 'max'
-    }
-  },
-  'gradient-color-stops': {
-    element: 'property-editor-gradient-colorstops',
-    properties: {
-      min: 'min',
-      max: 'max'
-    }
-  },
-  'multiple-color': {
-    element: 'property-editor-multiple-color'
-  },
-  'chartjs-properties': {
-    element: 'property-editor-chartjs-properties'
-  },
-  'image-selector': {
-    element: 'property-editor-image-selector',
-    properties: {
-      type: 'text'
-    }
-  },
-  'options': {
-    element: 'property-editor-options',
-    properties: {
-      options: 'options'
-    }
-  },
-  'date': {
-    element: 'property-editor-date',
-    properties: {
-      type: 'date'
-    }
-  }
+  'legend': 'property-editor-legend',
+  'number': 'property-editor-number',
+  'angle': 'property-editor-angle',
+  'string': 'property-editor-string',
+  'textarea': 'property-editor-textarea',
+  'checkbox': 'property-editor-checkbox',
+  'select': 'property-editor-select',
+  'color': 'property-editor-color',
+  'solid-color-stops': 'property-editor-solid-colorstops',
+  'gradient-color-stops': 'property-editor-gradient-colorstops',
+  'multiple-color': 'property-editor-multiple-color',
+  'editor-table': 'property-editor-table',
+  'image-selector': 'property-editor-image-selector',
+  'options': 'property-editor-options',
+  'date': 'property-editor-date'
 };
 
 export default function (state = STATE, action) {
@@ -83,20 +29,16 @@ export default function (state = STATE, action) {
         editors && editors.forEach(editor => {
           let {
             type,
-            element,
-            properties
+            element
           } = editor;
 
-          console.log('editor', type, element, properties);
-          newstate[type] = {
-            element,
-            properties
-          };
+          console.log('editor', type, element);
+          newstate[type] = element;
         });
       }
       return newstate;
 
     default:
-      return state
+      return state;
   }
 };

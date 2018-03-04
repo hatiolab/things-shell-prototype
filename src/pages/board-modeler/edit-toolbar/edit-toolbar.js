@@ -641,7 +641,7 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
 
     this.boardCurrent.name = this.newBoardName;
     this.boardCurrent.description = this.newBoardDescription;
-    this.boardCurrent.group = this.group;
+    this.boardCurrent.group = this.group && this.group.name;
 
     this.createBoard();
   }

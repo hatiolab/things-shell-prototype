@@ -119,6 +119,7 @@ function join(groupName, boardName) {
       group.plays.push(boardName);
   } else {
     board.group = groupName;
+    boards.update(boardName, board);
   }
 
   saveGroup();

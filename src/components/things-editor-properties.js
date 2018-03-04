@@ -64,9 +64,13 @@ class ThingsEditorProperties extends ReduxMixin(PolymerElement) {
   _onPropsChanged(props) {
     this.shadowRoot.textContent = '';
 
-    props.forEach(prop => {
-      let config = this.propertyEditor[prop.type];
-      let element = document.createElement(config.element);
+    (props || []).forEach(prop => {
+      let elementType = this.propertyEditor[prop.type];
+      if (!elementType) {
+        console.warn('Property Editor not defined', prop.type);
+        return;
+      }
+      let element = document.createElement(elementType);
 
       element.label = prop.label;
       element.type = prop.type;

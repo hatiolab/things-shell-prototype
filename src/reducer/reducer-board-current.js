@@ -1,22 +1,16 @@
 import cloneDeep from 'lodash/cloneDeep';
 
-// import sample from '../../boards/models/sample-001';
-
-// const STATE = {
-//   title: 'Things Board 01 (Click to Edit)',
-//   model: sample
-// };
 const STATE = {};
 const NEW_MODEL = {
   name: '',
   description: '',
-  width: 800,
-  height: 600,
+  width: 1920,
+  height: 1080,
   model: {
-    width: 800,
-    height: 600
+    width: 1920,
+    height: 1080
   }
-}
+};
 
 export default function (state = STATE, action) {
   switch (action.type) {

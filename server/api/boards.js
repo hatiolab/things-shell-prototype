@@ -83,7 +83,7 @@ function create(boardName, board) {
     name,
     description,
     thumbnail = THUMBNAIL,
-    group
+    group = GROUP
   } = board;
 
   if (boards[boardName]) {
@@ -96,15 +96,16 @@ function create(boardName, board) {
    * 그룹이 없는 경우나 지정 그룹이 플레이 그룹인 경우에는 default group으로 설정된다.
    * 플레이그룹인 경우에는 default group으로 설정 이후 play-group에도 자동으로 추가된다.
    */
+  var at = Date.now();
 
   boards[name] = {
     name,
     description,
     width: model.width,
     height: model.height,
-    updatedAt: Date.now(),
-    createdAt: Date.now(),
-    group: group ? group.name : GROUP,
+    updatedAt: at,
+    createdAt: at,
+    group,
     thumbnail
   };
 
@@ -182,5 +183,5 @@ module.exports = {
   list,
   remove,
   create,
-  update,
+  update
 }

@@ -31,6 +31,8 @@ export default class ThingsEditorProperty extends PolymerElement {
     return html`
     <style>
       :host {
+        margin: 5px;
+
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-gap: 5px;
@@ -47,7 +49,7 @@ export default class ThingsEditorProperty extends PolymerElement {
         grid-column: span 3;
         order: 1;
 
-        justify-self: end;
+        text-align: right;
 
         color:var(--primary-text-color);
         font-size: 0.8em;
@@ -59,17 +61,17 @@ export default class ThingsEditorProperty extends PolymerElement {
         grid-column: span 6;
         order: 2;
 
-        justify-self: start;
+        text-align: left;
       }
 
       legend {
         @apply(--things-fieldset-legend);
 
         grid-column: 1 / -1;
-        justify-self: end;
 
         display: inline-block;
 
+        text-align: left;
         text-transform: capitalize;
       }
 
@@ -318,11 +320,7 @@ class PropertyEditorMultipleColor extends ThingsEditorProperty {
   }
 }
 
-try {
-  customElements.define(PropertyEditorMultipleColor.is, PropertyEditorMultipleColor);
-} catch (e) {
-  console.error(e)
-}
+customElements.define(PropertyEditorMultipleColor.is, PropertyEditorMultipleColor);
 
 class PropertyEditorImageSelector extends ThingsEditorProperty {
   static get is() { return 'property-editor-image-selector'; }
@@ -334,11 +332,7 @@ class PropertyEditorImageSelector extends ThingsEditorProperty {
   }
 }
 
-try {
-  customElements.define(PropertyEditorImageSelector.is, PropertyEditorImageSelector);
-} catch (e) {
-  console.error(e)
-}
+customElements.define(PropertyEditorImageSelector.is, PropertyEditorImageSelector);
 
 class PropertyEditorDate extends ThingsEditorProperty {
   static get is() { return 'property-editor-date'; }
@@ -350,11 +344,7 @@ class PropertyEditorDate extends ThingsEditorProperty {
   }
 }
 
-try {
-  customElements.define(PropertyEditorDate.is, PropertyEditorDate);
-} catch (e) {
-  console.error(e)
-}
+customElements.define(PropertyEditorDate.is, PropertyEditorDate);
 
 class PropertyEditorOptions extends ThingsEditorProperty {
   static get is() { return 'property-editor-options'; }
@@ -366,8 +356,16 @@ class PropertyEditorOptions extends ThingsEditorProperty {
   }
 }
 
-try {
-  customElements.define(PropertyEditorOptions.is, PropertyEditorOptions);
-} catch (e) {
-  console.error(e)
+customElements.define(PropertyEditorOptions.is, PropertyEditorOptions);
+
+class PropertyEditorTable extends ThingsEditorProperty {
+  static get is() { return 'property-editor-table'; }
+
+  static get editorTemplate() {
+    return html`
+    <things-editor-table property="[[property]]" fullwidth></things-editor-table>
+    `;
+  }
 }
+
+customElements.define(PropertyEditorTable.is, PropertyEditorTable);
