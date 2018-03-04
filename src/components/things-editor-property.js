@@ -173,26 +173,6 @@ customElements.define(PropertyEditorNumber.is, PropertyEditorNumber);
 class PropertyEditorAngle extends ThingsEditorProperty {
   static get is() { return 'property-editor-angle'; }
 
-  static get properties() {
-    return {
-      value: {
-        notify: true,
-        observer: '_valueChanged'
-      },
-      type: String,
-      label: String,
-      property: {
-        type: Object,
-        notify: true,
-        value: function () { return {} }
-      },
-      _msgId: {
-        type: String,
-        computed: '_computeLabelId(label)'
-      }
-    }
-  }
-
   static get editorTemplate() {
     return html`
     <things-editor-angle-input radian="{{value::change}}" placeholder="[[placeholder]]">

@@ -1,1 +1,26 @@
+// export { default as ThingsEditorAction } from './src/components/things-editor-action';
+// export { default as ThingsEditorAngleInput } from './src/components/things-editor-angle-input';
+// export { default as ThingsEditorAngleSelect } from './src/components/things-editor-angle-select';
+// export { default as ThingsEditorAnimation } from './src/components/things-editor-animation';
+// export { default as ThingsEditorBorder } from './src/components/things-editor-border';
+// export { default as ThingsEditorButtonRadio } from './src/components/things-editor-button-radio';
+// export { default as ThingsEditorCode } from './src/components/things-editor-code';
+// export { default as ThingsEditorColorStops } from './src/components/things-editor-color-stops';
+// export { default as ThingsEditorColorStyle } from './src/components/things-editor-color-style';
+// export { default as ThingsEditorColor } from './src/components/things-editor-color';
+// export { default as ThingsEditorGradient } from './src/components/things-editor-gradient';
+// export { default as ThingsEditorMultipleColor } from './src/components/things-editor-multiple-color';
+// export { default as ThingsEditorNumberInput } from './src/components/things-editor-number-input';
+// export { default as ThingsEditorOptions } from './src/components/things-editor-options';
+// export { default as ThingsEditorPattern } from './src/components/things-editor-pattern';
+// export { default as ThingsEditorProperties } from './src/components/things-editor-properties';
+// export { default as ThingsEditorScript } from './src/components/things-editor-script';
+// export { default as ThingsEditorShadow } from './src/components/things-editor-shadow';
+// export { default as ThingsEditorStack } from './src/components/things-editor-stack';
+// export { default as ThingsEditorTable } from './src/components/things-editor-table';
+// export { default as ThingsEditorValueMap } from './src/components/things-editor-value-map';
+// export { default as ThingsEditorValueRange } from './src/components/things-editor-value-range';
+// export { default as ThingsEditorValue } from './src/components/things-editor-value';
+
 export { default as ThingsEditorProperty } from './src/components/things-editor-property';
+export { default as ThingsI18nMsg } from './src/components/things-i18n-msg';
