@@ -12,9 +12,6 @@ class BoardInfo extends ReduxMixin(PolymerElement) {
     <style include="shared-styles">
     ${style}
     </style>
-
-    <things-scene-viewer model='[[model]]' fit='ratio'>
-    </things-scene-viewer>
     `;
   }
 
@@ -22,11 +19,34 @@ class BoardInfo extends ReduxMixin(PolymerElement) {
 
   static get properties() {
     return {
+      page: {
+        statePath: 'route.page',
+        observer: '_onPageChanged'
+      },
+
       model: {
         type: Object,
-        statePath: 'boardCurrent.model'
-      }
+        statePath: 'boardCurrent.model',
+        observer: '_onModelChanged'
+      },
+
+      provider: Object
     }
+  }
+
+  _onPageChanged(after, before) {
+
+    if (before == 'info' && after !== 'info') {
+      this.$model = null;
+    }
+  }
+
+  _onModelChanged(after, before) {
+
+    if (this.page !== 'info')
+      return;
+
+    this.$model = this.model;
   }
 }
 

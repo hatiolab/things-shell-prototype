@@ -32,7 +32,6 @@ export default function (state = STATE, action) {
             element
           } = editor;
 
-          console.log('editor', type, element);
           newstate[type] = element;
         });
       }
