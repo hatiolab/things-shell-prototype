@@ -1,6 +1,27 @@
+import rect from '../../assets/images/components/rect.png';
+import ellipse from '../../assets/images/components/ellipse.png';
+import donut from '../../assets/images/components/donut.png';
+import triangle from '../../assets/images/components/triangle.png';
+import polygon from '../../assets/images/components/polygon.png';
+import star from '../../assets/images/components/star.png';
+import line from '../../assets/images/components/line.png';
+import dash from '../../assets/images/components/dash.png';
+import singleArrow from '../../assets/images/components/single-arrow.png';
+import bothArrow from '../../assets/images/components/both-arrow.png';
+import polyline from '../../assets/images/components/polyline.png';
+import text from '../../assets/images/components/text.png';
+import colorImage from '../../assets/images/components/color-image.png';
+import grayImage from '../../assets/images/components/gray-image.png';
+import container from '../../assets/images/components/container.png';
+import infoWindow from '../../assets/images/components/info-window.png';
+import localReference from '../../assets/images/components/local-reference.png';
+import globalReference from '../../assets/images/components/global-reference.png';
+
 function shapes() {
   return [{
     type: 'rect',
+    description: 'rectangle shape',
+    icon: rect,
     model: {
       type: 'rect',
       left: 100,
@@ -16,7 +37,9 @@ function shapes() {
       lineCap: 'butt'
     }
   }, {
-    type: 'ellipses',
+    type: 'ellipse',
+    description: 'ellipse shape',
+    icon: ellipse,
     model: {
       type: 'ellipse',
       rx: 50,
@@ -33,6 +56,8 @@ function shapes() {
     }
   }, {
     type: 'donut',
+    description: 'donut shape',
+    icon: donut,
     model: {
       type: 'donut',
       rx: 50,
@@ -50,6 +75,8 @@ function shapes() {
     }
   }, {
     type: 'triangle',
+    description: 'triangle shape',
+    icon: triangle,
     model: {
       type: 'triangle',
       x1: 150,
@@ -68,6 +95,8 @@ function shapes() {
     }
   }, {
     type: 'polygon',
+    description: 'polygon shape',
+    icon: polygon,
     model: {
       type: 'polygon',
       path: [{ x: 100, y: 100 }, { x: 200, y: 100 }, { x: 200, y: 200 }, { x: 100, y: 200 }],
@@ -81,6 +110,8 @@ function shapes() {
     }
   }, {
     type: 'star',
+    description: 'star shape',
+    icon: star,
     model: {
       type: 'star',
       rx: 50,
@@ -103,6 +134,8 @@ function shapes() {
 function lines() {
   return [{
     type: 'line',
+    description: 'simple line',
+    icon: line,
     model: {
       type: 'line',
       x1: 100,
@@ -119,6 +152,8 @@ function lines() {
     }
   }, {
     type: 'dash',
+    description: 'dash line',
+    icon: dash,
     model: {
       type: 'line',
       x1: 100,
@@ -135,6 +170,8 @@ function lines() {
     }
   }, {
     type: 'single arrow',
+    description: 'single arrow tip line',
+    icon: singleArrow,
     model: {
       type: 'line',
       x1: 100,
@@ -152,6 +189,8 @@ function lines() {
     }
   }, {
     type: 'both arrow',
+    description: 'both arrow tip line',
+    icon: bothArrow,
     model: {
       type: 'line',
       x1: 100,
@@ -170,6 +209,8 @@ function lines() {
     }
   }, {
     type: 'polyline',
+    description: 'polyline',
+    icon: polyline,
     model: {
       type: 'polyline',
       path: [{ x: 100, y: 100 }, { x: 200, y: 100 }, { x: 200, y: 200 }, { x: 100, y: 200 }],
@@ -187,6 +228,8 @@ function lines() {
 function textAndMedias() {
   return [{
     type: 'text',
+    description: 'text',
+    icon: text,
     model: {
       type: 'text',
       left: 100,
@@ -209,6 +252,8 @@ function textAndMedias() {
     }
   }, {
     type: 'color image',
+    description: 'color image',
+    icon: colorImage,
     model: {
       type: 'image-view',
       left: 100,
@@ -226,6 +271,8 @@ function textAndMedias() {
     }
   }, {
     type: 'gray image',
+    description: 'gray scale line',
+    icon: grayImage,
     model: {
       type: 'image-view',
       left: 100,
@@ -244,9 +291,11 @@ function textAndMedias() {
   }]
 };
 
-function container() {
+function groupContainer() {
   return [{
     type: 'container',
+    description: 'general container',
+    icon: container,
     model: {
       type: 'container',
       left: 100,
@@ -266,7 +315,9 @@ function container() {
 
 function etc() {
   return [{
-    type: 'info. window',
+    type: 'info-window',
+    description: 'information window',
+    icon: infoWindow,
     model: {
       type: "info-window",
       left: 10,
@@ -282,6 +333,8 @@ function etc() {
     }
   }, {
     type: 'local reference',
+    description: 'local reference',
+    icon: localReference,
     model: {
       type: 'local-ref',
       left: 100,
@@ -298,6 +351,8 @@ function etc() {
     }
   }, {
     type: 'global reference',
+    description: 'global reference',
+    icon: globalReference,
     model: {
       type: 'global-ref',
       left: 100,
@@ -332,7 +387,7 @@ const STATE = {
   ].map(group => {
     return {
       name: group,
-      description: 'Component Group ' + group
+      description: 'Group ' + group
     }
   }),
   groupComponents: {
@@ -341,7 +396,7 @@ const STATE = {
     textAndMedia: textAndMedias(),
     chartAndGauge: [],
     table: [],
-    container: container(),
+    container: groupContainer(),
     dataSource: [],
     IoT: [],
     '3D': [],

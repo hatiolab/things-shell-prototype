@@ -82,6 +82,13 @@ module.exports = {
       test: /\.postcss$/,
       use: ['text-loader', 'postcss-loader']
     }, {
+      test: /\.(gif|jpe?g|png)$/,
+      loader: 'url-loader?limit=25000',
+      query: {
+        limit: 10000,
+        name: '[path][name].[hash:8].[ext]'
+      }
+    }, {
       test: /\.json$/,
       use: ['json-loader']
     }, {

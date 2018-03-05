@@ -10,6 +10,8 @@ import template from './html.template';
 
 import { deepClone } from '../../../../commons/utils';
 
+import noImage from '../../../../../assets/images/components/no-image.png';
+
 class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return `
@@ -77,7 +79,7 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
   }
 
   templateIcon(template) {
-    return template.icon || './assets/images/etc.ico';
+    return template.icon || noImage;
   }
 }
 
