@@ -3,7 +3,10 @@
 <paper-listbox data-group$="[[group]]" class="scroll">
 
   <template is="dom-repeat" items="[[components]]">
-    <paper-item data-type$="[[item.type]]">[[item.type]]</paper-item>
+
+    <paper-item data-type$="[[item.type]]">
+      <img src="[[templateIcon(item)]]">[[item.type]]
+    </paper-item>
   </template>
 
 </paper-listbox>

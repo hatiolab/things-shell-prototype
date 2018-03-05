@@ -351,22 +351,6 @@ const STATE = {
   }
 };
 
-// import elements from '../things-scene-components-with-tools.import';
-
-// for (let element in elements) {
-//   let templates = elements[element].templates;
-
-//   templates.forEach(t => {
-//     let {
-//       group,
-//       template,
-//       icon
-//     } = t;
-
-//     STATE.groupComponents[group].push(template);
-//   });
-// }
-
 export default function (state = STATE, action) {
   switch (action.type) {
     case 'MODULE-PLUGIN':
@@ -377,14 +361,13 @@ export default function (state = STATE, action) {
       for (let element in elements) {
         let templates = elements[element].templates;
 
-        templates.forEach(t => {
-          let {
-            group,
-            template,
-            icon
-          } = t;
-
-          newstate.groupComponents[group].push(template);
+        templates.forEach(template => {
+          let group = newstate.groupComponents[template.group];
+          if (!group) {
+            console.warn('Invalid group', group, template);
+          } else {
+            group.push(template);
+          }
         });
       }
 

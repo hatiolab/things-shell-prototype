@@ -51,14 +51,6 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
 
     if (!item || !item.hasAttribute || !item.hasAttribute('data-type'))
       return;
-    // console.log('item', item)
-    // while (item && item.hasAttribute && !item.hasAttribute('data-type') && item !== document.body) {
-    //   item = item.parentNode;
-    //   console.log('item', item)
-    // }
-
-    // if(!item || item == document.body)
-    //   return;
 
     var type = item.getAttribute('data-type')
 
@@ -82,6 +74,10 @@ class ComponentMenu extends mixinBehaviors([PaperDialogBehavior], ReduxMixin(Pol
 
   computeGroup(group) {
     return this.groups[group]
+  }
+
+  templateIcon(template) {
+    return template.icon || './assets/images/etc.ico';
   }
 }
 
