@@ -55,6 +55,7 @@ export default class GroupCard extends ReduxMixin(PolymerElement) {
     });
 
     this.dispatch(setRoute('modeler', ''));
+
     e.stopPropagation();
   }
 

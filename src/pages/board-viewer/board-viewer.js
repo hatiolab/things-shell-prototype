@@ -15,6 +15,8 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
     </style>
 
     <page-toolbar>
+      <label>[[board.name]]</label>
+      <span>[[board.description]]</span>
     </page-toolbar>
 
     <things-scene-viewer id='scene' name='viewer' model='[[$model]]' provider='[[provider]]' fit='ratio'>
@@ -35,6 +37,11 @@ class BoardViewer extends ReduxMixin(PolymerElement) {
         type: Object,
         statePath: 'boardCurrent.model',
         observer: '_onModelChanged'
+      },
+
+      board: {
+        type: String,
+        statePath: 'boardCurrent'
       },
 
       provider: Object

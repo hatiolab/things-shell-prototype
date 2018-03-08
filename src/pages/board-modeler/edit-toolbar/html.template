@@ -1,6 +1,6 @@
 <page-toolbar>
 
-  <label>[[boardCurrent.name]]</label>
+  <label>[[title]]</label>
 
   <paper-icon-button id="undo" title="undo ([[getShortcutString('cmd', 'z')]])"></paper-icon-button>
   <paper-icon-button id="redo" title="redo ([[getShortcutString('cmd', 'shift', 'z')]])"></paper-icon-button>

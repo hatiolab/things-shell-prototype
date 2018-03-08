@@ -37,23 +37,23 @@
   - things-shell-theme : custom-style 로 각 컴포넌트에서 정의한 스타일 변수를 설정하는 파일임.
 ## [ Polymer 3 ]
 ### bower => npm
-- npm group 생성 (@hatiolab, @things-elements, ..)
+- npm group 생성 (@hatiolab, @things-scene, ..)
   - @hatiolab
     - @hatiolab/things-scene
     - things-scene-core 불필요
-  - @things-elements
-    - @things-elements/things-scene-table
-    - @things-elements/things-scene-chartjs
-    - @things-elements/things-scene-form
-    - @things-elements/things-scene-gauge
-    - @things-elements/things-scene-mqtt
-    - @things-elements/things-scene-firebase
-    - @things-elements/things-scene-stomp
-    - @things-elements/things-scene-random
-    - @things-elements/things-scene-restful
-    - @things-elements/things-scene-google-map
-    - @things-elements/things-scene-indoor-map
-    - @things-elements/things-scene-wheel-sorter
+  - @things-scene
+    - @things-scene/table
+    - @things-scene/chartjs
+    - @things-scene/form
+    - @things-scene/gauge
+    - @things-scene/mqtt
+    - @things-scene/firebase
+    - @things-scene/stomp
+    - @things-scene/random
+    - @things-scene/restful
+    - @things-scene/google-map
+    - @things-scene/indoor-map
+    - @things-scene/wheel-sorter
     - ...
 ### HTML import => ES6 import
 ### Component Migration

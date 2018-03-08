@@ -17,9 +17,9 @@
  * 5. 아이콘 리소스
  *
  * 이 메타정보는 어떻게 관리되나 ?
- * 1. package.json 에 things-shell 속성을 정의
- *  - 값 : true | config file path(default : things-shell.config.js)
- * 2. things-shell.config.js 파일에 메타정보를 정의하도록 함
+ * 1. package.json 에 things-scene 속성을 정의
+ *  - 값 : true | config file path(default : things-scene.config.js)
+ * 2. things-scene.config.js 파일에 메타정보를 정의하도록 함
  *
  * 컴포넌트 구현과 메타정보를 임포트하는 방법
  * 1. things-scene-component.import 는 컴포넌트 구현만 임포트한다.

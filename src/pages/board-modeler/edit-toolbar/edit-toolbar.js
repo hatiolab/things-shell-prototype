@@ -60,8 +60,15 @@ class EditToolbar extends ReduxMixin(PolymerElement) {
       },
       group: {
         statePath: 'boardGroupCurrent'
+      },
+      title: {
+        computed: 'buildTitle(boardCurrent)'
       }
     }
+  }
+
+  buildTitle(boardCurrent) {
+    return boardCurrent && boardCurrent.name || 'NO TITLE';
   }
 
   ready() {

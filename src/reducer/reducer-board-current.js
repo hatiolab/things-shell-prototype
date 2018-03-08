@@ -14,6 +14,9 @@ const NEW_MODEL = {
 
 export default function (state = STATE, action) {
   switch (action.type) {
+    case 'CLEAR-BOARD':
+      return null;
+
     case 'NEW-BOARD':
       return cloneDeep(NEW_MODEL);
 

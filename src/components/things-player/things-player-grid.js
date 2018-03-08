@@ -62,6 +62,8 @@ class ThingsPlayerGrid extends ReduxMixin(PolymerElement) {
   changeEnlarge(target) {
     var panels = this.querySelectorAll('[page]');
     target = target || panels[0];
+    if (!target)
+      return;
 
     Array.from(panels).forEach(panel => {
       panel.style['order'] = 2;

@@ -7,8 +7,8 @@
 
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transition: all 1.5s ease-in-out;
-          transition: all 1.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+          transition: all 0.5s ease-in-out;
 }
 
 :host(.flipped) > #card {
