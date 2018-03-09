@@ -19,6 +19,6 @@
   "html.format.wrapLineLength": 60,
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.associations": {
-    "*.template": "html"
+    "html.template": "html"
   }
 }
