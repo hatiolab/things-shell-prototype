@@ -1,4 +1,7 @@
-const { resolve, join } = require('path');
+const {
+  resolve,
+  join
+} = require('path');
 const module_resolve = require('resolve');
 const NodePackage = require('./package.json');
 const webpack = require('webpack');
@@ -12,7 +15,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var outputPath = resolve('dist');
 
 try {
-  let path = module_resolve.sync('@hatiolab/things-shell', { basedir: process.cwd() });
+  let path = module_resolve.sync('@hatiolab/things-shell', {
+    basedir: process.cwd()
+  });
   var thingsShellModulePath = resolve(path, '../..');
   var externModulesPath = resolve(path, '../../../..');
 
@@ -54,16 +59,17 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: [[
-            'env', {
-              targets: {
-                browsers: ['last 2 Chrome versions', 'Safari 10']
-              },
-              debug: true
-            }
-          ]],
-          plugins: [
-          ]
+          presets: [
+            [
+              'env', {
+                targets: {
+                  browsers: ['last 2 Chrome versions', 'Safari 10']
+                },
+                debug: true
+              }
+            ]
+          ],
+          plugins: []
         }
       }
     }, {
@@ -71,9 +77,12 @@ module.exports = {
       use: ['text-loader']
     }, {
       test: /\.html$/,
-      use: [
-        { loader: 'babel-loader' },
-        { loader: 'polymer-webpack-loader' }
+      use: [{
+          loader: 'babel-loader'
+        },
+        {
+          loader: 'polymer-webpack-loader'
+        }
       ]
     }, {
       test: /\.css$/,
@@ -88,6 +97,12 @@ module.exports = {
         limit: 10000,
         name: '[path][name].[hash:8].[ext]'
       }
+    }, {
+      test: /\.(obj|mtl|tga|3ds|max|dae)$/,
+      use: [{
+        loader: 'file-loader',
+        options: {}
+      }]
     }, {
       test: /\.json$/,
       use: ['json-loader']
