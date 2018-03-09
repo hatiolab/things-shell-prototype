@@ -28,7 +28,7 @@
     "things-shell": "bin/things-shell"
   },
   "dependencies": {
-    "@hatiolab/things-scene": "^2.2.42",
+    "@hatiolab/things-scene": "^2.2.45",
     "@npm-polymer/intl-messageformat": "^1.3.0",
     "@polymer/app-layout": "next",
     "@polymer/app-route": "next",

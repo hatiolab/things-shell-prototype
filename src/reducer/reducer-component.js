@@ -12,6 +12,7 @@ import polyline from '../../assets/images/components/polyline.png';
 import text from '../../assets/images/components/text.png';
 import colorImage from '../../assets/images/components/color-image.png';
 import grayImage from '../../assets/images/components/gray-image.png';
+import audio from '../../assets/images/components/audio.png';
 import container from '../../assets/images/components/container.png';
 import infoWindow from '../../assets/images/components/info-window.png';
 import localReference from '../../assets/images/components/local-reference.png';
@@ -287,6 +288,17 @@ function textAndMedias() {
       lineWidth: 1,
       lineDash: 'solid',
       lineCap: 'butt'
+    }
+  }, {
+    type: 'audio',
+    description: 'audio',
+    icon: audio,
+    model: {
+      type: 'audio',
+      left: 100,
+      top: 100,
+      width: 20,
+      height: 20
     }
   }]
 };
