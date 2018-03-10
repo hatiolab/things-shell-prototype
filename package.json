@@ -115,6 +115,7 @@
     "xo": "^0.20.3"
   },
   "devDependencies": {
-    "@polymer/test-fixture": "next"
+    "@polymer/test-fixture": "next",
+    "webpack-cli": "^2.0.11"
   }
 }
