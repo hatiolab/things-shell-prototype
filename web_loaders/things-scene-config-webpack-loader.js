@@ -3,6 +3,7 @@ const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
+
   const scene_folders = {};
 
   const options = loaderUtils.getOptions(this) || {};
@@ -29,7 +30,7 @@ module.exports = function (content) {
       }
     });
   } catch (e) {
-    console.warn('@things-scene module folder not found.', e);
+    console.warn('[things-scene-config-webpack-loader]', '@things-scene module folder not found.');
   }
 
   try {
@@ -40,7 +41,7 @@ module.exports = function (content) {
       scene_folders[pkg.name] = cwd;
     }
   } catch (e) {
-    console.warn(e);
+    console.error(e);
   }
 
   var metas = {};
@@ -50,7 +51,7 @@ module.exports = function (content) {
     try {
       metas[scene] = `${folder}/things-scene.config.js`;
     } catch (e) {
-      console.warn(e);
+      console.warn('[things-scene-config-webpack-loader]', 'things-scene.config.js file not found.');
     }
   }
 

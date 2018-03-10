@@ -3,6 +3,7 @@ const fs = require('fs');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
+
   const scenes = [];
 
   const options = loaderUtils.getOptions(this) || {};
@@ -24,7 +25,7 @@ module.exports = function (content) {
       }
     });
   } catch (e) {
-    console.warn('@things-scene module folder not found.', e);
+    console.warn('[things-scene-webpack-loader]', '@things-scene module folder not found.');
   }
 
   try {
@@ -33,7 +34,7 @@ module.exports = function (content) {
     const pkg = require(path.resolve(cwd, 'package.json'));
     pkg['things-scene'] && scenes.push(path.resolve(cwd, pkg.main));
   } catch (e) {
-    console.warn(e);
+    console.error(e);
   }
 
   return scenes.map(scene => `import '${scene}';\n`).join('');

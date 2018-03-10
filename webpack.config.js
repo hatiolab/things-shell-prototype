@@ -78,11 +78,11 @@ module.exports = {
     }, {
       test: /\.html$/,
       use: [{
-          loader: 'babel-loader'
-        },
-        {
-          loader: 'polymer-webpack-loader'
-        }
+        loader: 'babel-loader'
+      },
+      {
+        loader: 'polymer-webpack-loader'
+      }
       ]
     }, {
       test: /\.css$/,
@@ -103,9 +103,6 @@ module.exports = {
         loader: 'file-loader',
         options: {}
       }]
-    }, {
-      test: /\.json$/,
-      use: ['json-loader']
     }, {
       test: /things-scene-components.import$/,
       use: [{
