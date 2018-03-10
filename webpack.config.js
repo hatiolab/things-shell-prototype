@@ -8,23 +8,23 @@ const webpack = require('webpack');
 
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ElectronPackager = require("webpack-electron-packager");
 
-var outputPath = resolve('dist');
+const outputPath = resolve('dist');
 
 try {
   let path = module_resolve.sync('@hatiolab/things-shell', {
     basedir: process.cwd()
   });
-  var thingsShellModulePath = resolve(path, '../..');
-  var externModulesPath = resolve(path, '../../../..');
+  const thingsShellModulePath = resolve(path, '../..');
+  const externModulesPath = resolve(path, '../../../..');
 
 } catch (e) {
   console.log('@hatiolab/things-shell module not found.');
-  var thingsShellModulePath = __dirname;
-  var externModulesPath = resolve(__dirname, 'node_modules');
+  const thingsShellModulePath = __dirname;
+  const externModulesPath = resolve(__dirname, 'node_modules');
 }
 
 console.log('ThingsShell Module Path', thingsShellModulePath);
@@ -146,50 +146,55 @@ module.exports = {
     // This plugin will copy files over to ‘./dist’ without transforming them.
     // That's important because the custom-elements-es5-adapter.js MUST
     // remain in ES2015. We’ll talk about this a bit later :)
-    // new CopyWebpackPlugin([{
-    //   from: resolve(__dirname, '@webcomponents/webcomponentsjs/*.js'),
-    //   to: '/webcomponentsjs/[name].[ext]'
-    // }, {
-    //   from: 'styles/**',
-    //   context: resolve('./src'),
-    //   to: outputPath
-    // }, {
-    //   from: 'node_modules/@polymer/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'node_modules/@npm-polymer/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'node_modules/web-animations-js/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'node_modules/@webcomponents/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'libs/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'licenses/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'assets/**',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    //   from: 'index.html',
-    //   context: resolve('.'),
-    //   to: outputPath
-    // }, {
-    // from: 'manifest.json',
-    // context: resolve('.'),
-    // to: outputPath
-    // }]),
+    new CopyWebpackPlugin([{
+      from: 'styles/**',
+      context: resolve('./src'),
+      to: outputPath
+    }, {
+      from: 'node_modules/@polymer/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/@npm-polymer/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/web-animations-js/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/@webcomponents/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/three/build/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'node_modules/aframe/dist/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'libs/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'licenses/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'assets/**',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'index.html',
+      context: resolve('.'),
+      to: outputPath
+    }, {
+      from: 'manifest.json',
+      context: resolve('.'),
+      to: outputPath
+    }]),
     // new ElectronPackager({
     //   dir: ".",
     //   arch: "x64",
@@ -197,7 +202,7 @@ module.exports = {
     //   platform: "darwin",
     // })
   ],
-  // devtool: 'cheap-module-source-map',
+  devtool: 'cheap-module-source-map',
   // devServer: {
   //   contentBase: resolve('.'),
   //   compress: true,
