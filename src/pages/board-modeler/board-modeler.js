@@ -20,6 +20,18 @@ class BoardModeler extends ReduxMixin(PolymerElement) {
   constructor() {
     super();
 
+    // https://webpack.js.org/guides/code-splitting/#dynamic-imports
+    // 동적 임포트로 bundle splitting을 시도했으나, es2015 모듈에서는 안되는 듯.
+    // import(
+    //   /* webpackChunkName: "components-with-tools" */
+    //   /* webpackMode: "lazy" */
+    //   '../../things-scene-components-with-tools.import').then(elements => {
+    //     this.dispatch({
+    //       type: 'MODULE-PLUGIN',
+    //       elements
+    //     });
+    //   }).catch(error => 'An error occurred while loading the component');
+
     this.dispatch({
       type: 'MODULE-PLUGIN',
       elements

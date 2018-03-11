@@ -6,10 +6,10 @@ const module_resolve = require('resolve');
 const NodePackage = require('./package.json');
 const webpack = require('webpack');
 
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ElectronPackager = require("webpack-electron-packager");
 
 const outputPath = resolve('dist');
@@ -41,7 +41,8 @@ module.exports = {
   },
   output: {
     path: outputPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    // chunkFilename: '[name].bundle.js'
   },
   resolve: {
     modules: [

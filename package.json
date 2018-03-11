@@ -1,6 +1,6 @@
 {
   "name": "@hatiolab/things-shell",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "things application shell",
   "main": "src/index.js",
   "license": "http://license.hatiolab.com/EULA",
@@ -107,6 +107,7 @@
     "url-loader": "^1.0.1",
     "web-animations-js": "^2.3.1",
     "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-electron-packager": "^1.0.0",
     "webpack-hot-middleware": "^2.21.0",
@@ -115,7 +116,6 @@
     "xo": "^0.20.3"
   },
   "devDependencies": {
-    "@polymer/test-fixture": "next",
-    "webpack-cli": "^2.0.11"
+    "@polymer/test-fixture": "next"
   }
 }
