@@ -94,6 +94,7 @@ Polymer({
       <option>value</option>
       <option>data</option>
       <option>started</option>
+      <option>options</option>
       <option value="ref">reference</option>
     </select>
 
