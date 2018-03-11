@@ -36,7 +36,8 @@ module.exports = {
     bundle: [
       resolve(thingsShellModulePath, './src/index.js'),
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
-    ]
+    ],
+    // 'things-module': './things-module.js'
   },
   output: {
     path: outputPath,

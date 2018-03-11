@@ -3,7 +3,7 @@ import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { ReduxMixin } from '../reducer/redux-mixin';
 import { AppLocalizeBehavior } from './app-localize-behavior';
 
-class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
+export default class ThingsI18nMsg extends mixinBehaviors([AppLocalizeBehavior], ReduxMixin(PolymerElement)) {
   static get is() { return 'things-i18n-msg'; }
 
   static get properties() {
