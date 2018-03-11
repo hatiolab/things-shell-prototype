@@ -64,6 +64,24 @@
 
   <script src="./node_modules/aframe/dist/aframe-master.js"></script>
 
+  <!-- for things-scene-chartjs [TODO] 제거되어야함.
+  <script src="./node_modules/tinycolor2/dist/tinycolor-min.js"></script>
+  <script src="./node_modules/chart.js/dist/Chart.js"></script>
+  -->
+
+  <!-- for things-scene-chartjs [TODO] 제거되어야함. -->
+  <script src="./node_modules/three/build/three.min.js"></script>
+  <!-- for things-scene-chartjs [TODO] 제거되어야함.
+  <script src="./node_modules/three/build/three.module.js"></script>
+
+  <script src="./node_modules/three.js/examples/js/loaders/LoaderSupport.js"></script>
+  <script src="./node_modules/three.js/examples/js/loaders/OBJLoader.js"></script>
+  <script src="./node_modules/three.js/examples/js/loaders/MTLLoader.js"></script>
+  <script src="./node_modules/three.js/examples/js/loaders/TGALoader.js"></script>
+  <script src="./node_modules/three.js/examples/js/renderers/Projector.js"></script>
+  <script src="./node_modules/three.js/examples/js/exporters/OBJExporter.js"></script>
+  -->
+
   <custom-style>
     <style include="things-shell-theme">
     </style>

@@ -1,15 +1,15 @@
 const {
   resolve,
   join
-} = require('path');
-const module_resolve = require('resolve');
-const NodePackage = require('./package.json');
+
+} = require('path'); const NodePackage = require('./package.json');
 const webpack = require('webpack');
 
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const module_resolve = require('resolve');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ElectronPackager = require("webpack-electron-packager");
 
 const outputPath = resolve('dist');
@@ -148,19 +148,48 @@ module.exports = {
         'APP-VERSION': JSON.stringify(NodePackage.version)
       }
     }),
-    new webpack.HotModuleReplacementPlugin(),
 
-    // new ExtractTextPlugin('./bundle.css'),
+    new webpack.HotModuleReplacementPlugin(),
     // This plugin will generate an index.html file for us that can be used
     // by the Webpack dev server. We can give it a template file (written in EJS)
     // and it will handle injecting our bundle for us.
+
     // new HtmlWebpackPlugin({
-    //   template: resolve(__dirname, 'src/index.ejs')
+    //   template: resolve(__dirname, 'src/index.ejs'),
+    //   title: 'Things Shell',
+    //   favicon: 'assets/favicon.ico',
+    //   minify: true,
+    //   hash: true,
+    //   cache: true,
+    //   files: {
+    //     css: [],
+    //     js: [
+    //       './node_modules/@npm-polymer/intl-messageformat/dist/intl-messageformat-with-locales.min.js',
+    //       './node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
+    //       './node_modules/web-animations-js/web-animations-next.min.js',
+    //       './node_modules/aframe/dist/aframe-master.js',
+    //       './licenses/things-lic.js',
+    //       './libs/smart-datagrid-eval.min.js'
+    //     ],
+    //     chunks: {
+    //       head: {
+    //         entry: 'assets/head_bundle.js',
+    //         css: ['main.css']
+    //       },
+    //       main: {
+    //         entry: 'assets/main_bundle.js',
+    //         css: []
+    //       },
+    //     }
+    //   },
+    //   template: 'index.html'
     // }),
+
+    // new ExtractTextPlugin('./bundle.css'),
+
     // This plugin will copy files over to ‘./dist’ without transforming them.
     // That's important because the custom-elements-es5-adapter.js MUST
     // remain in ES2015. We’ll talk about this a bit later :)
-
     // new CopyWebpackPlugin([{
     //   from: 'styles/**',
     //   context: thingsShellModulePath + '/src/',
