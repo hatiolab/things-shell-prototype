@@ -54,6 +54,12 @@
     "@polymer/iron-location" "^3.0.0-pre.10"
     "@polymer/polymer" "^3.0.0-pre.10"
 
+"@polymer/app-storage@^3.0.0-pre.11":
+  version "3.0.0-pre.11"
+  resolved "https://registry.yarnpkg.com/@polymer/app-storage/-/app-storage-3.0.0-pre.11.tgz#26fcbc2069ae2cdd4c44048cc3e84c7f3bb7e7a9"
+  dependencies:
+    "@polymer/polymer" "^3.0.0-pre.10"
+
 "@polymer/font-roboto@^3.0.0-pre.10":
   version "3.0.0-pre.11"
   resolved "https://registry.yarnpkg.com/@polymer/font-roboto/-/font-roboto-3.0.0-pre.11.tgz#12aecd9110c5ca516cd49d3516ba4eda765fa062"
@@ -528,8 +534,8 @@ acorn@^5.0.0, acorn@^5.2.1, acorn@^5.5.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
 aframe@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/aframe/-/aframe-0.8.0.tgz#6565cf937f47732be42234faa3f1a90354d2ead6"
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/aframe/-/aframe-0.8.1.tgz#4e2ce79bced998ee3638cc634d3dadda6217660b"
   dependencies:
     "@tweenjs/tween.js" "^16.8.0"
     browserify-css "^0.8.2"
@@ -1119,13 +1125,6 @@ babel-plugin-check-es2015-constants@^6.22.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-check-es2015-constants/-/babel-plugin-check-es2015-constants-6.22.0.tgz#35157b101426fd2ffd3da3f75c7d1e91835bbf8a"
   dependencies:
     babel-runtime "^6.22.0"
-
-babel-plugin-dynamic-import-webpack@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-webpack/-/babel-plugin-dynamic-import-webpack-1.0.2.tgz#cb83435833e073f1600c0188a95edacfdc07c256"
-  dependencies:
-    babel-plugin-syntax-dynamic-import "^6.18.0"
-    babel-template "^6.26.0"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
@@ -2418,8 +2417,8 @@ colors@1.0.3:
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
 
 colors@^1.1.2:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.2.0.tgz#24ec7283fcc91557801b22521e4619fedc7ca306"
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.2.1.tgz#f4a3d302976aaf042356ba1ade3b1a2c62d9d794"
 
 colors@~0.6.2:
   version "0.6.2"
@@ -2866,7 +2865,7 @@ debug@^3.0.0, debug@^3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@ngokevin/debug#noTimestamp:
+"debug@github:ngokevin/debug#noTimestamp":
   version "2.2.0"
   resolved "https://codeload.github.com/ngokevin/debug/tar.gz/ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"
 
@@ -3079,7 +3078,7 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-document-register-element@dmarcos/document-register-element#8ccc532b7:
+"document-register-element@github:dmarcos/document-register-element#8ccc532b7":
   version "0.5.4"
   resolved "https://codeload.github.com/dmarcos/document-register-element/tar.gz/8ccc532b7f3744be954574caf3072a5fd260ca90"
 
@@ -3908,8 +3907,8 @@ fast-diff@^1.1.1:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
 fast-glob@^2.0.2:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.1.0.tgz#50ee95e6a112f09e886cfff5215de69ca4a6a861"
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.0.tgz#e9d032a69b86bef46fc03d935408f02fb211d9fc"
   dependencies:
     "@mrmlnc/readdir-enhanced" "^2.2.1"
     glob-parent "^3.1.0"
@@ -5603,12 +5602,6 @@ layout-bmfont-text@^1.2.0:
     as-number "^1.0.0"
     word-wrapper "^1.0.7"
     xtend "^4.0.0"
-
-lazy-cache@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-2.0.2.tgz#b9190a4f913354694840859f8a8f7084d8822264"
-  dependencies:
-    set-getter "^0.1.0"
 
 lazy-val@^1.0.3:
   version "1.0.3"
@@ -8213,7 +8206,7 @@ remark-heading-gap@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/remark-heading-gap/-/remark-heading-gap-3.0.0.tgz#f52ac47a27995ef3248a59eb7544b5620b4736a6"
 
-remark-license@niftylettuce/remark-license:
+"remark-license@github:niftylettuce/remark-license":
   version "4.0.1"
   resolved "https://codeload.github.com/niftylettuce/remark-license/tar.gz/17ecb8f64f8f6082414d14f9267a12764e6ddbfb"
   dependencies:
@@ -8886,8 +8879,8 @@ request@2.81.0:
     uuid "^3.0.0"
 
 request@^2.45.0, request@^2.79.0:
-  version "2.83.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
+  version "2.85.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.85.0.tgz#5a03615a47c61420b3eb99b7dba204f83603e1fa"
   dependencies:
     aws-sign2 "~0.7.0"
     aws4 "^1.6.0"
@@ -9237,12 +9230,6 @@ set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
 
-set-getter@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/set-getter/-/set-getter-0.1.0.tgz#d769c182c9d5a51f409145f2fba82e5e86e80376"
-  dependencies:
-    to-object-path "^0.3.0"
-
 set-immediate-shim@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
@@ -9375,8 +9362,8 @@ snapdragon-util@^3.0.1:
     kind-of "^3.2.0"
 
 snapdragon@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/snapdragon/-/snapdragon-0.8.1.tgz#e12b5487faded3e3dea0ac91e9400bf75b401370"
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/snapdragon/-/snapdragon-0.8.2.tgz#64922e7c565b0e14204ba1aa7d6964278d25182d"
   dependencies:
     base "^0.11.1"
     debug "^2.2.0"
@@ -9385,7 +9372,7 @@ snapdragon@^0.8.1:
     map-cache "^0.2.2"
     source-map "^0.5.6"
     source-map-resolve "^0.5.0"
-    use "^2.0.0"
+    use "^3.1.0"
 
 sntp@1.x.x:
   version "1.0.9"
@@ -10385,13 +10372,11 @@ urljoin@^0.1.5:
   dependencies:
     extend "~2.0.0"
 
-use@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/use/-/use-2.0.2.tgz#ae28a0d72f93bf22422a18a2e379993112dec8e8"
+use@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/use/-/use-3.1.0.tgz#14716bf03fdfefd03040aef58d8b4b85f3a7c544"
   dependencies:
-    define-property "^0.2.5"
-    isobject "^3.0.0"
-    lazy-cache "^2.0.2"
+    kind-of "^6.0.2"
 
 user-home@^1.1.1:
   version "1.1.1"

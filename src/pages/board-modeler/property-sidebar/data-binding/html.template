@@ -50,7 +50,8 @@
     <paper-tab data-mapping="7">7</paper-tab>
   </paper-tabs>
 
-  <things-editor-value mapping="{{mapping}}" type="[[dataType]]">
+  <things-editor-value mapping="{{mapping}}" type="[[dataType]]"
+    props="[[props]]">
   </things-editor-value>
 
 </fieldset>

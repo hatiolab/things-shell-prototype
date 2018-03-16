@@ -11,6 +11,13 @@ import template from './html.template';
 import '../../../../components/things-i18n-msg';
 import '../../../../components/things-editor-value';
 
+const PROPS = ['', 'text', 'fillStyle', 'strokeStyle', 'fontColor', 'rotation', 'hidden', 'location', 'dimension', 'value', 'data']
+  .map(name => {
+    return {
+      name, label: name
+    }
+  });
+
 class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
     return `
@@ -32,6 +39,10 @@ class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxM
         value() {
           return []
         }
+      },
+
+      props: {
+        computed: '_computeProps(target)'
       },
 
       config: {
@@ -272,6 +283,10 @@ class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxM
 
   _onResize(e) {
     this.grid && this.grid.resetSize()
+  }
+
+  _computeProps(target) {
+    return PROPS.concat((target && target.nature && target.nature.properties) || []);
   }
 
   dataEditorType(model) {

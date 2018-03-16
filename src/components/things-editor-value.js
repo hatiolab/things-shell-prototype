@@ -82,20 +82,9 @@ Polymer({
       <things-i18n-msg msgid="label.property" auto="">property</things-i18n-msg>
     </label>
     <select value="{{mapping.property::change}}">
-      <option></option>
-      <option>text</option>
-      <option>fillStyle</option>
-      <option>strokeStyle</option>
-      <option>fontColor</option>
-      <option>rotation</option>
-      <option>hidden</option>
-      <option>location</option>
-      <option>dimension</option>
-      <option>value</option>
-      <option>data</option>
-      <option>started</option>
-      <option>options</option>
-      <option value="ref">reference</option>
+      <template is="dom-repeat" items="[[props]]">
+        <option value="[[item.name]]">[[item.label]]</option>
+      </template>
     </select>
 
     <label>
@@ -145,6 +134,7 @@ Polymer({
     '_valueType(mapping.property)'
   ],
 
+  /* TODO Nature의 property의 속성에 따른 valueType으로 변경할 것. */
   _valueType: function (property) {
     switch (property) {
       case 'hidden':
