@@ -134,7 +134,6 @@ Polymer({
     '_valueType(mapping.property)'
   ],
 
-  /* TODO Nature의 property의 속성에 따른 valueType으로 변경할 것. */
   _valueType: function (property) {
     switch (property) {
       case 'hidden':

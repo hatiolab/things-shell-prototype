@@ -30,8 +30,7 @@
     props="[[specificProps]]">
   </property-specific>
 
-  <property-data-binding selected="[[selected]]" model="{{model}}"
-    scene="[[scene]]" target="[[propertyTarget]]">
+  <property-data-binding selected="[[selected]]" model="{{model}}">
   </property-data-binding>
 
 </iron-pages>

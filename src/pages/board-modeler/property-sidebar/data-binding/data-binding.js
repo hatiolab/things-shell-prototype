@@ -11,12 +11,27 @@ import template from './html.template';
 import '../../../../components/things-i18n-msg';
 import '../../../../components/things-editor-value';
 
-const PROPS = ['', 'text', 'fillStyle', 'strokeStyle', 'fontColor', 'rotation', 'hidden', 'location', 'dimension', 'value', 'data']
-  .map(name => {
-    return {
-      name, label: name
-    }
-  });
+const PROPS = [
+  '',
+  'text',
+  ['fillStyle', 'fill style'],
+  ['strokeStyle', 'stroke style'],
+  ['fontColor', 'font color'],
+  ['ref', 'reference'],
+  'rotation',
+  'hidden',
+  'location',
+  'dimension',
+  'value',
+  'data',
+  'accessor',
+  'options',
+  'started'
+].map(prop => {
+  return typeof (prop) == 'string'
+    ? { name: prop, label: prop }
+    : { name: prop[0], label: prop[1] }
+});
 
 class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxMixin(PolymerElement)) {
   static get template() {
@@ -42,7 +57,9 @@ class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxM
       },
 
       props: {
-        computed: '_computeProps(target)'
+        value() {
+          return PROPS;
+        }
       },
 
       config: {
@@ -283,10 +300,6 @@ class PropertyDataBinding extends mixinBehaviors([IronResizableBehavior], ReduxM
 
   _onResize(e) {
     this.grid && this.grid.resetSize()
-  }
-
-  _computeProps(target) {
-    return PROPS.concat((target && target.nature && target.nature.properties) || []);
   }
 
   dataEditorType(model) {
