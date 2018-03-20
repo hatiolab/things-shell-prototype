@@ -49,7 +49,7 @@
   </div>
 </fieldset>
 
-<template is="dom-if" if="[[!_isLine(selected)]]">
+<template is="dom-if" if="[[_isLine(selected)]]">
 
   <fieldset class="icon-label unit ratio">
     <legend>
@@ -89,7 +89,7 @@
   </fieldset>
 </template>
 
-<template is="dom-if" if="[[!_is3dish(selected)]]">
+<template is="dom-if" if="[[_is3dish(selected)]]">
 
   <fieldset class="icon-label unit ratio">
     <legend>
