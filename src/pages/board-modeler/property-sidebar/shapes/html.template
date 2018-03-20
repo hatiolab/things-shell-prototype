@@ -118,7 +118,7 @@
       </things-editor-angle-input>
 
       <label class="rotationY">
-        <things-i18n-msg msgid="label.rotationY" auto>rotationX</things-i18n-msg>
+        <things-i18n-msg msgid="label.rotationY" auto>rotationY</things-i18n-msg>
       </label>
       <things-editor-angle-input radian="{{model.rotation}}">
         <input required>
