@@ -49,7 +49,7 @@
   </div>
 </fieldset>
 
-<template is="dom-if" if="[[_isLine(selected)]]">
+<template is="dom-if" if="[[!_isLine(selected)]]">
 
   <fieldset class="icon-label unit ratio">
     <legend>
@@ -83,6 +83,44 @@
         <things-i18n-msg msgid="label.rotate" auto>rotate</things-i18n-msg>
       </label>
       <things-editor-angle-input radian="{{model.rotation}}">
+        <input required>
+      </things-editor-angle-input>
+    </div>
+  </fieldset>
+</template>
+
+<template is="dom-if" if="[[!_is3dish(selected)]]">
+
+  <fieldset class="icon-label unit ratio">
+    <legend>
+      <things-i18n-msg msgid="label.3dish" auto>3D</things-i18n-msg>
+    </legend>
+
+    <div class="property-grid">
+      <label class="zPos">
+        <things-i18n-msg msgid="label.zPos" auto>zPos</things-i18n-msg>
+      </label>
+      <things-editor-number-input number="{{model.zPos}}">
+        <input required>
+      </things-editor-number-input>
+      <label class="depth">
+        <things-i18n-msg msgid="label.depth" auto>depth</things-i18n-msg>
+      </label>
+      <things-editor-number-input number="{{model.depth}}">
+        <input required>
+      </things-editor-number-input>
+
+      <label class="rotationX">
+        <things-i18n-msg msgid="label.rotationX" auto>rotationX</things-i18n-msg>
+      </label>
+      <things-editor-angle-input radian="{{model.rotationX}}">
+        <input required>
+      </things-editor-angle-input>
+
+      <label class="rotationZ">
+        <things-i18n-msg msgid="label.rotationZ" auto>rotationZ</things-i18n-msg>
+      </label>
+      <things-editor-angle-input radian="{{model.rotationZ}}">
         <input required>
       </things-editor-angle-input>
     </div>

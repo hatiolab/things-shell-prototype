@@ -1,8 +1,13 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import {
+  Element as PolymerElement,
+  html
+} from '@polymer/polymer/polymer-element';
 import '@polymer/iron-icons/editor-icons';
 import '@polymer/iron-image/iron-image';
 
-import { ReduxMixin } from '../../../../reducer/redux-mixin';
+import {
+  ReduxMixin
+} from '../../../../reducer/redux-mixin';
 
 import style from './style.css';
 import template from './html.template';
@@ -24,7 +29,9 @@ class PropertyShapes extends ReduxMixin(PolymerElement) {
   `;
   }
 
-  static get is() { return 'property-shape'; }
+  static get is() {
+    return 'property-shape';
+  }
 
   static get properties() {
     return {
@@ -69,6 +76,12 @@ class PropertyShapes extends ReduxMixin(PolymerElement) {
 
   _isLine(selected) {
     if (!selected || (selected[0] && selected[0].isLine()))
+      return false;
+    return true
+  }
+
+  _is3dish(selected) {
+    if (!selected || !(selected[0] && selected[0].is3dish()))
       return false;
     return true
   }
