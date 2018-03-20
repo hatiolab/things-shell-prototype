@@ -117,6 +117,13 @@
         <input required>
       </things-editor-angle-input>
 
+      <label class="rotationY">
+        <things-i18n-msg msgid="label.rotationY" auto>rotationX</things-i18n-msg>
+      </label>
+      <things-editor-angle-input radian="{{model.rotation}}">
+        <input required>
+      </things-editor-angle-input>
+
       <label class="rotationZ">
         <things-i18n-msg msgid="label.rotationZ" auto>rotationZ</things-i18n-msg>
       </label>
