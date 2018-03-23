@@ -1,5 +1,5 @@
-import '@polymer/polymer/polymer.js';
-import '@polymer/iron-ajax/iron-ajax';
+// import '@polymer/polymer/polymer.js';
+// import '@polymer/iron-ajax/iron-ajax';
 
 export const AppLocalizeBehavior = {
   /**
@@ -52,7 +52,7 @@ export const AppLocalizeBehavior = {
      */
     formats: {
       type: Object,
-      value: function() { return {} }
+      value: function () { return {} }
     },
     /**
      * If true, will use the provided key when
@@ -79,7 +79,7 @@ export const AppLocalizeBehavior = {
       value: false
     }
   },
-  loadResources: function(path, language, merge) {
+  loadResources: function (path, language, merge) {
     var proto = this.constructor.prototype;
     // Check if localCache exist just in case.
     this.__checkLocalizationCache(proto);
@@ -96,29 +96,29 @@ export const AppLocalizeBehavior = {
       ajax.url = path;
       var request = ajax.generateRequest();
       request.completes.then(
-          onRequestResponse.bind(this),
-          this.__onRequestError.bind(this));
+        onRequestResponse.bind(this),
+        this.__onRequestError.bind(this));
       // Cache the instance so that it can be reused if the same path is loaded.
       proto.__localizationCache.requests[path] = request;
     } else {
       request.completes.then(
-          onRequestResponse.bind(this),
-          this.__onRequestError.bind(this));
+        onRequestResponse.bind(this),
+        this.__onRequestError.bind(this));
     }
   },
   /**
    * Returns a computed `localize` method, based on the current `language`.
    */
-  __computeLocalize: function(language, resources, formats) {
+  __computeLocalize: function (language, resources, formats) {
     var proto = this.constructor.prototype;
     // Check if localCache exist just in case.
     this.__checkLocalizationCache(proto);
     // Everytime any of the parameters change, invalidate the strings cache.
     if (!proto.__localizationCache) {
-      proto['__localizationCache'] = {requests: {}, messages: {}, ajax: null};
+      proto['__localizationCache'] = { requests: {}, messages: {}, ajax: null };
     }
     proto.__localizationCache.messages = {};
-    return function() {
+    return function () {
       var key = arguments[0];
       if (!key || !resources || !language || !resources[language])
         return;
@@ -136,12 +136,12 @@ export const AppLocalizeBehavior = {
       }
       var args = {};
       for (var i = 1; i < arguments.length; i += 2) {
-        args[arguments[i]] = arguments[i+1];
+        args[arguments[i]] = arguments[i + 1];
       }
       return translatedMessage.format(args);
     };
   },
-  __onRequestResponse: function(event, language, merge) {
+  __onRequestResponse: function (event, language, merge) {
     var propertyUpdates = {};
     var newResources = event.response;
     if (merge) {
@@ -168,17 +168,17 @@ export const AppLocalizeBehavior = {
         this.set(key, propertyUpdates[key]);
       }
     }
-    this.fire('app-localize-resources-loaded', event, {bubbles: this.bubbleEvent});
+    this.fire('app-localize-resources-loaded', event, { bubbles: this.bubbleEvent });
   },
-  __onRequestError: function(event) {
+  __onRequestError: function (event) {
     this.fire('app-localize-resources-error');
   },
-  __checkLocalizationCache: function(proto) {
+  __checkLocalizationCache: function (proto) {
     // do nothing if proto is undefined.
-    if(proto === undefined) return;
+    if (proto === undefined) return;
     // In the event proto not have __localizationCache object, create it.
-    if(proto['__localizationCache'] === undefined) {
-      proto['__localizationCache'] = {requests: {}, messages: {}, ajax: null};
+    if (proto['__localizationCache'] === undefined) {
+      proto['__localizationCache'] = { requests: {}, messages: {}, ajax: null };
     }
   }
 }

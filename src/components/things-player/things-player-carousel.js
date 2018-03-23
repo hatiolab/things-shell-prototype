@@ -1,4 +1,4 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
 
 import { ReduxMixin } from '../../reducer/redux-mixin';

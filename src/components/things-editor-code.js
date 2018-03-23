@@ -15,7 +15,7 @@ Example:
 @hero hero.svg
 */
 
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import CodeMirrorStyle from 'codemirror/lib/codemirror.css';
 import FullScreenStyle from 'codemirror/addon/display/fullscreen.css';
 import NightThemeStyle from 'codemirror/theme/night.css';

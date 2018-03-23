@@ -1,4 +1,4 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior';
 

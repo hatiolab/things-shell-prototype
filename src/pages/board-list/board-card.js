@@ -1,4 +1,4 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 
 import { ReduxMixin, setRoute, updateBoard } from '../../reducer/redux-mixin';
 

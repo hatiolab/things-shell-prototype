@@ -1,4 +1,4 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/iron-icons/editor-icons';
 import '@polymer/iron-image/iron-image';
 import '@polymer/paper-radio-group/paper-radio-group';

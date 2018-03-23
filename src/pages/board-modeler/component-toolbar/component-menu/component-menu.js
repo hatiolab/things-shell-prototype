@@ -1,4 +1,4 @@
-import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class';
 import { PaperDialogBehavior } from '@polymer/paper-dialog-behavior/paper-dialog-behavior';
 import '@polymer/paper-dialog-behavior/paper-dialog-shared-styles';
