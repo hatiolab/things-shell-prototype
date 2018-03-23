@@ -34,6 +34,7 @@ legend{
   grid-column: span 3;
   text-align: right;
   text-transform: capitalize;
+  line-height:2;
 }
 
 .property-grid > input,
@@ -47,11 +48,16 @@ legend{
 .icon-label label{
   background:url(./assets/images/icon-properties-label.png) 7px -900px no-repeat;
 }
-.icon-label label.width  {background-position:7px -100px !important}
-.icon-label label.height {background-position:7px      0;}
-.icon-label label.rotate {background-position:7px -200px;}
-.icon-label label.twidth {background-position:7px -300px;}
-.icon-label label.theight{background-position:7px -400px;}
+.icon-label label.width    {background-position:7px   -100px !important}
+.icon-label label.height   {background-position:7px       0;}
+.icon-label label.rotate   {background-position:7px  -200px;}
+.icon-label label.twidth   {background-position:7px  -300px;}
+.icon-label label.theight  {background-position:7px  -400px;}
+.icon-label label.zPos     {background-position:5px -1100px;}
+.icon-label label.depth    {background-position:5px -1200px;}
+.icon-label label.rotationX{background-position:5px -1298px;}
+.icon-label label.rotationY{background-position:5px -1398px;}
+.icon-label label.rotationZ{background-position:5px -1498px;}
 
 things-editor-buttons-radio paper-button{
   background:url(./assets/images/icon-properties.png) no-repeat;
