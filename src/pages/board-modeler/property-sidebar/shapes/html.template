@@ -98,7 +98,7 @@
 
     <div class="property-grid">
       <label class="zPos">
-        <things-i18n-msg msgid="label.zPos" auto>zPos</things-i18n-msg>
+        <things-i18n-msg msgid="label.z-pos" auto>pos. Z</things-i18n-msg>
       </label>
       <things-editor-number-input number="{{model.zPos}}">
         <input required>
@@ -111,21 +111,21 @@
       </things-editor-number-input>
 
       <label class="rotationX">
-        <things-i18n-msg msgid="label.rotationX" auto>rotationX</things-i18n-msg>
+        <things-i18n-msg msgid="label.rotation-x" auto>rot. X</things-i18n-msg>
       </label>
       <things-editor-angle-input radian="{{model.rotationX}}">
         <input required>
       </things-editor-angle-input>
 
       <label class="rotationY">
-        <things-i18n-msg msgid="label.rotationY" auto>rotationY</things-i18n-msg>
+        <things-i18n-msg msgid="label.rotation-y" auto>rot. Y</things-i18n-msg>
       </label>
       <things-editor-angle-input radian="{{model.rotation}}">
         <input required>
       </things-editor-angle-input>
 
       <label class="rotationZ">
-        <things-i18n-msg msgid="label.rotationZ" auto>rotationZ</things-i18n-msg>
+        <things-i18n-msg msgid="label.rotation-z" auto>rot. Z</things-i18n-msg>
       </label>
       <things-editor-angle-input radian="{{model.rotationZ}}">
         <input required>
