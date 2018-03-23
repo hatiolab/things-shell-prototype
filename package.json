@@ -1,6 +1,6 @@
 {
   "name": "@hatiolab/things-shell",
-  "version": "0.3.28",
+  "version": "0.3.29",
   "description": "things application shell",
   "main": "src/index.js",
   "license": "http://license.hatiolab.com/EULA",
@@ -13,17 +13,7 @@
     "things-shell": "bin/things-shell"
   },
   "scripts": {
-    "clean": "mkdir -p lib && rm -r lib",
-    "test": "yarn run build && mocha && tslint \"src/**/*.ts\"",
-    "test:watch": "watchy -w src/ -- yarn test",
-    "--prepublish": "yarn run build",
-    "format": "find src test -iname '*.ts' | xargs clang-format --style=file -i",
-    "serve": "webpack-dev-server --config webpack.config.js --hot --inline",
-    "build-with-tsc": "npm run clean && tsc",
-    "build": "webpack",
-    "lint": "xo && stylelint src/**/*.postcss",
-    "lint:remark": "remark .",
-    "things-shell": "bin/things-shell"
+    "serve": "things-shell"
   },
   "dependencies": {
     "@hatiolab/things-scene": "^2.2.47",
