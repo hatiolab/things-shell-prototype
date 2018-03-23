@@ -1,6 +1,3 @@
-// import '@polymer/polymer/polymer.js';
-// import '@polymer/iron-ajax/iron-ajax';
-
 export const AppLocalizeBehavior = {
   /**
    * Internal singleton cache. This is the private implementation of the
