@@ -36,24 +36,16 @@ class ComponentToolbar extends ReduxMixin(PolymerElement) {
     }
   }
 
-  ready() {
-    super.ready();
-
-    this.addEventListener('click', this.onTapTools.bind(this));
-    this.$.shift.addEventListener('click', this.onTapShift.bind(this));
-  }
-
   isShiftMode(mode) {
     return mode === 2
   }
 
-  onTapShift(e) {
+  onClickShift(e) {
     this.mode = this.$.shift.active ? 2 : 1
   }
 
-  onTapTools(e) {
-
-    var button = e.path[0];
+  onClickGroup(e) {
+    var button = e.target;
 
     if (!button.hasAttribute || !button.hasAttribute('data-group')) {
       return;

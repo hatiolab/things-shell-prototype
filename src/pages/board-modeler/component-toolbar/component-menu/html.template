@@ -4,7 +4,7 @@
 
   <template is="dom-repeat" items="[[components]]">
 
-    <paper-item data-type$="[[item.type]]">
+    <paper-item data-type$="[[item.type]]" on-click="onClickTemplate">
       <img src="[[templateIcon(item)]]">[[item.type]]
     </paper-item>
   </template>

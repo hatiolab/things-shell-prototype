@@ -1,10 +1,12 @@
-<paper-button id="shift" toggles class="pressed" active="[[isShiftMode(mode)]]">
+<paper-button id="shift" toggles class="pressed" active="[[isShiftMode(mode)]]"
+  on-click="onClickShift">
 </paper-button>
 
 <template is="dom-repeat" items="[[componentGroupList]]">
-  <paper-button data-group$="[[item.name]]">
+  <paper-button data-group$="[[item.name]]" on-click="onClickGroup">
   </paper-button>
 </template>
 
-<component-menu id="menu" scene="[[scene]]" group="[[group]]" class="shadow">
+<component-menu id="menu" scene="[[scene]]" group="[[group]]"
+  class="shadow">
 </component-menu>

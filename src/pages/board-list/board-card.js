@@ -57,7 +57,7 @@ export default class BoardCard extends ReduxMixin(PolymerElement) {
   }
 
   onFlip(e) {
-    if (this.classList.contains('flipped') && e.path[0].icon == 'icons:redo') {
+    if (this.classList.contains('flipped') && e.target.icon == 'icons:redo') {
       this.onClickEdit(e);
     } else {
       this.classList.toggle('flipped');
