@@ -1,5 +1,5 @@
 # things-shell
-
+[![npm version](https://badge.fury.io/js/%40hatiolab%2Fthings-shell.svg)](https://badge.fury.io/js/%40hatiolab%2Fthings-shell)
 ## [ Application 구조 ]
 ### app-layout 적용 (deprecated 컴포넌트들 제거)
 - paper-drawer-panel => app-drawer-layout
