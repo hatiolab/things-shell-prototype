@@ -120,14 +120,14 @@
       <label class="rotationY">
         <things-i18n-msg msgid="label.rotation-y" auto>rot. Y</things-i18n-msg>
       </label>
-      <things-editor-angle-input radian="{{model.rotation}}">
+      <things-editor-angle-input radian="{{model.rotationY}}">
         <input required>
       </things-editor-angle-input>
 
       <label class="rotationZ">
         <things-i18n-msg msgid="label.rotation-z" auto>rot. Z</things-i18n-msg>
       </label>
-      <things-editor-angle-input radian="{{model.rotationZ}}">
+      <things-editor-angle-input radian="{{model.rotation}}">
         <input required>
       </things-editor-angle-input>
     </div>
