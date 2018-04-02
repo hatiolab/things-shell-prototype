@@ -2,7 +2,8 @@ const {
   resolve,
   join
 
-} = require('path'); const NodePackage = require('./package.json');
+} = require('path');
+const NodePackage = require('./package.json');
 const webpack = require('webpack');
 
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -92,11 +93,11 @@ module.exports = {
     }, {
       test: /\.html$/,
       use: [{
-        loader: 'babel-loader'
-      },
-      {
-        loader: 'polymer-webpack-loader'
-      }
+          loader: 'babel-loader'
+        },
+        {
+          loader: 'polymer-webpack-loader'
+        }
       ]
     }, {
       test: /\.css$/,
@@ -112,10 +113,13 @@ module.exports = {
         name: '[path][name].[hash:8].[ext]'
       }
     }, {
-      test: /\.(obj|mtl|tga|3ds|max|dae)$/,
+      test: /obj[\w\/]+\.\w+$/,
+      resourceQuery: /3d/,
       use: [{
         loader: 'file-loader',
-        options: {}
+        options: {
+          // emitFile: false
+        }
       }]
     }, {
       test: /things-scene-components.import$/,
